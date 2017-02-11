@@ -1,0 +1,266 @@
+m255
+K4
+z2
+13
+!s112 1.1
+!i10d 8192
+!i10e 25
+!i10f 100
+cModel Technology
+dC:/Modeltech_pe_edu_10.4a/examples
+Econtrol
+Z0 w1456508620
+Z1 DPx4 ieee 16 std_logic_signed 0 22 C<aanc0R`<LWPSe[JYRP^3
+Z2 DPx4 ieee 15 std_logic_arith 0 22 [G314=:2zXJ`VORJe1J@Z1
+Z3 DPx3 std 6 textio 0 22 zE1`LPoLg^DX3Oz^4Fj1K3
+Z4 DPx4 ieee 14 std_logic_1164 0 22 eNV`TJ_GofJTzYa?f<@Oe1
+Z5 dC:/Users/Kairi/Dropbox/Academics/2016 Spring/ECE 3056/Homework/HW 3/multicycle_datapath
+Z6 8C:/Users/Kairi/Dropbox/Academics/2016 Spring/ECE 3056/Homework/HW 3/multicycle_datapath/source/MS_CONTROL.VHD
+Z7 FC:/Users/Kairi/Dropbox/Academics/2016 Spring/ECE 3056/Homework/HW 3/multicycle_datapath/source/MS_CONTROL.VHD
+l0
+L22
+V:FE9<3<Cm:aI4;znAKe_i0
+!s100 R;G^g<z:zULBTCm]V:j@z2
+Z8 OP;C;10.4a;61
+32
+Z9 !s110 1456782914
+!i10b 1
+Z10 !s108 1456782914.000000
+Z11 !s90 -reportprogress|300|-work|work|-2002|-explicit|-stats=none|C:/Users/Kairi/Dropbox/Academics/2016 Spring/ECE 3056/Homework/HW 3/multicycle_datapath/source/MS_CONTROL.VHD|
+Z12 !s107 C:/Users/Kairi/Dropbox/Academics/2016 Spring/ECE 3056/Homework/HW 3/multicycle_datapath/source/MS_CONTROL.VHD|
+!i113 1
+Z13 o-work work -2002 -explicit -O0
+Z14 tExplicit 1
+Abehavior
+R1
+R2
+R3
+R4
+DEx4 work 7 control 0 22 :FE9<3<Cm:aI4;znAKe_i0
+l68
+L45
+V2fhID:]nEk]jlkGFICWIj1
+!s100 I?46jHA5Y^VjHHFOjbMBA3
+R8
+32
+R9
+!i10b 1
+R10
+R11
+R12
+!i113 1
+R13
+R14
+Eexecute
+Z15 w1456508649
+R1
+R2
+R3
+R4
+R5
+Z16 8C:/Users/Kairi/Dropbox/Academics/2016 Spring/ECE 3056/Homework/HW 3/multicycle_datapath/source/MS_EXECUTE.VHD
+Z17 FC:/Users/Kairi/Dropbox/Academics/2016 Spring/ECE 3056/Homework/HW 3/multicycle_datapath/source/MS_EXECUTE.VHD
+l0
+L16
+VZ@98[W;=DC[SoSJzh1dh`2
+!s100 gS7X7=Z]85:_@@OYci51]3
+R8
+32
+R9
+!i10b 1
+R10
+Z18 !s90 -reportprogress|300|-work|work|-2002|-explicit|-stats=none|C:/Users/Kairi/Dropbox/Academics/2016 Spring/ECE 3056/Homework/HW 3/multicycle_datapath/source/MS_EXECUTE.VHD|
+Z19 !s107 C:/Users/Kairi/Dropbox/Academics/2016 Spring/ECE 3056/Homework/HW 3/multicycle_datapath/source/MS_EXECUTE.VHD|
+!i113 1
+R13
+R14
+Abehavior
+R1
+R2
+R3
+R4
+DEx4 work 7 execute 0 22 Z@98[W;=DC[SoSJzh1dh`2
+l41
+L37
+VomJF_V4GZ60J2[^C51Z7G3
+!s100 OnX4I@m2z:ghbDN0G995=0
+R8
+32
+R9
+!i10b 1
+R10
+R18
+R19
+!i113 1
+R13
+R14
+Eidecode
+Z20 w1456770367
+Z21 DPx4 ieee 18 std_logic_unsigned 0 22 ;eZjO2D4ZDz<]0>8AL<ne1
+R2
+R3
+R4
+R5
+Z22 8C:/Users/Kairi/Dropbox/Academics/2016 Spring/ECE 3056/Homework/HW 3/multicycle_datapath/source/MS_IDECODE.VHD
+Z23 FC:/Users/Kairi/Dropbox/Academics/2016 Spring/ECE 3056/Homework/HW 3/multicycle_datapath/source/MS_IDECODE.VHD
+l0
+L26
+VEVafU4Lcfobz]ZkianC2H1
+!s100 3FRj[?l207B;`M>ZEZdG<1
+R8
+32
+R9
+!i10b 1
+R10
+Z24 !s90 -reportprogress|300|-work|work|-2002|-explicit|-stats=none|C:/Users/Kairi/Dropbox/Academics/2016 Spring/ECE 3056/Homework/HW 3/multicycle_datapath/source/MS_IDECODE.VHD|
+Z25 !s107 C:/Users/Kairi/Dropbox/Academics/2016 Spring/ECE 3056/Homework/HW 3/multicycle_datapath/source/MS_IDECODE.VHD|
+!i113 1
+R13
+R14
+Abehavior
+R21
+R2
+R3
+R4
+DEx4 work 7 idecode 0 22 EVafU4Lcfobz]ZkianC2H1
+l56
+L44
+VlnW2KZe:boBLeWMmWRDlL3
+!s100 @=FQa<RzYIzjFNKGDN7_]1
+R8
+32
+R9
+!i10b 1
+R10
+R24
+R25
+!i113 1
+R13
+R14
+Eifetch
+Z26 w1456776468
+R21
+R2
+R3
+R4
+R5
+Z27 8C:/Users/Kairi/Dropbox/Academics/2016 Spring/ECE 3056/Homework/HW 3/multicycle_datapath/source/MS_IFETCH.VHD
+Z28 FC:/Users/Kairi/Dropbox/Academics/2016 Spring/ECE 3056/Homework/HW 3/multicycle_datapath/source/MS_IFETCH.VHD
+l0
+L19
+Vmc;ZVD50HEKWlhaAd:MKl0
+!s100 El>Y:lQh80B7Gmm`G7Gg;3
+R8
+32
+R9
+!i10b 1
+R10
+Z29 !s90 -reportprogress|300|-work|work|-2002|-explicit|-stats=none|C:/Users/Kairi/Dropbox/Academics/2016 Spring/ECE 3056/Homework/HW 3/multicycle_datapath/source/MS_IFETCH.VHD|
+Z30 !s107 C:/Users/Kairi/Dropbox/Academics/2016 Spring/ECE 3056/Homework/HW 3/multicycle_datapath/source/MS_IFETCH.VHD|
+!i113 1
+R13
+R14
+Abehavior
+R21
+R2
+R3
+R4
+DEx4 work 6 ifetch 0 22 mc;ZVD50HEKWlhaAd:MKl0
+l106
+L42
+V:=e4jbaDo3nVC^kB@RTEB0
+!s100 50`>`Qf1gUAhBCJ:NU?YR1
+R8
+32
+R9
+!i10b 1
+R10
+R29
+R30
+!i113 1
+R13
+R14
+Emips
+Z31 w1456509961
+R2
+R3
+R4
+R5
+Z32 8C:/Users/Kairi/Dropbox/Academics/2016 Spring/ECE 3056/Homework/HW 3/multicycle_datapath/source/MS_MIPS.VHD
+Z33 FC:/Users/Kairi/Dropbox/Academics/2016 Spring/ECE 3056/Homework/HW 3/multicycle_datapath/source/MS_MIPS.VHD
+l0
+L18
+Vl3`KVmS7j>hnk3SPk^MM:3
+!s100 4E9U7HHTMA[j<ifclB?aW0
+R8
+32
+R9
+!i10b 1
+R10
+Z34 !s90 -reportprogress|300|-work|work|-2002|-explicit|-stats=none|C:/Users/Kairi/Dropbox/Academics/2016 Spring/ECE 3056/Homework/HW 3/multicycle_datapath/source/MS_MIPS.VHD|
+Z35 !s107 C:/Users/Kairi/Dropbox/Academics/2016 Spring/ECE 3056/Homework/HW 3/multicycle_datapath/source/MS_MIPS.VHD|
+!i113 1
+R13
+R14
+Astructure
+R2
+R3
+R4
+DEx4 work 4 mips 0 22 l3`KVmS7j>hnk3SPk^MM:3
+l157
+L37
+VePh7F>9O81okENA1Kj]h]1
+!s100 PfTbU0ki]?LU_FXAY4e910
+R8
+32
+R9
+!i10b 1
+R10
+R34
+R35
+!i113 1
+R13
+R14
+Emy_clock
+Z36 w1456508643
+R21
+R2
+R3
+R4
+R5
+Z37 8C:/Users/Kairi/Dropbox/Academics/2016 Spring/ECE 3056/Homework/HW 3/multicycle_datapath/source/MS_CLOCK.VHD
+Z38 FC:/Users/Kairi/Dropbox/Academics/2016 Spring/ECE 3056/Homework/HW 3/multicycle_datapath/source/MS_CLOCK.VHD
+l0
+L12
+VLXPWaS^nZH]e;2XOEcSSU2
+!s100 RIQ2bR2h78mEAlom`JQ@>3
+R8
+32
+Z39 !s110 1456782913
+!i10b 1
+Z40 !s108 1456782913.000000
+Z41 !s90 -reportprogress|300|-work|work|-2002|-explicit|-stats=none|C:/Users/Kairi/Dropbox/Academics/2016 Spring/ECE 3056/Homework/HW 3/multicycle_datapath/source/MS_CLOCK.VHD|
+Z42 !s107 C:/Users/Kairi/Dropbox/Academics/2016 Spring/ECE 3056/Homework/HW 3/multicycle_datapath/source/MS_CLOCK.VHD|
+!i113 1
+R13
+R14
+Abehavior
+R21
+R2
+R3
+R4
+DEx4 work 8 my_clock 0 22 LXPWaS^nZH]e;2XOEcSSU2
+l19
+L18
+V9V[;EMWbU]@]<U:Ride6b0
+!s100 K_Uh1Kb7om6Vl2o2c]]X[2
+R8
+32
+R39
+!i10b 1
+R40
+R41
+R42
+!i113 1
+R13
+R14

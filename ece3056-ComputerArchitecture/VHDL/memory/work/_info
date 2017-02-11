@@ -1,0 +1,198 @@
+m255
+K4
+z2
+13
+cModel Technology
+Z0 dC:/Users/kkozuma3/Documents/memory
+!i10d 8192
+!i10e 25
+!i10f 100
+T_opt
+V9TKOYlCNj[fz;9UNY[I9k0
+04 10 4 work sp_syn_ram \3D\ 1
+=1-ea84cea8cc41-56c91c29-2f3-1b18
+Z1 o-quiet -auto_acc_if_foreign -work work
+n@_opt
+Z2 OL;O;10.2b;57
+Z3 dC:/Users/kkozuma3/Documents/memory
+!s110 1456020521
+T_opt1
+VGl6SJhm?KeH>]VVC?60I:0
+04 10 3 work dp_syn_ram rtl 1
+=1-ea84cea8cc41-56c91b34-37f-ee0
+R1
+n@_opt1
+R2
+R3
+!s110 1456020276
+T_opt2
+!s110 1456021291
+V_1BI6WXQc@D>6]RG=GgG92
+04 6 9 work ram_tb testbench 1
+=1-ea84cea8cc41-56c91f2b-184-398
+R1
+n@_opt2
+R2
+Edp_syn_ram
+Z4 w1368762496
+Z5 DPx4 ieee 11 numeric_std 0 22 WES[o8HS0jHV[MIXQk2Ha1
+Z6 DPx3 std 6 textio 0 22 Y8d?=bLj9m4jiPLbo;>GT0
+Z7 DPx4 ieee 14 std_logic_1164 0 22 1bm?@Gd;P>[>_lN8Do9gP3
+R3
+Z8 8C:/Users/kkozuma3/Documents/memory/dp_syn_ram.vhd
+Z9 FC:/Users/kkozuma3/Documents/memory/dp_syn_ram.vhd
+l0
+L16
+VAZbm2H[:W^DT7dlAl=4hn0
+Z10 OL;C;10.2b;57
+32
+Z11 !s110 1456020693
+Z12 !s108 1456020693.832000
+Z13 !s90 -reportprogress|300|-work|work|C:/Users/kkozuma3/Documents/memory/dp_syn_ram.vhd|
+Z14 !s107 C:/Users/kkozuma3/Documents/memory/dp_syn_ram.vhd|
+Z15 o-work work
+Z16 tExplicit 1
+!s100 7TAF[4XF4okbPV:3ABdf13
+!i10b 1
+!i111 0
+Artl
+R5
+R6
+R7
+DEx4 work 10 dp_syn_ram 0 22 AZbm2H[:W^DT7dlAl=4hn0
+l37
+L32
+V^]?hLoakcHhDfz_=NO7o<3
+R10
+32
+R11
+R12
+R13
+R14
+R15
+R16
+!s100 <2K9Sb]0cMLQ^G`g2CUX=1
+!i10b 1
+!i111 0
+Eram_tb
+R4
+R5
+R6
+R7
+R3
+Z17 8C:/Users/kkozuma3/Documents/memory/ram_tb.vhd
+Z18 FC:/Users/kkozuma3/Documents/memory/ram_tb.vhd
+l0
+L16
+V^ebPfgE2G`^=[0T2kN`Vl0
+R10
+32
+R11
+Z19 !s108 1456020693.906000
+Z20 !s90 -reportprogress|300|-work|work|C:/Users/kkozuma3/Documents/memory/ram_tb.vhd|
+Z21 !s107 C:/Users/kkozuma3/Documents/memory/ram_tb.vhd|
+R15
+R16
+!s100 3^L0fPkbRkJ9_@CS:fY222
+!i10b 1
+!i111 0
+Atestbench
+Z22 DEx4 work 10 sp_syn_ram 0 22 3d4;?3C2[IZf8BXSE>gPj2
+R5
+R6
+R7
+DEx4 work 6 ram_tb 0 22 ^ebPfgE2G`^=[0T2kN`Vl0
+l79
+L19
+VWmCZ_MlYkNFD?j_GZbK9M3
+R10
+32
+R11
+R19
+R20
+R21
+R15
+R16
+!s100 [?;hD]JGN@c2anhTSX[Rh1
+!i10b 1
+!i111 0
+Esp_syn_ram
+R4
+R5
+R6
+R7
+R3
+Z23 8C:/Users/kkozuma3/Documents/memory/sp_syn_ram.vhd
+Z24 FC:/Users/kkozuma3/Documents/memory/sp_syn_ram.vhd
+l0
+L16
+V3d4;?3C2[IZf8BXSE>gPj2
+R10
+32
+Z25 !s110 1456020694
+Z26 !s108 1456020693.979000
+Z27 !s90 -reportprogress|300|-work|work|C:/Users/kkozuma3/Documents/memory/sp_syn_ram.vhd|
+Z28 !s107 C:/Users/kkozuma3/Documents/memory/sp_syn_ram.vhd|
+R15
+R16
+!s100 j:Y5SIj]6NVBPLhOX8Tjc1
+!i10b 1
+!i111 0
+A\3D\
+R5
+R6
+R7
+R22
+l97
+L92
+V>F]9<1@RTn3cPOEX>M;9m1
+R10
+32
+R25
+R26
+R27
+R28
+R15
+R16
+n@1343@d@134
+!s100 AQkn;ELFM7UM54i?5eW0g3
+!i10b 1
+!i111 0
+Aconstrainedintarch
+R5
+R6
+R7
+R22
+l68
+L62
+V>2]Fz4VB8J[jz>15AfF^02
+R10
+32
+R25
+R26
+R27
+R28
+R15
+R16
+!s100 WPaSF<4n?bQOmKbaK>PU30
+!i10b 1
+!i111 0
+Aintarch
+R5
+R6
+R7
+R22
+l38
+L33
+VRCUo=;k73[3]YH^@e8MUm3
+R10
+32
+R25
+R26
+R27
+R28
+R15
+R16
+!s100 _f3dWZC0@YADEMGoX:7[L1
+!i10b 1
+!i111 0

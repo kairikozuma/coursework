@@ -1,0 +1,13 @@
+# Makefile for ECE-3056, Assignment-2
+# Author: Mayank Parasar
+# Instructor: Sudhakar Yalamanchili 
+
+CXX = /usr/bin/gcc
+CXXFLAGS = -Wall -g 
+
+assignment: assignment.o
+	$(CXX) -g -o assignment assignment.o -lm
+
+clean: 
+	@rm *.o assignment
+

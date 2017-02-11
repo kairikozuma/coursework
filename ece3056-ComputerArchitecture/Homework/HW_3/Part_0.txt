@@ -1,0 +1,8 @@
+2. microcode is 10 words of 20 bits
+3. address 4 stores the memory write state
+4. instruction memory is 8 words of 32 bits
+	instruction add $9, $7, $8 stored in 0x8 
+5. a) MemToReg control in MS_CONTROL.VHD
+   b) Branch Address Computation in MS_EXECUTE.VHD
+   c) RegDst control in MS_CONTROL.VHD
+6. 32 words of data memory, each 32 bits

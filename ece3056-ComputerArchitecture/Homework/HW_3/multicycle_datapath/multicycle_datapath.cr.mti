@@ -1,0 +1,60 @@
+{C:/Users/Kairi/Dropbox/Academics/2016 Spring/ECE 3056/Homework/HW 3/multicycle_datapath/source/MS_IFETCH.VHD} {1 {vcom -work work -2002 -explicit -stats=none {C:/Users/Kairi/Dropbox/Academics/2016 Spring/ECE 3056/Homework/HW 3/multicycle_datapath/source/MS_IFETCH.VHD}
+Model Technology ModelSim PE Student Edition vcom 10.4a Compiler 2015.03 Apr  7 2015
+-- Loading package STANDARD
+-- Loading package TEXTIO
+-- Loading package std_logic_1164
+-- Loading package std_logic_arith
+-- Loading package STD_LOGIC_UNSIGNED
+-- Compiling entity Ifetch
+-- Compiling architecture behavior of Ifetch
+
+} {} {}} {C:/Users/Kairi/Dropbox/Academics/2016 Spring/ECE 3056/Homework/HW 3/multicycle_datapath/source/MS_EXECUTE.vhd} {1 {vcom -work work -2002 -explicit -stats=none {C:/Users/Kairi/Dropbox/Academics/2016 Spring/ECE 3056/Homework/HW 3/multicycle_datapath/source/MS_EXECUTE.VHD}
+Model Technology ModelSim PE Student Edition vcom 10.4a Compiler 2015.03 Apr  7 2015
+-- Loading package STANDARD
+-- Loading package TEXTIO
+-- Loading package std_logic_1164
+-- Loading package std_logic_arith
+-- Loading package STD_LOGIC_SIGNED
+-- Compiling entity Execute
+-- Compiling architecture behavior of Execute
+
+} {} {}} {C:/Users/Kairi/Dropbox/Academics/2016 Spring/ECE 3056/Homework/HW 3/multicycle_datapath/source/MS_CLOCK.VHD} {1 {vcom -work work -2002 -explicit -stats=none {C:/Users/Kairi/Dropbox/Academics/2016 Spring/ECE 3056/Homework/HW 3/multicycle_datapath/source/MS_CLOCK.VHD}
+Model Technology ModelSim PE Student Edition vcom 10.4a Compiler 2015.03 Apr  7 2015
+-- Loading package STANDARD
+-- Loading package TEXTIO
+-- Loading package std_logic_1164
+-- Loading package std_logic_arith
+-- Loading package STD_LOGIC_UNSIGNED
+-- Compiling entity my_clock
+-- Compiling architecture behavior of my_clock
+
+} {} {}} {C:/Users/Kairi/Dropbox/Academics/2016 Spring/ECE 3056/Homework/HW 3/multicycle_datapath/source/MS_MIPS.VHD} {1 {vcom -work work -2002 -explicit -stats=none {C:/Users/Kairi/Dropbox/Academics/2016 Spring/ECE 3056/Homework/HW 3/multicycle_datapath/source/MS_MIPS.VHD}
+Model Technology ModelSim PE Student Edition vcom 10.4a Compiler 2015.03 Apr  7 2015
+-- Loading package STANDARD
+-- Loading package TEXTIO
+-- Loading package std_logic_1164
+-- Loading package std_logic_arith
+-- Compiling entity MIPS
+-- Compiling architecture structure of MIPS
+
+} {} {}} {C:/Users/Kairi/Dropbox/Academics/2016 Spring/ECE 3056/Homework/HW 3/multicycle_datapath/source/MS_IDECODE.VHD} {1 {vcom -work work -2002 -explicit -stats=none {C:/Users/Kairi/Dropbox/Academics/2016 Spring/ECE 3056/Homework/HW 3/multicycle_datapath/source/MS_IDECODE.VHD}
+Model Technology ModelSim PE Student Edition vcom 10.4a Compiler 2015.03 Apr  7 2015
+-- Loading package STANDARD
+-- Loading package TEXTIO
+-- Loading package std_logic_1164
+-- Loading package std_logic_arith
+-- Loading package STD_LOGIC_UNSIGNED
+-- Compiling entity Idecode
+-- Compiling architecture behavior of Idecode
+
+} {} {}} {C:/Users/Kairi/Dropbox/Academics/2016 Spring/ECE 3056/Homework/HW 3/multicycle_datapath/source/MS_CONTROL.VHD} {1 {vcom -work work -2002 -explicit -stats=none {C:/Users/Kairi/Dropbox/Academics/2016 Spring/ECE 3056/Homework/HW 3/multicycle_datapath/source/MS_CONTROL.VHD}
+Model Technology ModelSim PE Student Edition vcom 10.4a Compiler 2015.03 Apr  7 2015
+-- Loading package STANDARD
+-- Loading package TEXTIO
+-- Loading package std_logic_1164
+-- Loading package std_logic_arith
+-- Loading package STD_LOGIC_SIGNED
+-- Compiling entity control
+-- Compiling architecture behavior of control
+
+} {} {}}

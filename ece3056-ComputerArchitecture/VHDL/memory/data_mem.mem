@@ -1,0 +1,19 @@
+// memory data file (do not edit the following line - required for mem load use)
+// instance=/ram_tb/dpram1/mem
+// format=mti addressradix=d dataradix=b version=1.0 wordsperline=1
+ 0: 00000110
+ 1: 00000011
+ 2: 01111010
+ 3: 00011011
+ 4: 00011100
+ 5: 00011101
+ 6: 00011110
+ 7: 00011111
+ 8: 00100000
+ 9: 00100001
+10: 00100010
+11: 00100011
+12: 00100100
+13: 00100101
+14: 00100110
+15: 00100111

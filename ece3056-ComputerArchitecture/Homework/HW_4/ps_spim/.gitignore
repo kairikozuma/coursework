@@ -1,0 +1,8 @@
+*.pdf
+*.txt
+*.mti
+*.mpf
+*.wlf
+*.vstf
+/work
+wlft*

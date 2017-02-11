@@ -1,0 +1,5 @@
+*.o
+cachesim
+test
+*.xlsx
+.DS_Store

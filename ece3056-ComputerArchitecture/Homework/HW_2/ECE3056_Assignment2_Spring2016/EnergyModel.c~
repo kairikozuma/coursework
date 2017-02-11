@@ -1,0 +1,84 @@
+//////////////////////////////////////
+// Author: Mayank Parasar
+// Course: ECE-3056
+// Instructor: Sudhakar Yalamanchili
+// Code for Assignment 2
+//
+// Name:
+// GTID:
+//////////////////////////////////////
+
+
+#include <stdio.h>
+#include <stdlib.h>
+#include <math.h>
+
+#define ARRAY_WIDTH 256
+
+int main (int argc, char *argv[]) {
+
+    double *array[ARRAY_WIDTH];
+    double newArray[ARRAY_WIDTH][ARRAY_WIDTH]; //<-- Create your new array here!
+    double error = 0; // <-- your own error calculating variable
+    int idx = 0;
+    int j = 0;
+    char *buffer = NULL;
+    size_t len = 0;
+    ssize_t read;
+    char *ptr = NULL;
+
+    FILE *fp;
+
+// Reading the DCT values from a Input file generated through matlab
+    fp = fopen ("Input.csv", "r");      //open file , read only
+    if (!fp) {
+        fprintf (stderr, "failed to open file for reading\n");
+        return 1;
+    }
+
+    while ((read = getline (&buffer, &len, fp)) != -1) {
+
+        array[idx] = malloc (sizeof (array));
+
+        for (j = 0, ptr = buffer; j < ARRAY_WIDTH; j++, ptr++)
+            array [idx][j] = /*(double)*/strtof(ptr, &ptr);
+
+        idx++;
+    }
+
+    fclose (fp);
+    int i = 0;
+
+// Step: 1
+// Code for truncation and error calculation
+// Note: your new array should be of same size
+// as that of your original array
+
+/* Type in your code here*/	
+
+// Step: 2
+// Code for calculating the error and energy due to truncation
+//
+
+/* Type in your code here */
+
+
+// Writing your output in a .csv format into the file: 'Output.csv'
+FILE *ofp;
+char outputFilename[] = "Output.csv";
+
+ofp = fopen(outputFilename, "w");
+
+if (ofp == NULL) {
+  fprintf(stderr, "Can't open output file %s!\n", outputFilename);
+
+  exit(1);
+}
+
+// Step: 3
+// Use your own array in the code below to write into the file
+
+/* Type in your code here*/
+
+return 0;
+}
