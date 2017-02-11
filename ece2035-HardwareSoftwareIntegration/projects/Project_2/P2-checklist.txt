@@ -1,0 +1,46 @@
+		MBED PACMAN FEATURE CHECKLIST
+
+
+Student Name: __Kairi Kozuma_______________
+
+﻿BASIC GAME FUNCTIONALITY
+
+__X_  Pacman movement
+
+__X_  Eating cookies
+
+__X_  Eating super-cookies
+
+__X_  Detecting run-in with a ghost and Game Over
+
+__X_  Displaying number of pacman lives remaining
+
+__X_  Displaying score (number of points collected so far)
+
+__X_  Advancing levels
+
+__X_  Force level advance
+
+EXTRA FEATURES
+
+__X_  More dramatic death of pacman/ghost
+
+__X_  Show number of lives remaining in icons
+
+____  Add ephemeral fruit
+
+__X_  Add new hardware to do something interesting
+
+__X_  Include a Game Menu for configuring the game
+
+__X_  Keep track of game history and show in an interesting way
+
+__X_  Add multiple ghosts
+
+____  Make ghosts smarter
+
+__X_  Add sound effects
+
+__X_  Use pushbuttons to create a new feature
+
+____  Other: (please describe)

@@ -1,0 +1,109 @@
+// Main program for gtDisplay graphical interface
+// George F. Riley, Georgia Tech, Spring 2015
+
+#include <iostream>
+#include <stdlib.h>
+#include <math.h>
+
+#include "gtDisplay.h"
+
+int Pixel(int y, int x, int twidth);
+void MidpointCircle(uint32_t * pic, int w, int r);
+int main(int argc, char** argv)
+{  
+  int testNum = 1;
+  if (argc > 1) testNum = atol(argv[1]);
+  std::cout << "Running test number " << testNum << std::endl;
+  gtDisplayInit(argc, argv);
+  
+  // *** Problem 1 *** //                                                                                                                                    
+  if (testNum == 1) {
+  // Load Tech Tower Image                                                                                                                                 
+  gtWindow ttwindow = gtLoadImage("TechTowerSign.jpg");
+  uint32_t * ttmatrix = gtGet32BitPixels(ttwindow);
+
+  // Store Dimensions of Loaded Image                                                                                                                      
+  int i, j;
+  int theight = gtGetHeight(ttwindow);
+  int twidth = gtGetWidth(ttwindow);
+  int tdepth = gtGetWidth(ttwindow);
+
+  // Make Empty Image Matrix         
+  gtWindow ttwindowinv = gtCreateBlankWindow(twidth, theight, tdepth);
+  uint32_t * ttmatrixinv = gtGet32BitPixels(ttwindowinv);
+  int loc;
+  int locn;
+  // Iterate Through Array to Invert It                                                                                                                    
+  for (i = 0; i < theight; i++) {
+    for(j = 0; j < twidth; j++) {
+      loc = i*twidth;
+      locn = (theight - i - 1)*twidth;
+      ttmatrixinv[locn + j] = ttmatrix[Pixel(i,j,twidth)];
+    }
+  }
+  gtUpdate(ttwindowinv);
+  gtRun();
+  }
+  
+
+  // *** Problem 2 *** //                                                                                                                                    
+  else if (testNum == 2) {	
+  // Load Tech Tower Image                                                                                                                                 
+  // Load Tech Tower Image                                                                                                                                 
+  gtWindow ttwindow = gtLoadImage("TechTowerSign.jpg");
+  uint32_t * ttmatrix = gtGet32BitPixels(ttwindow);
+
+  // Store Dimensions of Loaded Image                                                                                                                      
+  int i, j;
+  int theight = gtGetHeight(ttwindow);
+  int twidth = gtGetWidth(ttwindow);
+  int tdepth = gtGetWidth(ttwindow);
+  int loc;
+  
+  // Make Empty Image Matrix
+  gtWindow ttwindowgray = gtCreateBlankWindow(twidth, theight, 1);
+  uint8_t * ttmatrixgray = gtGet8BitPixels(ttwindowgray);
+  uint32_t pxcol;
+  uint8_t pxgray;
+  for (i = 0; i < theight; i++) {
+    for(j = 0; j < twidth; j++) {
+      loc = Pixel(i,j,twidth);
+      pxcol = ttmatrix[loc];
+      pxgray = round((gtGetRed(pxcol) + gtGetGreen(pxcol) + gtGetBlue(pxcol))/3);
+      ttmatrixgray[loc] = pxgray;
+    }
+  }
+  gtUpdate(ttwindowgray);
+  gtRun();
+  }
+
+  // *** Problem 3 *** //
+  else if (testNum == 3) {
+  int size = 512;
+  int r = 200;
+  gtWindow mywheel = gtCreateBlankWindow(size, size, 3);
+  uint32_t * wheelmat = gtGet32BitPixels(mywheel);
+  MidpointCircle(wheelmat, size,  r);
+  gtUpdate(mywheel);
+  gtRun();
+  }
+}
+
+void MidpointCircle(uint32_t * pic, int w, int r) {
+  int x = round(w/2);
+  int y = round(w/2) + r;
+  double d = 5.0/4.0 - r;
+  pic[y * w + x] = 0;
+  while(y > x)
+    {
+      if (d < 0) {d += 2.0 * x + 3.0;} // Select East
+      else {d += 2.0 * (x-y) + 5.0; // Select SE 
+      y--;}
+      x++;
+      pic[y * w + x] = 0;
+    }
+}
+
+int Pixel(int y, int x, int twidth) {
+  return (y)*(twidth) +(x);
+}
