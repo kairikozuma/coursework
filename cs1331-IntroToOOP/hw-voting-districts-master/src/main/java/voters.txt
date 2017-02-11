@@ -1,0 +1,25 @@
+Thomas: Kanye, Bruce Wayne, Darth Vader
+John: Tony Stark, Darth Vader, George Washington
+Bobby: Kanye, Bruce Wayne, Vermin Supreme
+A: Bruce Wayne, Tony Stark, Darth Vader
+B: Darth Vader, Kanye, George Washington
+C: Vermin Supreme, Spock, Kanye
+D: Spock, Darth Vader, Kanye
+E: Darth Vader, Spock, Kanye
+F: Bruce Wayne, Darth Vader, Tony Stark
+G: Vermin Supreme, Spock, Kanye
+H: Darth Vader, Kanye, Bruce Wayne
+I: Darth Vader, Kanye, George Washington
+J: Tony Stark, Bruce Wayne, Vermin Supreme
+K: Bruce Wayne, Tony Stark, Kanye
+L: Darth Vader, Kanye, Vermin Supreme
+M: George Washington, Kanye, Tony Stark
+N: Tony Stark, Darth Vader, George Washington
+O: Tony Stark, Vermin Supreme, Kanye
+P: Bruce Wayne, Kanye, Tony Stark
+Q: Tony Stark, Kanye, Spock
+R: George Washington, Kanye, Billy Ray
+S: Darth Vader, Vermin Supreme, Billy Ray
+T: Dad, Billy Ray, Ron Swanson
+U: Ron Swanson, Dad, Joey
+V: asdf, asdfasdf, asdfasdfasdf

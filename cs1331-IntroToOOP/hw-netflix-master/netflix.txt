@@ -1,0 +1,52 @@
+2020,Hannibal the Conqueror,Adventure,7.7
+2019,Shazam!,Action,6.3
+2018,The Flash,Action,4.6
+2017,Logan's Run,Thriller/Suspense,3.2
+2016,Against All Enemies,Drama,6.7
+2015,Jurassic World,Action,8.9
+2014,American Sniper,Drama,9.9
+2013,The Hunger Games: Catching Fire,Adventure/Action/Romance,1.1
+2012,The Avengers,Action/Adventure,3.23
+2011,Harry Potter and the Deathly Hallows: Part II,Adventure,6.57
+2010,Toy Story 3,Adventure,5.43
+2009,Avatar,Action,7.78
+2008,The Dark Knight,Action,5.32
+2007,Spider-Man 3,Adventure,7.13
+2006,Pirates of the Caribbean: Dead Man's Chest,Action/Adventure,6.87
+2005,Star Wars Ep. III: Revenge of the Sith,Action/Adventure,3.76
+2004,Shrek 2,Adventure,5.55
+2003,Finding Nemo,Adventure,2.43
+2003,Love Actually,Romance/Comedy,6.32
+2002,Spider-Man,Adventure,7.12
+2001,Harry Potter and the Sorcerer’s Stone,Adventure,9.23
+2000,How the Grinch Stole Christmas,Comedy,7.45
+1999,Star Wars Ep. I: The Phantom Menace,Adventure,1.0
+1998,Saving Private Ryan,Drama,6.72
+1998,You’ve Got Mail,Romance/Comedy,7.83
+1997,Titanic,Thriller/Romance,4.76
+1996,Independence Day,Adventure,8.34
+1995,Toy Story,Adventure,9.99
+1994,The Lion King,Adventure,9.99
+1993,Jurassic Park,Action,8.98
+1992,Aladdin,Comedy/Romance,8.99
+1990,Home Alone,Comedy,2.32
+1989,Batman,Action,1.0
+1989,When Harry Met Sally,Romance/Comedy,6.45	 
+1988,Rain Man,Comedy,7.77
+1987,3 Men and a Baby,Comedy,4.76
+1986,Top Gun,Action,6.87
+1985,Back to the Future,Adventure,8.0
+1984,Ghostbusters,Comedy,4.65
+1983,Star Wars Ep. VI: Return of the Jedi,Adventure,4.76
+1982,ET: The Extra-Terrestrial,Drama,3.76
+1981,Raiders of the Lost Ark,Adventure,1.23
+1980,Star Wars Ep. V: The Empire Strikes Back,Adventure,7.87
+1979,Kramer vs. Kramer,Drama,2.32
+1977,Star Wars Ep. IV: A New Hope,Adventure,8.9
+1977,Annie Hall,Romance/Comedy,2.3
+1976,Rocky,Drama,6.7
+1975,Jaws,Horror,2.67
+1974,Blazing Saddles,Comedy,6.78
+1973,The Exorcist,Horror,4.54 
+1972,The Godfather,Drama,5.67 
+1970,Love Story,Drama,2.54

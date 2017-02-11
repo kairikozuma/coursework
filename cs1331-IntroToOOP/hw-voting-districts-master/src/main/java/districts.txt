@@ -1,0 +1,5 @@
+Indiana, Georgia
+Wamapoke: Pawnee, Eagleton
+Orange: Jackson, Orangeville
+Indiana: Wamapoke, Orange
+Georgia: Fulton, Paulding
