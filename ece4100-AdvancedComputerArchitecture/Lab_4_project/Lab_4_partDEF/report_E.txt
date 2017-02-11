@@ -1,0 +1,3 @@
+Part E
+
+To find the victim cache line, first determine if the number of ways in the set is at the maximum (SWP_CORE0_WAYS). If it is not at the maximum, then normal LRU policy takes place. Otherwise, search through the set and replace the cache line with the earliest time that also matches the core id. This ensures that one core will not replace another core’s cache line if it is already at the maximum number of allowed cache lines.

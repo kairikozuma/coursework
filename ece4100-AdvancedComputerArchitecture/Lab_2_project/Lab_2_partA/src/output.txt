@@ -1,0 +1,7795 @@
+Opened file with command: gunzip -c ../traces/sml.ptr.gz
+
+** PIPELINE IS 2 WIDE **
+
+--------------------------------------------
+cycle count : 1 retired_instruction : 0
+ IF:  ID:  EX:  MA:
+      1  ------  ------  ------
+      2  ------  ------  ------
+
+OP_id:		1
+inst_addr: 	5080024
+op_type: 	3
+dest:		255
+dest_needed:	0
+src1_reg:	255
+src2_reg:	255
+src1_needed:	0
+src2_needed:	0
+cc_read:	1
+cc_write:	0
+mem_addr:	0
+mem_write:	0
+mem_read:	0
+br_dir:		1
+br_target:	5083550
+
+OP_id:		2
+inst_addr: 	5080030
+op_type: 	4
+dest:		255
+dest_needed:	0
+src1_reg:	255
+src2_reg:	255
+src1_needed:	0
+src2_needed:	0
+cc_read:	0
+cc_write:	0
+mem_addr:	0
+mem_write:	0
+mem_read:	0
+br_dir:		0
+br_target:	0
+
+--------------------------------------------
+cycle count : 2 retired_instruction : 0
+ IF:  ID:  EX:  MA:
+      3       1  ------  ------
+      4       2  ------  ------
+
+OP_id:		3
+inst_addr: 	5080033
+op_type: 	4
+dest:		255
+dest_needed:	0
+src1_reg:	255
+src2_reg:	255
+src1_needed:	0
+src2_needed:	0
+cc_read:	0
+cc_write:	0
+mem_addr:	0
+mem_write:	0
+mem_read:	0
+br_dir:		0
+br_target:	0
+
+OP_id:		1
+inst_addr: 	5080024
+op_type: 	3
+dest:		255
+dest_needed:	0
+src1_reg:	255
+src2_reg:	255
+src1_needed:	0
+src2_needed:	0
+cc_read:	1
+cc_write:	0
+mem_addr:	0
+mem_write:	0
+mem_read:	0
+br_dir:		1
+br_target:	5083550
+
+OP_id:		4
+inst_addr: 	5080033
+op_type: 	4
+dest:		255
+dest_needed:	0
+src1_reg:	255
+src2_reg:	255
+src1_needed:	0
+src2_needed:	0
+cc_read:	0
+cc_write:	0
+mem_addr:	0
+mem_write:	0
+mem_read:	0
+br_dir:		0
+br_target:	0
+
+OP_id:		2
+inst_addr: 	5080030
+op_type: 	4
+dest:		255
+dest_needed:	0
+src1_reg:	255
+src2_reg:	255
+src1_needed:	0
+src2_needed:	0
+cc_read:	0
+cc_write:	0
+mem_addr:	0
+mem_write:	0
+mem_read:	0
+br_dir:		0
+br_target:	0
+
+--------------------------------------------
+cycle count : 3 retired_instruction : 0
+ IF:  ID:  EX:  MA:
+      5       3       1  ------
+      6       4       2  ------
+
+OP_id:		5
+inst_addr: 	5080239
+op_type: 	1
+dest:		19
+dest_needed:	1
+src1_reg:	255
+src2_reg:	255
+src1_needed:	0
+src2_needed:	0
+cc_read:	0
+cc_write:	1
+mem_addr:	6673576
+mem_write:	0
+mem_read:	1
+br_dir:		0
+br_target:	0
+
+OP_id:		3
+inst_addr: 	5080033
+op_type: 	4
+dest:		255
+dest_needed:	0
+src1_reg:	255
+src2_reg:	255
+src1_needed:	0
+src2_needed:	0
+cc_read:	0
+cc_write:	0
+mem_addr:	0
+mem_write:	0
+mem_read:	0
+br_dir:		0
+br_target:	0
+
+OP_id:		1
+inst_addr: 	5080024
+op_type: 	3
+dest:		255
+dest_needed:	0
+src1_reg:	255
+src2_reg:	255
+src1_needed:	0
+src2_needed:	0
+cc_read:	1
+cc_write:	0
+mem_addr:	0
+mem_write:	0
+mem_read:	0
+br_dir:		1
+br_target:	5083550
+
+OP_id:		0
+inst_addr: 	0
+op_type: 	0
+dest:		0
+dest_needed:	0
+src1_reg:	0
+src2_reg:	0
+src1_needed:	0
+src2_needed:	0
+cc_read:	0
+cc_write:	0
+mem_addr:	0
+mem_write:	0
+mem_read:	0
+br_dir:		0
+br_target:	0
+
+OP_id:		6
+inst_addr: 	5080239
+op_type: 	1
+dest:		19
+dest_needed:	1
+src1_reg:	255
+src2_reg:	255
+src1_needed:	0
+src2_needed:	0
+cc_read:	0
+cc_write:	1
+mem_addr:	6673576
+mem_write:	0
+mem_read:	1
+br_dir:		0
+br_target:	0
+
+OP_id:		4
+inst_addr: 	5080033
+op_type: 	4
+dest:		255
+dest_needed:	0
+src1_reg:	255
+src2_reg:	255
+src1_needed:	0
+src2_needed:	0
+cc_read:	0
+cc_write:	0
+mem_addr:	0
+mem_write:	0
+mem_read:	0
+br_dir:		0
+br_target:	0
+
+OP_id:		2
+inst_addr: 	5080030
+op_type: 	4
+dest:		255
+dest_needed:	0
+src1_reg:	255
+src2_reg:	255
+src1_needed:	0
+src2_needed:	0
+cc_read:	0
+cc_write:	0
+mem_addr:	0
+mem_write:	0
+mem_read:	0
+br_dir:		0
+br_target:	0
+
+OP_id:		0
+inst_addr: 	0
+op_type: 	0
+dest:		0
+dest_needed:	0
+src1_reg:	0
+src2_reg:	0
+src1_needed:	0
+src2_needed:	0
+cc_read:	0
+cc_write:	0
+mem_addr:	0
+mem_write:	0
+mem_read:	0
+br_dir:		0
+br_target:	0
+
+--------------------------------------------
+cycle count : 4 retired_instruction : 0
+ IF:  ID:  EX:  MA:
+      7       5       3       1
+      8       6       4       2
+
+OP_id:		7
+inst_addr: 	5080243
+op_type: 	4
+dest:		255
+dest_needed:	0
+src1_reg:	255
+src2_reg:	255
+src1_needed:	0
+src2_needed:	0
+cc_read:	0
+cc_write:	0
+mem_addr:	0
+mem_write:	0
+mem_read:	0
+br_dir:		0
+br_target:	0
+
+OP_id:		5
+inst_addr: 	5080239
+op_type: 	1
+dest:		19
+dest_needed:	1
+src1_reg:	255
+src2_reg:	255
+src1_needed:	0
+src2_needed:	0
+cc_read:	0
+cc_write:	1
+mem_addr:	6673576
+mem_write:	0
+mem_read:	1
+br_dir:		0
+br_target:	0
+
+OP_id:		3
+inst_addr: 	5080033
+op_type: 	4
+dest:		255
+dest_needed:	0
+src1_reg:	255
+src2_reg:	255
+src1_needed:	0
+src2_needed:	0
+cc_read:	0
+cc_write:	0
+mem_addr:	0
+mem_write:	0
+mem_read:	0
+br_dir:		0
+br_target:	0
+
+OP_id:		1
+inst_addr: 	5080024
+op_type: 	3
+dest:		255
+dest_needed:	0
+src1_reg:	255
+src2_reg:	255
+src1_needed:	0
+src2_needed:	0
+cc_read:	1
+cc_write:	0
+mem_addr:	0
+mem_write:	0
+mem_read:	0
+br_dir:		1
+br_target:	5083550
+
+OP_id:		8
+inst_addr: 	5080243
+op_type: 	4
+dest:		255
+dest_needed:	0
+src1_reg:	255
+src2_reg:	255
+src1_needed:	0
+src2_needed:	0
+cc_read:	0
+cc_write:	0
+mem_addr:	0
+mem_write:	0
+mem_read:	0
+br_dir:		0
+br_target:	0
+
+OP_id:		6
+inst_addr: 	5080239
+op_type: 	1
+dest:		19
+dest_needed:	1
+src1_reg:	255
+src2_reg:	255
+src1_needed:	0
+src2_needed:	0
+cc_read:	0
+cc_write:	1
+mem_addr:	6673576
+mem_write:	0
+mem_read:	1
+br_dir:		0
+br_target:	0
+
+OP_id:		4
+inst_addr: 	5080033
+op_type: 	4
+dest:		255
+dest_needed:	0
+src1_reg:	255
+src2_reg:	255
+src1_needed:	0
+src2_needed:	0
+cc_read:	0
+cc_write:	0
+mem_addr:	0
+mem_write:	0
+mem_read:	0
+br_dir:		0
+br_target:	0
+
+OP_id:		2
+inst_addr: 	5080030
+op_type: 	4
+dest:		255
+dest_needed:	0
+src1_reg:	255
+src2_reg:	255
+src1_needed:	0
+src2_needed:	0
+cc_read:	0
+cc_write:	0
+mem_addr:	0
+mem_write:	0
+mem_read:	0
+br_dir:		0
+br_target:	0
+
+--------------------------------------------
+cycle count : 5 retired_instruction : 2
+ IF:  ID:  EX:  MA:
+      9       7       5       3
+     10       8       6       4
+
+OP_id:		9
+inst_addr: 	5080246
+op_type: 	0
+dest:		255
+dest_needed:	0
+src1_reg:	255
+src2_reg:	255
+src1_needed:	0
+src2_needed:	0
+cc_read:	0
+cc_write:	1
+mem_addr:	0
+mem_write:	0
+mem_read:	0
+br_dir:		0
+br_target:	0
+
+OP_id:		7
+inst_addr: 	5080243
+op_type: 	4
+dest:		255
+dest_needed:	0
+src1_reg:	255
+src2_reg:	255
+src1_needed:	0
+src2_needed:	0
+cc_read:	0
+cc_write:	0
+mem_addr:	0
+mem_write:	0
+mem_read:	0
+br_dir:		0
+br_target:	0
+
+OP_id:		5
+inst_addr: 	5080239
+op_type: 	1
+dest:		19
+dest_needed:	1
+src1_reg:	255
+src2_reg:	255
+src1_needed:	0
+src2_needed:	0
+cc_read:	0
+cc_write:	1
+mem_addr:	6673576
+mem_write:	0
+mem_read:	1
+br_dir:		0
+br_target:	0
+
+OP_id:		3
+inst_addr: 	5080033
+op_type: 	4
+dest:		255
+dest_needed:	0
+src1_reg:	255
+src2_reg:	255
+src1_needed:	0
+src2_needed:	0
+cc_read:	0
+cc_write:	0
+mem_addr:	0
+mem_write:	0
+mem_read:	0
+br_dir:		0
+br_target:	0
+
+OP_id:		10
+inst_addr: 	5080250
+op_type: 	0
+dest:		255
+dest_needed:	0
+src1_reg:	255
+src2_reg:	255
+src1_needed:	0
+src2_needed:	0
+cc_read:	0
+cc_write:	1
+mem_addr:	0
+mem_write:	0
+mem_read:	0
+br_dir:		0
+br_target:	0
+
+OP_id:		8
+inst_addr: 	5080243
+op_type: 	4
+dest:		255
+dest_needed:	0
+src1_reg:	255
+src2_reg:	255
+src1_needed:	0
+src2_needed:	0
+cc_read:	0
+cc_write:	0
+mem_addr:	0
+mem_write:	0
+mem_read:	0
+br_dir:		0
+br_target:	0
+
+OP_id:		6
+inst_addr: 	5080239
+op_type: 	1
+dest:		19
+dest_needed:	1
+src1_reg:	255
+src2_reg:	255
+src1_needed:	0
+src2_needed:	0
+cc_read:	0
+cc_write:	1
+mem_addr:	6673576
+mem_write:	0
+mem_read:	1
+br_dir:		0
+br_target:	0
+
+OP_id:		4
+inst_addr: 	5080033
+op_type: 	4
+dest:		255
+dest_needed:	0
+src1_reg:	255
+src2_reg:	255
+src1_needed:	0
+src2_needed:	0
+cc_read:	0
+cc_write:	0
+mem_addr:	0
+mem_write:	0
+mem_read:	0
+br_dir:		0
+br_target:	0
+
+--------------------------------------------
+cycle count : 6 retired_instruction : 4
+ IF:  ID:  EX:  MA:
+     11       9       7       5
+     12      10       8       6
+
+OP_id:		11
+inst_addr: 	5080254
+op_type: 	3
+dest:		255
+dest_needed:	0
+src1_reg:	255
+src2_reg:	255
+src1_needed:	0
+src2_needed:	0
+cc_read:	1
+cc_write:	0
+mem_addr:	0
+mem_write:	0
+mem_read:	0
+br_dir:		0
+br_target:	5080583
+
+OP_id:		9
+inst_addr: 	5080246
+op_type: 	0
+dest:		255
+dest_needed:	0
+src1_reg:	255
+src2_reg:	255
+src1_needed:	0
+src2_needed:	0
+cc_read:	0
+cc_write:	1
+mem_addr:	0
+mem_write:	0
+mem_read:	0
+br_dir:		0
+br_target:	0
+
+OP_id:		7
+inst_addr: 	5080243
+op_type: 	4
+dest:		255
+dest_needed:	0
+src1_reg:	255
+src2_reg:	255
+src1_needed:	0
+src2_needed:	0
+cc_read:	0
+cc_write:	0
+mem_addr:	0
+mem_write:	0
+mem_read:	0
+br_dir:		0
+br_target:	0
+
+OP_id:		5
+inst_addr: 	5080239
+op_type: 	1
+dest:		19
+dest_needed:	1
+src1_reg:	255
+src2_reg:	255
+src1_needed:	0
+src2_needed:	0
+cc_read:	0
+cc_write:	1
+mem_addr:	6673576
+mem_write:	0
+mem_read:	1
+br_dir:		0
+br_target:	0
+
+OP_id:		12
+inst_addr: 	5080260
+op_type: 	1
+dest:		19
+dest_needed:	1
+src1_reg:	255
+src2_reg:	255
+src1_needed:	0
+src2_needed:	0
+cc_read:	0
+cc_write:	1
+mem_addr:	6673576
+mem_write:	0
+mem_read:	1
+br_dir:		0
+br_target:	0
+
+OP_id:		10
+inst_addr: 	5080250
+op_type: 	0
+dest:		255
+dest_needed:	0
+src1_reg:	255
+src2_reg:	255
+src1_needed:	0
+src2_needed:	0
+cc_read:	0
+cc_write:	1
+mem_addr:	0
+mem_write:	0
+mem_read:	0
+br_dir:		0
+br_target:	0
+
+OP_id:		8
+inst_addr: 	5080243
+op_type: 	4
+dest:		255
+dest_needed:	0
+src1_reg:	255
+src2_reg:	255
+src1_needed:	0
+src2_needed:	0
+cc_read:	0
+cc_write:	0
+mem_addr:	0
+mem_write:	0
+mem_read:	0
+br_dir:		0
+br_target:	0
+
+OP_id:		6
+inst_addr: 	5080239
+op_type: 	1
+dest:		19
+dest_needed:	1
+src1_reg:	255
+src2_reg:	255
+src1_needed:	0
+src2_needed:	0
+cc_read:	0
+cc_write:	1
+mem_addr:	6673576
+mem_write:	0
+mem_read:	1
+br_dir:		0
+br_target:	0
+
+--------------------------------------------
+cycle count : 7 retired_instruction : 6
+ IF:  ID:  EX:  MA:
+     13      11       9       7
+     14      12      10       8
+
+OP_id:		13
+inst_addr: 	5080260
+op_type: 	1
+dest:		19
+dest_needed:	1
+src1_reg:	255
+src2_reg:	255
+src1_needed:	0
+src2_needed:	0
+cc_read:	0
+cc_write:	1
+mem_addr:	6673576
+mem_write:	0
+mem_read:	1
+br_dir:		0
+br_target:	0
+
+OP_id:		11
+inst_addr: 	5080254
+op_type: 	3
+dest:		255
+dest_needed:	0
+src1_reg:	255
+src2_reg:	255
+src1_needed:	0
+src2_needed:	0
+cc_read:	1
+cc_write:	0
+mem_addr:	0
+mem_write:	0
+mem_read:	0
+br_dir:		0
+br_target:	5080583
+
+OP_id:		9
+inst_addr: 	5080246
+op_type: 	0
+dest:		255
+dest_needed:	0
+src1_reg:	255
+src2_reg:	255
+src1_needed:	0
+src2_needed:	0
+cc_read:	0
+cc_write:	1
+mem_addr:	0
+mem_write:	0
+mem_read:	0
+br_dir:		0
+br_target:	0
+
+OP_id:		7
+inst_addr: 	5080243
+op_type: 	4
+dest:		255
+dest_needed:	0
+src1_reg:	255
+src2_reg:	255
+src1_needed:	0
+src2_needed:	0
+cc_read:	0
+cc_write:	0
+mem_addr:	0
+mem_write:	0
+mem_read:	0
+br_dir:		0
+br_target:	0
+
+OP_id:		14
+inst_addr: 	5080264
+op_type: 	4
+dest:		255
+dest_needed:	0
+src1_reg:	255
+src2_reg:	255
+src1_needed:	0
+src2_needed:	0
+cc_read:	0
+cc_write:	0
+mem_addr:	0
+mem_write:	0
+mem_read:	0
+br_dir:		0
+br_target:	0
+
+OP_id:		12
+inst_addr: 	5080260
+op_type: 	1
+dest:		19
+dest_needed:	1
+src1_reg:	255
+src2_reg:	255
+src1_needed:	0
+src2_needed:	0
+cc_read:	0
+cc_write:	1
+mem_addr:	6673576
+mem_write:	0
+mem_read:	1
+br_dir:		0
+br_target:	0
+
+OP_id:		10
+inst_addr: 	5080250
+op_type: 	0
+dest:		255
+dest_needed:	0
+src1_reg:	255
+src2_reg:	255
+src1_needed:	0
+src2_needed:	0
+cc_read:	0
+cc_write:	1
+mem_addr:	0
+mem_write:	0
+mem_read:	0
+br_dir:		0
+br_target:	0
+
+OP_id:		8
+inst_addr: 	5080243
+op_type: 	4
+dest:		255
+dest_needed:	0
+src1_reg:	255
+src2_reg:	255
+src1_needed:	0
+src2_needed:	0
+cc_read:	0
+cc_write:	0
+mem_addr:	0
+mem_write:	0
+mem_read:	0
+br_dir:		0
+br_target:	0
+
+--------------------------------------------
+cycle count : 8 retired_instruction : 8
+ IF:  ID:  EX:  MA:
+     15      13      11       9
+     16      14      12      10
+
+OP_id:		15
+inst_addr: 	5080264
+op_type: 	4
+dest:		255
+dest_needed:	0
+src1_reg:	255
+src2_reg:	255
+src1_needed:	0
+src2_needed:	0
+cc_read:	0
+cc_write:	0
+mem_addr:	0
+mem_write:	0
+mem_read:	0
+br_dir:		0
+br_target:	0
+
+OP_id:		13
+inst_addr: 	5080260
+op_type: 	1
+dest:		19
+dest_needed:	1
+src1_reg:	255
+src2_reg:	255
+src1_needed:	0
+src2_needed:	0
+cc_read:	0
+cc_write:	1
+mem_addr:	6673576
+mem_write:	0
+mem_read:	1
+br_dir:		0
+br_target:	0
+
+OP_id:		11
+inst_addr: 	5080254
+op_type: 	3
+dest:		255
+dest_needed:	0
+src1_reg:	255
+src2_reg:	255
+src1_needed:	0
+src2_needed:	0
+cc_read:	1
+cc_write:	0
+mem_addr:	0
+mem_write:	0
+mem_read:	0
+br_dir:		0
+br_target:	5080583
+
+OP_id:		9
+inst_addr: 	5080246
+op_type: 	0
+dest:		255
+dest_needed:	0
+src1_reg:	255
+src2_reg:	255
+src1_needed:	0
+src2_needed:	0
+cc_read:	0
+cc_write:	1
+mem_addr:	0
+mem_write:	0
+mem_read:	0
+br_dir:		0
+br_target:	0
+
+OP_id:		16
+inst_addr: 	5080267
+op_type: 	0
+dest:		255
+dest_needed:	0
+src1_reg:	255
+src2_reg:	255
+src1_needed:	0
+src2_needed:	0
+cc_read:	0
+cc_write:	1
+mem_addr:	0
+mem_write:	0
+mem_read:	0
+br_dir:		0
+br_target:	0
+
+OP_id:		14
+inst_addr: 	5080264
+op_type: 	4
+dest:		255
+dest_needed:	0
+src1_reg:	255
+src2_reg:	255
+src1_needed:	0
+src2_needed:	0
+cc_read:	0
+cc_write:	0
+mem_addr:	0
+mem_write:	0
+mem_read:	0
+br_dir:		0
+br_target:	0
+
+OP_id:		12
+inst_addr: 	5080260
+op_type: 	1
+dest:		19
+dest_needed:	1
+src1_reg:	255
+src2_reg:	255
+src1_needed:	0
+src2_needed:	0
+cc_read:	0
+cc_write:	1
+mem_addr:	6673576
+mem_write:	0
+mem_read:	1
+br_dir:		0
+br_target:	0
+
+OP_id:		10
+inst_addr: 	5080250
+op_type: 	0
+dest:		255
+dest_needed:	0
+src1_reg:	255
+src2_reg:	255
+src1_needed:	0
+src2_needed:	0
+cc_read:	0
+cc_write:	1
+mem_addr:	0
+mem_write:	0
+mem_read:	0
+br_dir:		0
+br_target:	0
+
+--------------------------------------------
+cycle count : 9 retired_instruction : 10
+ IF:  ID:  EX:  MA:
+     17      15      13      11
+     18      16      14      12
+
+OP_id:		17
+inst_addr: 	5080271
+op_type: 	0
+dest:		255
+dest_needed:	0
+src1_reg:	255
+src2_reg:	255
+src1_needed:	0
+src2_needed:	0
+cc_read:	0
+cc_write:	1
+mem_addr:	0
+mem_write:	0
+mem_read:	0
+br_dir:		0
+br_target:	0
+
+OP_id:		15
+inst_addr: 	5080264
+op_type: 	4
+dest:		255
+dest_needed:	0
+src1_reg:	255
+src2_reg:	255
+src1_needed:	0
+src2_needed:	0
+cc_read:	0
+cc_write:	0
+mem_addr:	0
+mem_write:	0
+mem_read:	0
+br_dir:		0
+br_target:	0
+
+OP_id:		13
+inst_addr: 	5080260
+op_type: 	1
+dest:		19
+dest_needed:	1
+src1_reg:	255
+src2_reg:	255
+src1_needed:	0
+src2_needed:	0
+cc_read:	0
+cc_write:	1
+mem_addr:	6673576
+mem_write:	0
+mem_read:	1
+br_dir:		0
+br_target:	0
+
+OP_id:		11
+inst_addr: 	5080254
+op_type: 	3
+dest:		255
+dest_needed:	0
+src1_reg:	255
+src2_reg:	255
+src1_needed:	0
+src2_needed:	0
+cc_read:	1
+cc_write:	0
+mem_addr:	0
+mem_write:	0
+mem_read:	0
+br_dir:		0
+br_target:	5080583
+
+OP_id:		18
+inst_addr: 	5080275
+op_type: 	3
+dest:		255
+dest_needed:	0
+src1_reg:	255
+src2_reg:	255
+src1_needed:	0
+src2_needed:	0
+cc_read:	1
+cc_write:	0
+mem_addr:	0
+mem_write:	0
+mem_read:	0
+br_dir:		0
+br_target:	5080583
+
+OP_id:		16
+inst_addr: 	5080267
+op_type: 	0
+dest:		255
+dest_needed:	0
+src1_reg:	255
+src2_reg:	255
+src1_needed:	0
+src2_needed:	0
+cc_read:	0
+cc_write:	1
+mem_addr:	0
+mem_write:	0
+mem_read:	0
+br_dir:		0
+br_target:	0
+
+OP_id:		14
+inst_addr: 	5080264
+op_type: 	4
+dest:		255
+dest_needed:	0
+src1_reg:	255
+src2_reg:	255
+src1_needed:	0
+src2_needed:	0
+cc_read:	0
+cc_write:	0
+mem_addr:	0
+mem_write:	0
+mem_read:	0
+br_dir:		0
+br_target:	0
+
+OP_id:		12
+inst_addr: 	5080260
+op_type: 	1
+dest:		19
+dest_needed:	1
+src1_reg:	255
+src2_reg:	255
+src1_needed:	0
+src2_needed:	0
+cc_read:	0
+cc_write:	1
+mem_addr:	6673576
+mem_write:	0
+mem_read:	1
+br_dir:		0
+br_target:	0
+
+[C]18<--17
+--------------------------------------------
+cycle count : 10 retired_instruction : 12
+ IF:  ID:  EX:  MA:
+     19      17      15      13
+     18  ------      16      14
+
+OP_id:		19
+inst_addr: 	5080281
+op_type: 	1
+dest:		24
+dest_needed:	1
+src1_reg:	255
+src2_reg:	255
+src1_needed:	0
+src2_needed:	0
+cc_read:	0
+cc_write:	1
+mem_addr:	6673576
+mem_write:	0
+mem_read:	1
+br_dir:		0
+br_target:	0
+
+OP_id:		17
+inst_addr: 	5080271
+op_type: 	0
+dest:		255
+dest_needed:	0
+src1_reg:	255
+src2_reg:	255
+src1_needed:	0
+src2_needed:	0
+cc_read:	0
+cc_write:	1
+mem_addr:	0
+mem_write:	0
+mem_read:	0
+br_dir:		0
+br_target:	0
+
+OP_id:		15
+inst_addr: 	5080264
+op_type: 	4
+dest:		255
+dest_needed:	0
+src1_reg:	255
+src2_reg:	255
+src1_needed:	0
+src2_needed:	0
+cc_read:	0
+cc_write:	0
+mem_addr:	0
+mem_write:	0
+mem_read:	0
+br_dir:		0
+br_target:	0
+
+OP_id:		13
+inst_addr: 	5080260
+op_type: 	1
+dest:		19
+dest_needed:	1
+src1_reg:	255
+src2_reg:	255
+src1_needed:	0
+src2_needed:	0
+cc_read:	0
+cc_write:	1
+mem_addr:	6673576
+mem_write:	0
+mem_read:	1
+br_dir:		0
+br_target:	0
+
+OP_id:		18
+inst_addr: 	5080275
+op_type: 	3
+dest:		255
+dest_needed:	0
+src1_reg:	255
+src2_reg:	255
+src1_needed:	0
+src2_needed:	0
+cc_read:	1
+cc_write:	0
+mem_addr:	0
+mem_write:	0
+mem_read:	0
+br_dir:		0
+br_target:	5080583
+
+OP_id:		16
+inst_addr: 	5080267
+op_type: 	0
+dest:		255
+dest_needed:	0
+src1_reg:	255
+src2_reg:	255
+src1_needed:	0
+src2_needed:	0
+cc_read:	0
+cc_write:	1
+mem_addr:	0
+mem_write:	0
+mem_read:	0
+br_dir:		0
+br_target:	0
+
+OP_id:		16
+inst_addr: 	5080267
+op_type: 	0
+dest:		255
+dest_needed:	0
+src1_reg:	255
+src2_reg:	255
+src1_needed:	0
+src2_needed:	0
+cc_read:	0
+cc_write:	1
+mem_addr:	0
+mem_write:	0
+mem_read:	0
+br_dir:		0
+br_target:	0
+
+OP_id:		14
+inst_addr: 	5080264
+op_type: 	4
+dest:		255
+dest_needed:	0
+src1_reg:	255
+src2_reg:	255
+src1_needed:	0
+src2_needed:	0
+cc_read:	0
+cc_write:	0
+mem_addr:	0
+mem_write:	0
+mem_read:	0
+br_dir:		0
+br_target:	0
+
+--------------------------------------------
+cycle count : 11 retired_instruction : 14
+ IF:  ID:  EX:  MA:
+     20      19      17      15
+     21      18  ------      16
+
+OP_id:		20
+inst_addr: 	5080281
+op_type: 	1
+dest:		24
+dest_needed:	1
+src1_reg:	255
+src2_reg:	255
+src1_needed:	0
+src2_needed:	0
+cc_read:	0
+cc_write:	1
+mem_addr:	6673576
+mem_write:	0
+mem_read:	1
+br_dir:		0
+br_target:	0
+
+OP_id:		19
+inst_addr: 	5080281
+op_type: 	1
+dest:		24
+dest_needed:	1
+src1_reg:	255
+src2_reg:	255
+src1_needed:	0
+src2_needed:	0
+cc_read:	0
+cc_write:	1
+mem_addr:	6673576
+mem_write:	0
+mem_read:	1
+br_dir:		0
+br_target:	0
+
+OP_id:		17
+inst_addr: 	5080271
+op_type: 	0
+dest:		255
+dest_needed:	0
+src1_reg:	255
+src2_reg:	255
+src1_needed:	0
+src2_needed:	0
+cc_read:	0
+cc_write:	1
+mem_addr:	0
+mem_write:	0
+mem_read:	0
+br_dir:		0
+br_target:	0
+
+OP_id:		15
+inst_addr: 	5080264
+op_type: 	4
+dest:		255
+dest_needed:	0
+src1_reg:	255
+src2_reg:	255
+src1_needed:	0
+src2_needed:	0
+cc_read:	0
+cc_write:	0
+mem_addr:	0
+mem_write:	0
+mem_read:	0
+br_dir:		0
+br_target:	0
+
+OP_id:		21
+inst_addr: 	5080285
+op_type: 	4
+dest:		255
+dest_needed:	0
+src1_reg:	255
+src2_reg:	255
+src1_needed:	0
+src2_needed:	0
+cc_read:	0
+cc_write:	0
+mem_addr:	0
+mem_write:	0
+mem_read:	0
+br_dir:		0
+br_target:	0
+
+OP_id:		18
+inst_addr: 	5080275
+op_type: 	3
+dest:		255
+dest_needed:	0
+src1_reg:	255
+src2_reg:	255
+src1_needed:	0
+src2_needed:	0
+cc_read:	1
+cc_write:	0
+mem_addr:	0
+mem_write:	0
+mem_read:	0
+br_dir:		0
+br_target:	5080583
+
+OP_id:		16
+inst_addr: 	5080267
+op_type: 	0
+dest:		255
+dest_needed:	0
+src1_reg:	255
+src2_reg:	255
+src1_needed:	0
+src2_needed:	0
+cc_read:	0
+cc_write:	1
+mem_addr:	0
+mem_write:	0
+mem_read:	0
+br_dir:		0
+br_target:	0
+
+OP_id:		16
+inst_addr: 	5080267
+op_type: 	0
+dest:		255
+dest_needed:	0
+src1_reg:	255
+src2_reg:	255
+src1_needed:	0
+src2_needed:	0
+cc_read:	0
+cc_write:	1
+mem_addr:	0
+mem_write:	0
+mem_read:	0
+br_dir:		0
+br_target:	0
+
+--------------------------------------------
+cycle count : 12 retired_instruction : 16
+ IF:  ID:  EX:  MA:
+     22      20      19      17
+     23      21      18  ------
+
+OP_id:		22
+inst_addr: 	5080285
+op_type: 	4
+dest:		255
+dest_needed:	0
+src1_reg:	255
+src2_reg:	255
+src1_needed:	0
+src2_needed:	0
+cc_read:	0
+cc_write:	0
+mem_addr:	0
+mem_write:	0
+mem_read:	0
+br_dir:		0
+br_target:	0
+
+OP_id:		20
+inst_addr: 	5080281
+op_type: 	1
+dest:		24
+dest_needed:	1
+src1_reg:	255
+src2_reg:	255
+src1_needed:	0
+src2_needed:	0
+cc_read:	0
+cc_write:	1
+mem_addr:	6673576
+mem_write:	0
+mem_read:	1
+br_dir:		0
+br_target:	0
+
+OP_id:		19
+inst_addr: 	5080281
+op_type: 	1
+dest:		24
+dest_needed:	1
+src1_reg:	255
+src2_reg:	255
+src1_needed:	0
+src2_needed:	0
+cc_read:	0
+cc_write:	1
+mem_addr:	6673576
+mem_write:	0
+mem_read:	1
+br_dir:		0
+br_target:	0
+
+OP_id:		17
+inst_addr: 	5080271
+op_type: 	0
+dest:		255
+dest_needed:	0
+src1_reg:	255
+src2_reg:	255
+src1_needed:	0
+src2_needed:	0
+cc_read:	0
+cc_write:	1
+mem_addr:	0
+mem_write:	0
+mem_read:	0
+br_dir:		0
+br_target:	0
+
+OP_id:		23
+inst_addr: 	5080292
+op_type: 	3
+dest:		255
+dest_needed:	0
+src1_reg:	255
+src2_reg:	255
+src1_needed:	0
+src2_needed:	0
+cc_read:	1
+cc_write:	0
+mem_addr:	0
+mem_write:	0
+mem_read:	0
+br_dir:		0
+br_target:	5080583
+
+OP_id:		21
+inst_addr: 	5080285
+op_type: 	4
+dest:		255
+dest_needed:	0
+src1_reg:	255
+src2_reg:	255
+src1_needed:	0
+src2_needed:	0
+cc_read:	0
+cc_write:	0
+mem_addr:	0
+mem_write:	0
+mem_read:	0
+br_dir:		0
+br_target:	0
+
+OP_id:		18
+inst_addr: 	5080275
+op_type: 	3
+dest:		255
+dest_needed:	0
+src1_reg:	255
+src2_reg:	255
+src1_needed:	0
+src2_needed:	0
+cc_read:	1
+cc_write:	0
+mem_addr:	0
+mem_write:	0
+mem_read:	0
+br_dir:		0
+br_target:	5080583
+
+OP_id:		16
+inst_addr: 	5080267
+op_type: 	0
+dest:		255
+dest_needed:	0
+src1_reg:	255
+src2_reg:	255
+src1_needed:	0
+src2_needed:	0
+cc_read:	0
+cc_write:	1
+mem_addr:	0
+mem_write:	0
+mem_read:	0
+br_dir:		0
+br_target:	0
+
+--------------------------------------------
+cycle count : 13 retired_instruction : 17
+ IF:  ID:  EX:  MA:
+     24      22      20      19
+     25      23      21      18
+
+OP_id:		24
+inst_addr: 	5080298
+op_type: 	4
+dest:		255
+dest_needed:	0
+src1_reg:	255
+src2_reg:	255
+src1_needed:	0
+src2_needed:	0
+cc_read:	0
+cc_write:	0
+mem_addr:	0
+mem_write:	0
+mem_read:	0
+br_dir:		0
+br_target:	0
+
+OP_id:		22
+inst_addr: 	5080285
+op_type: 	4
+dest:		255
+dest_needed:	0
+src1_reg:	255
+src2_reg:	255
+src1_needed:	0
+src2_needed:	0
+cc_read:	0
+cc_write:	0
+mem_addr:	0
+mem_write:	0
+mem_read:	0
+br_dir:		0
+br_target:	0
+
+OP_id:		20
+inst_addr: 	5080281
+op_type: 	1
+dest:		24
+dest_needed:	1
+src1_reg:	255
+src2_reg:	255
+src1_needed:	0
+src2_needed:	0
+cc_read:	0
+cc_write:	1
+mem_addr:	6673576
+mem_write:	0
+mem_read:	1
+br_dir:		0
+br_target:	0
+
+OP_id:		19
+inst_addr: 	5080281
+op_type: 	1
+dest:		24
+dest_needed:	1
+src1_reg:	255
+src2_reg:	255
+src1_needed:	0
+src2_needed:	0
+cc_read:	0
+cc_write:	1
+mem_addr:	6673576
+mem_write:	0
+mem_read:	1
+br_dir:		0
+br_target:	0
+
+OP_id:		25
+inst_addr: 	5080298
+op_type: 	4
+dest:		255
+dest_needed:	0
+src1_reg:	255
+src2_reg:	255
+src1_needed:	0
+src2_needed:	0
+cc_read:	0
+cc_write:	0
+mem_addr:	0
+mem_write:	0
+mem_read:	0
+br_dir:		0
+br_target:	0
+
+OP_id:		23
+inst_addr: 	5080292
+op_type: 	3
+dest:		255
+dest_needed:	0
+src1_reg:	255
+src2_reg:	255
+src1_needed:	0
+src2_needed:	0
+cc_read:	1
+cc_write:	0
+mem_addr:	0
+mem_write:	0
+mem_read:	0
+br_dir:		0
+br_target:	5080583
+
+OP_id:		21
+inst_addr: 	5080285
+op_type: 	4
+dest:		255
+dest_needed:	0
+src1_reg:	255
+src2_reg:	255
+src1_needed:	0
+src2_needed:	0
+cc_read:	0
+cc_write:	0
+mem_addr:	0
+mem_write:	0
+mem_read:	0
+br_dir:		0
+br_target:	0
+
+OP_id:		18
+inst_addr: 	5080275
+op_type: 	3
+dest:		255
+dest_needed:	0
+src1_reg:	255
+src2_reg:	255
+src1_needed:	0
+src2_needed:	0
+cc_read:	1
+cc_write:	0
+mem_addr:	0
+mem_write:	0
+mem_read:	0
+br_dir:		0
+br_target:	5080583
+
+--------------------------------------------
+cycle count : 14 retired_instruction : 19
+ IF:  ID:  EX:  MA:
+     26      24      22      20
+     27      25      23      21
+
+OP_id:		26
+inst_addr: 	5080304
+op_type: 	3
+dest:		255
+dest_needed:	0
+src1_reg:	255
+src2_reg:	255
+src1_needed:	0
+src2_needed:	0
+cc_read:	1
+cc_write:	0
+mem_addr:	0
+mem_write:	0
+mem_read:	0
+br_dir:		0
+br_target:	5081257
+
+OP_id:		24
+inst_addr: 	5080298
+op_type: 	4
+dest:		255
+dest_needed:	0
+src1_reg:	255
+src2_reg:	255
+src1_needed:	0
+src2_needed:	0
+cc_read:	0
+cc_write:	0
+mem_addr:	0
+mem_write:	0
+mem_read:	0
+br_dir:		0
+br_target:	0
+
+OP_id:		22
+inst_addr: 	5080285
+op_type: 	4
+dest:		255
+dest_needed:	0
+src1_reg:	255
+src2_reg:	255
+src1_needed:	0
+src2_needed:	0
+cc_read:	0
+cc_write:	0
+mem_addr:	0
+mem_write:	0
+mem_read:	0
+br_dir:		0
+br_target:	0
+
+OP_id:		20
+inst_addr: 	5080281
+op_type: 	1
+dest:		24
+dest_needed:	1
+src1_reg:	255
+src2_reg:	255
+src1_needed:	0
+src2_needed:	0
+cc_read:	0
+cc_write:	1
+mem_addr:	6673576
+mem_write:	0
+mem_read:	1
+br_dir:		0
+br_target:	0
+
+OP_id:		27
+inst_addr: 	5080310
+op_type: 	1
+dest:		13
+dest_needed:	1
+src1_reg:	255
+src2_reg:	255
+src1_needed:	0
+src2_needed:	0
+cc_read:	0
+cc_write:	1
+mem_addr:	413976712
+mem_write:	0
+mem_read:	1
+br_dir:		0
+br_target:	0
+
+OP_id:		25
+inst_addr: 	5080298
+op_type: 	4
+dest:		255
+dest_needed:	0
+src1_reg:	255
+src2_reg:	255
+src1_needed:	0
+src2_needed:	0
+cc_read:	0
+cc_write:	0
+mem_addr:	0
+mem_write:	0
+mem_read:	0
+br_dir:		0
+br_target:	0
+
+OP_id:		23
+inst_addr: 	5080292
+op_type: 	3
+dest:		255
+dest_needed:	0
+src1_reg:	255
+src2_reg:	255
+src1_needed:	0
+src2_needed:	0
+cc_read:	1
+cc_write:	0
+mem_addr:	0
+mem_write:	0
+mem_read:	0
+br_dir:		0
+br_target:	5080583
+
+OP_id:		21
+inst_addr: 	5080285
+op_type: 	4
+dest:		255
+dest_needed:	0
+src1_reg:	255
+src2_reg:	255
+src1_needed:	0
+src2_needed:	0
+cc_read:	0
+cc_write:	0
+mem_addr:	0
+mem_write:	0
+mem_read:	0
+br_dir:		0
+br_target:	0
+
+--------------------------------------------
+cycle count : 15 retired_instruction : 21
+ IF:  ID:  EX:  MA:
+     28      26      24      22
+     29      27      25      23
+
+OP_id:		28
+inst_addr: 	5080310
+op_type: 	1
+dest:		13
+dest_needed:	1
+src1_reg:	255
+src2_reg:	255
+src1_needed:	0
+src2_needed:	0
+cc_read:	0
+cc_write:	1
+mem_addr:	413976712
+mem_write:	0
+mem_read:	1
+br_dir:		0
+br_target:	0
+
+OP_id:		26
+inst_addr: 	5080304
+op_type: 	3
+dest:		255
+dest_needed:	0
+src1_reg:	255
+src2_reg:	255
+src1_needed:	0
+src2_needed:	0
+cc_read:	1
+cc_write:	0
+mem_addr:	0
+mem_write:	0
+mem_read:	0
+br_dir:		0
+br_target:	5081257
+
+OP_id:		24
+inst_addr: 	5080298
+op_type: 	4
+dest:		255
+dest_needed:	0
+src1_reg:	255
+src2_reg:	255
+src1_needed:	0
+src2_needed:	0
+cc_read:	0
+cc_write:	0
+mem_addr:	0
+mem_write:	0
+mem_read:	0
+br_dir:		0
+br_target:	0
+
+OP_id:		22
+inst_addr: 	5080285
+op_type: 	4
+dest:		255
+dest_needed:	0
+src1_reg:	255
+src2_reg:	255
+src1_needed:	0
+src2_needed:	0
+cc_read:	0
+cc_write:	0
+mem_addr:	0
+mem_write:	0
+mem_read:	0
+br_dir:		0
+br_target:	0
+
+OP_id:		29
+inst_addr: 	5080314
+op_type: 	4
+dest:		255
+dest_needed:	0
+src1_reg:	255
+src2_reg:	255
+src1_needed:	0
+src2_needed:	0
+cc_read:	0
+cc_write:	0
+mem_addr:	0
+mem_write:	0
+mem_read:	0
+br_dir:		0
+br_target:	0
+
+OP_id:		27
+inst_addr: 	5080310
+op_type: 	1
+dest:		13
+dest_needed:	1
+src1_reg:	255
+src2_reg:	255
+src1_needed:	0
+src2_needed:	0
+cc_read:	0
+cc_write:	1
+mem_addr:	413976712
+mem_write:	0
+mem_read:	1
+br_dir:		0
+br_target:	0
+
+OP_id:		25
+inst_addr: 	5080298
+op_type: 	4
+dest:		255
+dest_needed:	0
+src1_reg:	255
+src2_reg:	255
+src1_needed:	0
+src2_needed:	0
+cc_read:	0
+cc_write:	0
+mem_addr:	0
+mem_write:	0
+mem_read:	0
+br_dir:		0
+br_target:	0
+
+OP_id:		23
+inst_addr: 	5080292
+op_type: 	3
+dest:		255
+dest_needed:	0
+src1_reg:	255
+src2_reg:	255
+src1_needed:	0
+src2_needed:	0
+cc_read:	1
+cc_write:	0
+mem_addr:	0
+mem_write:	0
+mem_read:	0
+br_dir:		0
+br_target:	5080583
+
+--------------------------------------------
+cycle count : 16 retired_instruction : 23
+ IF:  ID:  EX:  MA:
+     30      28      26      24
+     31      29      27      25
+
+OP_id:		30
+inst_addr: 	5080317
+op_type: 	3
+dest:		255
+dest_needed:	0
+src1_reg:	255
+src2_reg:	255
+src1_needed:	0
+src2_needed:	0
+cc_read:	1
+cc_write:	0
+mem_addr:	0
+mem_write:	0
+mem_read:	0
+br_dir:		1
+br_target:	5080310
+
+OP_id:		28
+inst_addr: 	5080310
+op_type: 	1
+dest:		13
+dest_needed:	1
+src1_reg:	255
+src2_reg:	255
+src1_needed:	0
+src2_needed:	0
+cc_read:	0
+cc_write:	1
+mem_addr:	413976712
+mem_write:	0
+mem_read:	1
+br_dir:		0
+br_target:	0
+
+OP_id:		26
+inst_addr: 	5080304
+op_type: 	3
+dest:		255
+dest_needed:	0
+src1_reg:	255
+src2_reg:	255
+src1_needed:	0
+src2_needed:	0
+cc_read:	1
+cc_write:	0
+mem_addr:	0
+mem_write:	0
+mem_read:	0
+br_dir:		0
+br_target:	5081257
+
+OP_id:		24
+inst_addr: 	5080298
+op_type: 	4
+dest:		255
+dest_needed:	0
+src1_reg:	255
+src2_reg:	255
+src1_needed:	0
+src2_needed:	0
+cc_read:	0
+cc_write:	0
+mem_addr:	0
+mem_write:	0
+mem_read:	0
+br_dir:		0
+br_target:	0
+
+OP_id:		31
+inst_addr: 	5080324
+op_type: 	4
+dest:		255
+dest_needed:	0
+src1_reg:	255
+src2_reg:	255
+src1_needed:	0
+src2_needed:	0
+cc_read:	0
+cc_write:	0
+mem_addr:	0
+mem_write:	0
+mem_read:	0
+br_dir:		0
+br_target:	0
+
+OP_id:		29
+inst_addr: 	5080314
+op_type: 	4
+dest:		255
+dest_needed:	0
+src1_reg:	255
+src2_reg:	255
+src1_needed:	0
+src2_needed:	0
+cc_read:	0
+cc_write:	0
+mem_addr:	0
+mem_write:	0
+mem_read:	0
+br_dir:		0
+br_target:	0
+
+OP_id:		27
+inst_addr: 	5080310
+op_type: 	1
+dest:		13
+dest_needed:	1
+src1_reg:	255
+src2_reg:	255
+src1_needed:	0
+src2_needed:	0
+cc_read:	0
+cc_write:	1
+mem_addr:	413976712
+mem_write:	0
+mem_read:	1
+br_dir:		0
+br_target:	0
+
+OP_id:		25
+inst_addr: 	5080298
+op_type: 	4
+dest:		255
+dest_needed:	0
+src1_reg:	255
+src2_reg:	255
+src1_needed:	0
+src2_needed:	0
+cc_read:	0
+cc_write:	0
+mem_addr:	0
+mem_write:	0
+mem_read:	0
+br_dir:		0
+br_target:	0
+
+--------------------------------------------
+cycle count : 17 retired_instruction : 25
+ IF:  ID:  EX:  MA:
+     32      30      28      26
+     33      31      29      27
+
+OP_id:		32
+inst_addr: 	5080324
+op_type: 	4
+dest:		255
+dest_needed:	0
+src1_reg:	255
+src2_reg:	255
+src1_needed:	0
+src2_needed:	0
+cc_read:	0
+cc_write:	0
+mem_addr:	0
+mem_write:	0
+mem_read:	0
+br_dir:		0
+br_target:	0
+
+OP_id:		30
+inst_addr: 	5080317
+op_type: 	3
+dest:		255
+dest_needed:	0
+src1_reg:	255
+src2_reg:	255
+src1_needed:	0
+src2_needed:	0
+cc_read:	1
+cc_write:	0
+mem_addr:	0
+mem_write:	0
+mem_read:	0
+br_dir:		1
+br_target:	5080310
+
+OP_id:		28
+inst_addr: 	5080310
+op_type: 	1
+dest:		13
+dest_needed:	1
+src1_reg:	255
+src2_reg:	255
+src1_needed:	0
+src2_needed:	0
+cc_read:	0
+cc_write:	1
+mem_addr:	413976712
+mem_write:	0
+mem_read:	1
+br_dir:		0
+br_target:	0
+
+OP_id:		26
+inst_addr: 	5080304
+op_type: 	3
+dest:		255
+dest_needed:	0
+src1_reg:	255
+src2_reg:	255
+src1_needed:	0
+src2_needed:	0
+cc_read:	1
+cc_write:	0
+mem_addr:	0
+mem_write:	0
+mem_read:	0
+br_dir:		0
+br_target:	5081257
+
+OP_id:		33
+inst_addr: 	5080327
+op_type: 	4
+dest:		255
+dest_needed:	0
+src1_reg:	255
+src2_reg:	255
+src1_needed:	0
+src2_needed:	0
+cc_read:	0
+cc_write:	0
+mem_addr:	0
+mem_write:	0
+mem_read:	0
+br_dir:		0
+br_target:	0
+
+OP_id:		31
+inst_addr: 	5080324
+op_type: 	4
+dest:		255
+dest_needed:	0
+src1_reg:	255
+src2_reg:	255
+src1_needed:	0
+src2_needed:	0
+cc_read:	0
+cc_write:	0
+mem_addr:	0
+mem_write:	0
+mem_read:	0
+br_dir:		0
+br_target:	0
+
+OP_id:		29
+inst_addr: 	5080314
+op_type: 	4
+dest:		255
+dest_needed:	0
+src1_reg:	255
+src2_reg:	255
+src1_needed:	0
+src2_needed:	0
+cc_read:	0
+cc_write:	0
+mem_addr:	0
+mem_write:	0
+mem_read:	0
+br_dir:		0
+br_target:	0
+
+OP_id:		27
+inst_addr: 	5080310
+op_type: 	1
+dest:		13
+dest_needed:	1
+src1_reg:	255
+src2_reg:	255
+src1_needed:	0
+src2_needed:	0
+cc_read:	0
+cc_write:	1
+mem_addr:	413976712
+mem_write:	0
+mem_read:	1
+br_dir:		0
+br_target:	0
+
+--------------------------------------------
+cycle count : 18 retired_instruction : 27
+ IF:  ID:  EX:  MA:
+     34      32      30      28
+     35      33      31      29
+
+OP_id:		34
+inst_addr: 	5080330
+op_type: 	0
+dest:		255
+dest_needed:	0
+src1_reg:	255
+src2_reg:	255
+src1_needed:	0
+src2_needed:	0
+cc_read:	0
+cc_write:	1
+mem_addr:	0
+mem_write:	0
+mem_read:	0
+br_dir:		0
+br_target:	0
+
+OP_id:		32
+inst_addr: 	5080324
+op_type: 	4
+dest:		255
+dest_needed:	0
+src1_reg:	255
+src2_reg:	255
+src1_needed:	0
+src2_needed:	0
+cc_read:	0
+cc_write:	0
+mem_addr:	0
+mem_write:	0
+mem_read:	0
+br_dir:		0
+br_target:	0
+
+OP_id:		30
+inst_addr: 	5080317
+op_type: 	3
+dest:		255
+dest_needed:	0
+src1_reg:	255
+src2_reg:	255
+src1_needed:	0
+src2_needed:	0
+cc_read:	1
+cc_write:	0
+mem_addr:	0
+mem_write:	0
+mem_read:	0
+br_dir:		1
+br_target:	5080310
+
+OP_id:		28
+inst_addr: 	5080310
+op_type: 	1
+dest:		13
+dest_needed:	1
+src1_reg:	255
+src2_reg:	255
+src1_needed:	0
+src2_needed:	0
+cc_read:	0
+cc_write:	1
+mem_addr:	413976712
+mem_write:	0
+mem_read:	1
+br_dir:		0
+br_target:	0
+
+OP_id:		35
+inst_addr: 	5080334
+op_type: 	3
+dest:		255
+dest_needed:	0
+src1_reg:	255
+src2_reg:	255
+src1_needed:	0
+src2_needed:	0
+cc_read:	1
+cc_write:	0
+mem_addr:	0
+mem_write:	0
+mem_read:	0
+br_dir:		1
+br_target:	5080320
+
+OP_id:		33
+inst_addr: 	5080327
+op_type: 	4
+dest:		255
+dest_needed:	0
+src1_reg:	255
+src2_reg:	255
+src1_needed:	0
+src2_needed:	0
+cc_read:	0
+cc_write:	0
+mem_addr:	0
+mem_write:	0
+mem_read:	0
+br_dir:		0
+br_target:	0
+
+OP_id:		31
+inst_addr: 	5080324
+op_type: 	4
+dest:		255
+dest_needed:	0
+src1_reg:	255
+src2_reg:	255
+src1_needed:	0
+src2_needed:	0
+cc_read:	0
+cc_write:	0
+mem_addr:	0
+mem_write:	0
+mem_read:	0
+br_dir:		0
+br_target:	0
+
+OP_id:		29
+inst_addr: 	5080314
+op_type: 	4
+dest:		255
+dest_needed:	0
+src1_reg:	255
+src2_reg:	255
+src1_needed:	0
+src2_needed:	0
+cc_read:	0
+cc_write:	0
+mem_addr:	0
+mem_write:	0
+mem_read:	0
+br_dir:		0
+br_target:	0
+
+[C]35<--34
+--------------------------------------------
+cycle count : 19 retired_instruction : 29
+ IF:  ID:  EX:  MA:
+     36      34      32      30
+     35  ------      33      31
+
+OP_id:		36
+inst_addr: 	5080336
+op_type: 	0
+dest:		255
+dest_needed:	0
+src1_reg:	255
+src2_reg:	255
+src1_needed:	0
+src2_needed:	0
+cc_read:	0
+cc_write:	1
+mem_addr:	0
+mem_write:	0
+mem_read:	0
+br_dir:		0
+br_target:	0
+
+OP_id:		34
+inst_addr: 	5080330
+op_type: 	0
+dest:		255
+dest_needed:	0
+src1_reg:	255
+src2_reg:	255
+src1_needed:	0
+src2_needed:	0
+cc_read:	0
+cc_write:	1
+mem_addr:	0
+mem_write:	0
+mem_read:	0
+br_dir:		0
+br_target:	0
+
+OP_id:		32
+inst_addr: 	5080324
+op_type: 	4
+dest:		255
+dest_needed:	0
+src1_reg:	255
+src2_reg:	255
+src1_needed:	0
+src2_needed:	0
+cc_read:	0
+cc_write:	0
+mem_addr:	0
+mem_write:	0
+mem_read:	0
+br_dir:		0
+br_target:	0
+
+OP_id:		30
+inst_addr: 	5080317
+op_type: 	3
+dest:		255
+dest_needed:	0
+src1_reg:	255
+src2_reg:	255
+src1_needed:	0
+src2_needed:	0
+cc_read:	1
+cc_write:	0
+mem_addr:	0
+mem_write:	0
+mem_read:	0
+br_dir:		1
+br_target:	5080310
+
+OP_id:		35
+inst_addr: 	5080334
+op_type: 	3
+dest:		255
+dest_needed:	0
+src1_reg:	255
+src2_reg:	255
+src1_needed:	0
+src2_needed:	0
+cc_read:	1
+cc_write:	0
+mem_addr:	0
+mem_write:	0
+mem_read:	0
+br_dir:		1
+br_target:	5080320
+
+OP_id:		33
+inst_addr: 	5080327
+op_type: 	4
+dest:		255
+dest_needed:	0
+src1_reg:	255
+src2_reg:	255
+src1_needed:	0
+src2_needed:	0
+cc_read:	0
+cc_write:	0
+mem_addr:	0
+mem_write:	0
+mem_read:	0
+br_dir:		0
+br_target:	0
+
+OP_id:		33
+inst_addr: 	5080327
+op_type: 	4
+dest:		255
+dest_needed:	0
+src1_reg:	255
+src2_reg:	255
+src1_needed:	0
+src2_needed:	0
+cc_read:	0
+cc_write:	0
+mem_addr:	0
+mem_write:	0
+mem_read:	0
+br_dir:		0
+br_target:	0
+
+OP_id:		31
+inst_addr: 	5080324
+op_type: 	4
+dest:		255
+dest_needed:	0
+src1_reg:	255
+src2_reg:	255
+src1_needed:	0
+src2_needed:	0
+cc_read:	0
+cc_write:	0
+mem_addr:	0
+mem_write:	0
+mem_read:	0
+br_dir:		0
+br_target:	0
+
+--------------------------------------------
+cycle count : 20 retired_instruction : 31
+ IF:  ID:  EX:  MA:
+     37      36      34      32
+     38      35  ------      33
+
+OP_id:		37
+inst_addr: 	5080341
+op_type: 	3
+dest:		255
+dest_needed:	0
+src1_reg:	255
+src2_reg:	255
+src1_needed:	0
+src2_needed:	0
+cc_read:	1
+cc_write:	0
+mem_addr:	0
+mem_write:	0
+mem_read:	0
+br_dir:		1
+br_target:	5080320
+
+OP_id:		36
+inst_addr: 	5080336
+op_type: 	0
+dest:		255
+dest_needed:	0
+src1_reg:	255
+src2_reg:	255
+src1_needed:	0
+src2_needed:	0
+cc_read:	0
+cc_write:	1
+mem_addr:	0
+mem_write:	0
+mem_read:	0
+br_dir:		0
+br_target:	0
+
+OP_id:		34
+inst_addr: 	5080330
+op_type: 	0
+dest:		255
+dest_needed:	0
+src1_reg:	255
+src2_reg:	255
+src1_needed:	0
+src2_needed:	0
+cc_read:	0
+cc_write:	1
+mem_addr:	0
+mem_write:	0
+mem_read:	0
+br_dir:		0
+br_target:	0
+
+OP_id:		32
+inst_addr: 	5080324
+op_type: 	4
+dest:		255
+dest_needed:	0
+src1_reg:	255
+src2_reg:	255
+src1_needed:	0
+src2_needed:	0
+cc_read:	0
+cc_write:	0
+mem_addr:	0
+mem_write:	0
+mem_read:	0
+br_dir:		0
+br_target:	0
+
+OP_id:		38
+inst_addr: 	5080343
+op_type: 	0
+dest:		255
+dest_needed:	0
+src1_reg:	255
+src2_reg:	255
+src1_needed:	0
+src2_needed:	0
+cc_read:	0
+cc_write:	1
+mem_addr:	0
+mem_write:	0
+mem_read:	0
+br_dir:		0
+br_target:	0
+
+OP_id:		35
+inst_addr: 	5080334
+op_type: 	3
+dest:		255
+dest_needed:	0
+src1_reg:	255
+src2_reg:	255
+src1_needed:	0
+src2_needed:	0
+cc_read:	1
+cc_write:	0
+mem_addr:	0
+mem_write:	0
+mem_read:	0
+br_dir:		1
+br_target:	5080320
+
+OP_id:		33
+inst_addr: 	5080327
+op_type: 	4
+dest:		255
+dest_needed:	0
+src1_reg:	255
+src2_reg:	255
+src1_needed:	0
+src2_needed:	0
+cc_read:	0
+cc_write:	0
+mem_addr:	0
+mem_write:	0
+mem_read:	0
+br_dir:		0
+br_target:	0
+
+OP_id:		33
+inst_addr: 	5080327
+op_type: 	4
+dest:		255
+dest_needed:	0
+src1_reg:	255
+src2_reg:	255
+src1_needed:	0
+src2_needed:	0
+cc_read:	0
+cc_write:	0
+mem_addr:	0
+mem_write:	0
+mem_read:	0
+br_dir:		0
+br_target:	0
+
+--------------------------------------------
+cycle count : 21 retired_instruction : 33
+ IF:  ID:  EX:  MA:
+     39      37      36      34
+     40      38      35  ------
+
+OP_id:		39
+inst_addr: 	5080348
+op_type: 	3
+dest:		255
+dest_needed:	0
+src1_reg:	255
+src2_reg:	255
+src1_needed:	0
+src2_needed:	0
+cc_read:	1
+cc_write:	0
+mem_addr:	0
+mem_write:	0
+mem_read:	0
+br_dir:		1
+br_target:	5080320
+
+OP_id:		37
+inst_addr: 	5080341
+op_type: 	3
+dest:		255
+dest_needed:	0
+src1_reg:	255
+src2_reg:	255
+src1_needed:	0
+src2_needed:	0
+cc_read:	1
+cc_write:	0
+mem_addr:	0
+mem_write:	0
+mem_read:	0
+br_dir:		1
+br_target:	5080320
+
+OP_id:		36
+inst_addr: 	5080336
+op_type: 	0
+dest:		255
+dest_needed:	0
+src1_reg:	255
+src2_reg:	255
+src1_needed:	0
+src2_needed:	0
+cc_read:	0
+cc_write:	1
+mem_addr:	0
+mem_write:	0
+mem_read:	0
+br_dir:		0
+br_target:	0
+
+OP_id:		34
+inst_addr: 	5080330
+op_type: 	0
+dest:		255
+dest_needed:	0
+src1_reg:	255
+src2_reg:	255
+src1_needed:	0
+src2_needed:	0
+cc_read:	0
+cc_write:	1
+mem_addr:	0
+mem_write:	0
+mem_read:	0
+br_dir:		0
+br_target:	0
+
+OP_id:		40
+inst_addr: 	5080350
+op_type: 	4
+dest:		255
+dest_needed:	0
+src1_reg:	255
+src2_reg:	255
+src1_needed:	0
+src2_needed:	0
+cc_read:	0
+cc_write:	0
+mem_addr:	0
+mem_write:	0
+mem_read:	0
+br_dir:		0
+br_target:	0
+
+OP_id:		38
+inst_addr: 	5080343
+op_type: 	0
+dest:		255
+dest_needed:	0
+src1_reg:	255
+src2_reg:	255
+src1_needed:	0
+src2_needed:	0
+cc_read:	0
+cc_write:	1
+mem_addr:	0
+mem_write:	0
+mem_read:	0
+br_dir:		0
+br_target:	0
+
+OP_id:		35
+inst_addr: 	5080334
+op_type: 	3
+dest:		255
+dest_needed:	0
+src1_reg:	255
+src2_reg:	255
+src1_needed:	0
+src2_needed:	0
+cc_read:	1
+cc_write:	0
+mem_addr:	0
+mem_write:	0
+mem_read:	0
+br_dir:		1
+br_target:	5080320
+
+OP_id:		33
+inst_addr: 	5080327
+op_type: 	4
+dest:		255
+dest_needed:	0
+src1_reg:	255
+src2_reg:	255
+src1_needed:	0
+src2_needed:	0
+cc_read:	0
+cc_write:	0
+mem_addr:	0
+mem_write:	0
+mem_read:	0
+br_dir:		0
+br_target:	0
+
+--------------------------------------------
+cycle count : 22 retired_instruction : 34
+ IF:  ID:  EX:  MA:
+     41      39      37      36
+     42      40      38      35
+
+OP_id:		41
+inst_addr: 	5080350
+op_type: 	4
+dest:		255
+dest_needed:	0
+src1_reg:	255
+src2_reg:	255
+src1_needed:	0
+src2_needed:	0
+cc_read:	0
+cc_write:	0
+mem_addr:	0
+mem_write:	0
+mem_read:	0
+br_dir:		0
+br_target:	0
+
+OP_id:		39
+inst_addr: 	5080348
+op_type: 	3
+dest:		255
+dest_needed:	0
+src1_reg:	255
+src2_reg:	255
+src1_needed:	0
+src2_needed:	0
+cc_read:	1
+cc_write:	0
+mem_addr:	0
+mem_write:	0
+mem_read:	0
+br_dir:		1
+br_target:	5080320
+
+OP_id:		37
+inst_addr: 	5080341
+op_type: 	3
+dest:		255
+dest_needed:	0
+src1_reg:	255
+src2_reg:	255
+src1_needed:	0
+src2_needed:	0
+cc_read:	1
+cc_write:	0
+mem_addr:	0
+mem_write:	0
+mem_read:	0
+br_dir:		1
+br_target:	5080320
+
+OP_id:		36
+inst_addr: 	5080336
+op_type: 	0
+dest:		255
+dest_needed:	0
+src1_reg:	255
+src2_reg:	255
+src1_needed:	0
+src2_needed:	0
+cc_read:	0
+cc_write:	1
+mem_addr:	0
+mem_write:	0
+mem_read:	0
+br_dir:		0
+br_target:	0
+
+OP_id:		42
+inst_addr: 	5080354
+op_type: 	3
+dest:		255
+dest_needed:	0
+src1_reg:	255
+src2_reg:	255
+src1_needed:	0
+src2_needed:	0
+cc_read:	1
+cc_write:	0
+mem_addr:	0
+mem_write:	0
+mem_read:	0
+br_dir:		0
+br_target:	5080320
+
+OP_id:		40
+inst_addr: 	5080350
+op_type: 	4
+dest:		255
+dest_needed:	0
+src1_reg:	255
+src2_reg:	255
+src1_needed:	0
+src2_needed:	0
+cc_read:	0
+cc_write:	0
+mem_addr:	0
+mem_write:	0
+mem_read:	0
+br_dir:		0
+br_target:	0
+
+OP_id:		38
+inst_addr: 	5080343
+op_type: 	0
+dest:		255
+dest_needed:	0
+src1_reg:	255
+src2_reg:	255
+src1_needed:	0
+src2_needed:	0
+cc_read:	0
+cc_write:	1
+mem_addr:	0
+mem_write:	0
+mem_read:	0
+br_dir:		0
+br_target:	0
+
+OP_id:		35
+inst_addr: 	5080334
+op_type: 	3
+dest:		255
+dest_needed:	0
+src1_reg:	255
+src2_reg:	255
+src1_needed:	0
+src2_needed:	0
+cc_read:	1
+cc_write:	0
+mem_addr:	0
+mem_write:	0
+mem_read:	0
+br_dir:		1
+br_target:	5080320
+
+--------------------------------------------
+cycle count : 23 retired_instruction : 36
+ IF:  ID:  EX:  MA:
+     43      41      39      37
+     44      42      40      38
+
+OP_id:		43
+inst_addr: 	5080360
+op_type: 	0
+dest:		255
+dest_needed:	0
+src1_reg:	13
+src2_reg:	26
+src1_needed:	1
+src2_needed:	1
+cc_read:	0
+cc_write:	1
+mem_addr:	0
+mem_write:	0
+mem_read:	0
+br_dir:		0
+br_target:	0
+
+OP_id:		41
+inst_addr: 	5080350
+op_type: 	4
+dest:		255
+dest_needed:	0
+src1_reg:	255
+src2_reg:	255
+src1_needed:	0
+src2_needed:	0
+cc_read:	0
+cc_write:	0
+mem_addr:	0
+mem_write:	0
+mem_read:	0
+br_dir:		0
+br_target:	0
+
+OP_id:		39
+inst_addr: 	5080348
+op_type: 	3
+dest:		255
+dest_needed:	0
+src1_reg:	255
+src2_reg:	255
+src1_needed:	0
+src2_needed:	0
+cc_read:	1
+cc_write:	0
+mem_addr:	0
+mem_write:	0
+mem_read:	0
+br_dir:		1
+br_target:	5080320
+
+OP_id:		37
+inst_addr: 	5080341
+op_type: 	3
+dest:		255
+dest_needed:	0
+src1_reg:	255
+src2_reg:	255
+src1_needed:	0
+src2_needed:	0
+cc_read:	1
+cc_write:	0
+mem_addr:	0
+mem_write:	0
+mem_read:	0
+br_dir:		1
+br_target:	5080320
+
+OP_id:		44
+inst_addr: 	5080363
+op_type: 	4
+dest:		255
+dest_needed:	0
+src1_reg:	255
+src2_reg:	255
+src1_needed:	0
+src2_needed:	0
+cc_read:	0
+cc_write:	0
+mem_addr:	0
+mem_write:	0
+mem_read:	0
+br_dir:		0
+br_target:	0
+
+OP_id:		42
+inst_addr: 	5080354
+op_type: 	3
+dest:		255
+dest_needed:	0
+src1_reg:	255
+src2_reg:	255
+src1_needed:	0
+src2_needed:	0
+cc_read:	1
+cc_write:	0
+mem_addr:	0
+mem_write:	0
+mem_read:	0
+br_dir:		0
+br_target:	5080320
+
+OP_id:		40
+inst_addr: 	5080350
+op_type: 	4
+dest:		255
+dest_needed:	0
+src1_reg:	255
+src2_reg:	255
+src1_needed:	0
+src2_needed:	0
+cc_read:	0
+cc_write:	0
+mem_addr:	0
+mem_write:	0
+mem_read:	0
+br_dir:		0
+br_target:	0
+
+OP_id:		38
+inst_addr: 	5080343
+op_type: 	0
+dest:		255
+dest_needed:	0
+src1_reg:	255
+src2_reg:	255
+src1_needed:	0
+src2_needed:	0
+cc_read:	0
+cc_write:	1
+mem_addr:	0
+mem_write:	0
+mem_read:	0
+br_dir:		0
+br_target:	0
+
+--------------------------------------------
+cycle count : 24 retired_instruction : 38
+ IF:  ID:  EX:  MA:
+     45      43      41      39
+     46      44      42      40
+
+OP_id:		45
+inst_addr: 	5080368
+op_type: 	3
+dest:		255
+dest_needed:	0
+src1_reg:	255
+src2_reg:	255
+src1_needed:	0
+src2_needed:	0
+cc_read:	1
+cc_write:	0
+mem_addr:	0
+mem_write:	0
+mem_read:	0
+br_dir:		1
+br_target:	5080360
+
+OP_id:		43
+inst_addr: 	5080360
+op_type: 	0
+dest:		255
+dest_needed:	0
+src1_reg:	13
+src2_reg:	26
+src1_needed:	1
+src2_needed:	1
+cc_read:	0
+cc_write:	1
+mem_addr:	0
+mem_write:	0
+mem_read:	0
+br_dir:		0
+br_target:	0
+
+OP_id:		41
+inst_addr: 	5080350
+op_type: 	4
+dest:		255
+dest_needed:	0
+src1_reg:	255
+src2_reg:	255
+src1_needed:	0
+src2_needed:	0
+cc_read:	0
+cc_write:	0
+mem_addr:	0
+mem_write:	0
+mem_read:	0
+br_dir:		0
+br_target:	0
+
+OP_id:		39
+inst_addr: 	5080348
+op_type: 	3
+dest:		255
+dest_needed:	0
+src1_reg:	255
+src2_reg:	255
+src1_needed:	0
+src2_needed:	0
+cc_read:	1
+cc_write:	0
+mem_addr:	0
+mem_write:	0
+mem_read:	0
+br_dir:		1
+br_target:	5080320
+
+OP_id:		46
+inst_addr: 	5080370
+op_type: 	0
+dest:		255
+dest_needed:	0
+src1_reg:	18
+src2_reg:	26
+src1_needed:	1
+src2_needed:	1
+cc_read:	0
+cc_write:	1
+mem_addr:	0
+mem_write:	0
+mem_read:	0
+br_dir:		0
+br_target:	0
+
+OP_id:		44
+inst_addr: 	5080363
+op_type: 	4
+dest:		255
+dest_needed:	0
+src1_reg:	255
+src2_reg:	255
+src1_needed:	0
+src2_needed:	0
+cc_read:	0
+cc_write:	0
+mem_addr:	0
+mem_write:	0
+mem_read:	0
+br_dir:		0
+br_target:	0
+
+OP_id:		42
+inst_addr: 	5080354
+op_type: 	3
+dest:		255
+dest_needed:	0
+src1_reg:	255
+src2_reg:	255
+src1_needed:	0
+src2_needed:	0
+cc_read:	1
+cc_write:	0
+mem_addr:	0
+mem_write:	0
+mem_read:	0
+br_dir:		0
+br_target:	5080320
+
+OP_id:		40
+inst_addr: 	5080350
+op_type: 	4
+dest:		255
+dest_needed:	0
+src1_reg:	255
+src2_reg:	255
+src1_needed:	0
+src2_needed:	0
+cc_read:	0
+cc_write:	0
+mem_addr:	0
+mem_write:	0
+mem_read:	0
+br_dir:		0
+br_target:	0
+
+--------------------------------------------
+cycle count : 25 retired_instruction : 40
+ IF:  ID:  EX:  MA:
+     47      45      43      41
+     48      46      44      42
+
+OP_id:		47
+inst_addr: 	5080373
+op_type: 	3
+dest:		255
+dest_needed:	0
+src1_reg:	255
+src2_reg:	255
+src1_needed:	0
+src2_needed:	0
+cc_read:	1
+cc_write:	0
+mem_addr:	0
+mem_write:	0
+mem_read:	0
+br_dir:		1
+br_target:	5080360
+
+OP_id:		45
+inst_addr: 	5080368
+op_type: 	3
+dest:		255
+dest_needed:	0
+src1_reg:	255
+src2_reg:	255
+src1_needed:	0
+src2_needed:	0
+cc_read:	1
+cc_write:	0
+mem_addr:	0
+mem_write:	0
+mem_read:	0
+br_dir:		1
+br_target:	5080360
+
+OP_id:		43
+inst_addr: 	5080360
+op_type: 	0
+dest:		255
+dest_needed:	0
+src1_reg:	13
+src2_reg:	26
+src1_needed:	1
+src2_needed:	1
+cc_read:	0
+cc_write:	1
+mem_addr:	0
+mem_write:	0
+mem_read:	0
+br_dir:		0
+br_target:	0
+
+OP_id:		41
+inst_addr: 	5080350
+op_type: 	4
+dest:		255
+dest_needed:	0
+src1_reg:	255
+src2_reg:	255
+src1_needed:	0
+src2_needed:	0
+cc_read:	0
+cc_write:	0
+mem_addr:	0
+mem_write:	0
+mem_read:	0
+br_dir:		0
+br_target:	0
+
+OP_id:		48
+inst_addr: 	5080583
+op_type: 	4
+dest:		255
+dest_needed:	0
+src1_reg:	255
+src2_reg:	255
+src1_needed:	0
+src2_needed:	0
+cc_read:	0
+cc_write:	0
+mem_addr:	0
+mem_write:	0
+mem_read:	0
+br_dir:		0
+br_target:	0
+
+OP_id:		46
+inst_addr: 	5080370
+op_type: 	0
+dest:		255
+dest_needed:	0
+src1_reg:	18
+src2_reg:	26
+src1_needed:	1
+src2_needed:	1
+cc_read:	0
+cc_write:	1
+mem_addr:	0
+mem_write:	0
+mem_read:	0
+br_dir:		0
+br_target:	0
+
+OP_id:		44
+inst_addr: 	5080363
+op_type: 	4
+dest:		255
+dest_needed:	0
+src1_reg:	255
+src2_reg:	255
+src1_needed:	0
+src2_needed:	0
+cc_read:	0
+cc_write:	0
+mem_addr:	0
+mem_write:	0
+mem_read:	0
+br_dir:		0
+br_target:	0
+
+OP_id:		42
+inst_addr: 	5080354
+op_type: 	3
+dest:		255
+dest_needed:	0
+src1_reg:	255
+src2_reg:	255
+src1_needed:	0
+src2_needed:	0
+cc_read:	1
+cc_write:	0
+mem_addr:	0
+mem_write:	0
+mem_read:	0
+br_dir:		0
+br_target:	5080320
+
+--------------------------------------------
+cycle count : 26 retired_instruction : 42
+ IF:  ID:  EX:  MA:
+     49      47      45      43
+     50      48      46      44
+
+OP_id:		49
+inst_addr: 	5080586
+op_type: 	1
+dest:		17
+dest_needed:	1
+src1_reg:	255
+src2_reg:	255
+src1_needed:	0
+src2_needed:	0
+cc_read:	0
+cc_write:	1
+mem_addr:	6673800
+mem_write:	0
+mem_read:	1
+br_dir:		0
+br_target:	0
+
+OP_id:		47
+inst_addr: 	5080373
+op_type: 	3
+dest:		255
+dest_needed:	0
+src1_reg:	255
+src2_reg:	255
+src1_needed:	0
+src2_needed:	0
+cc_read:	1
+cc_write:	0
+mem_addr:	0
+mem_write:	0
+mem_read:	0
+br_dir:		1
+br_target:	5080360
+
+OP_id:		45
+inst_addr: 	5080368
+op_type: 	3
+dest:		255
+dest_needed:	0
+src1_reg:	255
+src2_reg:	255
+src1_needed:	0
+src2_needed:	0
+cc_read:	1
+cc_write:	0
+mem_addr:	0
+mem_write:	0
+mem_read:	0
+br_dir:		1
+br_target:	5080360
+
+OP_id:		43
+inst_addr: 	5080360
+op_type: 	0
+dest:		255
+dest_needed:	0
+src1_reg:	13
+src2_reg:	26
+src1_needed:	1
+src2_needed:	1
+cc_read:	0
+cc_write:	1
+mem_addr:	0
+mem_write:	0
+mem_read:	0
+br_dir:		0
+br_target:	0
+
+OP_id:		50
+inst_addr: 	5080586
+op_type: 	1
+dest:		17
+dest_needed:	1
+src1_reg:	255
+src2_reg:	255
+src1_needed:	0
+src2_needed:	0
+cc_read:	0
+cc_write:	1
+mem_addr:	6673800
+mem_write:	0
+mem_read:	1
+br_dir:		0
+br_target:	0
+
+OP_id:		48
+inst_addr: 	5080583
+op_type: 	4
+dest:		255
+dest_needed:	0
+src1_reg:	255
+src2_reg:	255
+src1_needed:	0
+src2_needed:	0
+cc_read:	0
+cc_write:	0
+mem_addr:	0
+mem_write:	0
+mem_read:	0
+br_dir:		0
+br_target:	0
+
+OP_id:		46
+inst_addr: 	5080370
+op_type: 	0
+dest:		255
+dest_needed:	0
+src1_reg:	18
+src2_reg:	26
+src1_needed:	1
+src2_needed:	1
+cc_read:	0
+cc_write:	1
+mem_addr:	0
+mem_write:	0
+mem_read:	0
+br_dir:		0
+br_target:	0
+
+OP_id:		44
+inst_addr: 	5080363
+op_type: 	4
+dest:		255
+dest_needed:	0
+src1_reg:	255
+src2_reg:	255
+src1_needed:	0
+src2_needed:	0
+cc_read:	0
+cc_write:	0
+mem_addr:	0
+mem_write:	0
+mem_read:	0
+br_dir:		0
+br_target:	0
+
+--------------------------------------------
+cycle count : 27 retired_instruction : 44
+ IF:  ID:  EX:  MA:
+     51      49      47      45
+     52      50      48      46
+
+OP_id:		51
+inst_addr: 	5080594
+op_type: 	4
+dest:		255
+dest_needed:	0
+src1_reg:	255
+src2_reg:	255
+src1_needed:	0
+src2_needed:	0
+cc_read:	0
+cc_write:	0
+mem_addr:	0
+mem_write:	0
+mem_read:	0
+br_dir:		0
+br_target:	0
+
+OP_id:		49
+inst_addr: 	5080586
+op_type: 	1
+dest:		17
+dest_needed:	1
+src1_reg:	255
+src2_reg:	255
+src1_needed:	0
+src2_needed:	0
+cc_read:	0
+cc_write:	1
+mem_addr:	6673800
+mem_write:	0
+mem_read:	1
+br_dir:		0
+br_target:	0
+
+OP_id:		47
+inst_addr: 	5080373
+op_type: 	3
+dest:		255
+dest_needed:	0
+src1_reg:	255
+src2_reg:	255
+src1_needed:	0
+src2_needed:	0
+cc_read:	1
+cc_write:	0
+mem_addr:	0
+mem_write:	0
+mem_read:	0
+br_dir:		1
+br_target:	5080360
+
+OP_id:		45
+inst_addr: 	5080368
+op_type: 	3
+dest:		255
+dest_needed:	0
+src1_reg:	255
+src2_reg:	255
+src1_needed:	0
+src2_needed:	0
+cc_read:	1
+cc_write:	0
+mem_addr:	0
+mem_write:	0
+mem_read:	0
+br_dir:		1
+br_target:	5080360
+
+OP_id:		52
+inst_addr: 	5080594
+op_type: 	4
+dest:		255
+dest_needed:	0
+src1_reg:	255
+src2_reg:	255
+src1_needed:	0
+src2_needed:	0
+cc_read:	0
+cc_write:	0
+mem_addr:	0
+mem_write:	0
+mem_read:	0
+br_dir:		0
+br_target:	0
+
+OP_id:		50
+inst_addr: 	5080586
+op_type: 	1
+dest:		17
+dest_needed:	1
+src1_reg:	255
+src2_reg:	255
+src1_needed:	0
+src2_needed:	0
+cc_read:	0
+cc_write:	1
+mem_addr:	6673800
+mem_write:	0
+mem_read:	1
+br_dir:		0
+br_target:	0
+
+OP_id:		48
+inst_addr: 	5080583
+op_type: 	4
+dest:		255
+dest_needed:	0
+src1_reg:	255
+src2_reg:	255
+src1_needed:	0
+src2_needed:	0
+cc_read:	0
+cc_write:	0
+mem_addr:	0
+mem_write:	0
+mem_read:	0
+br_dir:		0
+br_target:	0
+
+OP_id:		46
+inst_addr: 	5080370
+op_type: 	0
+dest:		255
+dest_needed:	0
+src1_reg:	18
+src2_reg:	26
+src1_needed:	1
+src2_needed:	1
+cc_read:	0
+cc_write:	1
+mem_addr:	0
+mem_write:	0
+mem_read:	0
+br_dir:		0
+br_target:	0
+
+--------------------------------------------
+cycle count : 28 retired_instruction : 46
+ IF:  ID:  EX:  MA:
+     53      51      49      47
+     54      52      50      48
+
+OP_id:		53
+inst_addr: 	5080601
+op_type: 	4
+dest:		255
+dest_needed:	0
+src1_reg:	255
+src2_reg:	255
+src1_needed:	0
+src2_needed:	0
+cc_read:	0
+cc_write:	0
+mem_addr:	0
+mem_write:	0
+mem_read:	0
+br_dir:		0
+br_target:	0
+
+OP_id:		51
+inst_addr: 	5080594
+op_type: 	4
+dest:		255
+dest_needed:	0
+src1_reg:	255
+src2_reg:	255
+src1_needed:	0
+src2_needed:	0
+cc_read:	0
+cc_write:	0
+mem_addr:	0
+mem_write:	0
+mem_read:	0
+br_dir:		0
+br_target:	0
+
+OP_id:		49
+inst_addr: 	5080586
+op_type: 	1
+dest:		17
+dest_needed:	1
+src1_reg:	255
+src2_reg:	255
+src1_needed:	0
+src2_needed:	0
+cc_read:	0
+cc_write:	1
+mem_addr:	6673800
+mem_write:	0
+mem_read:	1
+br_dir:		0
+br_target:	0
+
+OP_id:		47
+inst_addr: 	5080373
+op_type: 	3
+dest:		255
+dest_needed:	0
+src1_reg:	255
+src2_reg:	255
+src1_needed:	0
+src2_needed:	0
+cc_read:	1
+cc_write:	0
+mem_addr:	0
+mem_write:	0
+mem_read:	0
+br_dir:		1
+br_target:	5080360
+
+OP_id:		54
+inst_addr: 	5080603
+op_type: 	0
+dest:		255
+dest_needed:	0
+src1_reg:	255
+src2_reg:	255
+src1_needed:	0
+src2_needed:	0
+cc_read:	0
+cc_write:	1
+mem_addr:	0
+mem_write:	0
+mem_read:	0
+br_dir:		0
+br_target:	0
+
+OP_id:		52
+inst_addr: 	5080594
+op_type: 	4
+dest:		255
+dest_needed:	0
+src1_reg:	255
+src2_reg:	255
+src1_needed:	0
+src2_needed:	0
+cc_read:	0
+cc_write:	0
+mem_addr:	0
+mem_write:	0
+mem_read:	0
+br_dir:		0
+br_target:	0
+
+OP_id:		50
+inst_addr: 	5080586
+op_type: 	1
+dest:		17
+dest_needed:	1
+src1_reg:	255
+src2_reg:	255
+src1_needed:	0
+src2_needed:	0
+cc_read:	0
+cc_write:	1
+mem_addr:	6673800
+mem_write:	0
+mem_read:	1
+br_dir:		0
+br_target:	0
+
+OP_id:		48
+inst_addr: 	5080583
+op_type: 	4
+dest:		255
+dest_needed:	0
+src1_reg:	255
+src2_reg:	255
+src1_needed:	0
+src2_needed:	0
+cc_read:	0
+cc_write:	0
+mem_addr:	0
+mem_write:	0
+mem_read:	0
+br_dir:		0
+br_target:	0
+
+--------------------------------------------
+cycle count : 29 retired_instruction : 48
+ IF:  ID:  EX:  MA:
+     55      53      51      49
+     56      54      52      50
+
+OP_id:		55
+inst_addr: 	5080606
+op_type: 	3
+dest:		255
+dest_needed:	0
+src1_reg:	255
+src2_reg:	255
+src1_needed:	0
+src2_needed:	0
+cc_read:	1
+cc_write:	0
+mem_addr:	0
+mem_write:	0
+mem_read:	0
+br_dir:		0
+br_target:	5080583
+
+OP_id:		53
+inst_addr: 	5080601
+op_type: 	4
+dest:		255
+dest_needed:	0
+src1_reg:	255
+src2_reg:	255
+src1_needed:	0
+src2_needed:	0
+cc_read:	0
+cc_write:	0
+mem_addr:	0
+mem_write:	0
+mem_read:	0
+br_dir:		0
+br_target:	0
+
+OP_id:		51
+inst_addr: 	5080594
+op_type: 	4
+dest:		255
+dest_needed:	0
+src1_reg:	255
+src2_reg:	255
+src1_needed:	0
+src2_needed:	0
+cc_read:	0
+cc_write:	0
+mem_addr:	0
+mem_write:	0
+mem_read:	0
+br_dir:		0
+br_target:	0
+
+OP_id:		49
+inst_addr: 	5080586
+op_type: 	1
+dest:		17
+dest_needed:	1
+src1_reg:	255
+src2_reg:	255
+src1_needed:	0
+src2_needed:	0
+cc_read:	0
+cc_write:	1
+mem_addr:	6673800
+mem_write:	0
+mem_read:	1
+br_dir:		0
+br_target:	0
+
+OP_id:		56
+inst_addr: 	5080612
+op_type: 	4
+dest:		255
+dest_needed:	0
+src1_reg:	255
+src2_reg:	255
+src1_needed:	0
+src2_needed:	0
+cc_read:	0
+cc_write:	0
+mem_addr:	0
+mem_write:	0
+mem_read:	0
+br_dir:		0
+br_target:	0
+
+OP_id:		54
+inst_addr: 	5080603
+op_type: 	0
+dest:		255
+dest_needed:	0
+src1_reg:	255
+src2_reg:	255
+src1_needed:	0
+src2_needed:	0
+cc_read:	0
+cc_write:	1
+mem_addr:	0
+mem_write:	0
+mem_read:	0
+br_dir:		0
+br_target:	0
+
+OP_id:		52
+inst_addr: 	5080594
+op_type: 	4
+dest:		255
+dest_needed:	0
+src1_reg:	255
+src2_reg:	255
+src1_needed:	0
+src2_needed:	0
+cc_read:	0
+cc_write:	0
+mem_addr:	0
+mem_write:	0
+mem_read:	0
+br_dir:		0
+br_target:	0
+
+OP_id:		50
+inst_addr: 	5080586
+op_type: 	1
+dest:		17
+dest_needed:	1
+src1_reg:	255
+src2_reg:	255
+src1_needed:	0
+src2_needed:	0
+cc_read:	0
+cc_write:	1
+mem_addr:	6673800
+mem_write:	0
+mem_read:	1
+br_dir:		0
+br_target:	0
+
+--------------------------------------------
+cycle count : 30 retired_instruction : 50
+ IF:  ID:  EX:  MA:
+     57      55      53      51
+     58      56      54      52
+
+OP_id:		57
+inst_addr: 	5080615
+op_type: 	4
+dest:		255
+dest_needed:	0
+src1_reg:	255
+src2_reg:	255
+src1_needed:	0
+src2_needed:	0
+cc_read:	0
+cc_write:	0
+mem_addr:	0
+mem_write:	0
+mem_read:	0
+br_dir:		0
+br_target:	0
+
+OP_id:		55
+inst_addr: 	5080606
+op_type: 	3
+dest:		255
+dest_needed:	0
+src1_reg:	255
+src2_reg:	255
+src1_needed:	0
+src2_needed:	0
+cc_read:	1
+cc_write:	0
+mem_addr:	0
+mem_write:	0
+mem_read:	0
+br_dir:		0
+br_target:	5080583
+
+OP_id:		53
+inst_addr: 	5080601
+op_type: 	4
+dest:		255
+dest_needed:	0
+src1_reg:	255
+src2_reg:	255
+src1_needed:	0
+src2_needed:	0
+cc_read:	0
+cc_write:	0
+mem_addr:	0
+mem_write:	0
+mem_read:	0
+br_dir:		0
+br_target:	0
+
+OP_id:		51
+inst_addr: 	5080594
+op_type: 	4
+dest:		255
+dest_needed:	0
+src1_reg:	255
+src2_reg:	255
+src1_needed:	0
+src2_needed:	0
+cc_read:	0
+cc_write:	0
+mem_addr:	0
+mem_write:	0
+mem_read:	0
+br_dir:		0
+br_target:	0
+
+OP_id:		58
+inst_addr: 	5080619
+op_type: 	3
+dest:		255
+dest_needed:	0
+src1_reg:	255
+src2_reg:	255
+src1_needed:	0
+src2_needed:	0
+cc_read:	1
+cc_write:	0
+mem_addr:	0
+mem_write:	0
+mem_read:	0
+br_dir:		0
+br_target:	5080583
+
+OP_id:		56
+inst_addr: 	5080612
+op_type: 	4
+dest:		255
+dest_needed:	0
+src1_reg:	255
+src2_reg:	255
+src1_needed:	0
+src2_needed:	0
+cc_read:	0
+cc_write:	0
+mem_addr:	0
+mem_write:	0
+mem_read:	0
+br_dir:		0
+br_target:	0
+
+OP_id:		54
+inst_addr: 	5080603
+op_type: 	0
+dest:		255
+dest_needed:	0
+src1_reg:	255
+src2_reg:	255
+src1_needed:	0
+src2_needed:	0
+cc_read:	0
+cc_write:	1
+mem_addr:	0
+mem_write:	0
+mem_read:	0
+br_dir:		0
+br_target:	0
+
+OP_id:		52
+inst_addr: 	5080594
+op_type: 	4
+dest:		255
+dest_needed:	0
+src1_reg:	255
+src2_reg:	255
+src1_needed:	0
+src2_needed:	0
+cc_read:	0
+cc_write:	0
+mem_addr:	0
+mem_write:	0
+mem_read:	0
+br_dir:		0
+br_target:	0
+
+--------------------------------------------
+cycle count : 31 retired_instruction : 52
+ IF:  ID:  EX:  MA:
+     59      57      55      53
+     60      58      56      54
+
+OP_id:		59
+inst_addr: 	5080640
+op_type: 	4
+dest:		255
+dest_needed:	0
+src1_reg:	255
+src2_reg:	255
+src1_needed:	0
+src2_needed:	0
+cc_read:	0
+cc_write:	0
+mem_addr:	0
+mem_write:	0
+mem_read:	0
+br_dir:		0
+br_target:	0
+
+OP_id:		57
+inst_addr: 	5080615
+op_type: 	4
+dest:		255
+dest_needed:	0
+src1_reg:	255
+src2_reg:	255
+src1_needed:	0
+src2_needed:	0
+cc_read:	0
+cc_write:	0
+mem_addr:	0
+mem_write:	0
+mem_read:	0
+br_dir:		0
+br_target:	0
+
+OP_id:		55
+inst_addr: 	5080606
+op_type: 	3
+dest:		255
+dest_needed:	0
+src1_reg:	255
+src2_reg:	255
+src1_needed:	0
+src2_needed:	0
+cc_read:	1
+cc_write:	0
+mem_addr:	0
+mem_write:	0
+mem_read:	0
+br_dir:		0
+br_target:	5080583
+
+OP_id:		53
+inst_addr: 	5080601
+op_type: 	4
+dest:		255
+dest_needed:	0
+src1_reg:	255
+src2_reg:	255
+src1_needed:	0
+src2_needed:	0
+cc_read:	0
+cc_write:	0
+mem_addr:	0
+mem_write:	0
+mem_read:	0
+br_dir:		0
+br_target:	0
+
+OP_id:		60
+inst_addr: 	5080640
+op_type: 	4
+dest:		255
+dest_needed:	0
+src1_reg:	255
+src2_reg:	255
+src1_needed:	0
+src2_needed:	0
+cc_read:	0
+cc_write:	0
+mem_addr:	0
+mem_write:	0
+mem_read:	0
+br_dir:		0
+br_target:	0
+
+OP_id:		58
+inst_addr: 	5080619
+op_type: 	3
+dest:		255
+dest_needed:	0
+src1_reg:	255
+src2_reg:	255
+src1_needed:	0
+src2_needed:	0
+cc_read:	1
+cc_write:	0
+mem_addr:	0
+mem_write:	0
+mem_read:	0
+br_dir:		0
+br_target:	5080583
+
+OP_id:		56
+inst_addr: 	5080612
+op_type: 	4
+dest:		255
+dest_needed:	0
+src1_reg:	255
+src2_reg:	255
+src1_needed:	0
+src2_needed:	0
+cc_read:	0
+cc_write:	0
+mem_addr:	0
+mem_write:	0
+mem_read:	0
+br_dir:		0
+br_target:	0
+
+OP_id:		54
+inst_addr: 	5080603
+op_type: 	0
+dest:		255
+dest_needed:	0
+src1_reg:	255
+src2_reg:	255
+src1_needed:	0
+src2_needed:	0
+cc_read:	0
+cc_write:	1
+mem_addr:	0
+mem_write:	0
+mem_read:	0
+br_dir:		0
+br_target:	0
+
+--------------------------------------------
+cycle count : 32 retired_instruction : 54
+ IF:  ID:  EX:  MA:
+     61      59      57      55
+     62      60      58      56
+
+OP_id:		61
+inst_addr: 	5080645
+op_type: 	0
+dest:		255
+dest_needed:	0
+src1_reg:	255
+src2_reg:	255
+src1_needed:	0
+src2_needed:	0
+cc_read:	0
+cc_write:	1
+mem_addr:	0
+mem_write:	0
+mem_read:	0
+br_dir:		0
+br_target:	0
+
+OP_id:		59
+inst_addr: 	5080640
+op_type: 	4
+dest:		255
+dest_needed:	0
+src1_reg:	255
+src2_reg:	255
+src1_needed:	0
+src2_needed:	0
+cc_read:	0
+cc_write:	0
+mem_addr:	0
+mem_write:	0
+mem_read:	0
+br_dir:		0
+br_target:	0
+
+OP_id:		57
+inst_addr: 	5080615
+op_type: 	4
+dest:		255
+dest_needed:	0
+src1_reg:	255
+src2_reg:	255
+src1_needed:	0
+src2_needed:	0
+cc_read:	0
+cc_write:	0
+mem_addr:	0
+mem_write:	0
+mem_read:	0
+br_dir:		0
+br_target:	0
+
+OP_id:		55
+inst_addr: 	5080606
+op_type: 	3
+dest:		255
+dest_needed:	0
+src1_reg:	255
+src2_reg:	255
+src1_needed:	0
+src2_needed:	0
+cc_read:	1
+cc_write:	0
+mem_addr:	0
+mem_write:	0
+mem_read:	0
+br_dir:		0
+br_target:	5080583
+
+OP_id:		62
+inst_addr: 	5080647
+op_type: 	3
+dest:		255
+dest_needed:	0
+src1_reg:	255
+src2_reg:	255
+src1_needed:	0
+src2_needed:	0
+cc_read:	1
+cc_write:	0
+mem_addr:	0
+mem_write:	0
+mem_read:	0
+br_dir:		1
+br_target:	5080624
+
+OP_id:		60
+inst_addr: 	5080640
+op_type: 	4
+dest:		255
+dest_needed:	0
+src1_reg:	255
+src2_reg:	255
+src1_needed:	0
+src2_needed:	0
+cc_read:	0
+cc_write:	0
+mem_addr:	0
+mem_write:	0
+mem_read:	0
+br_dir:		0
+br_target:	0
+
+OP_id:		58
+inst_addr: 	5080619
+op_type: 	3
+dest:		255
+dest_needed:	0
+src1_reg:	255
+src2_reg:	255
+src1_needed:	0
+src2_needed:	0
+cc_read:	1
+cc_write:	0
+mem_addr:	0
+mem_write:	0
+mem_read:	0
+br_dir:		0
+br_target:	5080583
+
+OP_id:		56
+inst_addr: 	5080612
+op_type: 	4
+dest:		255
+dest_needed:	0
+src1_reg:	255
+src2_reg:	255
+src1_needed:	0
+src2_needed:	0
+cc_read:	0
+cc_write:	0
+mem_addr:	0
+mem_write:	0
+mem_read:	0
+br_dir:		0
+br_target:	0
+
+[C]62<--61
+--------------------------------------------
+cycle count : 33 retired_instruction : 56
+ IF:  ID:  EX:  MA:
+     63      61      59      57
+     62  ------      60      58
+
+OP_id:		63
+inst_addr: 	5080721
+op_type: 	4
+dest:		255
+dest_needed:	0
+src1_reg:	255
+src2_reg:	255
+src1_needed:	0
+src2_needed:	0
+cc_read:	0
+cc_write:	0
+mem_addr:	0
+mem_write:	0
+mem_read:	0
+br_dir:		0
+br_target:	0
+
+OP_id:		61
+inst_addr: 	5080645
+op_type: 	0
+dest:		255
+dest_needed:	0
+src1_reg:	255
+src2_reg:	255
+src1_needed:	0
+src2_needed:	0
+cc_read:	0
+cc_write:	1
+mem_addr:	0
+mem_write:	0
+mem_read:	0
+br_dir:		0
+br_target:	0
+
+OP_id:		59
+inst_addr: 	5080640
+op_type: 	4
+dest:		255
+dest_needed:	0
+src1_reg:	255
+src2_reg:	255
+src1_needed:	0
+src2_needed:	0
+cc_read:	0
+cc_write:	0
+mem_addr:	0
+mem_write:	0
+mem_read:	0
+br_dir:		0
+br_target:	0
+
+OP_id:		57
+inst_addr: 	5080615
+op_type: 	4
+dest:		255
+dest_needed:	0
+src1_reg:	255
+src2_reg:	255
+src1_needed:	0
+src2_needed:	0
+cc_read:	0
+cc_write:	0
+mem_addr:	0
+mem_write:	0
+mem_read:	0
+br_dir:		0
+br_target:	0
+
+OP_id:		62
+inst_addr: 	5080647
+op_type: 	3
+dest:		255
+dest_needed:	0
+src1_reg:	255
+src2_reg:	255
+src1_needed:	0
+src2_needed:	0
+cc_read:	1
+cc_write:	0
+mem_addr:	0
+mem_write:	0
+mem_read:	0
+br_dir:		1
+br_target:	5080624
+
+OP_id:		60
+inst_addr: 	5080640
+op_type: 	4
+dest:		255
+dest_needed:	0
+src1_reg:	255
+src2_reg:	255
+src1_needed:	0
+src2_needed:	0
+cc_read:	0
+cc_write:	0
+mem_addr:	0
+mem_write:	0
+mem_read:	0
+br_dir:		0
+br_target:	0
+
+OP_id:		60
+inst_addr: 	5080640
+op_type: 	4
+dest:		255
+dest_needed:	0
+src1_reg:	255
+src2_reg:	255
+src1_needed:	0
+src2_needed:	0
+cc_read:	0
+cc_write:	0
+mem_addr:	0
+mem_write:	0
+mem_read:	0
+br_dir:		0
+br_target:	0
+
+OP_id:		58
+inst_addr: 	5080619
+op_type: 	3
+dest:		255
+dest_needed:	0
+src1_reg:	255
+src2_reg:	255
+src1_needed:	0
+src2_needed:	0
+cc_read:	1
+cc_write:	0
+mem_addr:	0
+mem_write:	0
+mem_read:	0
+br_dir:		0
+br_target:	5080583
+
+--------------------------------------------
+cycle count : 34 retired_instruction : 58
+ IF:  ID:  EX:  MA:
+     64      63      61      59
+     65      62  ------      60
+
+OP_id:		64
+inst_addr: 	5080724
+op_type: 	1
+dest:		21
+dest_needed:	1
+src1_reg:	255
+src2_reg:	255
+src1_needed:	0
+src2_needed:	0
+cc_read:	0
+cc_write:	1
+mem_addr:	7209322
+mem_write:	0
+mem_read:	1
+br_dir:		0
+br_target:	0
+
+OP_id:		63
+inst_addr: 	5080721
+op_type: 	4
+dest:		255
+dest_needed:	0
+src1_reg:	255
+src2_reg:	255
+src1_needed:	0
+src2_needed:	0
+cc_read:	0
+cc_write:	0
+mem_addr:	0
+mem_write:	0
+mem_read:	0
+br_dir:		0
+br_target:	0
+
+OP_id:		61
+inst_addr: 	5080645
+op_type: 	0
+dest:		255
+dest_needed:	0
+src1_reg:	255
+src2_reg:	255
+src1_needed:	0
+src2_needed:	0
+cc_read:	0
+cc_write:	1
+mem_addr:	0
+mem_write:	0
+mem_read:	0
+br_dir:		0
+br_target:	0
+
+OP_id:		59
+inst_addr: 	5080640
+op_type: 	4
+dest:		255
+dest_needed:	0
+src1_reg:	255
+src2_reg:	255
+src1_needed:	0
+src2_needed:	0
+cc_read:	0
+cc_write:	0
+mem_addr:	0
+mem_write:	0
+mem_read:	0
+br_dir:		0
+br_target:	0
+
+OP_id:		65
+inst_addr: 	5080724
+op_type: 	1
+dest:		21
+dest_needed:	1
+src1_reg:	255
+src2_reg:	255
+src1_needed:	0
+src2_needed:	0
+cc_read:	0
+cc_write:	1
+mem_addr:	7209322
+mem_write:	0
+mem_read:	1
+br_dir:		0
+br_target:	0
+
+OP_id:		62
+inst_addr: 	5080647
+op_type: 	3
+dest:		255
+dest_needed:	0
+src1_reg:	255
+src2_reg:	255
+src1_needed:	0
+src2_needed:	0
+cc_read:	1
+cc_write:	0
+mem_addr:	0
+mem_write:	0
+mem_read:	0
+br_dir:		1
+br_target:	5080624
+
+OP_id:		60
+inst_addr: 	5080640
+op_type: 	4
+dest:		255
+dest_needed:	0
+src1_reg:	255
+src2_reg:	255
+src1_needed:	0
+src2_needed:	0
+cc_read:	0
+cc_write:	0
+mem_addr:	0
+mem_write:	0
+mem_read:	0
+br_dir:		0
+br_target:	0
+
+OP_id:		60
+inst_addr: 	5080640
+op_type: 	4
+dest:		255
+dest_needed:	0
+src1_reg:	255
+src2_reg:	255
+src1_needed:	0
+src2_needed:	0
+cc_read:	0
+cc_write:	0
+mem_addr:	0
+mem_write:	0
+mem_read:	0
+br_dir:		0
+br_target:	0
+
+--------------------------------------------
+cycle count : 35 retired_instruction : 60
+ IF:  ID:  EX:  MA:
+     66      64      63      61
+     67      65      62  ------
+
+OP_id:		66
+inst_addr: 	5080728
+op_type: 	1
+dest:		20
+dest_needed:	1
+src1_reg:	255
+src2_reg:	255
+src1_needed:	0
+src2_needed:	0
+cc_read:	0
+cc_write:	1
+mem_addr:	7209322
+mem_write:	0
+mem_read:	1
+br_dir:		0
+br_target:	0
+
+OP_id:		64
+inst_addr: 	5080724
+op_type: 	1
+dest:		21
+dest_needed:	1
+src1_reg:	255
+src2_reg:	255
+src1_needed:	0
+src2_needed:	0
+cc_read:	0
+cc_write:	1
+mem_addr:	7209322
+mem_write:	0
+mem_read:	1
+br_dir:		0
+br_target:	0
+
+OP_id:		63
+inst_addr: 	5080721
+op_type: 	4
+dest:		255
+dest_needed:	0
+src1_reg:	255
+src2_reg:	255
+src1_needed:	0
+src2_needed:	0
+cc_read:	0
+cc_write:	0
+mem_addr:	0
+mem_write:	0
+mem_read:	0
+br_dir:		0
+br_target:	0
+
+OP_id:		61
+inst_addr: 	5080645
+op_type: 	0
+dest:		255
+dest_needed:	0
+src1_reg:	255
+src2_reg:	255
+src1_needed:	0
+src2_needed:	0
+cc_read:	0
+cc_write:	1
+mem_addr:	0
+mem_write:	0
+mem_read:	0
+br_dir:		0
+br_target:	0
+
+OP_id:		67
+inst_addr: 	5080728
+op_type: 	1
+dest:		20
+dest_needed:	1
+src1_reg:	255
+src2_reg:	255
+src1_needed:	0
+src2_needed:	0
+cc_read:	0
+cc_write:	1
+mem_addr:	7209322
+mem_write:	0
+mem_read:	1
+br_dir:		0
+br_target:	0
+
+OP_id:		65
+inst_addr: 	5080724
+op_type: 	1
+dest:		21
+dest_needed:	1
+src1_reg:	255
+src2_reg:	255
+src1_needed:	0
+src2_needed:	0
+cc_read:	0
+cc_write:	1
+mem_addr:	7209322
+mem_write:	0
+mem_read:	1
+br_dir:		0
+br_target:	0
+
+OP_id:		62
+inst_addr: 	5080647
+op_type: 	3
+dest:		255
+dest_needed:	0
+src1_reg:	255
+src2_reg:	255
+src1_needed:	0
+src2_needed:	0
+cc_read:	1
+cc_write:	0
+mem_addr:	0
+mem_write:	0
+mem_read:	0
+br_dir:		1
+br_target:	5080624
+
+OP_id:		60
+inst_addr: 	5080640
+op_type: 	4
+dest:		255
+dest_needed:	0
+src1_reg:	255
+src2_reg:	255
+src1_needed:	0
+src2_needed:	0
+cc_read:	0
+cc_write:	0
+mem_addr:	0
+mem_write:	0
+mem_read:	0
+br_dir:		0
+br_target:	0
+
+--------------------------------------------
+cycle count : 36 retired_instruction : 61
+ IF:  ID:  EX:  MA:
+     68      66      64      63
+     69      67      65      62
+
+OP_id:		68
+inst_addr: 	5080733
+op_type: 	1
+dest:		18
+dest_needed:	1
+src1_reg:	255
+src2_reg:	255
+src1_needed:	0
+src2_needed:	0
+cc_read:	0
+cc_write:	1
+mem_addr:	7209322
+mem_write:	0
+mem_read:	1
+br_dir:		0
+br_target:	0
+
+OP_id:		66
+inst_addr: 	5080728
+op_type: 	1
+dest:		20
+dest_needed:	1
+src1_reg:	255
+src2_reg:	255
+src1_needed:	0
+src2_needed:	0
+cc_read:	0
+cc_write:	1
+mem_addr:	7209322
+mem_write:	0
+mem_read:	1
+br_dir:		0
+br_target:	0
+
+OP_id:		64
+inst_addr: 	5080724
+op_type: 	1
+dest:		21
+dest_needed:	1
+src1_reg:	255
+src2_reg:	255
+src1_needed:	0
+src2_needed:	0
+cc_read:	0
+cc_write:	1
+mem_addr:	7209322
+mem_write:	0
+mem_read:	1
+br_dir:		0
+br_target:	0
+
+OP_id:		63
+inst_addr: 	5080721
+op_type: 	4
+dest:		255
+dest_needed:	0
+src1_reg:	255
+src2_reg:	255
+src1_needed:	0
+src2_needed:	0
+cc_read:	0
+cc_write:	0
+mem_addr:	0
+mem_write:	0
+mem_read:	0
+br_dir:		0
+br_target:	0
+
+OP_id:		69
+inst_addr: 	5080733
+op_type: 	1
+dest:		18
+dest_needed:	1
+src1_reg:	255
+src2_reg:	255
+src1_needed:	0
+src2_needed:	0
+cc_read:	0
+cc_write:	1
+mem_addr:	7209322
+mem_write:	0
+mem_read:	1
+br_dir:		0
+br_target:	0
+
+OP_id:		67
+inst_addr: 	5080728
+op_type: 	1
+dest:		20
+dest_needed:	1
+src1_reg:	255
+src2_reg:	255
+src1_needed:	0
+src2_needed:	0
+cc_read:	0
+cc_write:	1
+mem_addr:	7209322
+mem_write:	0
+mem_read:	1
+br_dir:		0
+br_target:	0
+
+OP_id:		65
+inst_addr: 	5080724
+op_type: 	1
+dest:		21
+dest_needed:	1
+src1_reg:	255
+src2_reg:	255
+src1_needed:	0
+src2_needed:	0
+cc_read:	0
+cc_write:	1
+mem_addr:	7209322
+mem_write:	0
+mem_read:	1
+br_dir:		0
+br_target:	0
+
+OP_id:		62
+inst_addr: 	5080647
+op_type: 	3
+dest:		255
+dest_needed:	0
+src1_reg:	255
+src2_reg:	255
+src1_needed:	0
+src2_needed:	0
+cc_read:	1
+cc_write:	0
+mem_addr:	0
+mem_write:	0
+mem_read:	0
+br_dir:		1
+br_target:	5080624
+
+--------------------------------------------
+cycle count : 37 retired_instruction : 63
+ IF:  ID:  EX:  MA:
+     70      68      66      64
+     71      69      67      65
+
+OP_id:		70
+inst_addr: 	5080738
+op_type: 	4
+dest:		255
+dest_needed:	0
+src1_reg:	255
+src2_reg:	255
+src1_needed:	0
+src2_needed:	0
+cc_read:	0
+cc_write:	0
+mem_addr:	0
+mem_write:	0
+mem_read:	0
+br_dir:		0
+br_target:	0
+
+OP_id:		68
+inst_addr: 	5080733
+op_type: 	1
+dest:		18
+dest_needed:	1
+src1_reg:	255
+src2_reg:	255
+src1_needed:	0
+src2_needed:	0
+cc_read:	0
+cc_write:	1
+mem_addr:	7209322
+mem_write:	0
+mem_read:	1
+br_dir:		0
+br_target:	0
+
+OP_id:		66
+inst_addr: 	5080728
+op_type: 	1
+dest:		20
+dest_needed:	1
+src1_reg:	255
+src2_reg:	255
+src1_needed:	0
+src2_needed:	0
+cc_read:	0
+cc_write:	1
+mem_addr:	7209322
+mem_write:	0
+mem_read:	1
+br_dir:		0
+br_target:	0
+
+OP_id:		64
+inst_addr: 	5080724
+op_type: 	1
+dest:		21
+dest_needed:	1
+src1_reg:	255
+src2_reg:	255
+src1_needed:	0
+src2_needed:	0
+cc_read:	0
+cc_write:	1
+mem_addr:	7209322
+mem_write:	0
+mem_read:	1
+br_dir:		0
+br_target:	0
+
+OP_id:		71
+inst_addr: 	5080738
+op_type: 	4
+dest:		255
+dest_needed:	0
+src1_reg:	255
+src2_reg:	255
+src1_needed:	0
+src2_needed:	0
+cc_read:	0
+cc_write:	0
+mem_addr:	0
+mem_write:	0
+mem_read:	0
+br_dir:		0
+br_target:	0
+
+OP_id:		69
+inst_addr: 	5080733
+op_type: 	1
+dest:		18
+dest_needed:	1
+src1_reg:	255
+src2_reg:	255
+src1_needed:	0
+src2_needed:	0
+cc_read:	0
+cc_write:	1
+mem_addr:	7209322
+mem_write:	0
+mem_read:	1
+br_dir:		0
+br_target:	0
+
+OP_id:		67
+inst_addr: 	5080728
+op_type: 	1
+dest:		20
+dest_needed:	1
+src1_reg:	255
+src2_reg:	255
+src1_needed:	0
+src2_needed:	0
+cc_read:	0
+cc_write:	1
+mem_addr:	7209322
+mem_write:	0
+mem_read:	1
+br_dir:		0
+br_target:	0
+
+OP_id:		65
+inst_addr: 	5080724
+op_type: 	1
+dest:		21
+dest_needed:	1
+src1_reg:	255
+src2_reg:	255
+src1_needed:	0
+src2_needed:	0
+cc_read:	0
+cc_write:	1
+mem_addr:	7209322
+mem_write:	0
+mem_read:	1
+br_dir:		0
+br_target:	0
+
+--------------------------------------------
+cycle count : 38 retired_instruction : 65
+ IF:  ID:  EX:  MA:
+     72      70      68      66
+     73      71      69      67
+
+OP_id:		72
+inst_addr: 	5080742
+op_type: 	4
+dest:		255
+dest_needed:	0
+src1_reg:	255
+src2_reg:	255
+src1_needed:	0
+src2_needed:	0
+cc_read:	0
+cc_write:	0
+mem_addr:	0
+mem_write:	0
+mem_read:	0
+br_dir:		0
+br_target:	0
+
+OP_id:		70
+inst_addr: 	5080738
+op_type: 	4
+dest:		255
+dest_needed:	0
+src1_reg:	255
+src2_reg:	255
+src1_needed:	0
+src2_needed:	0
+cc_read:	0
+cc_write:	0
+mem_addr:	0
+mem_write:	0
+mem_read:	0
+br_dir:		0
+br_target:	0
+
+OP_id:		68
+inst_addr: 	5080733
+op_type: 	1
+dest:		18
+dest_needed:	1
+src1_reg:	255
+src2_reg:	255
+src1_needed:	0
+src2_needed:	0
+cc_read:	0
+cc_write:	1
+mem_addr:	7209322
+mem_write:	0
+mem_read:	1
+br_dir:		0
+br_target:	0
+
+OP_id:		66
+inst_addr: 	5080728
+op_type: 	1
+dest:		20
+dest_needed:	1
+src1_reg:	255
+src2_reg:	255
+src1_needed:	0
+src2_needed:	0
+cc_read:	0
+cc_write:	1
+mem_addr:	7209322
+mem_write:	0
+mem_read:	1
+br_dir:		0
+br_target:	0
+
+OP_id:		73
+inst_addr: 	5080747
+op_type: 	4
+dest:		255
+dest_needed:	0
+src1_reg:	255
+src2_reg:	255
+src1_needed:	0
+src2_needed:	0
+cc_read:	0
+cc_write:	0
+mem_addr:	0
+mem_write:	0
+mem_read:	0
+br_dir:		0
+br_target:	0
+
+OP_id:		71
+inst_addr: 	5080738
+op_type: 	4
+dest:		255
+dest_needed:	0
+src1_reg:	255
+src2_reg:	255
+src1_needed:	0
+src2_needed:	0
+cc_read:	0
+cc_write:	0
+mem_addr:	0
+mem_write:	0
+mem_read:	0
+br_dir:		0
+br_target:	0
+
+OP_id:		69
+inst_addr: 	5080733
+op_type: 	1
+dest:		18
+dest_needed:	1
+src1_reg:	255
+src2_reg:	255
+src1_needed:	0
+src2_needed:	0
+cc_read:	0
+cc_write:	1
+mem_addr:	7209322
+mem_write:	0
+mem_read:	1
+br_dir:		0
+br_target:	0
+
+OP_id:		67
+inst_addr: 	5080728
+op_type: 	1
+dest:		20
+dest_needed:	1
+src1_reg:	255
+src2_reg:	255
+src1_needed:	0
+src2_needed:	0
+cc_read:	0
+cc_write:	1
+mem_addr:	7209322
+mem_write:	0
+mem_read:	1
+br_dir:		0
+br_target:	0
+
+--------------------------------------------
+cycle count : 39 retired_instruction : 67
+ IF:  ID:  EX:  MA:
+     74      72      70      68
+     75      73      71      69
+
+OP_id:		74
+inst_addr: 	5080750
+op_type: 	2
+dest:		255
+dest_needed:	0
+src1_reg:	255
+src2_reg:	255
+src1_needed:	0
+src2_needed:	0
+cc_read:	0
+cc_write:	0
+mem_addr:	140733643720496
+mem_write:	1
+mem_read:	0
+br_dir:		0
+br_target:	0
+
+OP_id:		72
+inst_addr: 	5080742
+op_type: 	4
+dest:		255
+dest_needed:	0
+src1_reg:	255
+src2_reg:	255
+src1_needed:	0
+src2_needed:	0
+cc_read:	0
+cc_write:	0
+mem_addr:	0
+mem_write:	0
+mem_read:	0
+br_dir:		0
+br_target:	0
+
+OP_id:		70
+inst_addr: 	5080738
+op_type: 	4
+dest:		255
+dest_needed:	0
+src1_reg:	255
+src2_reg:	255
+src1_needed:	0
+src2_needed:	0
+cc_read:	0
+cc_write:	0
+mem_addr:	0
+mem_write:	0
+mem_read:	0
+br_dir:		0
+br_target:	0
+
+OP_id:		68
+inst_addr: 	5080733
+op_type: 	1
+dest:		18
+dest_needed:	1
+src1_reg:	255
+src2_reg:	255
+src1_needed:	0
+src2_needed:	0
+cc_read:	0
+cc_write:	1
+mem_addr:	7209322
+mem_write:	0
+mem_read:	1
+br_dir:		0
+br_target:	0
+
+OP_id:		75
+inst_addr: 	5080750
+op_type: 	2
+dest:		255
+dest_needed:	0
+src1_reg:	255
+src2_reg:	255
+src1_needed:	0
+src2_needed:	0
+cc_read:	0
+cc_write:	0
+mem_addr:	140733643720496
+mem_write:	1
+mem_read:	0
+br_dir:		0
+br_target:	0
+
+OP_id:		73
+inst_addr: 	5080747
+op_type: 	4
+dest:		255
+dest_needed:	0
+src1_reg:	255
+src2_reg:	255
+src1_needed:	0
+src2_needed:	0
+cc_read:	0
+cc_write:	0
+mem_addr:	0
+mem_write:	0
+mem_read:	0
+br_dir:		0
+br_target:	0
+
+OP_id:		71
+inst_addr: 	5080738
+op_type: 	4
+dest:		255
+dest_needed:	0
+src1_reg:	255
+src2_reg:	255
+src1_needed:	0
+src2_needed:	0
+cc_read:	0
+cc_write:	0
+mem_addr:	0
+mem_write:	0
+mem_read:	0
+br_dir:		0
+br_target:	0
+
+OP_id:		69
+inst_addr: 	5080733
+op_type: 	1
+dest:		18
+dest_needed:	1
+src1_reg:	255
+src2_reg:	255
+src1_needed:	0
+src2_needed:	0
+cc_read:	0
+cc_write:	1
+mem_addr:	7209322
+mem_write:	0
+mem_read:	1
+br_dir:		0
+br_target:	0
+
+--------------------------------------------
+cycle count : 40 retired_instruction : 69
+ IF:  ID:  EX:  MA:
+     76      74      72      70
+     77      75      73      71
+
+OP_id:		76
+inst_addr: 	5079968
+op_type: 	2
+dest:		255
+dest_needed:	0
+src1_reg:	27
+src2_reg:	255
+src1_needed:	1
+src2_needed:	0
+cc_read:	0
+cc_write:	0
+mem_addr:	140733643720584
+mem_write:	1
+mem_read:	0
+br_dir:		0
+br_target:	0
+
+OP_id:		74
+inst_addr: 	5080750
+op_type: 	2
+dest:		255
+dest_needed:	0
+src1_reg:	255
+src2_reg:	255
+src1_needed:	0
+src2_needed:	0
+cc_read:	0
+cc_write:	0
+mem_addr:	140733643720496
+mem_write:	1
+mem_read:	0
+br_dir:		0
+br_target:	0
+
+OP_id:		72
+inst_addr: 	5080742
+op_type: 	4
+dest:		255
+dest_needed:	0
+src1_reg:	255
+src2_reg:	255
+src1_needed:	0
+src2_needed:	0
+cc_read:	0
+cc_write:	0
+mem_addr:	0
+mem_write:	0
+mem_read:	0
+br_dir:		0
+br_target:	0
+
+OP_id:		70
+inst_addr: 	5080738
+op_type: 	4
+dest:		255
+dest_needed:	0
+src1_reg:	255
+src2_reg:	255
+src1_needed:	0
+src2_needed:	0
+cc_read:	0
+cc_write:	0
+mem_addr:	0
+mem_write:	0
+mem_read:	0
+br_dir:		0
+br_target:	0
+
+OP_id:		77
+inst_addr: 	5079968
+op_type: 	2
+dest:		255
+dest_needed:	0
+src1_reg:	27
+src2_reg:	255
+src1_needed:	1
+src2_needed:	0
+cc_read:	0
+cc_write:	0
+mem_addr:	140733643720584
+mem_write:	1
+mem_read:	0
+br_dir:		0
+br_target:	0
+
+OP_id:		75
+inst_addr: 	5080750
+op_type: 	2
+dest:		255
+dest_needed:	0
+src1_reg:	255
+src2_reg:	255
+src1_needed:	0
+src2_needed:	0
+cc_read:	0
+cc_write:	0
+mem_addr:	140733643720496
+mem_write:	1
+mem_read:	0
+br_dir:		0
+br_target:	0
+
+OP_id:		73
+inst_addr: 	5080747
+op_type: 	4
+dest:		255
+dest_needed:	0
+src1_reg:	255
+src2_reg:	255
+src1_needed:	0
+src2_needed:	0
+cc_read:	0
+cc_write:	0
+mem_addr:	0
+mem_write:	0
+mem_read:	0
+br_dir:		0
+br_target:	0
+
+OP_id:		71
+inst_addr: 	5080738
+op_type: 	4
+dest:		255
+dest_needed:	0
+src1_reg:	255
+src2_reg:	255
+src1_needed:	0
+src2_needed:	0
+cc_read:	0
+cc_write:	0
+mem_addr:	0
+mem_write:	0
+mem_read:	0
+br_dir:		0
+br_target:	0
+
+--------------------------------------------
+cycle count : 41 retired_instruction : 71
+ IF:  ID:  EX:  MA:
+     78      76      74      72
+     79      77      75      73
+
+OP_id:		78
+inst_addr: 	5079970
+op_type: 	2
+dest:		255
+dest_needed:	0
+src1_reg:	26
+src2_reg:	255
+src1_needed:	1
+src2_needed:	0
+cc_read:	0
+cc_write:	0
+mem_addr:	140733643720584
+mem_write:	1
+mem_read:	0
+br_dir:		0
+br_target:	0
+
+OP_id:		76
+inst_addr: 	5079968
+op_type: 	2
+dest:		255
+dest_needed:	0
+src1_reg:	27
+src2_reg:	255
+src1_needed:	1
+src2_needed:	0
+cc_read:	0
+cc_write:	0
+mem_addr:	140733643720584
+mem_write:	1
+mem_read:	0
+br_dir:		0
+br_target:	0
+
+OP_id:		74
+inst_addr: 	5080750
+op_type: 	2
+dest:		255
+dest_needed:	0
+src1_reg:	255
+src2_reg:	255
+src1_needed:	0
+src2_needed:	0
+cc_read:	0
+cc_write:	0
+mem_addr:	140733643720496
+mem_write:	1
+mem_read:	0
+br_dir:		0
+br_target:	0
+
+OP_id:		72
+inst_addr: 	5080742
+op_type: 	4
+dest:		255
+dest_needed:	0
+src1_reg:	255
+src2_reg:	255
+src1_needed:	0
+src2_needed:	0
+cc_read:	0
+cc_write:	0
+mem_addr:	0
+mem_write:	0
+mem_read:	0
+br_dir:		0
+br_target:	0
+
+OP_id:		79
+inst_addr: 	5079970
+op_type: 	2
+dest:		255
+dest_needed:	0
+src1_reg:	26
+src2_reg:	255
+src1_needed:	1
+src2_needed:	0
+cc_read:	0
+cc_write:	0
+mem_addr:	140733643720584
+mem_write:	1
+mem_read:	0
+br_dir:		0
+br_target:	0
+
+OP_id:		77
+inst_addr: 	5079968
+op_type: 	2
+dest:		255
+dest_needed:	0
+src1_reg:	27
+src2_reg:	255
+src1_needed:	1
+src2_needed:	0
+cc_read:	0
+cc_write:	0
+mem_addr:	140733643720584
+mem_write:	1
+mem_read:	0
+br_dir:		0
+br_target:	0
+
+OP_id:		75
+inst_addr: 	5080750
+op_type: 	2
+dest:		255
+dest_needed:	0
+src1_reg:	255
+src2_reg:	255
+src1_needed:	0
+src2_needed:	0
+cc_read:	0
+cc_write:	0
+mem_addr:	140733643720496
+mem_write:	1
+mem_read:	0
+br_dir:		0
+br_target:	0
+
+OP_id:		73
+inst_addr: 	5080747
+op_type: 	4
+dest:		255
+dest_needed:	0
+src1_reg:	255
+src2_reg:	255
+src1_needed:	0
+src2_needed:	0
+cc_read:	0
+cc_write:	0
+mem_addr:	0
+mem_write:	0
+mem_read:	0
+br_dir:		0
+br_target:	0
+
+--------------------------------------------
+cycle count : 42 retired_instruction : 73
+ IF:  ID:  EX:  MA:
+     80      78      76      74
+     81      79      77      75
+
+OP_id:		80
+inst_addr: 	5079972
+op_type: 	4
+dest:		255
+dest_needed:	0
+src1_reg:	255
+src2_reg:	255
+src1_needed:	0
+src2_needed:	0
+cc_read:	0
+cc_write:	0
+mem_addr:	0
+mem_write:	0
+mem_read:	0
+br_dir:		0
+br_target:	0
+
+OP_id:		78
+inst_addr: 	5079970
+op_type: 	2
+dest:		255
+dest_needed:	0
+src1_reg:	26
+src2_reg:	255
+src1_needed:	1
+src2_needed:	0
+cc_read:	0
+cc_write:	0
+mem_addr:	140733643720584
+mem_write:	1
+mem_read:	0
+br_dir:		0
+br_target:	0
+
+OP_id:		76
+inst_addr: 	5079968
+op_type: 	2
+dest:		255
+dest_needed:	0
+src1_reg:	27
+src2_reg:	255
+src1_needed:	1
+src2_needed:	0
+cc_read:	0
+cc_write:	0
+mem_addr:	140733643720584
+mem_write:	1
+mem_read:	0
+br_dir:		0
+br_target:	0
+
+OP_id:		74
+inst_addr: 	5080750
+op_type: 	2
+dest:		255
+dest_needed:	0
+src1_reg:	255
+src2_reg:	255
+src1_needed:	0
+src2_needed:	0
+cc_read:	0
+cc_write:	0
+mem_addr:	140733643720496
+mem_write:	1
+mem_read:	0
+br_dir:		0
+br_target:	0
+
+OP_id:		81
+inst_addr: 	5079975
+op_type: 	2
+dest:		255
+dest_needed:	0
+src1_reg:	25
+src2_reg:	255
+src1_needed:	1
+src2_needed:	0
+cc_read:	0
+cc_write:	0
+mem_addr:	140733643720584
+mem_write:	1
+mem_read:	0
+br_dir:		0
+br_target:	0
+
+OP_id:		79
+inst_addr: 	5079970
+op_type: 	2
+dest:		255
+dest_needed:	0
+src1_reg:	26
+src2_reg:	255
+src1_needed:	1
+src2_needed:	0
+cc_read:	0
+cc_write:	0
+mem_addr:	140733643720584
+mem_write:	1
+mem_read:	0
+br_dir:		0
+br_target:	0
+
+OP_id:		77
+inst_addr: 	5079968
+op_type: 	2
+dest:		255
+dest_needed:	0
+src1_reg:	27
+src2_reg:	255
+src1_needed:	1
+src2_needed:	0
+cc_read:	0
+cc_write:	0
+mem_addr:	140733643720584
+mem_write:	1
+mem_read:	0
+br_dir:		0
+br_target:	0
+
+OP_id:		75
+inst_addr: 	5080750
+op_type: 	2
+dest:		255
+dest_needed:	0
+src1_reg:	255
+src2_reg:	255
+src1_needed:	0
+src2_needed:	0
+cc_read:	0
+cc_write:	0
+mem_addr:	140733643720496
+mem_write:	1
+mem_read:	0
+br_dir:		0
+br_target:	0
+
+--------------------------------------------
+cycle count : 43 retired_instruction : 75
+ IF:  ID:  EX:  MA:
+     82      80      78      76
+     83      81      79      77
+
+OP_id:		82
+inst_addr: 	5079975
+op_type: 	2
+dest:		255
+dest_needed:	0
+src1_reg:	25
+src2_reg:	255
+src1_needed:	1
+src2_needed:	0
+cc_read:	0
+cc_write:	0
+mem_addr:	140733643720584
+mem_write:	1
+mem_read:	0
+br_dir:		0
+br_target:	0
+
+OP_id:		80
+inst_addr: 	5079972
+op_type: 	4
+dest:		255
+dest_needed:	0
+src1_reg:	255
+src2_reg:	255
+src1_needed:	0
+src2_needed:	0
+cc_read:	0
+cc_write:	0
+mem_addr:	0
+mem_write:	0
+mem_read:	0
+br_dir:		0
+br_target:	0
+
+OP_id:		78
+inst_addr: 	5079970
+op_type: 	2
+dest:		255
+dest_needed:	0
+src1_reg:	26
+src2_reg:	255
+src1_needed:	1
+src2_needed:	0
+cc_read:	0
+cc_write:	0
+mem_addr:	140733643720584
+mem_write:	1
+mem_read:	0
+br_dir:		0
+br_target:	0
+
+OP_id:		76
+inst_addr: 	5079968
+op_type: 	2
+dest:		255
+dest_needed:	0
+src1_reg:	27
+src2_reg:	255
+src1_needed:	1
+src2_needed:	0
+cc_read:	0
+cc_write:	0
+mem_addr:	140733643720584
+mem_write:	1
+mem_read:	0
+br_dir:		0
+br_target:	0
+
+OP_id:		83
+inst_addr: 	5079977
+op_type: 	2
+dest:		255
+dest_needed:	0
+src1_reg:	24
+src2_reg:	255
+src1_needed:	1
+src2_needed:	0
+cc_read:	0
+cc_write:	0
+mem_addr:	140733643720584
+mem_write:	1
+mem_read:	0
+br_dir:		0
+br_target:	0
+
+OP_id:		81
+inst_addr: 	5079975
+op_type: 	2
+dest:		255
+dest_needed:	0
+src1_reg:	25
+src2_reg:	255
+src1_needed:	1
+src2_needed:	0
+cc_read:	0
+cc_write:	0
+mem_addr:	140733643720584
+mem_write:	1
+mem_read:	0
+br_dir:		0
+br_target:	0
+
+OP_id:		79
+inst_addr: 	5079970
+op_type: 	2
+dest:		255
+dest_needed:	0
+src1_reg:	26
+src2_reg:	255
+src1_needed:	1
+src2_needed:	0
+cc_read:	0
+cc_write:	0
+mem_addr:	140733643720584
+mem_write:	1
+mem_read:	0
+br_dir:		0
+br_target:	0
+
+OP_id:		77
+inst_addr: 	5079968
+op_type: 	2
+dest:		255
+dest_needed:	0
+src1_reg:	27
+src2_reg:	255
+src1_needed:	1
+src2_needed:	0
+cc_read:	0
+cc_write:	0
+mem_addr:	140733643720584
+mem_write:	1
+mem_read:	0
+br_dir:		0
+br_target:	0
+
+--------------------------------------------
+cycle count : 44 retired_instruction : 77
+ IF:  ID:  EX:  MA:
+     84      82      80      78
+     85      83      81      79
+
+OP_id:		84
+inst_addr: 	5079977
+op_type: 	2
+dest:		255
+dest_needed:	0
+src1_reg:	24
+src2_reg:	255
+src1_needed:	1
+src2_needed:	0
+cc_read:	0
+cc_write:	0
+mem_addr:	140733643720584
+mem_write:	1
+mem_read:	0
+br_dir:		0
+br_target:	0
+
+OP_id:		82
+inst_addr: 	5079975
+op_type: 	2
+dest:		255
+dest_needed:	0
+src1_reg:	25
+src2_reg:	255
+src1_needed:	1
+src2_needed:	0
+cc_read:	0
+cc_write:	0
+mem_addr:	140733643720584
+mem_write:	1
+mem_read:	0
+br_dir:		0
+br_target:	0
+
+OP_id:		80
+inst_addr: 	5079972
+op_type: 	4
+dest:		255
+dest_needed:	0
+src1_reg:	255
+src2_reg:	255
+src1_needed:	0
+src2_needed:	0
+cc_read:	0
+cc_write:	0
+mem_addr:	0
+mem_write:	0
+mem_read:	0
+br_dir:		0
+br_target:	0
+
+OP_id:		78
+inst_addr: 	5079970
+op_type: 	2
+dest:		255
+dest_needed:	0
+src1_reg:	26
+src2_reg:	255
+src1_needed:	1
+src2_needed:	0
+cc_read:	0
+cc_write:	0
+mem_addr:	140733643720584
+mem_write:	1
+mem_read:	0
+br_dir:		0
+br_target:	0
+
+OP_id:		85
+inst_addr: 	5079979
+op_type: 	2
+dest:		255
+dest_needed:	0
+src1_reg:	14
+src2_reg:	255
+src1_needed:	1
+src2_needed:	0
+cc_read:	0
+cc_write:	0
+mem_addr:	140733643720584
+mem_write:	1
+mem_read:	0
+br_dir:		0
+br_target:	0
+
+OP_id:		83
+inst_addr: 	5079977
+op_type: 	2
+dest:		255
+dest_needed:	0
+src1_reg:	24
+src2_reg:	255
+src1_needed:	1
+src2_needed:	0
+cc_read:	0
+cc_write:	0
+mem_addr:	140733643720584
+mem_write:	1
+mem_read:	0
+br_dir:		0
+br_target:	0
+
+OP_id:		81
+inst_addr: 	5079975
+op_type: 	2
+dest:		255
+dest_needed:	0
+src1_reg:	25
+src2_reg:	255
+src1_needed:	1
+src2_needed:	0
+cc_read:	0
+cc_write:	0
+mem_addr:	140733643720584
+mem_write:	1
+mem_read:	0
+br_dir:		0
+br_target:	0
+
+OP_id:		79
+inst_addr: 	5079970
+op_type: 	2
+dest:		255
+dest_needed:	0
+src1_reg:	26
+src2_reg:	255
+src1_needed:	1
+src2_needed:	0
+cc_read:	0
+cc_write:	0
+mem_addr:	140733643720584
+mem_write:	1
+mem_read:	0
+br_dir:		0
+br_target:	0
+
+--------------------------------------------
+cycle count : 45 retired_instruction : 79
+ IF:  ID:  EX:  MA:
+     86      84      82      80
+     87      85      83      81
+
+OP_id:		86
+inst_addr: 	5079979
+op_type: 	2
+dest:		255
+dest_needed:	0
+src1_reg:	14
+src2_reg:	255
+src1_needed:	1
+src2_needed:	0
+cc_read:	0
+cc_write:	0
+mem_addr:	140733643720584
+mem_write:	1
+mem_read:	0
+br_dir:		0
+br_target:	0
+
+OP_id:		84
+inst_addr: 	5079977
+op_type: 	2
+dest:		255
+dest_needed:	0
+src1_reg:	24
+src2_reg:	255
+src1_needed:	1
+src2_needed:	0
+cc_read:	0
+cc_write:	0
+mem_addr:	140733643720584
+mem_write:	1
+mem_read:	0
+br_dir:		0
+br_target:	0
+
+OP_id:		82
+inst_addr: 	5079975
+op_type: 	2
+dest:		255
+dest_needed:	0
+src1_reg:	25
+src2_reg:	255
+src1_needed:	1
+src2_needed:	0
+cc_read:	0
+cc_write:	0
+mem_addr:	140733643720584
+mem_write:	1
+mem_read:	0
+br_dir:		0
+br_target:	0
+
+OP_id:		80
+inst_addr: 	5079972
+op_type: 	4
+dest:		255
+dest_needed:	0
+src1_reg:	255
+src2_reg:	255
+src1_needed:	0
+src2_needed:	0
+cc_read:	0
+cc_write:	0
+mem_addr:	0
+mem_write:	0
+mem_read:	0
+br_dir:		0
+br_target:	0
+
+OP_id:		87
+inst_addr: 	5079980
+op_type: 	2
+dest:		255
+dest_needed:	0
+src1_reg:	16
+src2_reg:	255
+src1_needed:	1
+src2_needed:	0
+cc_read:	0
+cc_write:	0
+mem_addr:	140733643720584
+mem_write:	1
+mem_read:	0
+br_dir:		0
+br_target:	0
+
+OP_id:		85
+inst_addr: 	5079979
+op_type: 	2
+dest:		255
+dest_needed:	0
+src1_reg:	14
+src2_reg:	255
+src1_needed:	1
+src2_needed:	0
+cc_read:	0
+cc_write:	0
+mem_addr:	140733643720584
+mem_write:	1
+mem_read:	0
+br_dir:		0
+br_target:	0
+
+OP_id:		83
+inst_addr: 	5079977
+op_type: 	2
+dest:		255
+dest_needed:	0
+src1_reg:	24
+src2_reg:	255
+src1_needed:	1
+src2_needed:	0
+cc_read:	0
+cc_write:	0
+mem_addr:	140733643720584
+mem_write:	1
+mem_read:	0
+br_dir:		0
+br_target:	0
+
+OP_id:		81
+inst_addr: 	5079975
+op_type: 	2
+dest:		255
+dest_needed:	0
+src1_reg:	25
+src2_reg:	255
+src1_needed:	1
+src2_needed:	0
+cc_read:	0
+cc_write:	0
+mem_addr:	140733643720584
+mem_write:	1
+mem_read:	0
+br_dir:		0
+br_target:	0
+
+--------------------------------------------
+cycle count : 46 retired_instruction : 81
+ IF:  ID:  EX:  MA:
+     88      86      84      82
+     89      87      85      83
+
+OP_id:		88
+inst_addr: 	5079980
+op_type: 	2
+dest:		255
+dest_needed:	0
+src1_reg:	16
+src2_reg:	255
+src1_needed:	1
+src2_needed:	0
+cc_read:	0
+cc_write:	0
+mem_addr:	140733643720584
+mem_write:	1
+mem_read:	0
+br_dir:		0
+br_target:	0
+
+OP_id:		86
+inst_addr: 	5079979
+op_type: 	2
+dest:		255
+dest_needed:	0
+src1_reg:	14
+src2_reg:	255
+src1_needed:	1
+src2_needed:	0
+cc_read:	0
+cc_write:	0
+mem_addr:	140733643720584
+mem_write:	1
+mem_read:	0
+br_dir:		0
+br_target:	0
+
+OP_id:		84
+inst_addr: 	5079977
+op_type: 	2
+dest:		255
+dest_needed:	0
+src1_reg:	24
+src2_reg:	255
+src1_needed:	1
+src2_needed:	0
+cc_read:	0
+cc_write:	0
+mem_addr:	140733643720584
+mem_write:	1
+mem_read:	0
+br_dir:		0
+br_target:	0
+
+OP_id:		82
+inst_addr: 	5079975
+op_type: 	2
+dest:		255
+dest_needed:	0
+src1_reg:	25
+src2_reg:	255
+src1_needed:	1
+src2_needed:	0
+cc_read:	0
+cc_write:	0
+mem_addr:	140733643720584
+mem_write:	1
+mem_read:	0
+br_dir:		0
+br_target:	0
+
+OP_id:		89
+inst_addr: 	5079981
+op_type: 	4
+dest:		255
+dest_needed:	0
+src1_reg:	255
+src2_reg:	255
+src1_needed:	0
+src2_needed:	0
+cc_read:	0
+cc_write:	0
+mem_addr:	0
+mem_write:	0
+mem_read:	0
+br_dir:		0
+br_target:	0
+
+OP_id:		87
+inst_addr: 	5079980
+op_type: 	2
+dest:		255
+dest_needed:	0
+src1_reg:	16
+src2_reg:	255
+src1_needed:	1
+src2_needed:	0
+cc_read:	0
+cc_write:	0
+mem_addr:	140733643720584
+mem_write:	1
+mem_read:	0
+br_dir:		0
+br_target:	0
+
+OP_id:		85
+inst_addr: 	5079979
+op_type: 	2
+dest:		255
+dest_needed:	0
+src1_reg:	14
+src2_reg:	255
+src1_needed:	1
+src2_needed:	0
+cc_read:	0
+cc_write:	0
+mem_addr:	140733643720584
+mem_write:	1
+mem_read:	0
+br_dir:		0
+br_target:	0
+
+OP_id:		83
+inst_addr: 	5079977
+op_type: 	2
+dest:		255
+dest_needed:	0
+src1_reg:	24
+src2_reg:	255
+src1_needed:	1
+src2_needed:	0
+cc_read:	0
+cc_write:	0
+mem_addr:	140733643720584
+mem_write:	1
+mem_read:	0
+br_dir:		0
+br_target:	0
+
+--------------------------------------------
+cycle count : 47 retired_instruction : 83
+ IF:  ID:  EX:  MA:
+     90      88      86      84
+     91      89      87      85
+
+OP_id:		90
+inst_addr: 	5079984
+op_type: 	0
+dest:		15
+dest_needed:	1
+src1_reg:	15
+src2_reg:	255
+src1_needed:	1
+src2_needed:	0
+cc_read:	0
+cc_write:	1
+mem_addr:	0
+mem_write:	0
+mem_read:	0
+br_dir:		0
+br_target:	0
+
+OP_id:		88
+inst_addr: 	5079980
+op_type: 	2
+dest:		255
+dest_needed:	0
+src1_reg:	16
+src2_reg:	255
+src1_needed:	1
+src2_needed:	0
+cc_read:	0
+cc_write:	0
+mem_addr:	140733643720584
+mem_write:	1
+mem_read:	0
+br_dir:		0
+br_target:	0
+
+OP_id:		86
+inst_addr: 	5079979
+op_type: 	2
+dest:		255
+dest_needed:	0
+src1_reg:	14
+src2_reg:	255
+src1_needed:	1
+src2_needed:	0
+cc_read:	0
+cc_write:	0
+mem_addr:	140733643720584
+mem_write:	1
+mem_read:	0
+br_dir:		0
+br_target:	0
+
+OP_id:		84
+inst_addr: 	5079977
+op_type: 	2
+dest:		255
+dest_needed:	0
+src1_reg:	24
+src2_reg:	255
+src1_needed:	1
+src2_needed:	0
+cc_read:	0
+cc_write:	0
+mem_addr:	140733643720584
+mem_write:	1
+mem_read:	0
+br_dir:		0
+br_target:	0
+
+OP_id:		91
+inst_addr: 	5079988
+op_type: 	2
+dest:		255
+dest_needed:	0
+src1_reg:	255
+src2_reg:	255
+src1_needed:	0
+src2_needed:	0
+cc_read:	0
+cc_write:	0
+mem_addr:	140733643720584
+mem_write:	1
+mem_read:	0
+br_dir:		0
+br_target:	0
+
+OP_id:		89
+inst_addr: 	5079981
+op_type: 	4
+dest:		255
+dest_needed:	0
+src1_reg:	255
+src2_reg:	255
+src1_needed:	0
+src2_needed:	0
+cc_read:	0
+cc_write:	0
+mem_addr:	0
+mem_write:	0
+mem_read:	0
+br_dir:		0
+br_target:	0
+
+OP_id:		87
+inst_addr: 	5079980
+op_type: 	2
+dest:		255
+dest_needed:	0
+src1_reg:	16
+src2_reg:	255
+src1_needed:	1
+src2_needed:	0
+cc_read:	0
+cc_write:	0
+mem_addr:	140733643720584
+mem_write:	1
+mem_read:	0
+br_dir:		0
+br_target:	0
+
+OP_id:		85
+inst_addr: 	5079979
+op_type: 	2
+dest:		255
+dest_needed:	0
+src1_reg:	14
+src2_reg:	255
+src1_needed:	1
+src2_needed:	0
+cc_read:	0
+cc_write:	0
+mem_addr:	140733643720584
+mem_write:	1
+mem_read:	0
+br_dir:		0
+br_target:	0
+
+--------------------------------------------
+cycle count : 48 retired_instruction : 85
+ IF:  ID:  EX:  MA:
+     92      90      88      86
+     93      91      89      87
+
+OP_id:		92
+inst_addr: 	5079988
+op_type: 	2
+dest:		255
+dest_needed:	0
+src1_reg:	255
+src2_reg:	255
+src1_needed:	0
+src2_needed:	0
+cc_read:	0
+cc_write:	0
+mem_addr:	140733643720584
+mem_write:	1
+mem_read:	0
+br_dir:		0
+br_target:	0
+
+OP_id:		90
+inst_addr: 	5079984
+op_type: 	0
+dest:		15
+dest_needed:	1
+src1_reg:	15
+src2_reg:	255
+src1_needed:	1
+src2_needed:	0
+cc_read:	0
+cc_write:	1
+mem_addr:	0
+mem_write:	0
+mem_read:	0
+br_dir:		0
+br_target:	0
+
+OP_id:		88
+inst_addr: 	5079980
+op_type: 	2
+dest:		255
+dest_needed:	0
+src1_reg:	16
+src2_reg:	255
+src1_needed:	1
+src2_needed:	0
+cc_read:	0
+cc_write:	0
+mem_addr:	140733643720584
+mem_write:	1
+mem_read:	0
+br_dir:		0
+br_target:	0
+
+OP_id:		86
+inst_addr: 	5079979
+op_type: 	2
+dest:		255
+dest_needed:	0
+src1_reg:	14
+src2_reg:	255
+src1_needed:	1
+src2_needed:	0
+cc_read:	0
+cc_write:	0
+mem_addr:	140733643720584
+mem_write:	1
+mem_read:	0
+br_dir:		0
+br_target:	0
+
+OP_id:		93
+inst_addr: 	5079992
+op_type: 	2
+dest:		255
+dest_needed:	0
+src1_reg:	18
+src2_reg:	255
+src1_needed:	1
+src2_needed:	0
+cc_read:	0
+cc_write:	0
+mem_addr:	140733643720584
+mem_write:	1
+mem_read:	0
+br_dir:		0
+br_target:	0
+
+OP_id:		91
+inst_addr: 	5079988
+op_type: 	2
+dest:		255
+dest_needed:	0
+src1_reg:	255
+src2_reg:	255
+src1_needed:	0
+src2_needed:	0
+cc_read:	0
+cc_write:	0
+mem_addr:	140733643720584
+mem_write:	1
+mem_read:	0
+br_dir:		0
+br_target:	0
+
+OP_id:		89
+inst_addr: 	5079981
+op_type: 	4
+dest:		255
+dest_needed:	0
+src1_reg:	255
+src2_reg:	255
+src1_needed:	0
+src2_needed:	0
+cc_read:	0
+cc_write:	0
+mem_addr:	0
+mem_write:	0
+mem_read:	0
+br_dir:		0
+br_target:	0
+
+OP_id:		87
+inst_addr: 	5079980
+op_type: 	2
+dest:		255
+dest_needed:	0
+src1_reg:	16
+src2_reg:	255
+src1_needed:	1
+src2_needed:	0
+cc_read:	0
+cc_write:	0
+mem_addr:	140733643720584
+mem_write:	1
+mem_read:	0
+br_dir:		0
+br_target:	0
+
+--------------------------------------------
+cycle count : 49 retired_instruction : 87
+ IF:  ID:  EX:  MA:
+     94      92      90      88
+     95      93      91      89
+
+OP_id:		94
+inst_addr: 	5079992
+op_type: 	2
+dest:		255
+dest_needed:	0
+src1_reg:	18
+src2_reg:	255
+src1_needed:	1
+src2_needed:	0
+cc_read:	0
+cc_write:	0
+mem_addr:	140733643720584
+mem_write:	1
+mem_read:	0
+br_dir:		0
+br_target:	0
+
+OP_id:		92
+inst_addr: 	5079988
+op_type: 	2
+dest:		255
+dest_needed:	0
+src1_reg:	255
+src2_reg:	255
+src1_needed:	0
+src2_needed:	0
+cc_read:	0
+cc_write:	0
+mem_addr:	140733643720584
+mem_write:	1
+mem_read:	0
+br_dir:		0
+br_target:	0
+
+OP_id:		90
+inst_addr: 	5079984
+op_type: 	0
+dest:		15
+dest_needed:	1
+src1_reg:	15
+src2_reg:	255
+src1_needed:	1
+src2_needed:	0
+cc_read:	0
+cc_write:	1
+mem_addr:	0
+mem_write:	0
+mem_read:	0
+br_dir:		0
+br_target:	0
+
+OP_id:		88
+inst_addr: 	5079980
+op_type: 	2
+dest:		255
+dest_needed:	0
+src1_reg:	16
+src2_reg:	255
+src1_needed:	1
+src2_needed:	0
+cc_read:	0
+cc_write:	0
+mem_addr:	140733643720584
+mem_write:	1
+mem_read:	0
+br_dir:		0
+br_target:	0
+
+OP_id:		95
+inst_addr: 	5079997
+op_type: 	2
+dest:		255
+dest_needed:	0
+src1_reg:	20
+src2_reg:	255
+src1_needed:	1
+src2_needed:	0
+cc_read:	0
+cc_write:	0
+mem_addr:	140733643720584
+mem_write:	1
+mem_read:	0
+br_dir:		0
+br_target:	0
+
+OP_id:		93
+inst_addr: 	5079992
+op_type: 	2
+dest:		255
+dest_needed:	0
+src1_reg:	18
+src2_reg:	255
+src1_needed:	1
+src2_needed:	0
+cc_read:	0
+cc_write:	0
+mem_addr:	140733643720584
+mem_write:	1
+mem_read:	0
+br_dir:		0
+br_target:	0
+
+OP_id:		91
+inst_addr: 	5079988
+op_type: 	2
+dest:		255
+dest_needed:	0
+src1_reg:	255
+src2_reg:	255
+src1_needed:	0
+src2_needed:	0
+cc_read:	0
+cc_write:	0
+mem_addr:	140733643720584
+mem_write:	1
+mem_read:	0
+br_dir:		0
+br_target:	0
+
+OP_id:		89
+inst_addr: 	5079981
+op_type: 	4
+dest:		255
+dest_needed:	0
+src1_reg:	255
+src2_reg:	255
+src1_needed:	0
+src2_needed:	0
+cc_read:	0
+cc_write:	0
+mem_addr:	0
+mem_write:	0
+mem_read:	0
+br_dir:		0
+br_target:	0
+
+--------------------------------------------
+cycle count : 50 retired_instruction : 89
+ IF:  ID:  EX:  MA:
+     96      94      92      90
+     97      95      93      91
+
+OP_id:		96
+inst_addr: 	5079997
+op_type: 	2
+dest:		255
+dest_needed:	0
+src1_reg:	20
+src2_reg:	255
+src1_needed:	1
+src2_needed:	0
+cc_read:	0
+cc_write:	0
+mem_addr:	140733643720584
+mem_write:	1
+mem_read:	0
+br_dir:		0
+br_target:	0
+
+OP_id:		94
+inst_addr: 	5079992
+op_type: 	2
+dest:		255
+dest_needed:	0
+src1_reg:	18
+src2_reg:	255
+src1_needed:	1
+src2_needed:	0
+cc_read:	0
+cc_write:	0
+mem_addr:	140733643720584
+mem_write:	1
+mem_read:	0
+br_dir:		0
+br_target:	0
+
+OP_id:		92
+inst_addr: 	5079988
+op_type: 	2
+dest:		255
+dest_needed:	0
+src1_reg:	255
+src2_reg:	255
+src1_needed:	0
+src2_needed:	0
+cc_read:	0
+cc_write:	0
+mem_addr:	140733643720584
+mem_write:	1
+mem_read:	0
+br_dir:		0
+br_target:	0
+
+OP_id:		90
+inst_addr: 	5079984
+op_type: 	0
+dest:		15
+dest_needed:	1
+src1_reg:	15
+src2_reg:	255
+src1_needed:	1
+src2_needed:	0
+cc_read:	0
+cc_write:	1
+mem_addr:	0
+mem_write:	0
+mem_read:	0
+br_dir:		0
+br_target:	0
+
+OP_id:		97
+inst_addr: 	5080002
+op_type: 	2
+dest:		255
+dest_needed:	0
+src1_reg:	21
+src2_reg:	255
+src1_needed:	1
+src2_needed:	0
+cc_read:	0
+cc_write:	0
+mem_addr:	140733643720584
+mem_write:	1
+mem_read:	0
+br_dir:		0
+br_target:	0
+
+OP_id:		95
+inst_addr: 	5079997
+op_type: 	2
+dest:		255
+dest_needed:	0
+src1_reg:	20
+src2_reg:	255
+src1_needed:	1
+src2_needed:	0
+cc_read:	0
+cc_write:	0
+mem_addr:	140733643720584
+mem_write:	1
+mem_read:	0
+br_dir:		0
+br_target:	0
+
+OP_id:		93
+inst_addr: 	5079992
+op_type: 	2
+dest:		255
+dest_needed:	0
+src1_reg:	18
+src2_reg:	255
+src1_needed:	1
+src2_needed:	0
+cc_read:	0
+cc_write:	0
+mem_addr:	140733643720584
+mem_write:	1
+mem_read:	0
+br_dir:		0
+br_target:	0
+
+OP_id:		91
+inst_addr: 	5079988
+op_type: 	2
+dest:		255
+dest_needed:	0
+src1_reg:	255
+src2_reg:	255
+src1_needed:	0
+src2_needed:	0
+cc_read:	0
+cc_write:	0
+mem_addr:	140733643720584
+mem_write:	1
+mem_read:	0
+br_dir:		0
+br_target:	0
+
+--------------------------------------------
+cycle count : 51 retired_instruction : 91
+ IF:  ID:  EX:  MA:
+     98      96      94      92
+     99      97      95      93
+
+OP_id:		98
+inst_addr: 	5080002
+op_type: 	2
+dest:		255
+dest_needed:	0
+src1_reg:	21
+src2_reg:	255
+src1_needed:	1
+src2_needed:	0
+cc_read:	0
+cc_write:	0
+mem_addr:	140733643720584
+mem_write:	1
+mem_read:	0
+br_dir:		0
+br_target:	0
+
+OP_id:		96
+inst_addr: 	5079997
+op_type: 	2
+dest:		255
+dest_needed:	0
+src1_reg:	20
+src2_reg:	255
+src1_needed:	1
+src2_needed:	0
+cc_read:	0
+cc_write:	0
+mem_addr:	140733643720584
+mem_write:	1
+mem_read:	0
+br_dir:		0
+br_target:	0
+
+OP_id:		94
+inst_addr: 	5079992
+op_type: 	2
+dest:		255
+dest_needed:	0
+src1_reg:	18
+src2_reg:	255
+src1_needed:	1
+src2_needed:	0
+cc_read:	0
+cc_write:	0
+mem_addr:	140733643720584
+mem_write:	1
+mem_read:	0
+br_dir:		0
+br_target:	0
+
+OP_id:		92
+inst_addr: 	5079988
+op_type: 	2
+dest:		255
+dest_needed:	0
+src1_reg:	255
+src2_reg:	255
+src1_needed:	0
+src2_needed:	0
+cc_read:	0
+cc_write:	0
+mem_addr:	140733643720584
+mem_write:	1
+mem_read:	0
+br_dir:		0
+br_target:	0
+
+OP_id:		99
+inst_addr: 	5080006
+op_type: 	1
+dest:		27
+dest_needed:	1
+src1_reg:	255
+src2_reg:	255
+src1_needed:	0
+src2_needed:	0
+cc_read:	0
+cc_write:	1
+mem_addr:	413729688
+mem_write:	0
+mem_read:	1
+br_dir:		0
+br_target:	0
+
+OP_id:		97
+inst_addr: 	5080002
+op_type: 	2
+dest:		255
+dest_needed:	0
+src1_reg:	21
+src2_reg:	255
+src1_needed:	1
+src2_needed:	0
+cc_read:	0
+cc_write:	0
+mem_addr:	140733643720584
+mem_write:	1
+mem_read:	0
+br_dir:		0
+br_target:	0
+
+OP_id:		95
+inst_addr: 	5079997
+op_type: 	2
+dest:		255
+dest_needed:	0
+src1_reg:	20
+src2_reg:	255
+src1_needed:	1
+src2_needed:	0
+cc_read:	0
+cc_write:	0
+mem_addr:	140733643720584
+mem_write:	1
+mem_read:	0
+br_dir:		0
+br_target:	0
+
+OP_id:		93
+inst_addr: 	5079992
+op_type: 	2
+dest:		255
+dest_needed:	0
+src1_reg:	18
+src2_reg:	255
+src1_needed:	1
+src2_needed:	0
+cc_read:	0
+cc_write:	0
+mem_addr:	140733643720584
+mem_write:	1
+mem_read:	0
+br_dir:		0
+br_target:	0
+
+--------------------------------------------
+cycle count : 52 retired_instruction : 93
+ IF:  ID:  EX:  MA:
+    100      98      96      94
+ ------      99      97      95
+
+OP_id:		100
+inst_addr: 	5080006
+op_type: 	1
+dest:		27
+dest_needed:	1
+src1_reg:	255
+src2_reg:	255
+src1_needed:	0
+src2_needed:	0
+cc_read:	0
+cc_write:	1
+mem_addr:	413729688
+mem_write:	0
+mem_read:	1
+br_dir:		0
+br_target:	0
+
+OP_id:		98
+inst_addr: 	5080002
+op_type: 	2
+dest:		255
+dest_needed:	0
+src1_reg:	21
+src2_reg:	255
+src1_needed:	1
+src2_needed:	0
+cc_read:	0
+cc_write:	0
+mem_addr:	140733643720584
+mem_write:	1
+mem_read:	0
+br_dir:		0
+br_target:	0
+
+OP_id:		96
+inst_addr: 	5079997
+op_type: 	2
+dest:		255
+dest_needed:	0
+src1_reg:	20
+src2_reg:	255
+src1_needed:	1
+src2_needed:	0
+cc_read:	0
+cc_write:	0
+mem_addr:	140733643720584
+mem_write:	1
+mem_read:	0
+br_dir:		0
+br_target:	0
+
+OP_id:		94
+inst_addr: 	5079992
+op_type: 	2
+dest:		255
+dest_needed:	0
+src1_reg:	18
+src2_reg:	255
+src1_needed:	1
+src2_needed:	0
+cc_read:	0
+cc_write:	0
+mem_addr:	140733643720584
+mem_write:	1
+mem_read:	0
+br_dir:		0
+br_target:	0
+
+OP_id:		100
+inst_addr: 	5080006
+op_type: 	1
+dest:		27
+dest_needed:	1
+src1_reg:	255
+src2_reg:	255
+src1_needed:	0
+src2_needed:	0
+cc_read:	0
+cc_write:	1
+mem_addr:	413729688
+mem_write:	0
+mem_read:	1
+br_dir:		0
+br_target:	0
+
+OP_id:		99
+inst_addr: 	5080006
+op_type: 	1
+dest:		27
+dest_needed:	1
+src1_reg:	255
+src2_reg:	255
+src1_needed:	0
+src2_needed:	0
+cc_read:	0
+cc_write:	1
+mem_addr:	413729688
+mem_write:	0
+mem_read:	1
+br_dir:		0
+br_target:	0
+
+OP_id:		97
+inst_addr: 	5080002
+op_type: 	2
+dest:		255
+dest_needed:	0
+src1_reg:	21
+src2_reg:	255
+src1_needed:	1
+src2_needed:	0
+cc_read:	0
+cc_write:	0
+mem_addr:	140733643720584
+mem_write:	1
+mem_read:	0
+br_dir:		0
+br_target:	0
+
+OP_id:		95
+inst_addr: 	5079997
+op_type: 	2
+dest:		255
+dest_needed:	0
+src1_reg:	20
+src2_reg:	255
+src1_needed:	1
+src2_needed:	0
+cc_read:	0
+cc_write:	0
+mem_addr:	140733643720584
+mem_write:	1
+mem_read:	0
+br_dir:		0
+br_target:	0
+
+--------------------------------------------
+cycle count : 53 retired_instruction : 95
+ IF:  ID:  EX:  MA:
+ ------     100      98      96
+ ------  ------      99      97
+
+OP_id:		140553400371288
+inst_addr: 	8589934594
+op_type: 	1
+dest:		27
+dest_needed:	0
+src1_reg:	0
+src2_reg:	0
+src1_needed:	0
+src2_needed:	0
+cc_read:	0
+cc_write:	88
+mem_addr:	8693685408
+mem_write:	0
+mem_read:	0
+br_dir:		0
+br_target:	140553396172640
+
+OP_id:		100
+inst_addr: 	5080006
+op_type: 	1
+dest:		27
+dest_needed:	1
+src1_reg:	255
+src2_reg:	255
+src1_needed:	0
+src2_needed:	0
+cc_read:	0
+cc_write:	1
+mem_addr:	413729688
+mem_write:	0
+mem_read:	1
+br_dir:		0
+br_target:	0
+
+OP_id:		98
+inst_addr: 	5080002
+op_type: 	2
+dest:		255
+dest_needed:	0
+src1_reg:	21
+src2_reg:	255
+src1_needed:	1
+src2_needed:	0
+cc_read:	0
+cc_write:	0
+mem_addr:	140733643720584
+mem_write:	1
+mem_read:	0
+br_dir:		0
+br_target:	0
+
+OP_id:		96
+inst_addr: 	5079997
+op_type: 	2
+dest:		255
+dest_needed:	0
+src1_reg:	20
+src2_reg:	255
+src1_needed:	1
+src2_needed:	0
+cc_read:	0
+cc_write:	0
+mem_addr:	140733643720584
+mem_write:	1
+mem_read:	0
+br_dir:		0
+br_target:	0
+
+OP_id:		140553400371288
+inst_addr: 	8589934594
+op_type: 	1
+dest:		27
+dest_needed:	0
+src1_reg:	0
+src2_reg:	0
+src1_needed:	0
+src2_needed:	0
+cc_read:	0
+cc_write:	88
+mem_addr:	8693685408
+mem_write:	0
+mem_read:	0
+br_dir:		0
+br_target:	140553396172640
+
+OP_id:		100
+inst_addr: 	5080006
+op_type: 	1
+dest:		27
+dest_needed:	1
+src1_reg:	255
+src2_reg:	255
+src1_needed:	0
+src2_needed:	0
+cc_read:	0
+cc_write:	1
+mem_addr:	413729688
+mem_write:	0
+mem_read:	1
+br_dir:		0
+br_target:	0
+
+OP_id:		99
+inst_addr: 	5080006
+op_type: 	1
+dest:		27
+dest_needed:	1
+src1_reg:	255
+src2_reg:	255
+src1_needed:	0
+src2_needed:	0
+cc_read:	0
+cc_write:	1
+mem_addr:	413729688
+mem_write:	0
+mem_read:	1
+br_dir:		0
+br_target:	0
+
+OP_id:		97
+inst_addr: 	5080002
+op_type: 	2
+dest:		255
+dest_needed:	0
+src1_reg:	21
+src2_reg:	255
+src1_needed:	1
+src2_needed:	0
+cc_read:	0
+cc_write:	0
+mem_addr:	140733643720584
+mem_write:	1
+mem_read:	0
+br_dir:		0
+br_target:	0
+
+--------------------------------------------
+cycle count : 54 retired_instruction : 97
+ IF:  ID:  EX:  MA:
+ ------  ------     100      98
+ ------  ------  ------      99
+
+OP_id:		140553400371288
+inst_addr: 	8589934594
+op_type: 	1
+dest:		27
+dest_needed:	0
+src1_reg:	0
+src2_reg:	0
+src1_needed:	0
+src2_needed:	0
+cc_read:	0
+cc_write:	88
+mem_addr:	8693685408
+mem_write:	0
+mem_read:	0
+br_dir:		0
+br_target:	140553409789968
+
+OP_id:		140553400371288
+inst_addr: 	8589934594
+op_type: 	1
+dest:		27
+dest_needed:	0
+src1_reg:	0
+src2_reg:	0
+src1_needed:	0
+src2_needed:	0
+cc_read:	0
+cc_write:	88
+mem_addr:	8693685408
+mem_write:	0
+mem_read:	0
+br_dir:		0
+br_target:	140553396172640
+
+OP_id:		100
+inst_addr: 	5080006
+op_type: 	1
+dest:		27
+dest_needed:	1
+src1_reg:	255
+src2_reg:	255
+src1_needed:	0
+src2_needed:	0
+cc_read:	0
+cc_write:	1
+mem_addr:	413729688
+mem_write:	0
+mem_read:	1
+br_dir:		0
+br_target:	0
+
+OP_id:		98
+inst_addr: 	5080002
+op_type: 	2
+dest:		255
+dest_needed:	0
+src1_reg:	21
+src2_reg:	255
+src1_needed:	1
+src2_needed:	0
+cc_read:	0
+cc_write:	0
+mem_addr:	140733643720584
+mem_write:	1
+mem_read:	0
+br_dir:		0
+br_target:	0
+
+OP_id:		140553400371288
+inst_addr: 	8589934594
+op_type: 	1
+dest:		27
+dest_needed:	0
+src1_reg:	0
+src2_reg:	0
+src1_needed:	0
+src2_needed:	0
+cc_read:	0
+cc_write:	88
+mem_addr:	8693685408
+mem_write:	0
+mem_read:	0
+br_dir:		0
+br_target:	140553409789968
+
+OP_id:		140553400371288
+inst_addr: 	8589934594
+op_type: 	1
+dest:		27
+dest_needed:	0
+src1_reg:	0
+src2_reg:	0
+src1_needed:	0
+src2_needed:	0
+cc_read:	0
+cc_write:	88
+mem_addr:	8693685408
+mem_write:	0
+mem_read:	0
+br_dir:		0
+br_target:	140553396172640
+
+OP_id:		100
+inst_addr: 	5080006
+op_type: 	1
+dest:		27
+dest_needed:	1
+src1_reg:	255
+src2_reg:	255
+src1_needed:	0
+src2_needed:	0
+cc_read:	0
+cc_write:	1
+mem_addr:	413729688
+mem_write:	0
+mem_read:	1
+br_dir:		0
+br_target:	0
+
+OP_id:		99
+inst_addr: 	5080006
+op_type: 	1
+dest:		27
+dest_needed:	1
+src1_reg:	255
+src2_reg:	255
+src1_needed:	0
+src2_needed:	0
+cc_read:	0
+cc_write:	1
+mem_addr:	413729688
+mem_write:	0
+mem_read:	1
+br_dir:		0
+br_target:	0
+
+--------------------------------------------
+cycle count : 55 retired_instruction : 99
+ IF:  ID:  EX:  MA:
+ ------  ------  ------     100
+ ------  ------  ------  ------
+
+OP_id:		140553400371288
+inst_addr: 	8589934594
+op_type: 	1
+dest:		27
+dest_needed:	0
+src1_reg:	0
+src2_reg:	0
+src1_needed:	0
+src2_needed:	0
+cc_read:	0
+cc_write:	88
+mem_addr:	8693685408
+mem_write:	0
+mem_read:	0
+br_dir:		0
+br_target:	140553409790000
+
+OP_id:		140553400371288
+inst_addr: 	8589934594
+op_type: 	1
+dest:		27
+dest_needed:	0
+src1_reg:	0
+src2_reg:	0
+src1_needed:	0
+src2_needed:	0
+cc_read:	0
+cc_write:	88
+mem_addr:	8693685408
+mem_write:	0
+mem_read:	0
+br_dir:		0
+br_target:	140553409789968
+
+OP_id:		140553400371288
+inst_addr: 	8589934594
+op_type: 	1
+dest:		27
+dest_needed:	0
+src1_reg:	0
+src2_reg:	0
+src1_needed:	0
+src2_needed:	0
+cc_read:	0
+cc_write:	88
+mem_addr:	8693685408
+mem_write:	0
+mem_read:	0
+br_dir:		0
+br_target:	140553396172640
+
+OP_id:		100
+inst_addr: 	5080006
+op_type: 	1
+dest:		27
+dest_needed:	1
+src1_reg:	255
+src2_reg:	255
+src1_needed:	0
+src2_needed:	0
+cc_read:	0
+cc_write:	1
+mem_addr:	413729688
+mem_write:	0
+mem_read:	1
+br_dir:		0
+br_target:	0
+
+OP_id:		140553400371288
+inst_addr: 	8589934594
+op_type: 	1
+dest:		27
+dest_needed:	0
+src1_reg:	0
+src2_reg:	0
+src1_needed:	0
+src2_needed:	0
+cc_read:	0
+cc_write:	88
+mem_addr:	8693685408
+mem_write:	0
+mem_read:	0
+br_dir:		0
+br_target:	140553409790000
+
+OP_id:		140553400371288
+inst_addr: 	8589934594
+op_type: 	1
+dest:		27
+dest_needed:	0
+src1_reg:	0
+src2_reg:	0
+src1_needed:	0
+src2_needed:	0
+cc_read:	0
+cc_write:	88
+mem_addr:	8693685408
+mem_write:	0
+mem_read:	0
+br_dir:		0
+br_target:	140553409789968
+
+OP_id:		140553400371288
+inst_addr: 	8589934594
+op_type: 	1
+dest:		27
+dest_needed:	0
+src1_reg:	0
+src2_reg:	0
+src1_needed:	0
+src2_needed:	0
+cc_read:	0
+cc_write:	88
+mem_addr:	8693685408
+mem_write:	0
+mem_read:	0
+br_dir:		0
+br_target:	140553396172640
+
+OP_id:		100
+inst_addr: 	5080006
+op_type: 	1
+dest:		27
+dest_needed:	1
+src1_reg:	255
+src2_reg:	255
+src1_needed:	0
+src2_needed:	0
+cc_read:	0
+cc_write:	1
+mem_addr:	413729688
+mem_write:	0
+mem_read:	1
+br_dir:		0
+br_target:	0
+
+--------------------------------------------
+cycle count : 56 retired_instruction : 100
+ IF:  ID:  EX:  MA:
+ ------  ------  ------  ------
+ ------  ------  ------  ------
+
+OP_id:		140553400371288
+inst_addr: 	8589934594
+op_type: 	1
+dest:		27
+dest_needed:	0
+src1_reg:	0
+src2_reg:	0
+src1_needed:	0
+src2_needed:	0
+cc_read:	0
+cc_write:	88
+mem_addr:	8693685408
+mem_write:	0
+mem_read:	0
+br_dir:		0
+br_target:	140553409790032
+
+OP_id:		140553400371288
+inst_addr: 	8589934594
+op_type: 	1
+dest:		27
+dest_needed:	0
+src1_reg:	0
+src2_reg:	0
+src1_needed:	0
+src2_needed:	0
+cc_read:	0
+cc_write:	88
+mem_addr:	8693685408
+mem_write:	0
+mem_read:	0
+br_dir:		0
+br_target:	140553409790000
+
+OP_id:		140553400371288
+inst_addr: 	8589934594
+op_type: 	1
+dest:		27
+dest_needed:	0
+src1_reg:	0
+src2_reg:	0
+src1_needed:	0
+src2_needed:	0
+cc_read:	0
+cc_write:	88
+mem_addr:	8693685408
+mem_write:	0
+mem_read:	0
+br_dir:		0
+br_target:	140553409789968
+
+OP_id:		140553400371288
+inst_addr: 	8589934594
+op_type: 	1
+dest:		27
+dest_needed:	0
+src1_reg:	0
+src2_reg:	0
+src1_needed:	0
+src2_needed:	0
+cc_read:	0
+cc_write:	88
+mem_addr:	8693685408
+mem_write:	0
+mem_read:	0
+br_dir:		0
+br_target:	140553396172640
+
+OP_id:		140553400371288
+inst_addr: 	8589934594
+op_type: 	1
+dest:		27
+dest_needed:	0
+src1_reg:	0
+src2_reg:	0
+src1_needed:	0
+src2_needed:	0
+cc_read:	0
+cc_write:	88
+mem_addr:	8693685408
+mem_write:	0
+mem_read:	0
+br_dir:		0
+br_target:	140553409790032
+
+OP_id:		140553400371288
+inst_addr: 	8589934594
+op_type: 	1
+dest:		27
+dest_needed:	0
+src1_reg:	0
+src2_reg:	0
+src1_needed:	0
+src2_needed:	0
+cc_read:	0
+cc_write:	88
+mem_addr:	8693685408
+mem_write:	0
+mem_read:	0
+br_dir:		0
+br_target:	140553409790000
+
+OP_id:		140553400371288
+inst_addr: 	8589934594
+op_type: 	1
+dest:		27
+dest_needed:	0
+src1_reg:	0
+src2_reg:	0
+src1_needed:	0
+src2_needed:	0
+cc_read:	0
+cc_write:	88
+mem_addr:	8693685408
+mem_write:	0
+mem_read:	0
+br_dir:		0
+br_target:	140553409789968
+
+OP_id:		140553400371288
+inst_addr: 	8589934594
+op_type: 	1
+dest:		27
+dest_needed:	0
+src1_reg:	0
+src2_reg:	0
+src1_needed:	0
+src2_needed:	0
+cc_read:	0
+cc_write:	88
+mem_addr:	8693685408
+mem_write:	0
+mem_read:	0
+br_dir:		0
+br_target:	140553396172640
+
+
+
+
+LAB2_NUM_INST           	 :        100
+LAB2_NUM_CYCLES         	 :         56
+LAB2_CPI                	 :      0.560
