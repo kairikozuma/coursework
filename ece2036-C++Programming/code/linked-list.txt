@@ -1,0 +1,35 @@
+// Linked list
+class Employee {
+  Employee* next; // points to next employee
+}
+// Head and tail of pointers
+- head: Employee* // first element
+- tail: Employee* // last element
+
+// null next pointer: end of list
+
+AddAtTail(Employee e) {
+  Employee* n = new Employee(e);
+  tail->next = n;
+  tail = n;
+  n->next = null
+}
+
+AddAtHead(Employee e) {
+  Employee* n = new Employee(e);
+  n->next = head;
+  head = n;
+}
+
+// Advantage of linked list
+- insertion into middle of list is in constant time (if pointer exists to point of insertion)
+
+// Indexing should be constant time (independent of length of list)
+// Not useful for linked list
+
+// Singly linked list
+- pointer to element after
+- (can pointer to element before by adding after, then switching)
+
+// Doubly linked list
+- pointer to element before and after

@@ -1,0 +1,72 @@
+A Matrix
+         0         1         2
+         3         4         5
+         6         7         8
+
+B transpose
+         0         3         6
+         1         4         7
+         2         5         8
+
+
+The C matrix 
+    1 + 1j         0         0         0
+         0    4 + 2j         0         0
+         0         0    1 + 1j         0
+         0         0         0         1j
+
+The A = B*B matrix is 
+        15        42        69
+        18        54        90
+        21        66       111
+
+
+The transpose of A is then
+        15        18        21
+        42        54        66
+        69        90       111
+
+The matrix A is still the following
+        15        42        69
+        18        54        90
+        21        66       111
+
+The B = B+B matrix is 
+         0         6        12
+         2         8        14
+         4        10        16
+
+The B = (6+7j)*B gives B as 
+         0   36 +42j   72 +84j
+   12 +14j   48 +56j   84 +98j
+   24 +28j   60 +70j   96 +112j
+
+The B = B*(7+7j) gives B as 
+         0  -42 +546j  -84 +1092j
+  -14 +182j  -56 +728j  -98 +1274j
+  -28 +364j  -70 +910j -112 +1456j
+
+The A = A-A matrix is 
+         0         0         0         0
+         0         0         0         0
+         0         0         0         0
+         0         0         0         0
+
+The C = C+C matrix is 
+    2 + 2j         0         0         0
+         0    8 + 4j         0         0
+         0         0    2 + 2j         0
+         0         0         0         2j
+
+Try multiplying mismatched matrices
+Matrix Mismatch Error!
+This matrix has zero elements
+
+Try adding mismatched matrices
+Matrix Mismatch Error!
+This matrix has zero elements
+
+Try subtracting mismatched matrices
+Matrix Mismatch Error!
+This matrix has zero elements
+

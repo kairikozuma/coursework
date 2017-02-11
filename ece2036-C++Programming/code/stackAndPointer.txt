@@ -1,0 +1,31 @@
+// Arguments pushed to the stack right to left
+// Array pushed from greatest significant bit to lowest
+// Return address pushed to stack (next line after function call)
+// All local variables end up in stack
+// Index operator of array is constant time (elements are contiguous)
+// No compile time error or runtime error for over indexing arrays
+
+// Pointers
+// - variable
+// - value is an address
+// Declaration
+int x = 4;
+int* p = &x; // Store address of x in p; & (address of)
+cout << p << endl; // Prints out address of x
+// Dereference with the * operator
+cout << *p << endl; // Prints out x, which is 5
+*p = 10; // Change x to 10
+// Use the bracket operator
+p[0] = 10; // Change x to 10, p points to x
+p[1] = 20; // Change value after x on stack to 20
+
+// Array name is a pointer
+int A[10];
+cout << A << address of A[0];
+int* x = A; // A is an address
+
+// Dereference twice
+int k = 10;
+int* i = &k;
+int* j = &i;
+int x = **j; // x is 10

@@ -1,0 +1,33 @@
+// Can compile with debugging
+g++ filename -g -o outputfile
+
+// Source code built into the binary
+
+// Run debugger
+gdb outputfile
+
+// Set debugging points
+b main
+b 87 //break at line number
+
+// run the code
+run
+
+// next - executes each line individually
+//		- if line calls function, entire function called without stopping
+n
+
+// step - step into function and execute function line by line
+s
+
+// continue - finish running program
+c
+
+// print - print value of variable
+print a
+
+// list - list next few lines of code
+list
+
+// where - complete stack trace
+where

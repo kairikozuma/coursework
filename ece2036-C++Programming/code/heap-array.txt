@@ -1,0 +1,15 @@
+// new: finds memory and constructs object
+T* elem = new T[100]; // 100 calls to default constructor
+
+// The next two operations avoids calling default constructor when getting memory
+
+// malloc: finds memory
+T* elem = malloc(100 * sizeof(T)); // not constructor
+
+// construct object at specified address
+new (&elem[0]) T(rhs) // Construct using copy constructor at that address
+
+// elem[0] = myElem; // Crashes, because elem is uninitialized after malloc
+
+// Call destructor on old element
+elem[i].~T();

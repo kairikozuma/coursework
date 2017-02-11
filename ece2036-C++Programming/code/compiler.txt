@@ -1,0 +1,26 @@
+// Compilers
+g++ : c++ compiler
+
+// Command line arguments for compiler
+-o : outputs to 
+-c : compile without creating executable binary (creates relocatable binary)
+-g : include debugging symbols
+-O2: optimization
+-Wall: warnings
+
+// Compiles to myprogram
+g++ -o myprogram myprogram.cc
+
+// Compiles .o file for later compilation
+g++ -c myprogram.cc
+// outputs to myprogram.o
+
+// Compile various .o files created by -c
+g++ -o myprogram mypart1.o mypar2.outputs
+
+// Run program
+./myprogram
+
+// "./" means the program is in the current directory
+
+
