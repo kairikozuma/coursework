@@ -1,0 +1,8 @@
+<?xml version="1.0" ?>
+<LOG_ROOT>
+	<PROJECT NAME="sm_tester">
+		<CBX_INST_ENTRY INSTANCE_NAME="|sm_tester|SIM:inst2|altsyncram:charrom" CBX_FILE_NAME="altsyncram_vpo1.tdf"/>
+		<CBX_INST_ENTRY INSTANCE_NAME="|sm_tester|SIM:inst2|altsyncram:vbuffer" CBX_FILE_NAME="altsyncram_spr1.tdf"/>
+		<CBX_INST_ENTRY INSTANCE_NAME="|sm_tester|SIM:inst2|altsyncram:vectors" CBX_FILE_NAME="altsyncram_voo1.tdf"/>
+	</PROJECT>
+</LOG_ROOT>

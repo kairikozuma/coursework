@@ -1,0 +1,14 @@
+Analysis & Synthesis Status : Successful - Thu Sep 24 15:51:40 2015
+Quartus II Version : 9.1 Build 350 03/24/2010 SP 2 SJ Full Version
+Revision Name : sm_tester
+Top-level Entity Name : sm_tester
+Family : Cyclone II
+Total logic elements : 359
+    Total combinational functions : 332
+    Dedicated logic registers : 214
+Total registers : 214
+Total pins : 46
+Total virtual pins : 0
+Total memory bits : 11,456
+Embedded Multiplier 9-bit elements : 0
+Total PLLs : 1

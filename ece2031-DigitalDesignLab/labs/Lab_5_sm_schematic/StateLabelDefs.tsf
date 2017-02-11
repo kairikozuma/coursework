@@ -1,0 +1,12 @@
+# Pattern symbol file
+# TSF Format Type Display Radix File Radix
+# =============== ======= ============= ==========
+#+ Version 2.1.0 PATTERN BIN BIN
+
+# Symbol Name Pattern Color
+
+# ================ =========== ==========
+
+A X000 0000 
+B X000 0001 @blue
+C X000 0010 @white @red

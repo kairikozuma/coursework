@@ -1,0 +1,32 @@
+-- Altera Memory Initialization File (MIF)
+
+DEPTH = 1024;
+WIDTH = 16;
+
+ADDRESS_RADIX = HEX;
+DATA_RADIX = HEX;
+
+CONTENT
+  BEGIN
+    [000..3FF] : 0000;  -- Default to NOP
+
+           000 : 0410;  -- START:      LOAD    ONE         ;AC = 0x0001
+           001 : 1804;  -- TEST_JNEG:  JNEG    TEST_JPOS   ;Jump if AC negative
+           002 : 1010;  --             SUB     ONE         ;AC = AC - 1
+           003 : 1401;  --             JUMP    TEST_JNEG   ;Jump back and test again
+           004 : 1C07;  -- TEST_JPOS:  JPOS    TEST_JZERO  ;Jump if AC positive
+           005 : 3401;  --             ADDI    1           ;AC = AC + 1
+           006 : 1404;  --             JUMP    TEST_JPOS   ;Jump back and test again
+           007 : 2000;  -- TEST_JZERO: JZERO   START       ;Jump if AC = 0x0000
+           008 : 37FE;  --             ADDI    -2          ;AC = AC - 2
+           009 : 2000;  --             JZERO   START       ;Jump if AC = 0x0000
+           00A : 0C10;  --             ADD     ONE         ;AC = AC + 1
+           00B : 200D;  --             JZERO   TEST_LOGIC  ;Jump if AC = 0x0000
+           00C : 1400;  --             JUMP    START       ;Jump to indicate error
+           00D : 2811;  -- TEST_LOGIC: OR      A           ;AC = AC OR  0x00FF
+           00E : 2C12;  --             XOR     B           ;AC = AC XOR 0x0FF0
+           00F : 140F;  -- HERE:       JUMP    HERE        ;Loop here forever, AC = 0x0F0F
+           010 : 0001;  -- ONE:        DW      &H0001
+           011 : 00FF;  -- A:          DW      &H00FF
+           012 : 0FF0;  -- B:          DW      &H0FF0
+  END;

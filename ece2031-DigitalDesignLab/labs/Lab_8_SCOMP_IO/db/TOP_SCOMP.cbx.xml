@@ -1,0 +1,11 @@
+<?xml version="1.0" ?>
+<LOG_ROOT>
+	<PROJECT NAME="top_scomp">
+		<CBX_INST_ENTRY INSTANCE_NAME="|top_scomp|SCOMP:inst8|LPM_CLSHIFT:SHIFTER" CBX_FILE_NAME="lpm_clshift_0kc.tdf"/>
+		<CBX_INST_ENTRY INSTANCE_NAME="|top_scomp|SCOMP:inst8|altsyncram:MEMORY" CBX_FILE_NAME="altsyncram_0kt3.tdf"/>
+	</PROJECT>
+	<PROJECT NAME="TOP_SCOMP">
+		<CBX_INST_ENTRY INSTANCE_NAME="|TOP_SCOMP|SCOMP:inst|LPM_CLSHIFT:SHIFTER" CBX_FILE_NAME="lpm_clshift_0kc.tdf"/>
+		<CBX_INST_ENTRY INSTANCE_NAME="|TOP_SCOMP|SCOMP:inst|altsyncram:MEMORY" CBX_FILE_NAME="altsyncram_8ht3.tdf"/>
+	</PROJECT>
+</LOG_ROOT>

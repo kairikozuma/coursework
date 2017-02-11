@@ -1,0 +1,974 @@
+Simulator report for scomp
+Thu Oct 22 13:54:56 2015
+Quartus II Version 9.1 Build 350 03/24/2010 Service Pack 2 SJ Full Version
+
+
+---------------------
+; Table of Contents ;
+---------------------
+  1. Legal Notice
+  2. Simulator Summary
+  3. Simulator Settings
+  4. Simulation Waveforms
+  5. |SCOMP|altsyncram:MEMORY|altsyncram_8ht3:auto_generated|ALTSYNCRAM
+  6. Coverage Summary
+  7. Complete 1/0-Value Coverage
+  8. Missing 1-Value Coverage
+  9. Missing 0-Value Coverage
+ 10. Simulator INI Usage
+ 11. Simulator Messages
+
+
+
+----------------
+; Legal Notice ;
+----------------
+Copyright (C) 1991-2010 Altera Corporation
+Your use of Altera Corporation's design tools, logic functions 
+and other software and tools, and its AMPP partner logic 
+functions, and any output files from any of the foregoing 
+(including device programming or simulation files), and any 
+associated documentation or information are expressly subject 
+to the terms and conditions of the Altera Program License 
+Subscription Agreement, Altera MegaCore Function License 
+Agreement, or other applicable license agreement, including, 
+without limitation, that your use is for the sole purpose of 
+programming logic devices manufactured by Altera and sold by 
+Altera or its authorized distributors.  Please refer to the 
+applicable agreement for further details.
+
+
+
++--------------------------------------------+
+; Simulator Summary                          ;
++-----------------------------+--------------+
+; Type                        ; Value        ;
++-----------------------------+--------------+
+; Simulation Start Time       ; 0 ps         ;
+; Simulation End Time         ; 75.0 us      ;
+; Simulation Netlist Size     ; 499 nodes    ;
+; Simulation Coverage         ;      45.47 % ;
+; Total Number of Transitions ; 4115         ;
+; Simulation Breakpoints      ; 0            ;
+; Family                      ; Cyclone II   ;
+; Device                      ; EP2C35F672C6 ;
++-----------------------------+--------------+
+
+
++-------------------------------------------------------------------------------------------------------------------------+
+; Simulator Settings                                                                                                      ;
++--------------------------------------------------------------------------------------------+------------+---------------+
+; Option                                                                                     ; Setting    ; Default Value ;
++--------------------------------------------------------------------------------------------+------------+---------------+
+; Simulation mode                                                                            ; Timing     ; Timing        ;
+; Start time                                                                                 ; 0 ns       ; 0 ns          ;
+; Simulation results format                                                                  ; CVWF       ;               ;
+; Vector input source                                                                        ; scomp.vwf  ;               ;
+; Add pins automatically to simulation output waveforms                                      ; Off        ; On            ;
+; Check outputs                                                                              ; Off        ; Off           ;
+; Report simulation coverage                                                                 ; On         ; On            ;
+; Display complete 1/0 value coverage report                                                 ; On         ; On            ;
+; Display missing 1-value coverage report                                                    ; On         ; On            ;
+; Display missing 0-value coverage report                                                    ; On         ; On            ;
+; Detect setup and hold time violations                                                      ; Off        ; Off           ;
+; Detect glitches                                                                            ; Off        ; Off           ;
+; Disable timing delays in Timing Simulation                                                 ; Off        ; Off           ;
+; Generate Signal Activity File                                                              ; Off        ; Off           ;
+; Generate VCD File for PowerPlay Power Analyzer                                             ; Off        ; Off           ;
+; Group bus channels in simulation results                                                   ; Off        ; Off           ;
+; Preserve fewer signal transitions to reduce memory requirements                            ; On         ; On            ;
+; Trigger vector comparison with the specified mode                                          ; INPUT_EDGE ; INPUT_EDGE    ;
+; Disable setup and hold time violations detection in input registers of bi-directional pins ; Off        ; Off           ;
+; Overwrite Waveform Inputs With Simulation Outputs                                          ; On         ;               ;
+; Perform Glitch Filtering in Timing Simulation                                              ; Auto       ; Auto          ;
++--------------------------------------------------------------------------------------------+------------+---------------+
+
+
++----------------------+
+; Simulation Waveforms ;
++----------------------+
+Waveform report data cannot be output to ASCII.
+Please use Quartus II to view the waveform report data.
+
+
++--------------------------------------------------------------------+
+; |SCOMP|altsyncram:MEMORY|altsyncram_8ht3:auto_generated|ALTSYNCRAM ;
++--------------------------------------------------------------------+
+Please refer to fitter text-based report (*.fit.rpt) to view logical memory report content in ASCII.
+
+
++--------------------------------------------------------------------+
+; Coverage Summary                                                   ;
++-----------------------------------------------------+--------------+
+; Type                                                ; Value        ;
++-----------------------------------------------------+--------------+
+; Total coverage as a percentage                      ;      45.47 % ;
+; Total nodes checked                                 ; 499          ;
+; Total output ports checked                          ; 519          ;
+; Total output ports with complete 1/0-value coverage ; 236          ;
+; Total output ports with no 1/0-value coverage       ; 267          ;
+; Total output ports with no 1-value coverage         ; 270          ;
+; Total output ports with no 0-value coverage         ; 280          ;
++-----------------------------------------------------+--------------+
+
+
+The following table displays output ports that toggle between 1 and 0 during simulation.
++----------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Complete 1/0-Value Coverage                                                                                                                                          ;
++-------------------------------------------------------------------------+-------------------------------------------------------------------------+------------------+
+; Node Name                                                               ; Output Port Name                                                        ; Output Port Type ;
++-------------------------------------------------------------------------+-------------------------------------------------------------------------+------------------+
+; |SCOMP|altsyncram:MEMORY|altsyncram_8ht3:auto_generated|ram_block1a0    ; |SCOMP|altsyncram:MEMORY|altsyncram_8ht3:auto_generated|q_a[0]          ; portadataout0    ;
+; |SCOMP|altsyncram:MEMORY|altsyncram_8ht3:auto_generated|ram_block1a0    ; |SCOMP|altsyncram:MEMORY|altsyncram_8ht3:auto_generated|q_a[1]          ; portadataout1    ;
+; |SCOMP|altsyncram:MEMORY|altsyncram_8ht3:auto_generated|ram_block1a0    ; |SCOMP|altsyncram:MEMORY|altsyncram_8ht3:auto_generated|q_a[2]          ; portadataout2    ;
+; |SCOMP|altsyncram:MEMORY|altsyncram_8ht3:auto_generated|ram_block1a0    ; |SCOMP|altsyncram:MEMORY|altsyncram_8ht3:auto_generated|q_a[3]          ; portadataout3    ;
+; |SCOMP|altsyncram:MEMORY|altsyncram_8ht3:auto_generated|ram_block1a4    ; |SCOMP|altsyncram:MEMORY|altsyncram_8ht3:auto_generated|q_a[4]          ; portadataout0    ;
+; |SCOMP|altsyncram:MEMORY|altsyncram_8ht3:auto_generated|ram_block1a4    ; |SCOMP|altsyncram:MEMORY|altsyncram_8ht3:auto_generated|q_a[5]          ; portadataout1    ;
+; |SCOMP|altsyncram:MEMORY|altsyncram_8ht3:auto_generated|ram_block1a4    ; |SCOMP|altsyncram:MEMORY|altsyncram_8ht3:auto_generated|q_a[6]          ; portadataout2    ;
+; |SCOMP|altsyncram:MEMORY|altsyncram_8ht3:auto_generated|ram_block1a4    ; |SCOMP|altsyncram:MEMORY|altsyncram_8ht3:auto_generated|q_a[7]          ; portadataout3    ;
+; |SCOMP|altsyncram:MEMORY|altsyncram_8ht3:auto_generated|ram_block1a8    ; |SCOMP|altsyncram:MEMORY|altsyncram_8ht3:auto_generated|q_a[8]          ; portadataout0    ;
+; |SCOMP|altsyncram:MEMORY|altsyncram_8ht3:auto_generated|ram_block1a8    ; |SCOMP|altsyncram:MEMORY|altsyncram_8ht3:auto_generated|q_a[9]          ; portadataout1    ;
+; |SCOMP|altsyncram:MEMORY|altsyncram_8ht3:auto_generated|ram_block1a8    ; |SCOMP|altsyncram:MEMORY|altsyncram_8ht3:auto_generated|q_a[10]         ; portadataout2    ;
+; |SCOMP|altsyncram:MEMORY|altsyncram_8ht3:auto_generated|ram_block1a8    ; |SCOMP|altsyncram:MEMORY|altsyncram_8ht3:auto_generated|q_a[11]         ; portadataout3    ;
+; |SCOMP|altsyncram:MEMORY|altsyncram_8ht3:auto_generated|ram_block1a12   ; |SCOMP|altsyncram:MEMORY|altsyncram_8ht3:auto_generated|q_a[12]         ; portadataout0    ;
+; |SCOMP|altsyncram:MEMORY|altsyncram_8ht3:auto_generated|ram_block1a12   ; |SCOMP|altsyncram:MEMORY|altsyncram_8ht3:auto_generated|q_a[13]         ; portadataout1    ;
+; |SCOMP|altsyncram:MEMORY|altsyncram_8ht3:auto_generated|ram_block1a12   ; |SCOMP|altsyncram:MEMORY|altsyncram_8ht3:auto_generated|q_a[14]         ; portadataout2    ;
+; |SCOMP|altsyncram:MEMORY|altsyncram_8ht3:auto_generated|ram_block1a12   ; |SCOMP|altsyncram:MEMORY|altsyncram_8ht3:auto_generated|q_a[15]         ; portadataout3    ;
+; |SCOMP|Add0~0                                                           ; |SCOMP|Add0~0                                                           ; combout          ;
+; |SCOMP|Add0~0                                                           ; |SCOMP|Add0~1                                                           ; cout             ;
+; |SCOMP|Add0~2                                                           ; |SCOMP|Add0~2                                                           ; combout          ;
+; |SCOMP|Add0~2                                                           ; |SCOMP|Add0~3                                                           ; cout             ;
+; |SCOMP|Add0~4                                                           ; |SCOMP|Add0~4                                                           ; combout          ;
+; |SCOMP|Add0~8                                                           ; |SCOMP|Add0~8                                                           ; combout          ;
+; |SCOMP|PC[0]                                                            ; |SCOMP|PC[0]                                                            ; regout           ;
+; |SCOMP|PC[1]                                                            ; |SCOMP|PC[1]                                                            ; regout           ;
+; |SCOMP|PC[2]                                                            ; |SCOMP|PC[2]                                                            ; regout           ;
+; |SCOMP|PC[4]                                                            ; |SCOMP|PC[4]                                                            ; regout           ;
+; |SCOMP|AC[1]                                                            ; |SCOMP|AC[1]                                                            ; regout           ;
+; |SCOMP|AC[3]                                                            ; |SCOMP|AC[3]                                                            ; regout           ;
+; |SCOMP|AC[4]                                                            ; |SCOMP|AC[4]                                                            ; regout           ;
+; |SCOMP|AC[6]                                                            ; |SCOMP|AC[6]                                                            ; regout           ;
+; |SCOMP|AC[8]                                                            ; |SCOMP|AC[8]                                                            ; regout           ;
+; |SCOMP|AC[9]                                                            ; |SCOMP|AC[9]                                                            ; regout           ;
+; |SCOMP|AC[12]                                                           ; |SCOMP|AC[12]                                                           ; regout           ;
+; |SCOMP|AC[13]                                                           ; |SCOMP|AC[13]                                                           ; regout           ;
+; |SCOMP|IR[0]                                                            ; |SCOMP|IR[0]                                                            ; regout           ;
+; |SCOMP|STATE.FETCH                                                      ; |SCOMP|STATE.FETCH                                                      ; regout           ;
+; |SCOMP|MEM_ADDR[0]~0                                                    ; |SCOMP|MEM_ADDR[0]~0                                                    ; combout          ;
+; |SCOMP|IR[1]                                                            ; |SCOMP|IR[1]                                                            ; regout           ;
+; |SCOMP|MEM_ADDR[1]~1                                                    ; |SCOMP|MEM_ADDR[1]~1                                                    ; combout          ;
+; |SCOMP|IR[4]                                                            ; |SCOMP|IR[4]                                                            ; regout           ;
+; |SCOMP|MEM_ADDR[4]~4                                                    ; |SCOMP|MEM_ADDR[4]~4                                                    ; combout          ;
+; |SCOMP|IR[5]                                                            ; |SCOMP|IR[5]                                                            ; regout           ;
+; |SCOMP|MEM_ADDR[5]~5                                                    ; |SCOMP|MEM_ADDR[5]~5                                                    ; combout          ;
+; |SCOMP|STATE.EX_RETURN                                                  ; |SCOMP|STATE.EX_RETURN                                                  ; regout           ;
+; |SCOMP|Selector10~0                                                     ; |SCOMP|Selector10~0                                                     ; combout          ;
+; |SCOMP|Selector10~1                                                     ; |SCOMP|Selector10~1                                                     ; combout          ;
+; |SCOMP|Selector10~2                                                     ; |SCOMP|Selector10~2                                                     ; combout          ;
+; |SCOMP|STATE.EX_JUMP                                                    ; |SCOMP|STATE.EX_JUMP                                                    ; regout           ;
+; |SCOMP|STATE.EX_CALL                                                    ; |SCOMP|STATE.EX_CALL                                                    ; regout           ;
+; |SCOMP|PC[0]~0                                                          ; |SCOMP|PC[0]~0                                                          ; combout          ;
+; |SCOMP|PC[0]~1                                                          ; |SCOMP|PC[0]~1                                                          ; combout          ;
+; |SCOMP|PC[0]~2                                                          ; |SCOMP|PC[0]~2                                                          ; combout          ;
+; |SCOMP|Equal0~0                                                         ; |SCOMP|Equal0~0                                                         ; combout          ;
+; |SCOMP|Equal0~1                                                         ; |SCOMP|Equal0~1                                                         ; combout          ;
+; |SCOMP|PC[0]~4                                                          ; |SCOMP|PC[0]~4                                                          ; combout          ;
+; |SCOMP|Selector9~0                                                      ; |SCOMP|Selector9~0                                                      ; combout          ;
+; |SCOMP|Selector9~1                                                      ; |SCOMP|Selector9~1                                                      ; combout          ;
+; |SCOMP|Selector8~0                                                      ; |SCOMP|Selector8~0                                                      ; combout          ;
+; |SCOMP|Selector8~1                                                      ; |SCOMP|Selector8~1                                                      ; combout          ;
+; |SCOMP|Selector6~0                                                      ; |SCOMP|Selector6~0                                                      ; combout          ;
+; |SCOMP|Selector6~1                                                      ; |SCOMP|Selector6~1                                                      ; combout          ;
+; |SCOMP|Selector5~0                                                      ; |SCOMP|Selector5~0                                                      ; combout          ;
+; |SCOMP|Selector5~1                                                      ; |SCOMP|Selector5~1                                                      ; combout          ;
+; |SCOMP|Add0~12                                                          ; |SCOMP|Add0~12                                                          ; combout          ;
+; |SCOMP|lpm_clshift:SHIFTER|lpm_clshift_0kc:auto_generated|sbit_w[22]~2  ; |SCOMP|lpm_clshift:SHIFTER|lpm_clshift_0kc:auto_generated|sbit_w[22]~2  ; combout          ;
+; |SCOMP|lpm_clshift:SHIFTER|lpm_clshift_0kc:auto_generated|sbit_w[22]~3  ; |SCOMP|lpm_clshift:SHIFTER|lpm_clshift_0kc:auto_generated|sbit_w[22]~3  ; combout          ;
+; |SCOMP|lpm_clshift:SHIFTER|lpm_clshift_0kc:auto_generated|sbit_w[18]~4  ; |SCOMP|lpm_clshift:SHIFTER|lpm_clshift_0kc:auto_generated|sbit_w[18]~4  ; combout          ;
+; |SCOMP|lpm_clshift:SHIFTER|lpm_clshift_0kc:auto_generated|sbit_w[18]~5  ; |SCOMP|lpm_clshift:SHIFTER|lpm_clshift_0kc:auto_generated|sbit_w[18]~5  ; combout          ;
+; |SCOMP|lpm_clshift:SHIFTER|lpm_clshift_0kc:auto_generated|sbit_w[36]~6  ; |SCOMP|lpm_clshift:SHIFTER|lpm_clshift_0kc:auto_generated|sbit_w[36]~6  ; combout          ;
+; |SCOMP|lpm_clshift:SHIFTER|lpm_clshift_0kc:auto_generated|sbit_w[20]~7  ; |SCOMP|lpm_clshift:SHIFTER|lpm_clshift_0kc:auto_generated|sbit_w[20]~7  ; combout          ;
+; |SCOMP|lpm_clshift:SHIFTER|lpm_clshift_0kc:auto_generated|sbit_w[20]~8  ; |SCOMP|lpm_clshift:SHIFTER|lpm_clshift_0kc:auto_generated|sbit_w[20]~8  ; combout          ;
+; |SCOMP|lpm_clshift:SHIFTER|lpm_clshift_0kc:auto_generated|sbit_w[36]~9  ; |SCOMP|lpm_clshift:SHIFTER|lpm_clshift_0kc:auto_generated|sbit_w[36]~9  ; combout          ;
+; |SCOMP|lpm_clshift:SHIFTER|lpm_clshift_0kc:auto_generated|sbit_w[32]~10 ; |SCOMP|lpm_clshift:SHIFTER|lpm_clshift_0kc:auto_generated|sbit_w[32]~10 ; combout          ;
+; |SCOMP|lpm_clshift:SHIFTER|lpm_clshift_0kc:auto_generated|sbit_w[48]~11 ; |SCOMP|lpm_clshift:SHIFTER|lpm_clshift_0kc:auto_generated|sbit_w[48]~11 ; combout          ;
+; |SCOMP|lpm_clshift:SHIFTER|lpm_clshift_0kc:auto_generated|sbit_w[48]~12 ; |SCOMP|lpm_clshift:SHIFTER|lpm_clshift_0kc:auto_generated|sbit_w[48]~12 ; combout          ;
+; |SCOMP|STATE.EX_AND                                                     ; |SCOMP|STATE.EX_AND                                                     ; regout           ;
+; |SCOMP|STATE.EX_LOAD                                                    ; |SCOMP|STATE.EX_LOAD                                                    ; regout           ;
+; |SCOMP|WideOr3~0                                                        ; |SCOMP|WideOr3~0                                                        ; combout          ;
+; |SCOMP|Selector26~3                                                     ; |SCOMP|Selector26~3                                                     ; combout          ;
+; |SCOMP|STATE.EX_XOR                                                     ; |SCOMP|STATE.EX_XOR                                                     ; regout           ;
+; |SCOMP|Selector26~4                                                     ; |SCOMP|Selector26~4                                                     ; combout          ;
+; |SCOMP|WideOr3~1                                                        ; |SCOMP|WideOr3~1                                                        ; combout          ;
+; |SCOMP|Selector26~5                                                     ; |SCOMP|Selector26~5                                                     ; combout          ;
+; |SCOMP|lpm_clshift:SHIFTER|lpm_clshift_0kc:auto_generated|sbit_w[28]~19 ; |SCOMP|lpm_clshift:SHIFTER|lpm_clshift_0kc:auto_generated|sbit_w[28]~19 ; combout          ;
+; |SCOMP|lpm_clshift:SHIFTER|lpm_clshift_0kc:auto_generated|sbit_w[44]~20 ; |SCOMP|lpm_clshift:SHIFTER|lpm_clshift_0kc:auto_generated|sbit_w[44]~20 ; combout          ;
+; |SCOMP|lpm_clshift:SHIFTER|lpm_clshift_0kc:auto_generated|sbit_w[24]~24 ; |SCOMP|lpm_clshift:SHIFTER|lpm_clshift_0kc:auto_generated|sbit_w[24]~24 ; combout          ;
+; |SCOMP|lpm_clshift:SHIFTER|lpm_clshift_0kc:auto_generated|sbit_w[40]~25 ; |SCOMP|lpm_clshift:SHIFTER|lpm_clshift_0kc:auto_generated|sbit_w[40]~25 ; combout          ;
+; |SCOMP|lpm_clshift:SHIFTER|lpm_clshift_0kc:auto_generated|sbit_w[56]~26 ; |SCOMP|lpm_clshift:SHIFTER|lpm_clshift_0kc:auto_generated|sbit_w[56]~26 ; combout          ;
+; |SCOMP|Selector26~7                                                     ; |SCOMP|Selector26~7                                                     ; combout          ;
+; |SCOMP|WideOr3~2                                                        ; |SCOMP|WideOr3~2                                                        ; combout          ;
+; |SCOMP|AC[10]~1                                                         ; |SCOMP|AC[10]~1                                                         ; combout          ;
+; |SCOMP|lpm_clshift:SHIFTER|lpm_clshift_0kc:auto_generated|sbit_w[23]~28 ; |SCOMP|lpm_clshift:SHIFTER|lpm_clshift_0kc:auto_generated|sbit_w[23]~28 ; combout          ;
+; |SCOMP|lpm_clshift:SHIFTER|lpm_clshift_0kc:auto_generated|sbit_w[19]~29 ; |SCOMP|lpm_clshift:SHIFTER|lpm_clshift_0kc:auto_generated|sbit_w[19]~29 ; combout          ;
+; |SCOMP|lpm_clshift:SHIFTER|lpm_clshift_0kc:auto_generated|sbit_w[19]~30 ; |SCOMP|lpm_clshift:SHIFTER|lpm_clshift_0kc:auto_generated|sbit_w[19]~30 ; combout          ;
+; |SCOMP|lpm_clshift:SHIFTER|lpm_clshift_0kc:auto_generated|sbit_w[37]~31 ; |SCOMP|lpm_clshift:SHIFTER|lpm_clshift_0kc:auto_generated|sbit_w[37]~31 ; combout          ;
+; |SCOMP|lpm_clshift:SHIFTER|lpm_clshift_0kc:auto_generated|sbit_w[21]~32 ; |SCOMP|lpm_clshift:SHIFTER|lpm_clshift_0kc:auto_generated|sbit_w[21]~32 ; combout          ;
+; |SCOMP|lpm_clshift:SHIFTER|lpm_clshift_0kc:auto_generated|sbit_w[21]~33 ; |SCOMP|lpm_clshift:SHIFTER|lpm_clshift_0kc:auto_generated|sbit_w[21]~33 ; combout          ;
+; |SCOMP|lpm_clshift:SHIFTER|lpm_clshift_0kc:auto_generated|sbit_w[37]~34 ; |SCOMP|lpm_clshift:SHIFTER|lpm_clshift_0kc:auto_generated|sbit_w[37]~34 ; combout          ;
+; |SCOMP|lpm_clshift:SHIFTER|lpm_clshift_0kc:auto_generated|sbit_w[17]~35 ; |SCOMP|lpm_clshift:SHIFTER|lpm_clshift_0kc:auto_generated|sbit_w[17]~35 ; combout          ;
+; |SCOMP|lpm_clshift:SHIFTER|lpm_clshift_0kc:auto_generated|sbit_w[17]~36 ; |SCOMP|lpm_clshift:SHIFTER|lpm_clshift_0kc:auto_generated|sbit_w[17]~36 ; combout          ;
+; |SCOMP|lpm_clshift:SHIFTER|lpm_clshift_0kc:auto_generated|sbit_w[49]~37 ; |SCOMP|lpm_clshift:SHIFTER|lpm_clshift_0kc:auto_generated|sbit_w[49]~37 ; combout          ;
+; |SCOMP|lpm_clshift:SHIFTER|lpm_clshift_0kc:auto_generated|sbit_w[49]~38 ; |SCOMP|lpm_clshift:SHIFTER|lpm_clshift_0kc:auto_generated|sbit_w[49]~38 ; combout          ;
+; |SCOMP|Selector25~2                                                     ; |SCOMP|Selector25~2                                                     ; combout          ;
+; |SCOMP|Selector25~4                                                     ; |SCOMP|Selector25~4                                                     ; combout          ;
+; |SCOMP|lpm_clshift:SHIFTER|lpm_clshift_0kc:auto_generated|sbit_w[29]~40 ; |SCOMP|lpm_clshift:SHIFTER|lpm_clshift_0kc:auto_generated|sbit_w[29]~40 ; combout          ;
+; |SCOMP|lpm_clshift:SHIFTER|lpm_clshift_0kc:auto_generated|sbit_w[45]~44 ; |SCOMP|lpm_clshift:SHIFTER|lpm_clshift_0kc:auto_generated|sbit_w[45]~44 ; combout          ;
+; |SCOMP|lpm_clshift:SHIFTER|lpm_clshift_0kc:auto_generated|sbit_w[41]~46 ; |SCOMP|lpm_clshift:SHIFTER|lpm_clshift_0kc:auto_generated|sbit_w[41]~46 ; combout          ;
+; |SCOMP|lpm_clshift:SHIFTER|lpm_clshift_0kc:auto_generated|sbit_w[25]~48 ; |SCOMP|lpm_clshift:SHIFTER|lpm_clshift_0kc:auto_generated|sbit_w[25]~48 ; combout          ;
+; |SCOMP|lpm_clshift:SHIFTER|lpm_clshift_0kc:auto_generated|sbit_w[41]~49 ; |SCOMP|lpm_clshift:SHIFTER|lpm_clshift_0kc:auto_generated|sbit_w[41]~49 ; combout          ;
+; |SCOMP|lpm_clshift:SHIFTER|lpm_clshift_0kc:auto_generated|sbit_w[57]~50 ; |SCOMP|lpm_clshift:SHIFTER|lpm_clshift_0kc:auto_generated|sbit_w[57]~50 ; combout          ;
+; |SCOMP|Selector25~5                                                     ; |SCOMP|Selector25~5                                                     ; combout          ;
+; |SCOMP|lpm_clshift:SHIFTER|lpm_clshift_0kc:auto_generated|sbit_w[38]~52 ; |SCOMP|lpm_clshift:SHIFTER|lpm_clshift_0kc:auto_generated|sbit_w[38]~52 ; combout          ;
+; |SCOMP|lpm_clshift:SHIFTER|lpm_clshift_0kc:auto_generated|sbit_w[38]~53 ; |SCOMP|lpm_clshift:SHIFTER|lpm_clshift_0kc:auto_generated|sbit_w[38]~53 ; combout          ;
+; |SCOMP|lpm_clshift:SHIFTER|lpm_clshift_0kc:auto_generated|sbit_w[42]~55 ; |SCOMP|lpm_clshift:SHIFTER|lpm_clshift_0kc:auto_generated|sbit_w[42]~55 ; combout          ;
+; |SCOMP|lpm_clshift:SHIFTER|lpm_clshift_0kc:auto_generated|sbit_w[42]~56 ; |SCOMP|lpm_clshift:SHIFTER|lpm_clshift_0kc:auto_generated|sbit_w[42]~56 ; combout          ;
+; |SCOMP|Selector24~1                                                     ; |SCOMP|Selector24~1                                                     ; combout          ;
+; |SCOMP|Selector24~2                                                     ; |SCOMP|Selector24~2                                                     ; combout          ;
+; |SCOMP|Selector24~3                                                     ; |SCOMP|Selector24~3                                                     ; combout          ;
+; |SCOMP|lpm_clshift:SHIFTER|lpm_clshift_0kc:auto_generated|sbit_w[50]~57 ; |SCOMP|lpm_clshift:SHIFTER|lpm_clshift_0kc:auto_generated|sbit_w[50]~57 ; combout          ;
+; |SCOMP|Selector24~4                                                     ; |SCOMP|Selector24~4                                                     ; combout          ;
+; |SCOMP|lpm_clshift:SHIFTER|lpm_clshift_0kc:auto_generated|sbit_w[39]~60 ; |SCOMP|lpm_clshift:SHIFTER|lpm_clshift_0kc:auto_generated|sbit_w[39]~60 ; combout          ;
+; |SCOMP|lpm_clshift:SHIFTER|lpm_clshift_0kc:auto_generated|sbit_w[39]~61 ; |SCOMP|lpm_clshift:SHIFTER|lpm_clshift_0kc:auto_generated|sbit_w[39]~61 ; combout          ;
+; |SCOMP|lpm_clshift:SHIFTER|lpm_clshift_0kc:auto_generated|sbit_w[43]~63 ; |SCOMP|lpm_clshift:SHIFTER|lpm_clshift_0kc:auto_generated|sbit_w[43]~63 ; combout          ;
+; |SCOMP|lpm_clshift:SHIFTER|lpm_clshift_0kc:auto_generated|sbit_w[43]~64 ; |SCOMP|lpm_clshift:SHIFTER|lpm_clshift_0kc:auto_generated|sbit_w[43]~64 ; combout          ;
+; |SCOMP|Selector23~1                                                     ; |SCOMP|Selector23~1                                                     ; combout          ;
+; |SCOMP|Selector23~3                                                     ; |SCOMP|Selector23~3                                                     ; combout          ;
+; |SCOMP|lpm_clshift:SHIFTER|lpm_clshift_0kc:auto_generated|sbit_w[35]~65 ; |SCOMP|lpm_clshift:SHIFTER|lpm_clshift_0kc:auto_generated|sbit_w[35]~65 ; combout          ;
+; |SCOMP|lpm_clshift:SHIFTER|lpm_clshift_0kc:auto_generated|sbit_w[35]~66 ; |SCOMP|lpm_clshift:SHIFTER|lpm_clshift_0kc:auto_generated|sbit_w[35]~66 ; combout          ;
+; |SCOMP|lpm_clshift:SHIFTER|lpm_clshift_0kc:auto_generated|sbit_w[51]~67 ; |SCOMP|lpm_clshift:SHIFTER|lpm_clshift_0kc:auto_generated|sbit_w[51]~67 ; combout          ;
+; |SCOMP|Selector23~4                                                     ; |SCOMP|Selector23~4                                                     ; combout          ;
+; |SCOMP|Selector22~1                                                     ; |SCOMP|Selector22~1                                                     ; combout          ;
+; |SCOMP|Selector22~3                                                     ; |SCOMP|Selector22~3                                                     ; combout          ;
+; |SCOMP|lpm_clshift:SHIFTER|lpm_clshift_0kc:auto_generated|sbit_w[60]~69 ; |SCOMP|lpm_clshift:SHIFTER|lpm_clshift_0kc:auto_generated|sbit_w[60]~69 ; combout          ;
+; |SCOMP|Selector22~4                                                     ; |SCOMP|Selector22~4                                                     ; combout          ;
+; |SCOMP|lpm_clshift:SHIFTER|lpm_clshift_0kc:auto_generated|sbit_w[53]~70 ; |SCOMP|lpm_clshift:SHIFTER|lpm_clshift_0kc:auto_generated|sbit_w[53]~70 ; combout          ;
+; |SCOMP|Selector21~1                                                     ; |SCOMP|Selector21~1                                                     ; combout          ;
+; |SCOMP|Selector21~2                                                     ; |SCOMP|Selector21~2                                                     ; combout          ;
+; |SCOMP|Add1~29                                                          ; |SCOMP|Add1~29                                                          ; combout          ;
+; |SCOMP|Selector21~3                                                     ; |SCOMP|Selector21~3                                                     ; combout          ;
+; |SCOMP|lpm_clshift:SHIFTER|lpm_clshift_0kc:auto_generated|sbit_w[61]~72 ; |SCOMP|lpm_clshift:SHIFTER|lpm_clshift_0kc:auto_generated|sbit_w[61]~72 ; combout          ;
+; |SCOMP|Selector21~4                                                     ; |SCOMP|Selector21~4                                                     ; combout          ;
+; |SCOMP|Selector20~1                                                     ; |SCOMP|Selector20~1                                                     ; combout          ;
+; |SCOMP|Selector20~3                                                     ; |SCOMP|Selector20~3                                                     ; combout          ;
+; |SCOMP|Selector20~4                                                     ; |SCOMP|Selector20~4                                                     ; combout          ;
+; |SCOMP|Selector19~1                                                     ; |SCOMP|Selector19~1                                                     ; combout          ;
+; |SCOMP|Selector19~2                                                     ; |SCOMP|Selector19~2                                                     ; combout          ;
+; |SCOMP|Selector19~3                                                     ; |SCOMP|Selector19~3                                                     ; combout          ;
+; |SCOMP|Selector19~4                                                     ; |SCOMP|Selector19~4                                                     ; combout          ;
+; |SCOMP|Selector18~4                                                     ; |SCOMP|Selector18~4                                                     ; combout          ;
+; |SCOMP|Selector18~5                                                     ; |SCOMP|Selector18~5                                                     ; combout          ;
+; |SCOMP|Selector18~6                                                     ; |SCOMP|Selector18~6                                                     ; combout          ;
+; |SCOMP|Selector17~3                                                     ; |SCOMP|Selector17~3                                                     ; combout          ;
+; |SCOMP|Selector17~4                                                     ; |SCOMP|Selector17~4                                                     ; combout          ;
+; |SCOMP|Selector17~5                                                     ; |SCOMP|Selector17~5                                                     ; combout          ;
+; |SCOMP|Selector14~0                                                     ; |SCOMP|Selector14~0                                                     ; combout          ;
+; |SCOMP|Selector14~1                                                     ; |SCOMP|Selector14~1                                                     ; combout          ;
+; |SCOMP|Selector14~2                                                     ; |SCOMP|Selector14~2                                                     ; combout          ;
+; |SCOMP|Selector14~3                                                     ; |SCOMP|Selector14~3                                                     ; combout          ;
+; |SCOMP|Selector14~5                                                     ; |SCOMP|Selector14~5                                                     ; combout          ;
+; |SCOMP|Selector13~0                                                     ; |SCOMP|Selector13~0                                                     ; combout          ;
+; |SCOMP|Selector13~1                                                     ; |SCOMP|Selector13~1                                                     ; combout          ;
+; |SCOMP|Selector13~2                                                     ; |SCOMP|Selector13~2                                                     ; combout          ;
+; |SCOMP|Selector13~3                                                     ; |SCOMP|Selector13~3                                                     ; combout          ;
+; |SCOMP|Selector13~5                                                     ; |SCOMP|Selector13~5                                                     ; combout          ;
+; |SCOMP|Selector12~0                                                     ; |SCOMP|Selector12~0                                                     ; combout          ;
+; |SCOMP|Selector12~1                                                     ; |SCOMP|Selector12~1                                                     ; combout          ;
+; |SCOMP|Selector11~0                                                     ; |SCOMP|Selector11~0                                                     ; combout          ;
+; |SCOMP|Selector11~1                                                     ; |SCOMP|Selector11~1                                                     ; combout          ;
+; |SCOMP|IR[10]~0                                                         ; |SCOMP|IR[10]~0                                                         ; combout          ;
+; |SCOMP|IR[14]                                                           ; |SCOMP|IR[14]                                                           ; regout           ;
+; |SCOMP|IR[10]                                                           ; |SCOMP|IR[10]                                                           ; regout           ;
+; |SCOMP|IR[11]                                                           ; |SCOMP|IR[11]                                                           ; regout           ;
+; |SCOMP|IR[12]                                                           ; |SCOMP|IR[12]                                                           ; regout           ;
+; |SCOMP|IR[13]                                                           ; |SCOMP|IR[13]                                                           ; regout           ;
+; |SCOMP|Mux0~0                                                           ; |SCOMP|Mux0~0                                                           ; combout          ;
+; |SCOMP|STATE~23                                                         ; |SCOMP|STATE~23                                                         ; combout          ;
+; |SCOMP|Selector27~0                                                     ; |SCOMP|Selector27~0                                                     ; combout          ;
+; |SCOMP|STATE.DECODE                                                     ; |SCOMP|STATE.DECODE                                                     ; regout           ;
+; |SCOMP|Selector27~1                                                     ; |SCOMP|Selector27~1                                                     ; combout          ;
+; |SCOMP|STATE~24                                                         ; |SCOMP|STATE~24                                                         ; combout          ;
+; |SCOMP|PC_STACK[0]~0                                                    ; |SCOMP|PC_STACK[0]~0                                                    ; combout          ;
+; |SCOMP|STATE~25                                                         ; |SCOMP|STATE~25                                                         ; combout          ;
+; |SCOMP|STATE~28                                                         ; |SCOMP|STATE~28                                                         ; combout          ;
+; |SCOMP|STATE~30                                                         ; |SCOMP|STATE~30                                                         ; combout          ;
+; |SCOMP|STATE~31                                                         ; |SCOMP|STATE~31                                                         ; combout          ;
+; |SCOMP|STATE~33                                                         ; |SCOMP|STATE~33                                                         ; combout          ;
+; |SCOMP|STATE~35                                                         ; |SCOMP|STATE~35                                                         ; combout          ;
+; |SCOMP|STATE~36                                                         ; |SCOMP|STATE~36                                                         ; combout          ;
+; |SCOMP|STATE~37                                                         ; |SCOMP|STATE~37                                                         ; combout          ;
+; |SCOMP|STATE~39                                                         ; |SCOMP|STATE~39                                                         ; combout          ;
+; |SCOMP|lpm_clshift:SHIFTER|lpm_clshift_0kc:auto_generated|sbit_w[32]~79 ; |SCOMP|lpm_clshift:SHIFTER|lpm_clshift_0kc:auto_generated|sbit_w[32]~79 ; combout          ;
+; |SCOMP|lpm_clshift:SHIFTER|lpm_clshift_0kc:auto_generated|sbit_w[34]~80 ; |SCOMP|lpm_clshift:SHIFTER|lpm_clshift_0kc:auto_generated|sbit_w[34]~80 ; combout          ;
+; |SCOMP|lpm_clshift:SHIFTER|lpm_clshift_0kc:auto_generated|sbit_w[34]~81 ; |SCOMP|lpm_clshift:SHIFTER|lpm_clshift_0kc:auto_generated|sbit_w[34]~81 ; combout          ;
+; |SCOMP|PC_OUT[0]                                                        ; |SCOMP|PC_OUT[0]                                                        ; padio            ;
+; |SCOMP|PC_OUT[1]                                                        ; |SCOMP|PC_OUT[1]                                                        ; padio            ;
+; |SCOMP|PC_OUT[2]                                                        ; |SCOMP|PC_OUT[2]                                                        ; padio            ;
+; |SCOMP|PC_OUT[4]                                                        ; |SCOMP|PC_OUT[4]                                                        ; padio            ;
+; |SCOMP|AC_OUT[1]                                                        ; |SCOMP|AC_OUT[1]                                                        ; padio            ;
+; |SCOMP|AC_OUT[3]                                                        ; |SCOMP|AC_OUT[3]                                                        ; padio            ;
+; |SCOMP|AC_OUT[4]                                                        ; |SCOMP|AC_OUT[4]                                                        ; padio            ;
+; |SCOMP|AC_OUT[6]                                                        ; |SCOMP|AC_OUT[6]                                                        ; padio            ;
+; |SCOMP|AC_OUT[8]                                                        ; |SCOMP|AC_OUT[8]                                                        ; padio            ;
+; |SCOMP|AC_OUT[9]                                                        ; |SCOMP|AC_OUT[9]                                                        ; padio            ;
+; |SCOMP|AC_OUT[12]                                                       ; |SCOMP|AC_OUT[12]                                                       ; padio            ;
+; |SCOMP|AC_OUT[13]                                                       ; |SCOMP|AC_OUT[13]                                                       ; padio            ;
+; |SCOMP|MDR_OUT[0]                                                       ; |SCOMP|MDR_OUT[0]                                                       ; padio            ;
+; |SCOMP|MDR_OUT[1]                                                       ; |SCOMP|MDR_OUT[1]                                                       ; padio            ;
+; |SCOMP|MDR_OUT[2]                                                       ; |SCOMP|MDR_OUT[2]                                                       ; padio            ;
+; |SCOMP|MDR_OUT[3]                                                       ; |SCOMP|MDR_OUT[3]                                                       ; padio            ;
+; |SCOMP|MDR_OUT[4]                                                       ; |SCOMP|MDR_OUT[4]                                                       ; padio            ;
+; |SCOMP|MDR_OUT[5]                                                       ; |SCOMP|MDR_OUT[5]                                                       ; padio            ;
+; |SCOMP|MDR_OUT[6]                                                       ; |SCOMP|MDR_OUT[6]                                                       ; padio            ;
+; |SCOMP|MDR_OUT[7]                                                       ; |SCOMP|MDR_OUT[7]                                                       ; padio            ;
+; |SCOMP|MDR_OUT[8]                                                       ; |SCOMP|MDR_OUT[8]                                                       ; padio            ;
+; |SCOMP|MDR_OUT[9]                                                       ; |SCOMP|MDR_OUT[9]                                                       ; padio            ;
+; |SCOMP|MDR_OUT[10]                                                      ; |SCOMP|MDR_OUT[10]                                                      ; padio            ;
+; |SCOMP|MDR_OUT[11]                                                      ; |SCOMP|MDR_OUT[11]                                                      ; padio            ;
+; |SCOMP|MDR_OUT[12]                                                      ; |SCOMP|MDR_OUT[12]                                                      ; padio            ;
+; |SCOMP|MDR_OUT[13]                                                      ; |SCOMP|MDR_OUT[13]                                                      ; padio            ;
+; |SCOMP|MDR_OUT[14]                                                      ; |SCOMP|MDR_OUT[14]                                                      ; padio            ;
+; |SCOMP|MDR_OUT[15]                                                      ; |SCOMP|MDR_OUT[15]                                                      ; padio            ;
+; |SCOMP|MAR_OUT[0]                                                       ; |SCOMP|MAR_OUT[0]                                                       ; padio            ;
+; |SCOMP|MAR_OUT[1]                                                       ; |SCOMP|MAR_OUT[1]                                                       ; padio            ;
+; |SCOMP|MAR_OUT[4]                                                       ; |SCOMP|MAR_OUT[4]                                                       ; padio            ;
+; |SCOMP|MAR_OUT[5]                                                       ; |SCOMP|MAR_OUT[5]                                                       ; padio            ;
+; |SCOMP|IO_ADDR[0]                                                       ; |SCOMP|IO_ADDR[0]                                                       ; padio            ;
+; |SCOMP|IO_ADDR[1]                                                       ; |SCOMP|IO_ADDR[1]                                                       ; padio            ;
+; |SCOMP|IO_ADDR[4]                                                       ; |SCOMP|IO_ADDR[4]                                                       ; padio            ;
+; |SCOMP|IO_ADDR[5]                                                       ; |SCOMP|IO_ADDR[5]                                                       ; padio            ;
+; |SCOMP|CLOCK                                                            ; |SCOMP|CLOCK~corein                                                     ; combout          ;
+; |SCOMP|CLOCK~clkctrl                                                    ; |SCOMP|CLOCK~clkctrl                                                    ; outclk           ;
+; |SCOMP|IR[11]~feeder                                                    ; |SCOMP|IR[11]~feeder                                                    ; combout          ;
+; |SCOMP|PC_STACK[0]~feeder                                               ; |SCOMP|PC_STACK[0]~feeder                                               ; combout          ;
+; |SCOMP|PC_STACK[1]~feeder                                               ; |SCOMP|PC_STACK[1]~feeder                                               ; combout          ;
+; |SCOMP|PC_STACK[2]~feeder                                               ; |SCOMP|PC_STACK[2]~feeder                                               ; combout          ;
+; |SCOMP|PC_STACK[4]~feeder                                               ; |SCOMP|PC_STACK[4]~feeder                                               ; combout          ;
++-------------------------------------------------------------------------+-------------------------------------------------------------------------+------------------+
+
+
+The following table displays output ports that do not toggle to 1 during simulation.
++----------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Missing 1-Value Coverage                                                                                                                                             ;
++-------------------------------------------------------------------------+-------------------------------------------------------------------------+------------------+
+; Node Name                                                               ; Output Port Name                                                        ; Output Port Type ;
++-------------------------------------------------------------------------+-------------------------------------------------------------------------+------------------+
+; |SCOMP|Add0~4                                                           ; |SCOMP|Add0~5                                                           ; cout             ;
+; |SCOMP|Add0~6                                                           ; |SCOMP|Add0~6                                                           ; combout          ;
+; |SCOMP|Add0~6                                                           ; |SCOMP|Add0~7                                                           ; cout             ;
+; |SCOMP|Add0~8                                                           ; |SCOMP|Add0~9                                                           ; cout             ;
+; |SCOMP|Add0~10                                                          ; |SCOMP|Add0~10                                                          ; combout          ;
+; |SCOMP|Add0~10                                                          ; |SCOMP|Add0~11                                                          ; cout             ;
+; |SCOMP|Add0~13                                                          ; |SCOMP|Add0~13                                                          ; combout          ;
+; |SCOMP|Add0~13                                                          ; |SCOMP|Add0~14                                                          ; cout             ;
+; |SCOMP|Add0~15                                                          ; |SCOMP|Add0~15                                                          ; combout          ;
+; |SCOMP|Add0~15                                                          ; |SCOMP|Add0~16                                                          ; cout             ;
+; |SCOMP|Add0~17                                                          ; |SCOMP|Add0~17                                                          ; combout          ;
+; |SCOMP|Add0~17                                                          ; |SCOMP|Add0~18                                                          ; cout             ;
+; |SCOMP|Add0~19                                                          ; |SCOMP|Add0~19                                                          ; combout          ;
+; |SCOMP|Add1~5                                                           ; |SCOMP|Add1~5                                                           ; cout             ;
+; |SCOMP|Add1~6                                                           ; |SCOMP|Add1~6                                                           ; combout          ;
+; |SCOMP|Add1~6                                                           ; |SCOMP|Add1~7                                                           ; cout             ;
+; |SCOMP|Add1~11                                                          ; |SCOMP|Add1~11                                                          ; combout          ;
+; |SCOMP|Add1~11                                                          ; |SCOMP|Add1~12                                                          ; cout             ;
+; |SCOMP|Add1~16                                                          ; |SCOMP|Add1~16                                                          ; combout          ;
+; |SCOMP|Add1~16                                                          ; |SCOMP|Add1~17                                                          ; cout             ;
+; |SCOMP|Add1~21                                                          ; |SCOMP|Add1~21                                                          ; combout          ;
+; |SCOMP|Add1~21                                                          ; |SCOMP|Add1~22                                                          ; cout             ;
+; |SCOMP|Add1~26                                                          ; |SCOMP|Add1~26                                                          ; combout          ;
+; |SCOMP|Add1~26                                                          ; |SCOMP|Add1~27                                                          ; cout             ;
+; |SCOMP|Add1~32                                                          ; |SCOMP|Add1~32                                                          ; combout          ;
+; |SCOMP|Add1~32                                                          ; |SCOMP|Add1~33                                                          ; cout             ;
+; |SCOMP|Add1~37                                                          ; |SCOMP|Add1~37                                                          ; combout          ;
+; |SCOMP|Add1~37                                                          ; |SCOMP|Add1~38                                                          ; cout             ;
+; |SCOMP|Add1~42                                                          ; |SCOMP|Add1~42                                                          ; combout          ;
+; |SCOMP|Add1~42                                                          ; |SCOMP|Add1~43                                                          ; cout             ;
+; |SCOMP|Add1~47                                                          ; |SCOMP|Add1~47                                                          ; combout          ;
+; |SCOMP|Add1~47                                                          ; |SCOMP|Add1~48                                                          ; cout             ;
+; |SCOMP|Add1~52                                                          ; |SCOMP|Add1~52                                                          ; combout          ;
+; |SCOMP|Add1~52                                                          ; |SCOMP|Add1~53                                                          ; cout             ;
+; |SCOMP|Add1~57                                                          ; |SCOMP|Add1~57                                                          ; combout          ;
+; |SCOMP|Add1~57                                                          ; |SCOMP|Add1~58                                                          ; cout             ;
+; |SCOMP|Add1~62                                                          ; |SCOMP|Add1~62                                                          ; combout          ;
+; |SCOMP|Add1~62                                                          ; |SCOMP|Add1~63                                                          ; cout             ;
+; |SCOMP|Add1~67                                                          ; |SCOMP|Add1~67                                                          ; combout          ;
+; |SCOMP|Add1~67                                                          ; |SCOMP|Add1~68                                                          ; cout             ;
+; |SCOMP|Add1~72                                                          ; |SCOMP|Add1~72                                                          ; combout          ;
+; |SCOMP|Add1~72                                                          ; |SCOMP|Add1~73                                                          ; cout             ;
+; |SCOMP|Add1~77                                                          ; |SCOMP|Add1~77                                                          ; combout          ;
+; |SCOMP|Add1~77                                                          ; |SCOMP|Add1~78                                                          ; cout             ;
+; |SCOMP|Add1~82                                                          ; |SCOMP|Add1~82                                                          ; combout          ;
+; |SCOMP|PC[3]                                                            ; |SCOMP|PC[3]                                                            ; regout           ;
+; |SCOMP|PC[5]                                                            ; |SCOMP|PC[5]                                                            ; regout           ;
+; |SCOMP|PC[6]                                                            ; |SCOMP|PC[6]                                                            ; regout           ;
+; |SCOMP|PC[7]                                                            ; |SCOMP|PC[7]                                                            ; regout           ;
+; |SCOMP|PC[8]                                                            ; |SCOMP|PC[8]                                                            ; regout           ;
+; |SCOMP|PC[9]                                                            ; |SCOMP|PC[9]                                                            ; regout           ;
+; |SCOMP|AC[10]                                                           ; |SCOMP|AC[10]                                                           ; regout           ;
+; |SCOMP|AC[11]                                                           ; |SCOMP|AC[11]                                                           ; regout           ;
+; |SCOMP|AC[14]                                                           ; |SCOMP|AC[14]                                                           ; regout           ;
+; |SCOMP|AC[15]                                                           ; |SCOMP|AC[15]                                                           ; regout           ;
+; |SCOMP|IR[2]                                                            ; |SCOMP|IR[2]                                                            ; regout           ;
+; |SCOMP|MEM_ADDR[2]~2                                                    ; |SCOMP|MEM_ADDR[2]~2                                                    ; combout          ;
+; |SCOMP|IR[3]                                                            ; |SCOMP|IR[3]                                                            ; regout           ;
+; |SCOMP|MEM_ADDR[3]~3                                                    ; |SCOMP|MEM_ADDR[3]~3                                                    ; combout          ;
+; |SCOMP|IR[6]                                                            ; |SCOMP|IR[6]                                                            ; regout           ;
+; |SCOMP|MEM_ADDR[6]~6                                                    ; |SCOMP|MEM_ADDR[6]~6                                                    ; combout          ;
+; |SCOMP|IR[7]                                                            ; |SCOMP|IR[7]                                                            ; regout           ;
+; |SCOMP|MEM_ADDR[7]~7                                                    ; |SCOMP|MEM_ADDR[7]~7                                                    ; combout          ;
+; |SCOMP|IR[8]                                                            ; |SCOMP|IR[8]                                                            ; regout           ;
+; |SCOMP|MEM_ADDR[8]~8                                                    ; |SCOMP|MEM_ADDR[8]~8                                                    ; combout          ;
+; |SCOMP|IR[9]                                                            ; |SCOMP|IR[9]                                                            ; regout           ;
+; |SCOMP|MEM_ADDR[9]~9                                                    ; |SCOMP|MEM_ADDR[9]~9                                                    ; combout          ;
+; |SCOMP|STATE.EX_JNEG                                                    ; |SCOMP|STATE.EX_JNEG                                                    ; regout           ;
+; |SCOMP|STATE.EX_JZERO                                                   ; |SCOMP|STATE.EX_JZERO                                                   ; regout           ;
+; |SCOMP|STATE.EX_JPOS                                                    ; |SCOMP|STATE.EX_JPOS                                                    ; regout           ;
+; |SCOMP|Equal0~2                                                         ; |SCOMP|Equal0~2                                                         ; combout          ;
+; |SCOMP|Equal0~3                                                         ; |SCOMP|Equal0~3                                                         ; combout          ;
+; |SCOMP|Equal0~4                                                         ; |SCOMP|Equal0~4                                                         ; combout          ;
+; |SCOMP|PC_STACK[1]                                                      ; |SCOMP|PC_STACK[1]                                                      ; regout           ;
+; |SCOMP|PC_STACK[2]                                                      ; |SCOMP|PC_STACK[2]                                                      ; regout           ;
+; |SCOMP|Selector7~0                                                      ; |SCOMP|Selector7~0                                                      ; combout          ;
+; |SCOMP|PC_STACK[3]                                                      ; |SCOMP|PC_STACK[3]                                                      ; regout           ;
+; |SCOMP|Selector7~1                                                      ; |SCOMP|Selector7~1                                                      ; combout          ;
+; |SCOMP|PC_STACK[4]                                                      ; |SCOMP|PC_STACK[4]                                                      ; regout           ;
+; |SCOMP|PC_STACK[5]                                                      ; |SCOMP|PC_STACK[5]                                                      ; regout           ;
+; |SCOMP|PC_STACK[6]                                                      ; |SCOMP|PC_STACK[6]                                                      ; regout           ;
+; |SCOMP|Selector4~0                                                      ; |SCOMP|Selector4~0                                                      ; combout          ;
+; |SCOMP|Selector4~1                                                      ; |SCOMP|Selector4~1                                                      ; combout          ;
+; |SCOMP|PC_STACK[7]                                                      ; |SCOMP|PC_STACK[7]                                                      ; regout           ;
+; |SCOMP|Selector3~0                                                      ; |SCOMP|Selector3~0                                                      ; combout          ;
+; |SCOMP|Selector3~1                                                      ; |SCOMP|Selector3~1                                                      ; combout          ;
+; |SCOMP|PC_STACK[8]                                                      ; |SCOMP|PC_STACK[8]                                                      ; regout           ;
+; |SCOMP|Selector2~0                                                      ; |SCOMP|Selector2~0                                                      ; combout          ;
+; |SCOMP|Selector2~1                                                      ; |SCOMP|Selector2~1                                                      ; combout          ;
+; |SCOMP|PC_STACK[9]                                                      ; |SCOMP|PC_STACK[9]                                                      ; regout           ;
+; |SCOMP|Selector1~0                                                      ; |SCOMP|Selector1~0                                                      ; combout          ;
+; |SCOMP|Selector1~1                                                      ; |SCOMP|Selector1~1                                                      ; combout          ;
+; |SCOMP|STATE.EX_SHIFT                                                   ; |SCOMP|STATE.EX_SHIFT                                                   ; regout           ;
+; |SCOMP|Selector26~2                                                     ; |SCOMP|Selector26~2                                                     ; combout          ;
+; |SCOMP|STATE.EX_OR                                                      ; |SCOMP|STATE.EX_OR                                                      ; regout           ;
+; |SCOMP|STATE.EX_ADDI                                                    ; |SCOMP|STATE.EX_ADDI                                                    ; regout           ;
+; |SCOMP|STATE.EX_ADD                                                     ; |SCOMP|STATE.EX_ADD                                                     ; regout           ;
+; |SCOMP|STATE.EX_SUB                                                     ; |SCOMP|STATE.EX_SUB                                                     ; regout           ;
+; |SCOMP|AC[8]~0                                                          ; |SCOMP|AC[8]~0                                                          ; combout          ;
+; |SCOMP|Add1~1                                                           ; |SCOMP|Add1~1                                                           ; combout          ;
+; |SCOMP|Add1~2                                                           ; |SCOMP|Add1~2                                                           ; combout          ;
+; |SCOMP|Add1~3                                                           ; |SCOMP|Add1~3                                                           ; combout          ;
+; |SCOMP|Selector26~6                                                     ; |SCOMP|Selector26~6                                                     ; combout          ;
+; |SCOMP|lpm_clshift:SHIFTER|lpm_clshift_0kc:auto_generated|sbit_w[30]~13 ; |SCOMP|lpm_clshift:SHIFTER|lpm_clshift_0kc:auto_generated|sbit_w[30]~13 ; combout          ;
+; |SCOMP|lpm_clshift:SHIFTER|lpm_clshift_0kc:auto_generated|sbit_w[30]~14 ; |SCOMP|lpm_clshift:SHIFTER|lpm_clshift_0kc:auto_generated|sbit_w[30]~14 ; combout          ;
+; |SCOMP|lpm_clshift:SHIFTER|lpm_clshift_0kc:auto_generated|sbit_w[26]~15 ; |SCOMP|lpm_clshift:SHIFTER|lpm_clshift_0kc:auto_generated|sbit_w[26]~15 ; combout          ;
+; |SCOMP|lpm_clshift:SHIFTER|lpm_clshift_0kc:auto_generated|sbit_w[26]~16 ; |SCOMP|lpm_clshift:SHIFTER|lpm_clshift_0kc:auto_generated|sbit_w[26]~16 ; combout          ;
+; |SCOMP|lpm_clshift:SHIFTER|lpm_clshift_0kc:auto_generated|sbit_w[44]~17 ; |SCOMP|lpm_clshift:SHIFTER|lpm_clshift_0kc:auto_generated|sbit_w[44]~17 ; combout          ;
+; |SCOMP|lpm_clshift:SHIFTER|lpm_clshift_0kc:auto_generated|sbit_w[28]~18 ; |SCOMP|lpm_clshift:SHIFTER|lpm_clshift_0kc:auto_generated|sbit_w[28]~18 ; combout          ;
+; |SCOMP|lpm_clshift:SHIFTER|lpm_clshift_0kc:auto_generated|sbit_w[56]~21 ; |SCOMP|lpm_clshift:SHIFTER|lpm_clshift_0kc:auto_generated|sbit_w[56]~21 ; combout          ;
+; |SCOMP|lpm_clshift:SHIFTER|lpm_clshift_0kc:auto_generated|sbit_w[40]~22 ; |SCOMP|lpm_clshift:SHIFTER|lpm_clshift_0kc:auto_generated|sbit_w[40]~22 ; combout          ;
+; |SCOMP|lpm_clshift:SHIFTER|lpm_clshift_0kc:auto_generated|sbit_w[24]~23 ; |SCOMP|lpm_clshift:SHIFTER|lpm_clshift_0kc:auto_generated|sbit_w[24]~23 ; combout          ;
+; |SCOMP|lpm_clshift:SHIFTER|lpm_clshift_0kc:auto_generated|sbit_w[23]~27 ; |SCOMP|lpm_clshift:SHIFTER|lpm_clshift_0kc:auto_generated|sbit_w[23]~27 ; combout          ;
+; |SCOMP|Selector25~3                                                     ; |SCOMP|Selector25~3                                                     ; combout          ;
+; |SCOMP|Add1~8                                                           ; |SCOMP|Add1~8                                                           ; combout          ;
+; |SCOMP|Add1~9                                                           ; |SCOMP|Add1~9                                                           ; combout          ;
+; |SCOMP|Add1~10                                                          ; |SCOMP|Add1~10                                                          ; combout          ;
+; |SCOMP|lpm_clshift:SHIFTER|lpm_clshift_0kc:auto_generated|sbit_w[29]~39 ; |SCOMP|lpm_clshift:SHIFTER|lpm_clshift_0kc:auto_generated|sbit_w[29]~39 ; combout          ;
+; |SCOMP|lpm_clshift:SHIFTER|lpm_clshift_0kc:auto_generated|sbit_w[27]~41 ; |SCOMP|lpm_clshift:SHIFTER|lpm_clshift_0kc:auto_generated|sbit_w[27]~41 ; combout          ;
+; |SCOMP|lpm_clshift:SHIFTER|lpm_clshift_0kc:auto_generated|sbit_w[27]~42 ; |SCOMP|lpm_clshift:SHIFTER|lpm_clshift_0kc:auto_generated|sbit_w[27]~42 ; combout          ;
+; |SCOMP|lpm_clshift:SHIFTER|lpm_clshift_0kc:auto_generated|sbit_w[45]~43 ; |SCOMP|lpm_clshift:SHIFTER|lpm_clshift_0kc:auto_generated|sbit_w[45]~43 ; combout          ;
+; |SCOMP|lpm_clshift:SHIFTER|lpm_clshift_0kc:auto_generated|sbit_w[57]~45 ; |SCOMP|lpm_clshift:SHIFTER|lpm_clshift_0kc:auto_generated|sbit_w[57]~45 ; combout          ;
+; |SCOMP|lpm_clshift:SHIFTER|lpm_clshift_0kc:auto_generated|sbit_w[25]~47 ; |SCOMP|lpm_clshift:SHIFTER|lpm_clshift_0kc:auto_generated|sbit_w[25]~47 ; combout          ;
+; |SCOMP|lpm_clshift:SHIFTER|lpm_clshift_0kc:auto_generated|sbit_w[58]~51 ; |SCOMP|lpm_clshift:SHIFTER|lpm_clshift_0kc:auto_generated|sbit_w[58]~51 ; combout          ;
+; |SCOMP|lpm_clshift:SHIFTER|lpm_clshift_0kc:auto_generated|sbit_w[58]~54 ; |SCOMP|lpm_clshift:SHIFTER|lpm_clshift_0kc:auto_generated|sbit_w[58]~54 ; combout          ;
+; |SCOMP|Selector24~0                                                     ; |SCOMP|Selector24~0                                                     ; combout          ;
+; |SCOMP|Add1~13                                                          ; |SCOMP|Add1~13                                                          ; combout          ;
+; |SCOMP|Add1~14                                                          ; |SCOMP|Add1~14                                                          ; combout          ;
+; |SCOMP|Add1~15                                                          ; |SCOMP|Add1~15                                                          ; combout          ;
+; |SCOMP|lpm_clshift:SHIFTER|lpm_clshift_0kc:auto_generated|sbit_w[47]~58 ; |SCOMP|lpm_clshift:SHIFTER|lpm_clshift_0kc:auto_generated|sbit_w[47]~58 ; combout          ;
+; |SCOMP|lpm_clshift:SHIFTER|lpm_clshift_0kc:auto_generated|sbit_w[47]~59 ; |SCOMP|lpm_clshift:SHIFTER|lpm_clshift_0kc:auto_generated|sbit_w[47]~59 ; combout          ;
+; |SCOMP|lpm_clshift:SHIFTER|lpm_clshift_0kc:auto_generated|sbit_w[59]~62 ; |SCOMP|lpm_clshift:SHIFTER|lpm_clshift_0kc:auto_generated|sbit_w[59]~62 ; combout          ;
+; |SCOMP|Selector23~0                                                     ; |SCOMP|Selector23~0                                                     ; combout          ;
+; |SCOMP|Selector23~2                                                     ; |SCOMP|Selector23~2                                                     ; combout          ;
+; |SCOMP|Add1~18                                                          ; |SCOMP|Add1~18                                                          ; combout          ;
+; |SCOMP|Add1~19                                                          ; |SCOMP|Add1~19                                                          ; combout          ;
+; |SCOMP|Add1~20                                                          ; |SCOMP|Add1~20                                                          ; combout          ;
+; |SCOMP|lpm_clshift:SHIFTER|lpm_clshift_0kc:auto_generated|sbit_w[52]~68 ; |SCOMP|lpm_clshift:SHIFTER|lpm_clshift_0kc:auto_generated|sbit_w[52]~68 ; combout          ;
+; |SCOMP|Selector22~0                                                     ; |SCOMP|Selector22~0                                                     ; combout          ;
+; |SCOMP|Selector22~2                                                     ; |SCOMP|Selector22~2                                                     ; combout          ;
+; |SCOMP|Add1~23                                                          ; |SCOMP|Add1~23                                                          ; combout          ;
+; |SCOMP|Add1~24                                                          ; |SCOMP|Add1~24                                                          ; combout          ;
+; |SCOMP|Add1~25                                                          ; |SCOMP|Add1~25                                                          ; combout          ;
+; |SCOMP|lpm_clshift:SHIFTER|lpm_clshift_0kc:auto_generated|sbit_w[53]~71 ; |SCOMP|lpm_clshift:SHIFTER|lpm_clshift_0kc:auto_generated|sbit_w[53]~71 ; combout          ;
+; |SCOMP|Selector21~0                                                     ; |SCOMP|Selector21~0                                                     ; combout          ;
+; |SCOMP|Add1~28                                                          ; |SCOMP|Add1~28                                                          ; combout          ;
+; |SCOMP|Add1~30                                                          ; |SCOMP|Add1~30                                                          ; combout          ;
+; |SCOMP|Add1~31                                                          ; |SCOMP|Add1~31                                                          ; combout          ;
+; |SCOMP|lpm_clshift:SHIFTER|lpm_clshift_0kc:auto_generated|sbit_w[54]~73 ; |SCOMP|lpm_clshift:SHIFTER|lpm_clshift_0kc:auto_generated|sbit_w[54]~73 ; combout          ;
+; |SCOMP|Selector20~0                                                     ; |SCOMP|Selector20~0                                                     ; combout          ;
+; |SCOMP|Selector20~2                                                     ; |SCOMP|Selector20~2                                                     ; combout          ;
+; |SCOMP|Add1~34                                                          ; |SCOMP|Add1~34                                                          ; combout          ;
+; |SCOMP|Add1~35                                                          ; |SCOMP|Add1~35                                                          ; combout          ;
+; |SCOMP|Add1~36                                                          ; |SCOMP|Add1~36                                                          ; combout          ;
+; |SCOMP|lpm_clshift:SHIFTER|lpm_clshift_0kc:auto_generated|sbit_w[62]~74 ; |SCOMP|lpm_clshift:SHIFTER|lpm_clshift_0kc:auto_generated|sbit_w[62]~74 ; combout          ;
+; |SCOMP|lpm_clshift:SHIFTER|lpm_clshift_0kc:auto_generated|sbit_w[62]~75 ; |SCOMP|lpm_clshift:SHIFTER|lpm_clshift_0kc:auto_generated|sbit_w[62]~75 ; combout          ;
+; |SCOMP|lpm_clshift:SHIFTER|lpm_clshift_0kc:auto_generated|sbit_w[55]~76 ; |SCOMP|lpm_clshift:SHIFTER|lpm_clshift_0kc:auto_generated|sbit_w[55]~76 ; combout          ;
+; |SCOMP|Selector19~0                                                     ; |SCOMP|Selector19~0                                                     ; combout          ;
+; |SCOMP|Add1~39                                                          ; |SCOMP|Add1~39                                                          ; combout          ;
+; |SCOMP|Add1~40                                                          ; |SCOMP|Add1~40                                                          ; combout          ;
+; |SCOMP|Add1~41                                                          ; |SCOMP|Add1~41                                                          ; combout          ;
+; |SCOMP|lpm_clshift:SHIFTER|lpm_clshift_0kc:auto_generated|sbit_w[63]~77 ; |SCOMP|lpm_clshift:SHIFTER|lpm_clshift_0kc:auto_generated|sbit_w[63]~77 ; combout          ;
+; |SCOMP|lpm_clshift:SHIFTER|lpm_clshift_0kc:auto_generated|sbit_w[63]~78 ; |SCOMP|lpm_clshift:SHIFTER|lpm_clshift_0kc:auto_generated|sbit_w[63]~78 ; combout          ;
+; |SCOMP|Selector18~2                                                     ; |SCOMP|Selector18~2                                                     ; combout          ;
+; |SCOMP|Selector18~3                                                     ; |SCOMP|Selector18~3                                                     ; combout          ;
+; |SCOMP|Add1~44                                                          ; |SCOMP|Add1~44                                                          ; combout          ;
+; |SCOMP|Add1~45                                                          ; |SCOMP|Add1~45                                                          ; combout          ;
+; |SCOMP|Add1~46                                                          ; |SCOMP|Add1~46                                                          ; combout          ;
+; |SCOMP|Selector17~2                                                     ; |SCOMP|Selector17~2                                                     ; combout          ;
+; |SCOMP|Add1~49                                                          ; |SCOMP|Add1~49                                                          ; combout          ;
+; |SCOMP|Add1~50                                                          ; |SCOMP|Add1~50                                                          ; combout          ;
+; |SCOMP|Add1~51                                                          ; |SCOMP|Add1~51                                                          ; combout          ;
+; |SCOMP|Selector16~0                                                     ; |SCOMP|Selector16~0                                                     ; combout          ;
+; |SCOMP|Selector16~1                                                     ; |SCOMP|Selector16~1                                                     ; combout          ;
+; |SCOMP|Selector16~2                                                     ; |SCOMP|Selector16~2                                                     ; combout          ;
+; |SCOMP|Add1~54                                                          ; |SCOMP|Add1~54                                                          ; combout          ;
+; |SCOMP|Add1~55                                                          ; |SCOMP|Add1~55                                                          ; combout          ;
+; |SCOMP|Add1~56                                                          ; |SCOMP|Add1~56                                                          ; combout          ;
+; |SCOMP|Selector16~3                                                     ; |SCOMP|Selector16~3                                                     ; combout          ;
+; |SCOMP|Selector16~4                                                     ; |SCOMP|Selector16~4                                                     ; combout          ;
+; |SCOMP|Selector15~0                                                     ; |SCOMP|Selector15~0                                                     ; combout          ;
+; |SCOMP|Selector15~1                                                     ; |SCOMP|Selector15~1                                                     ; combout          ;
+; |SCOMP|Selector15~2                                                     ; |SCOMP|Selector15~2                                                     ; combout          ;
+; |SCOMP|Add1~59                                                          ; |SCOMP|Add1~59                                                          ; combout          ;
+; |SCOMP|Add1~60                                                          ; |SCOMP|Add1~60                                                          ; combout          ;
+; |SCOMP|Add1~61                                                          ; |SCOMP|Add1~61                                                          ; combout          ;
+; |SCOMP|Selector15~3                                                     ; |SCOMP|Selector15~3                                                     ; combout          ;
+; |SCOMP|Selector15~4                                                     ; |SCOMP|Selector15~4                                                     ; combout          ;
+; |SCOMP|Add1~64                                                          ; |SCOMP|Add1~64                                                          ; combout          ;
+; |SCOMP|Add1~65                                                          ; |SCOMP|Add1~65                                                          ; combout          ;
+; |SCOMP|Add1~66                                                          ; |SCOMP|Add1~66                                                          ; combout          ;
+; |SCOMP|Selector14~4                                                     ; |SCOMP|Selector14~4                                                     ; combout          ;
+; |SCOMP|Add1~69                                                          ; |SCOMP|Add1~69                                                          ; combout          ;
+; |SCOMP|Add1~70                                                          ; |SCOMP|Add1~70                                                          ; combout          ;
+; |SCOMP|Add1~71                                                          ; |SCOMP|Add1~71                                                          ; combout          ;
+; |SCOMP|Selector13~4                                                     ; |SCOMP|Selector13~4                                                     ; combout          ;
+; |SCOMP|Add1~74                                                          ; |SCOMP|Add1~74                                                          ; combout          ;
+; |SCOMP|Add1~75                                                          ; |SCOMP|Add1~75                                                          ; combout          ;
+; |SCOMP|Add1~76                                                          ; |SCOMP|Add1~76                                                          ; combout          ;
+; |SCOMP|Selector12~2                                                     ; |SCOMP|Selector12~2                                                     ; combout          ;
+; |SCOMP|Selector12~3                                                     ; |SCOMP|Selector12~3                                                     ; combout          ;
+; |SCOMP|Selector12~4                                                     ; |SCOMP|Selector12~4                                                     ; combout          ;
+; |SCOMP|Selector12~5                                                     ; |SCOMP|Selector12~5                                                     ; combout          ;
+; |SCOMP|Add1~79                                                          ; |SCOMP|Add1~79                                                          ; combout          ;
+; |SCOMP|Add1~80                                                          ; |SCOMP|Add1~80                                                          ; combout          ;
+; |SCOMP|Add1~81                                                          ; |SCOMP|Add1~81                                                          ; combout          ;
+; |SCOMP|Selector11~2                                                     ; |SCOMP|Selector11~2                                                     ; combout          ;
+; |SCOMP|Selector11~3                                                     ; |SCOMP|Selector11~3                                                     ; combout          ;
+; |SCOMP|Selector11~4                                                     ; |SCOMP|Selector11~4                                                     ; combout          ;
+; |SCOMP|Selector11~5                                                     ; |SCOMP|Selector11~5                                                     ; combout          ;
+; |SCOMP|MW                                                               ; |SCOMP|MW                                                               ; regout           ;
+; |SCOMP|IR[15]                                                           ; |SCOMP|IR[15]                                                           ; regout           ;
+; |SCOMP|STATE.EX_STORE                                                   ; |SCOMP|STATE.EX_STORE                                                   ; regout           ;
+; |SCOMP|STATE~26                                                         ; |SCOMP|STATE~26                                                         ; combout          ;
+; |SCOMP|STATE~27                                                         ; |SCOMP|STATE~27                                                         ; combout          ;
+; |SCOMP|STATE~29                                                         ; |SCOMP|STATE~29                                                         ; combout          ;
+; |SCOMP|STATE~32                                                         ; |SCOMP|STATE~32                                                         ; combout          ;
+; |SCOMP|STATE~34                                                         ; |SCOMP|STATE~34                                                         ; combout          ;
+; |SCOMP|STATE~38                                                         ; |SCOMP|STATE~38                                                         ; combout          ;
+; |SCOMP|STATE~40                                                         ; |SCOMP|STATE~40                                                         ; combout          ;
+; |SCOMP|STATE~41                                                         ; |SCOMP|STATE~41                                                         ; combout          ;
+; |SCOMP|STATE~42                                                         ; |SCOMP|STATE~42                                                         ; combout          ;
+; |SCOMP|STATE.EX_STORE2                                                  ; |SCOMP|STATE.EX_STORE2                                                  ; regout           ;
+; |SCOMP|Selector0~0                                                      ; |SCOMP|Selector0~0                                                      ; combout          ;
+; |SCOMP|Selector0~1                                                      ; |SCOMP|Selector0~1                                                      ; combout          ;
+; |SCOMP|STATE~43                                                         ; |SCOMP|STATE~43                                                         ; combout          ;
+; |SCOMP|Selector26~8                                                     ; |SCOMP|Selector26~8                                                     ; combout          ;
+; |SCOMP|Selector25~6                                                     ; |SCOMP|Selector25~6                                                     ; combout          ;
+; |SCOMP|Selector18~7                                                     ; |SCOMP|Selector18~7                                                     ; combout          ;
+; |SCOMP|Selector17~6                                                     ; |SCOMP|Selector17~6                                                     ; combout          ;
+; |SCOMP|IO_DATA[0]                                                       ; |SCOMP|IO_DATA[0]~output                                                ; padio            ;
+; |SCOMP|IO_DATA[1]                                                       ; |SCOMP|IO_DATA[1]~output                                                ; padio            ;
+; |SCOMP|IO_DATA[2]                                                       ; |SCOMP|IO_DATA[2]~output                                                ; padio            ;
+; |SCOMP|IO_DATA[3]                                                       ; |SCOMP|IO_DATA[3]~output                                                ; padio            ;
+; |SCOMP|IO_DATA[4]                                                       ; |SCOMP|IO_DATA[4]~output                                                ; padio            ;
+; |SCOMP|IO_DATA[5]                                                       ; |SCOMP|IO_DATA[5]~output                                                ; padio            ;
+; |SCOMP|IO_DATA[6]                                                       ; |SCOMP|IO_DATA[6]~output                                                ; padio            ;
+; |SCOMP|IO_DATA[7]                                                       ; |SCOMP|IO_DATA[7]~output                                                ; padio            ;
+; |SCOMP|IO_DATA[8]                                                       ; |SCOMP|IO_DATA[8]~output                                                ; padio            ;
+; |SCOMP|IO_DATA[9]                                                       ; |SCOMP|IO_DATA[9]~output                                                ; padio            ;
+; |SCOMP|IO_DATA[10]                                                      ; |SCOMP|IO_DATA[10]~output                                               ; padio            ;
+; |SCOMP|IO_DATA[11]                                                      ; |SCOMP|IO_DATA[11]~output                                               ; padio            ;
+; |SCOMP|IO_DATA[12]                                                      ; |SCOMP|IO_DATA[12]~output                                               ; padio            ;
+; |SCOMP|IO_DATA[13]                                                      ; |SCOMP|IO_DATA[13]~output                                               ; padio            ;
+; |SCOMP|IO_DATA[14]                                                      ; |SCOMP|IO_DATA[14]~output                                               ; padio            ;
+; |SCOMP|IO_DATA[15]                                                      ; |SCOMP|IO_DATA[15]~output                                               ; padio            ;
+; |SCOMP|PC_OUT[3]                                                        ; |SCOMP|PC_OUT[3]                                                        ; padio            ;
+; |SCOMP|PC_OUT[5]                                                        ; |SCOMP|PC_OUT[5]                                                        ; padio            ;
+; |SCOMP|PC_OUT[6]                                                        ; |SCOMP|PC_OUT[6]                                                        ; padio            ;
+; |SCOMP|PC_OUT[7]                                                        ; |SCOMP|PC_OUT[7]                                                        ; padio            ;
+; |SCOMP|PC_OUT[8]                                                        ; |SCOMP|PC_OUT[8]                                                        ; padio            ;
+; |SCOMP|PC_OUT[9]                                                        ; |SCOMP|PC_OUT[9]                                                        ; padio            ;
+; |SCOMP|AC_OUT[10]                                                       ; |SCOMP|AC_OUT[10]                                                       ; padio            ;
+; |SCOMP|AC_OUT[11]                                                       ; |SCOMP|AC_OUT[11]                                                       ; padio            ;
+; |SCOMP|AC_OUT[14]                                                       ; |SCOMP|AC_OUT[14]                                                       ; padio            ;
+; |SCOMP|AC_OUT[15]                                                       ; |SCOMP|AC_OUT[15]                                                       ; padio            ;
+; |SCOMP|MAR_OUT[2]                                                       ; |SCOMP|MAR_OUT[2]                                                       ; padio            ;
+; |SCOMP|MAR_OUT[3]                                                       ; |SCOMP|MAR_OUT[3]                                                       ; padio            ;
+; |SCOMP|MAR_OUT[6]                                                       ; |SCOMP|MAR_OUT[6]                                                       ; padio            ;
+; |SCOMP|MAR_OUT[7]                                                       ; |SCOMP|MAR_OUT[7]                                                       ; padio            ;
+; |SCOMP|MAR_OUT[8]                                                       ; |SCOMP|MAR_OUT[8]                                                       ; padio            ;
+; |SCOMP|MAR_OUT[9]                                                       ; |SCOMP|MAR_OUT[9]                                                       ; padio            ;
+; |SCOMP|IO_WRITE                                                         ; |SCOMP|IO_WRITE                                                         ; padio            ;
+; |SCOMP|IO_CYCLE                                                         ; |SCOMP|IO_CYCLE                                                         ; padio            ;
+; |SCOMP|IO_ADDR[2]                                                       ; |SCOMP|IO_ADDR[2]                                                       ; padio            ;
+; |SCOMP|IO_ADDR[3]                                                       ; |SCOMP|IO_ADDR[3]                                                       ; padio            ;
+; |SCOMP|IO_ADDR[6]                                                       ; |SCOMP|IO_ADDR[6]                                                       ; padio            ;
+; |SCOMP|IO_ADDR[7]                                                       ; |SCOMP|IO_ADDR[7]                                                       ; padio            ;
+; |SCOMP|PC_STACK[5]~feeder                                               ; |SCOMP|PC_STACK[5]~feeder                                               ; combout          ;
+; |SCOMP|STATE.RESET_PC~feeder                                            ; |SCOMP|STATE.RESET_PC~feeder                                            ; combout          ;
++-------------------------------------------------------------------------+-------------------------------------------------------------------------+------------------+
+
+
+The following table displays output ports that do not toggle to 0 during simulation.
++----------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Missing 0-Value Coverage                                                                                                                                             ;
++-------------------------------------------------------------------------+-------------------------------------------------------------------------+------------------+
+; Node Name                                                               ; Output Port Name                                                        ; Output Port Type ;
++-------------------------------------------------------------------------+-------------------------------------------------------------------------+------------------+
+; |SCOMP|Add0~4                                                           ; |SCOMP|Add0~5                                                           ; cout             ;
+; |SCOMP|Add0~6                                                           ; |SCOMP|Add0~6                                                           ; combout          ;
+; |SCOMP|Add0~6                                                           ; |SCOMP|Add0~7                                                           ; cout             ;
+; |SCOMP|Add0~8                                                           ; |SCOMP|Add0~9                                                           ; cout             ;
+; |SCOMP|Add0~10                                                          ; |SCOMP|Add0~10                                                          ; combout          ;
+; |SCOMP|Add0~10                                                          ; |SCOMP|Add0~11                                                          ; cout             ;
+; |SCOMP|Add0~13                                                          ; |SCOMP|Add0~13                                                          ; combout          ;
+; |SCOMP|Add0~13                                                          ; |SCOMP|Add0~14                                                          ; cout             ;
+; |SCOMP|Add0~15                                                          ; |SCOMP|Add0~15                                                          ; combout          ;
+; |SCOMP|Add0~15                                                          ; |SCOMP|Add0~16                                                          ; cout             ;
+; |SCOMP|Add0~17                                                          ; |SCOMP|Add0~17                                                          ; combout          ;
+; |SCOMP|Add0~17                                                          ; |SCOMP|Add0~18                                                          ; cout             ;
+; |SCOMP|Add0~19                                                          ; |SCOMP|Add0~19                                                          ; combout          ;
+; |SCOMP|Add1~5                                                           ; |SCOMP|Add1~5                                                           ; cout             ;
+; |SCOMP|Add1~6                                                           ; |SCOMP|Add1~6                                                           ; combout          ;
+; |SCOMP|Add1~6                                                           ; |SCOMP|Add1~7                                                           ; cout             ;
+; |SCOMP|Add1~11                                                          ; |SCOMP|Add1~11                                                          ; combout          ;
+; |SCOMP|Add1~11                                                          ; |SCOMP|Add1~12                                                          ; cout             ;
+; |SCOMP|Add1~16                                                          ; |SCOMP|Add1~16                                                          ; combout          ;
+; |SCOMP|Add1~16                                                          ; |SCOMP|Add1~17                                                          ; cout             ;
+; |SCOMP|Add1~21                                                          ; |SCOMP|Add1~21                                                          ; combout          ;
+; |SCOMP|Add1~21                                                          ; |SCOMP|Add1~22                                                          ; cout             ;
+; |SCOMP|Add1~26                                                          ; |SCOMP|Add1~26                                                          ; combout          ;
+; |SCOMP|Add1~26                                                          ; |SCOMP|Add1~27                                                          ; cout             ;
+; |SCOMP|Add1~32                                                          ; |SCOMP|Add1~32                                                          ; combout          ;
+; |SCOMP|Add1~32                                                          ; |SCOMP|Add1~33                                                          ; cout             ;
+; |SCOMP|Add1~37                                                          ; |SCOMP|Add1~37                                                          ; combout          ;
+; |SCOMP|Add1~37                                                          ; |SCOMP|Add1~38                                                          ; cout             ;
+; |SCOMP|Add1~42                                                          ; |SCOMP|Add1~42                                                          ; combout          ;
+; |SCOMP|Add1~42                                                          ; |SCOMP|Add1~43                                                          ; cout             ;
+; |SCOMP|Add1~47                                                          ; |SCOMP|Add1~47                                                          ; combout          ;
+; |SCOMP|Add1~47                                                          ; |SCOMP|Add1~48                                                          ; cout             ;
+; |SCOMP|Add1~52                                                          ; |SCOMP|Add1~52                                                          ; combout          ;
+; |SCOMP|Add1~52                                                          ; |SCOMP|Add1~53                                                          ; cout             ;
+; |SCOMP|Add1~57                                                          ; |SCOMP|Add1~57                                                          ; combout          ;
+; |SCOMP|Add1~57                                                          ; |SCOMP|Add1~58                                                          ; cout             ;
+; |SCOMP|Add1~62                                                          ; |SCOMP|Add1~62                                                          ; combout          ;
+; |SCOMP|Add1~62                                                          ; |SCOMP|Add1~63                                                          ; cout             ;
+; |SCOMP|Add1~67                                                          ; |SCOMP|Add1~67                                                          ; combout          ;
+; |SCOMP|Add1~67                                                          ; |SCOMP|Add1~68                                                          ; cout             ;
+; |SCOMP|Add1~72                                                          ; |SCOMP|Add1~72                                                          ; combout          ;
+; |SCOMP|Add1~72                                                          ; |SCOMP|Add1~73                                                          ; cout             ;
+; |SCOMP|Add1~77                                                          ; |SCOMP|Add1~77                                                          ; combout          ;
+; |SCOMP|Add1~77                                                          ; |SCOMP|Add1~78                                                          ; cout             ;
+; |SCOMP|Add1~82                                                          ; |SCOMP|Add1~82                                                          ; combout          ;
+; |SCOMP|PC[3]                                                            ; |SCOMP|PC[3]                                                            ; regout           ;
+; |SCOMP|PC[5]                                                            ; |SCOMP|PC[5]                                                            ; regout           ;
+; |SCOMP|PC[6]                                                            ; |SCOMP|PC[6]                                                            ; regout           ;
+; |SCOMP|PC[7]                                                            ; |SCOMP|PC[7]                                                            ; regout           ;
+; |SCOMP|PC[8]                                                            ; |SCOMP|PC[8]                                                            ; regout           ;
+; |SCOMP|PC[9]                                                            ; |SCOMP|PC[9]                                                            ; regout           ;
+; |SCOMP|AC[0]                                                            ; |SCOMP|AC[0]                                                            ; regout           ;
+; |SCOMP|AC[2]                                                            ; |SCOMP|AC[2]                                                            ; regout           ;
+; |SCOMP|AC[5]                                                            ; |SCOMP|AC[5]                                                            ; regout           ;
+; |SCOMP|AC[7]                                                            ; |SCOMP|AC[7]                                                            ; regout           ;
+; |SCOMP|AC[10]                                                           ; |SCOMP|AC[10]                                                           ; regout           ;
+; |SCOMP|AC[11]                                                           ; |SCOMP|AC[11]                                                           ; regout           ;
+; |SCOMP|AC[14]                                                           ; |SCOMP|AC[14]                                                           ; regout           ;
+; |SCOMP|AC[15]                                                           ; |SCOMP|AC[15]                                                           ; regout           ;
+; |SCOMP|IR[2]                                                            ; |SCOMP|IR[2]                                                            ; regout           ;
+; |SCOMP|MEM_ADDR[2]~2                                                    ; |SCOMP|MEM_ADDR[2]~2                                                    ; combout          ;
+; |SCOMP|IR[3]                                                            ; |SCOMP|IR[3]                                                            ; regout           ;
+; |SCOMP|MEM_ADDR[3]~3                                                    ; |SCOMP|MEM_ADDR[3]~3                                                    ; combout          ;
+; |SCOMP|IR[6]                                                            ; |SCOMP|IR[6]                                                            ; regout           ;
+; |SCOMP|MEM_ADDR[6]~6                                                    ; |SCOMP|MEM_ADDR[6]~6                                                    ; combout          ;
+; |SCOMP|IR[7]                                                            ; |SCOMP|IR[7]                                                            ; regout           ;
+; |SCOMP|MEM_ADDR[7]~7                                                    ; |SCOMP|MEM_ADDR[7]~7                                                    ; combout          ;
+; |SCOMP|IR[8]                                                            ; |SCOMP|IR[8]                                                            ; regout           ;
+; |SCOMP|MEM_ADDR[8]~8                                                    ; |SCOMP|MEM_ADDR[8]~8                                                    ; combout          ;
+; |SCOMP|IR[9]                                                            ; |SCOMP|IR[9]                                                            ; regout           ;
+; |SCOMP|MEM_ADDR[9]~9                                                    ; |SCOMP|MEM_ADDR[9]~9                                                    ; combout          ;
+; |SCOMP|STATE.RESET_PC                                                   ; |SCOMP|STATE.RESET_PC                                                   ; regout           ;
+; |SCOMP|PC_STACK[0]                                                      ; |SCOMP|PC_STACK[0]                                                      ; regout           ;
+; |SCOMP|STATE.EX_JNEG                                                    ; |SCOMP|STATE.EX_JNEG                                                    ; regout           ;
+; |SCOMP|STATE.EX_JZERO                                                   ; |SCOMP|STATE.EX_JZERO                                                   ; regout           ;
+; |SCOMP|STATE.EX_JPOS                                                    ; |SCOMP|STATE.EX_JPOS                                                    ; regout           ;
+; |SCOMP|PC[1]~3                                                          ; |SCOMP|PC[1]~3                                                          ; combout          ;
+; |SCOMP|PC_STACK[1]                                                      ; |SCOMP|PC_STACK[1]                                                      ; regout           ;
+; |SCOMP|PC_STACK[2]                                                      ; |SCOMP|PC_STACK[2]                                                      ; regout           ;
+; |SCOMP|Selector7~0                                                      ; |SCOMP|Selector7~0                                                      ; combout          ;
+; |SCOMP|PC_STACK[3]                                                      ; |SCOMP|PC_STACK[3]                                                      ; regout           ;
+; |SCOMP|Selector7~1                                                      ; |SCOMP|Selector7~1                                                      ; combout          ;
+; |SCOMP|PC_STACK[4]                                                      ; |SCOMP|PC_STACK[4]                                                      ; regout           ;
+; |SCOMP|PC_STACK[5]                                                      ; |SCOMP|PC_STACK[5]                                                      ; regout           ;
+; |SCOMP|PC_STACK[6]                                                      ; |SCOMP|PC_STACK[6]                                                      ; regout           ;
+; |SCOMP|Selector4~0                                                      ; |SCOMP|Selector4~0                                                      ; combout          ;
+; |SCOMP|Selector4~1                                                      ; |SCOMP|Selector4~1                                                      ; combout          ;
+; |SCOMP|PC_STACK[7]                                                      ; |SCOMP|PC_STACK[7]                                                      ; regout           ;
+; |SCOMP|Selector3~0                                                      ; |SCOMP|Selector3~0                                                      ; combout          ;
+; |SCOMP|Selector3~1                                                      ; |SCOMP|Selector3~1                                                      ; combout          ;
+; |SCOMP|PC_STACK[8]                                                      ; |SCOMP|PC_STACK[8]                                                      ; regout           ;
+; |SCOMP|Selector2~0                                                      ; |SCOMP|Selector2~0                                                      ; combout          ;
+; |SCOMP|Selector2~1                                                      ; |SCOMP|Selector2~1                                                      ; combout          ;
+; |SCOMP|PC_STACK[9]                                                      ; |SCOMP|PC_STACK[9]                                                      ; regout           ;
+; |SCOMP|Selector1~0                                                      ; |SCOMP|Selector1~0                                                      ; combout          ;
+; |SCOMP|Selector1~1                                                      ; |SCOMP|Selector1~1                                                      ; combout          ;
+; |SCOMP|STATE.EX_SHIFT                                                   ; |SCOMP|STATE.EX_SHIFT                                                   ; regout           ;
+; |SCOMP|Selector26~2                                                     ; |SCOMP|Selector26~2                                                     ; combout          ;
+; |SCOMP|STATE.EX_OR                                                      ; |SCOMP|STATE.EX_OR                                                      ; regout           ;
+; |SCOMP|STATE.EX_ADDI                                                    ; |SCOMP|STATE.EX_ADDI                                                    ; regout           ;
+; |SCOMP|STATE.EX_ADD                                                     ; |SCOMP|STATE.EX_ADD                                                     ; regout           ;
+; |SCOMP|STATE.EX_SUB                                                     ; |SCOMP|STATE.EX_SUB                                                     ; regout           ;
+; |SCOMP|AC[8]~0                                                          ; |SCOMP|AC[8]~0                                                          ; combout          ;
+; |SCOMP|Add1~1                                                           ; |SCOMP|Add1~1                                                           ; combout          ;
+; |SCOMP|Add1~2                                                           ; |SCOMP|Add1~2                                                           ; combout          ;
+; |SCOMP|Add1~3                                                           ; |SCOMP|Add1~3                                                           ; combout          ;
+; |SCOMP|Selector26~6                                                     ; |SCOMP|Selector26~6                                                     ; combout          ;
+; |SCOMP|lpm_clshift:SHIFTER|lpm_clshift_0kc:auto_generated|sbit_w[30]~13 ; |SCOMP|lpm_clshift:SHIFTER|lpm_clshift_0kc:auto_generated|sbit_w[30]~13 ; combout          ;
+; |SCOMP|lpm_clshift:SHIFTER|lpm_clshift_0kc:auto_generated|sbit_w[30]~14 ; |SCOMP|lpm_clshift:SHIFTER|lpm_clshift_0kc:auto_generated|sbit_w[30]~14 ; combout          ;
+; |SCOMP|lpm_clshift:SHIFTER|lpm_clshift_0kc:auto_generated|sbit_w[26]~15 ; |SCOMP|lpm_clshift:SHIFTER|lpm_clshift_0kc:auto_generated|sbit_w[26]~15 ; combout          ;
+; |SCOMP|lpm_clshift:SHIFTER|lpm_clshift_0kc:auto_generated|sbit_w[26]~16 ; |SCOMP|lpm_clshift:SHIFTER|lpm_clshift_0kc:auto_generated|sbit_w[26]~16 ; combout          ;
+; |SCOMP|lpm_clshift:SHIFTER|lpm_clshift_0kc:auto_generated|sbit_w[44]~17 ; |SCOMP|lpm_clshift:SHIFTER|lpm_clshift_0kc:auto_generated|sbit_w[44]~17 ; combout          ;
+; |SCOMP|lpm_clshift:SHIFTER|lpm_clshift_0kc:auto_generated|sbit_w[28]~18 ; |SCOMP|lpm_clshift:SHIFTER|lpm_clshift_0kc:auto_generated|sbit_w[28]~18 ; combout          ;
+; |SCOMP|lpm_clshift:SHIFTER|lpm_clshift_0kc:auto_generated|sbit_w[56]~21 ; |SCOMP|lpm_clshift:SHIFTER|lpm_clshift_0kc:auto_generated|sbit_w[56]~21 ; combout          ;
+; |SCOMP|lpm_clshift:SHIFTER|lpm_clshift_0kc:auto_generated|sbit_w[40]~22 ; |SCOMP|lpm_clshift:SHIFTER|lpm_clshift_0kc:auto_generated|sbit_w[40]~22 ; combout          ;
+; |SCOMP|lpm_clshift:SHIFTER|lpm_clshift_0kc:auto_generated|sbit_w[24]~23 ; |SCOMP|lpm_clshift:SHIFTER|lpm_clshift_0kc:auto_generated|sbit_w[24]~23 ; combout          ;
+; |SCOMP|lpm_clshift:SHIFTER|lpm_clshift_0kc:auto_generated|sbit_w[23]~27 ; |SCOMP|lpm_clshift:SHIFTER|lpm_clshift_0kc:auto_generated|sbit_w[23]~27 ; combout          ;
+; |SCOMP|Selector25~3                                                     ; |SCOMP|Selector25~3                                                     ; combout          ;
+; |SCOMP|Add1~8                                                           ; |SCOMP|Add1~8                                                           ; combout          ;
+; |SCOMP|Add1~9                                                           ; |SCOMP|Add1~9                                                           ; combout          ;
+; |SCOMP|Add1~10                                                          ; |SCOMP|Add1~10                                                          ; combout          ;
+; |SCOMP|lpm_clshift:SHIFTER|lpm_clshift_0kc:auto_generated|sbit_w[29]~39 ; |SCOMP|lpm_clshift:SHIFTER|lpm_clshift_0kc:auto_generated|sbit_w[29]~39 ; combout          ;
+; |SCOMP|lpm_clshift:SHIFTER|lpm_clshift_0kc:auto_generated|sbit_w[27]~41 ; |SCOMP|lpm_clshift:SHIFTER|lpm_clshift_0kc:auto_generated|sbit_w[27]~41 ; combout          ;
+; |SCOMP|lpm_clshift:SHIFTER|lpm_clshift_0kc:auto_generated|sbit_w[27]~42 ; |SCOMP|lpm_clshift:SHIFTER|lpm_clshift_0kc:auto_generated|sbit_w[27]~42 ; combout          ;
+; |SCOMP|lpm_clshift:SHIFTER|lpm_clshift_0kc:auto_generated|sbit_w[45]~43 ; |SCOMP|lpm_clshift:SHIFTER|lpm_clshift_0kc:auto_generated|sbit_w[45]~43 ; combout          ;
+; |SCOMP|lpm_clshift:SHIFTER|lpm_clshift_0kc:auto_generated|sbit_w[57]~45 ; |SCOMP|lpm_clshift:SHIFTER|lpm_clshift_0kc:auto_generated|sbit_w[57]~45 ; combout          ;
+; |SCOMP|lpm_clshift:SHIFTER|lpm_clshift_0kc:auto_generated|sbit_w[25]~47 ; |SCOMP|lpm_clshift:SHIFTER|lpm_clshift_0kc:auto_generated|sbit_w[25]~47 ; combout          ;
+; |SCOMP|lpm_clshift:SHIFTER|lpm_clshift_0kc:auto_generated|sbit_w[58]~51 ; |SCOMP|lpm_clshift:SHIFTER|lpm_clshift_0kc:auto_generated|sbit_w[58]~51 ; combout          ;
+; |SCOMP|lpm_clshift:SHIFTER|lpm_clshift_0kc:auto_generated|sbit_w[58]~54 ; |SCOMP|lpm_clshift:SHIFTER|lpm_clshift_0kc:auto_generated|sbit_w[58]~54 ; combout          ;
+; |SCOMP|Selector24~0                                                     ; |SCOMP|Selector24~0                                                     ; combout          ;
+; |SCOMP|Add1~13                                                          ; |SCOMP|Add1~13                                                          ; combout          ;
+; |SCOMP|Add1~14                                                          ; |SCOMP|Add1~14                                                          ; combout          ;
+; |SCOMP|Add1~15                                                          ; |SCOMP|Add1~15                                                          ; combout          ;
+; |SCOMP|lpm_clshift:SHIFTER|lpm_clshift_0kc:auto_generated|sbit_w[47]~58 ; |SCOMP|lpm_clshift:SHIFTER|lpm_clshift_0kc:auto_generated|sbit_w[47]~58 ; combout          ;
+; |SCOMP|lpm_clshift:SHIFTER|lpm_clshift_0kc:auto_generated|sbit_w[47]~59 ; |SCOMP|lpm_clshift:SHIFTER|lpm_clshift_0kc:auto_generated|sbit_w[47]~59 ; combout          ;
+; |SCOMP|lpm_clshift:SHIFTER|lpm_clshift_0kc:auto_generated|sbit_w[59]~62 ; |SCOMP|lpm_clshift:SHIFTER|lpm_clshift_0kc:auto_generated|sbit_w[59]~62 ; combout          ;
+; |SCOMP|Selector23~0                                                     ; |SCOMP|Selector23~0                                                     ; combout          ;
+; |SCOMP|Selector23~2                                                     ; |SCOMP|Selector23~2                                                     ; combout          ;
+; |SCOMP|Add1~18                                                          ; |SCOMP|Add1~18                                                          ; combout          ;
+; |SCOMP|Add1~19                                                          ; |SCOMP|Add1~19                                                          ; combout          ;
+; |SCOMP|Add1~20                                                          ; |SCOMP|Add1~20                                                          ; combout          ;
+; |SCOMP|lpm_clshift:SHIFTER|lpm_clshift_0kc:auto_generated|sbit_w[52]~68 ; |SCOMP|lpm_clshift:SHIFTER|lpm_clshift_0kc:auto_generated|sbit_w[52]~68 ; combout          ;
+; |SCOMP|Selector22~0                                                     ; |SCOMP|Selector22~0                                                     ; combout          ;
+; |SCOMP|Selector22~2                                                     ; |SCOMP|Selector22~2                                                     ; combout          ;
+; |SCOMP|Add1~23                                                          ; |SCOMP|Add1~23                                                          ; combout          ;
+; |SCOMP|Add1~24                                                          ; |SCOMP|Add1~24                                                          ; combout          ;
+; |SCOMP|Add1~25                                                          ; |SCOMP|Add1~25                                                          ; combout          ;
+; |SCOMP|lpm_clshift:SHIFTER|lpm_clshift_0kc:auto_generated|sbit_w[53]~71 ; |SCOMP|lpm_clshift:SHIFTER|lpm_clshift_0kc:auto_generated|sbit_w[53]~71 ; combout          ;
+; |SCOMP|Selector21~0                                                     ; |SCOMP|Selector21~0                                                     ; combout          ;
+; |SCOMP|Add1~28                                                          ; |SCOMP|Add1~28                                                          ; combout          ;
+; |SCOMP|Add1~30                                                          ; |SCOMP|Add1~30                                                          ; combout          ;
+; |SCOMP|Add1~31                                                          ; |SCOMP|Add1~31                                                          ; combout          ;
+; |SCOMP|lpm_clshift:SHIFTER|lpm_clshift_0kc:auto_generated|sbit_w[54]~73 ; |SCOMP|lpm_clshift:SHIFTER|lpm_clshift_0kc:auto_generated|sbit_w[54]~73 ; combout          ;
+; |SCOMP|Selector20~0                                                     ; |SCOMP|Selector20~0                                                     ; combout          ;
+; |SCOMP|Selector20~2                                                     ; |SCOMP|Selector20~2                                                     ; combout          ;
+; |SCOMP|Add1~34                                                          ; |SCOMP|Add1~34                                                          ; combout          ;
+; |SCOMP|Add1~35                                                          ; |SCOMP|Add1~35                                                          ; combout          ;
+; |SCOMP|Add1~36                                                          ; |SCOMP|Add1~36                                                          ; combout          ;
+; |SCOMP|lpm_clshift:SHIFTER|lpm_clshift_0kc:auto_generated|sbit_w[62]~74 ; |SCOMP|lpm_clshift:SHIFTER|lpm_clshift_0kc:auto_generated|sbit_w[62]~74 ; combout          ;
+; |SCOMP|lpm_clshift:SHIFTER|lpm_clshift_0kc:auto_generated|sbit_w[62]~75 ; |SCOMP|lpm_clshift:SHIFTER|lpm_clshift_0kc:auto_generated|sbit_w[62]~75 ; combout          ;
+; |SCOMP|lpm_clshift:SHIFTER|lpm_clshift_0kc:auto_generated|sbit_w[55]~76 ; |SCOMP|lpm_clshift:SHIFTER|lpm_clshift_0kc:auto_generated|sbit_w[55]~76 ; combout          ;
+; |SCOMP|Selector19~0                                                     ; |SCOMP|Selector19~0                                                     ; combout          ;
+; |SCOMP|Add1~39                                                          ; |SCOMP|Add1~39                                                          ; combout          ;
+; |SCOMP|Add1~40                                                          ; |SCOMP|Add1~40                                                          ; combout          ;
+; |SCOMP|Add1~41                                                          ; |SCOMP|Add1~41                                                          ; combout          ;
+; |SCOMP|lpm_clshift:SHIFTER|lpm_clshift_0kc:auto_generated|sbit_w[63]~77 ; |SCOMP|lpm_clshift:SHIFTER|lpm_clshift_0kc:auto_generated|sbit_w[63]~77 ; combout          ;
+; |SCOMP|lpm_clshift:SHIFTER|lpm_clshift_0kc:auto_generated|sbit_w[63]~78 ; |SCOMP|lpm_clshift:SHIFTER|lpm_clshift_0kc:auto_generated|sbit_w[63]~78 ; combout          ;
+; |SCOMP|Selector18~2                                                     ; |SCOMP|Selector18~2                                                     ; combout          ;
+; |SCOMP|Selector18~3                                                     ; |SCOMP|Selector18~3                                                     ; combout          ;
+; |SCOMP|Add1~44                                                          ; |SCOMP|Add1~44                                                          ; combout          ;
+; |SCOMP|Add1~45                                                          ; |SCOMP|Add1~45                                                          ; combout          ;
+; |SCOMP|Add1~46                                                          ; |SCOMP|Add1~46                                                          ; combout          ;
+; |SCOMP|Selector17~2                                                     ; |SCOMP|Selector17~2                                                     ; combout          ;
+; |SCOMP|Add1~49                                                          ; |SCOMP|Add1~49                                                          ; combout          ;
+; |SCOMP|Add1~50                                                          ; |SCOMP|Add1~50                                                          ; combout          ;
+; |SCOMP|Add1~51                                                          ; |SCOMP|Add1~51                                                          ; combout          ;
+; |SCOMP|Selector16~0                                                     ; |SCOMP|Selector16~0                                                     ; combout          ;
+; |SCOMP|Selector16~1                                                     ; |SCOMP|Selector16~1                                                     ; combout          ;
+; |SCOMP|Selector16~2                                                     ; |SCOMP|Selector16~2                                                     ; combout          ;
+; |SCOMP|Add1~54                                                          ; |SCOMP|Add1~54                                                          ; combout          ;
+; |SCOMP|Add1~55                                                          ; |SCOMP|Add1~55                                                          ; combout          ;
+; |SCOMP|Add1~56                                                          ; |SCOMP|Add1~56                                                          ; combout          ;
+; |SCOMP|Selector16~3                                                     ; |SCOMP|Selector16~3                                                     ; combout          ;
+; |SCOMP|Selector16~4                                                     ; |SCOMP|Selector16~4                                                     ; combout          ;
+; |SCOMP|Selector15~0                                                     ; |SCOMP|Selector15~0                                                     ; combout          ;
+; |SCOMP|Selector15~1                                                     ; |SCOMP|Selector15~1                                                     ; combout          ;
+; |SCOMP|Selector15~2                                                     ; |SCOMP|Selector15~2                                                     ; combout          ;
+; |SCOMP|Add1~59                                                          ; |SCOMP|Add1~59                                                          ; combout          ;
+; |SCOMP|Add1~60                                                          ; |SCOMP|Add1~60                                                          ; combout          ;
+; |SCOMP|Add1~61                                                          ; |SCOMP|Add1~61                                                          ; combout          ;
+; |SCOMP|Selector15~3                                                     ; |SCOMP|Selector15~3                                                     ; combout          ;
+; |SCOMP|Selector15~4                                                     ; |SCOMP|Selector15~4                                                     ; combout          ;
+; |SCOMP|Add1~64                                                          ; |SCOMP|Add1~64                                                          ; combout          ;
+; |SCOMP|Add1~65                                                          ; |SCOMP|Add1~65                                                          ; combout          ;
+; |SCOMP|Add1~66                                                          ; |SCOMP|Add1~66                                                          ; combout          ;
+; |SCOMP|Selector14~4                                                     ; |SCOMP|Selector14~4                                                     ; combout          ;
+; |SCOMP|Add1~69                                                          ; |SCOMP|Add1~69                                                          ; combout          ;
+; |SCOMP|Add1~70                                                          ; |SCOMP|Add1~70                                                          ; combout          ;
+; |SCOMP|Add1~71                                                          ; |SCOMP|Add1~71                                                          ; combout          ;
+; |SCOMP|Selector13~4                                                     ; |SCOMP|Selector13~4                                                     ; combout          ;
+; |SCOMP|Add1~74                                                          ; |SCOMP|Add1~74                                                          ; combout          ;
+; |SCOMP|Add1~75                                                          ; |SCOMP|Add1~75                                                          ; combout          ;
+; |SCOMP|Add1~76                                                          ; |SCOMP|Add1~76                                                          ; combout          ;
+; |SCOMP|Selector12~2                                                     ; |SCOMP|Selector12~2                                                     ; combout          ;
+; |SCOMP|Selector12~3                                                     ; |SCOMP|Selector12~3                                                     ; combout          ;
+; |SCOMP|Selector12~4                                                     ; |SCOMP|Selector12~4                                                     ; combout          ;
+; |SCOMP|Selector12~5                                                     ; |SCOMP|Selector12~5                                                     ; combout          ;
+; |SCOMP|Add1~79                                                          ; |SCOMP|Add1~79                                                          ; combout          ;
+; |SCOMP|Add1~80                                                          ; |SCOMP|Add1~80                                                          ; combout          ;
+; |SCOMP|Add1~81                                                          ; |SCOMP|Add1~81                                                          ; combout          ;
+; |SCOMP|Selector11~2                                                     ; |SCOMP|Selector11~2                                                     ; combout          ;
+; |SCOMP|Selector11~3                                                     ; |SCOMP|Selector11~3                                                     ; combout          ;
+; |SCOMP|Selector11~4                                                     ; |SCOMP|Selector11~4                                                     ; combout          ;
+; |SCOMP|Selector11~5                                                     ; |SCOMP|Selector11~5                                                     ; combout          ;
+; |SCOMP|MW                                                               ; |SCOMP|MW                                                               ; regout           ;
+; |SCOMP|IR[15]                                                           ; |SCOMP|IR[15]                                                           ; regout           ;
+; |SCOMP|STATE.EX_STORE                                                   ; |SCOMP|STATE.EX_STORE                                                   ; regout           ;
+; |SCOMP|STATE~26                                                         ; |SCOMP|STATE~26                                                         ; combout          ;
+; |SCOMP|STATE~27                                                         ; |SCOMP|STATE~27                                                         ; combout          ;
+; |SCOMP|STATE~29                                                         ; |SCOMP|STATE~29                                                         ; combout          ;
+; |SCOMP|STATE~32                                                         ; |SCOMP|STATE~32                                                         ; combout          ;
+; |SCOMP|STATE~34                                                         ; |SCOMP|STATE~34                                                         ; combout          ;
+; |SCOMP|STATE~38                                                         ; |SCOMP|STATE~38                                                         ; combout          ;
+; |SCOMP|STATE~40                                                         ; |SCOMP|STATE~40                                                         ; combout          ;
+; |SCOMP|STATE~41                                                         ; |SCOMP|STATE~41                                                         ; combout          ;
+; |SCOMP|STATE~42                                                         ; |SCOMP|STATE~42                                                         ; combout          ;
+; |SCOMP|STATE.EX_STORE2                                                  ; |SCOMP|STATE.EX_STORE2                                                  ; regout           ;
+; |SCOMP|Selector0~0                                                      ; |SCOMP|Selector0~0                                                      ; combout          ;
+; |SCOMP|Selector0~1                                                      ; |SCOMP|Selector0~1                                                      ; combout          ;
+; |SCOMP|STATE~43                                                         ; |SCOMP|STATE~43                                                         ; combout          ;
+; |SCOMP|Selector26~8                                                     ; |SCOMP|Selector26~8                                                     ; combout          ;
+; |SCOMP|Selector25~6                                                     ; |SCOMP|Selector25~6                                                     ; combout          ;
+; |SCOMP|Selector18~7                                                     ; |SCOMP|Selector18~7                                                     ; combout          ;
+; |SCOMP|Selector17~6                                                     ; |SCOMP|Selector17~6                                                     ; combout          ;
+; |SCOMP|IO_DATA[0]                                                       ; |SCOMP|IO_DATA[0]~output                                                ; padio            ;
+; |SCOMP|IO_DATA[1]                                                       ; |SCOMP|IO_DATA[1]~output                                                ; padio            ;
+; |SCOMP|IO_DATA[2]                                                       ; |SCOMP|IO_DATA[2]~output                                                ; padio            ;
+; |SCOMP|IO_DATA[3]                                                       ; |SCOMP|IO_DATA[3]~output                                                ; padio            ;
+; |SCOMP|IO_DATA[4]                                                       ; |SCOMP|IO_DATA[4]~output                                                ; padio            ;
+; |SCOMP|IO_DATA[5]                                                       ; |SCOMP|IO_DATA[5]~output                                                ; padio            ;
+; |SCOMP|IO_DATA[6]                                                       ; |SCOMP|IO_DATA[6]~output                                                ; padio            ;
+; |SCOMP|IO_DATA[7]                                                       ; |SCOMP|IO_DATA[7]~output                                                ; padio            ;
+; |SCOMP|IO_DATA[8]                                                       ; |SCOMP|IO_DATA[8]~output                                                ; padio            ;
+; |SCOMP|IO_DATA[9]                                                       ; |SCOMP|IO_DATA[9]~output                                                ; padio            ;
+; |SCOMP|IO_DATA[10]                                                      ; |SCOMP|IO_DATA[10]~output                                               ; padio            ;
+; |SCOMP|IO_DATA[11]                                                      ; |SCOMP|IO_DATA[11]~output                                               ; padio            ;
+; |SCOMP|IO_DATA[12]                                                      ; |SCOMP|IO_DATA[12]~output                                               ; padio            ;
+; |SCOMP|IO_DATA[13]                                                      ; |SCOMP|IO_DATA[13]~output                                               ; padio            ;
+; |SCOMP|IO_DATA[14]                                                      ; |SCOMP|IO_DATA[14]~output                                               ; padio            ;
+; |SCOMP|IO_DATA[15]                                                      ; |SCOMP|IO_DATA[15]~output                                               ; padio            ;
+; |SCOMP|PC_OUT[3]                                                        ; |SCOMP|PC_OUT[3]                                                        ; padio            ;
+; |SCOMP|PC_OUT[5]                                                        ; |SCOMP|PC_OUT[5]                                                        ; padio            ;
+; |SCOMP|PC_OUT[6]                                                        ; |SCOMP|PC_OUT[6]                                                        ; padio            ;
+; |SCOMP|PC_OUT[7]                                                        ; |SCOMP|PC_OUT[7]                                                        ; padio            ;
+; |SCOMP|PC_OUT[8]                                                        ; |SCOMP|PC_OUT[8]                                                        ; padio            ;
+; |SCOMP|PC_OUT[9]                                                        ; |SCOMP|PC_OUT[9]                                                        ; padio            ;
+; |SCOMP|AC_OUT[0]                                                        ; |SCOMP|AC_OUT[0]                                                        ; padio            ;
+; |SCOMP|AC_OUT[2]                                                        ; |SCOMP|AC_OUT[2]                                                        ; padio            ;
+; |SCOMP|AC_OUT[5]                                                        ; |SCOMP|AC_OUT[5]                                                        ; padio            ;
+; |SCOMP|AC_OUT[7]                                                        ; |SCOMP|AC_OUT[7]                                                        ; padio            ;
+; |SCOMP|AC_OUT[10]                                                       ; |SCOMP|AC_OUT[10]                                                       ; padio            ;
+; |SCOMP|AC_OUT[11]                                                       ; |SCOMP|AC_OUT[11]                                                       ; padio            ;
+; |SCOMP|AC_OUT[14]                                                       ; |SCOMP|AC_OUT[14]                                                       ; padio            ;
+; |SCOMP|AC_OUT[15]                                                       ; |SCOMP|AC_OUT[15]                                                       ; padio            ;
+; |SCOMP|MAR_OUT[2]                                                       ; |SCOMP|MAR_OUT[2]                                                       ; padio            ;
+; |SCOMP|MAR_OUT[3]                                                       ; |SCOMP|MAR_OUT[3]                                                       ; padio            ;
+; |SCOMP|MAR_OUT[6]                                                       ; |SCOMP|MAR_OUT[6]                                                       ; padio            ;
+; |SCOMP|MAR_OUT[7]                                                       ; |SCOMP|MAR_OUT[7]                                                       ; padio            ;
+; |SCOMP|MAR_OUT[8]                                                       ; |SCOMP|MAR_OUT[8]                                                       ; padio            ;
+; |SCOMP|MAR_OUT[9]                                                       ; |SCOMP|MAR_OUT[9]                                                       ; padio            ;
+; |SCOMP|IO_WRITE                                                         ; |SCOMP|IO_WRITE                                                         ; padio            ;
+; |SCOMP|IO_CYCLE                                                         ; |SCOMP|IO_CYCLE                                                         ; padio            ;
+; |SCOMP|IO_ADDR[2]                                                       ; |SCOMP|IO_ADDR[2]                                                       ; padio            ;
+; |SCOMP|IO_ADDR[3]                                                       ; |SCOMP|IO_ADDR[3]                                                       ; padio            ;
+; |SCOMP|IO_ADDR[6]                                                       ; |SCOMP|IO_ADDR[6]                                                       ; padio            ;
+; |SCOMP|IO_ADDR[7]                                                       ; |SCOMP|IO_ADDR[7]                                                       ; padio            ;
+; |SCOMP|RESETN                                                           ; |SCOMP|RESETN~corein                                                    ; combout          ;
+; |SCOMP|RESETN~clkctrl                                                   ; |SCOMP|RESETN~clkctrl                                                   ; outclk           ;
+; |SCOMP|PC_STACK[5]~feeder                                               ; |SCOMP|PC_STACK[5]~feeder                                               ; combout          ;
+; |SCOMP|STATE.RESET_PC~feeder                                            ; |SCOMP|STATE.RESET_PC~feeder                                            ; combout          ;
++-------------------------------------------------------------------------+-------------------------------------------------------------------------+------------------+
+
+
++---------------------+
+; Simulator INI Usage ;
++--------+------------+
+; Option ; Usage      ;
++--------+------------+
+
+
++--------------------+
+; Simulator Messages ;
++--------------------+
+Info: *******************************************************************
+Info: Running Quartus II Simulator
+    Info: Version 9.1 Build 350 03/24/2010 Service Pack 2 SJ Full Version
+    Info: Processing started: Thu Oct 22 13:54:55 2015
+Info: Command: quartus_sim --read_settings_files=on --write_settings_files=off scomp -c scomp
+Info: Using vector source file "E:/Lab_8_SCOMP_IO/scomp.vwf"
+Info: Overwriting simulation input file with simulation results
+    Info: A backup of scomp.vwf called scomp.sim_ori.vwf has been created in the db folder
+Warning: Can't find signal in vector source file for input pin "|SCOMP|IO_DATA[0]"
+Warning: Can't find signal in vector source file for input pin "|SCOMP|IO_DATA[1]"
+Warning: Can't find signal in vector source file for input pin "|SCOMP|IO_DATA[2]"
+Warning: Can't find signal in vector source file for input pin "|SCOMP|IO_DATA[3]"
+Warning: Can't find signal in vector source file for input pin "|SCOMP|IO_DATA[4]"
+Warning: Can't find signal in vector source file for input pin "|SCOMP|IO_DATA[5]"
+Warning: Can't find signal in vector source file for input pin "|SCOMP|IO_DATA[6]"
+Warning: Can't find signal in vector source file for input pin "|SCOMP|IO_DATA[7]"
+Warning: Can't find signal in vector source file for input pin "|SCOMP|IO_DATA[8]"
+Warning: Can't find signal in vector source file for input pin "|SCOMP|IO_DATA[9]"
+Warning: Can't find signal in vector source file for input pin "|SCOMP|IO_DATA[10]"
+Warning: Can't find signal in vector source file for input pin "|SCOMP|IO_DATA[11]"
+Warning: Can't find signal in vector source file for input pin "|SCOMP|IO_DATA[12]"
+Warning: Can't find signal in vector source file for input pin "|SCOMP|IO_DATA[13]"
+Warning: Can't find signal in vector source file for input pin "|SCOMP|IO_DATA[14]"
+Warning: Can't find signal in vector source file for input pin "|SCOMP|IO_DATA[15]"
+Info: Option to preserve fewer signal transitions to reduce memory requirements is enabled
+    Info: Simulation has been partitioned into sub-simulations according to the maximum transition count determined by the engine. Transitions from memory will be flushed out to disk at the end of each sub-simulation to reduce memory requirements.
+Info: Simulation partitioned into 1 sub-simulations
+Info: Simulation coverage is      45.47 %
+Info: Number of transitions in simulation is 4115
+Info: Vector file scomp.vwf is saved in VWF text format. You can compress it into CVWF format in order to reduce file size. For more details please refer to the Quartus II Help.
+Info: Quartus II Simulator was successful. 0 errors, 16 warnings
+    Info: Peak virtual memory: 161 megabytes
+    Info: Processing ended: Thu Oct 22 13:54:57 2015
+    Info: Elapsed time: 00:00:02
+    Info: Total CPU time (on all processors): 00:00:01
+
+

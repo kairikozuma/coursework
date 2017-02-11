@@ -1,0 +1,66 @@
+--------------------------------------------------------------------------------------
+Timing Analyzer Summary
+--------------------------------------------------------------------------------------
+
+Type           : Worst-case tsu
+Slack          : N/A
+Required Time  : None
+Actual Time    : 6.106 ns
+From           : KEY[1]
+To             : SIM:inst2|TEST_ADDRESS[4]
+From Clock     : --
+To Clock       : CLOCK_50
+Failed Paths   : 0
+
+Type           : Worst-case tco
+Slack          : N/A
+Required Time  : None
+Actual Time    : 8.947 ns
+From           : SIM:inst2|TEST_FAILED
+To             : LEDR[0]
+From Clock     : CLOCK_50
+To Clock       : --
+Failed Paths   : 0
+
+Type           : Worst-case th
+Slack          : N/A
+Required Time  : None
+Actual Time    : -3.304 ns
+From           : KEY[1]
+To             : SIM:inst2|state.WAITING0
+From Clock     : --
+To Clock       : CLOCK_50
+Failed Paths   : 0
+
+Type           : Clock Setup: 'clkgen:inst6|altpll:altpll_component|_clk0'
+Slack          : 15.880 ns
+Required Time  : 25.00 MHz ( period = 40.000 ns )
+Actual Time    : 121.36 MHz ( period = 8.240 ns )
+From           : SIM:inst2|TEST_ADDRESS[3]
+To             : SIM:inst2|altsyncram:vectors|altsyncram_voo1:auto_generated|ram_block1a0~porta_address_reg3
+From Clock     : clkgen:inst6|altpll:altpll_component|_clk0
+To Clock       : clkgen:inst6|altpll:altpll_component|_clk0
+Failed Paths   : 0
+
+Type           : Clock Hold: 'clkgen:inst6|altpll:altpll_component|_clk0'
+Slack          : -1.507 ns
+Required Time  : 25.00 MHz ( period = 40.000 ns )
+Actual Time    : N/A
+From           : SIM:inst2|altsyncram:vectors|altsyncram_voo1:auto_generated|q_a[2]
+To             : SIM:inst2|X0_LAST
+From Clock     : clkgen:inst6|altpll:altpll_component|_clk0
+To Clock       : clkgen:inst6|altpll:altpll_component|_clk0
+Failed Paths   : 18
+
+Type           : Total number of failed paths
+Slack          : 
+Required Time  : 
+Actual Time    : 
+From           : 
+To             : 
+From Clock     : 
+To Clock       : 
+Failed Paths   : 18
+
+--------------------------------------------------------------------------------------
+

@@ -1,0 +1,16 @@
+
+State Machine - |sm_tester|SIM:inst2|VB_STATE
+Name VB_STATE.STOPWRITING VB_STATE.WRITING VB_STATE.SETUP VB_STATE.IDLE 
+VB_STATE.IDLE 0 0 0 0 
+VB_STATE.SETUP 0 0 1 1 
+VB_STATE.WRITING 0 1 0 1 
+VB_STATE.STOPWRITING 1 0 0 1 
+
+State Machine - |sm_tester|SIM:inst2|state
+Name state.DONE state.STALL state.TEST state.RUNNING state.WAITING state.WAITING0 
+state.WAITING0 0 0 0 0 0 0 
+state.WAITING 0 0 0 0 1 1 
+state.RUNNING 0 0 0 1 0 1 
+state.TEST 0 0 1 0 0 1 
+state.STALL 0 1 0 0 0 1 
+state.DONE 1 0 0 0 0 1 

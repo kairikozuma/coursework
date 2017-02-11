@@ -1,0 +1,42 @@
+DEPTH = 1200;
+WIDTH = 6;
+
+--Define the radix used to access memory width and depth.
+ADDRESS_RADIX = HEX;
+DATA_RADIX    = HEX;
+
+-- Specify values for addresses, which can be single address or range
+CONTENT
+  BEGIN
+    [000..4AF] : 3F;  % Space is the default character %
+
+          0CA  : 21;  -- X
+          0CB  : 01;  -- 1
+          0CD  : 36;  -- :
+
+          0F2  : 21;  -- X
+          0F3  : 00;  -- 0
+          0F5  : 36;  -- :
+
+          141  : 0E;  -- E
+          142  : 21;  -- X
+          143  : 19;  -- P
+          145  : 36;  -- :
+
+          169  : 0A;  -- A
+          16A  : 0C;  -- C
+          16B  : 1D;  -- T
+          16D  : 36;  -- :
+
+          1B8  : 23;  -- Z
+          1B9  : 0E;  -- E
+          1BA  : 21;  -- X
+          1BB  : 19;  -- P
+          1BD  : 36;  -- :
+
+          1E0  : 23;  -- Z
+          1E1  : 0A;  -- A
+          1E2  : 0C;  -- C
+          1E3  : 1D;  -- T
+          1E5  : 36;  -- :
+  End;

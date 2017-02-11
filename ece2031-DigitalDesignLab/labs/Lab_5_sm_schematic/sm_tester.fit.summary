@@ -1,0 +1,16 @@
+Fitter Status : Successful - Thu Sep 24 15:51:51 2015
+Quartus II Version : 9.1 Build 350 03/24/2010 SP 2 SJ Full Version
+Revision Name : sm_tester
+Top-level Entity Name : sm_tester
+Family : Cyclone II
+Device : EP2C35F672C6
+Timing Models : Final
+Total logic elements : 354 / 33,216 ( 1 % )
+    Total combinational functions : 332 / 33,216 ( < 1 % )
+    Dedicated logic registers : 214 / 33,216 ( < 1 % )
+Total registers : 214
+Total pins : 46 / 475 ( 10 % )
+Total virtual pins : 0
+Total memory bits : 11,456 / 483,840 ( 2 % )
+Embedded Multiplier 9-bit elements : 0 / 70 ( 0 % )
+Total PLLs : 1 / 4 ( 25 % )

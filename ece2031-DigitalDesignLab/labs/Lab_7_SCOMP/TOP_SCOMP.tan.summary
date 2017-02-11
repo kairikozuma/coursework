@@ -1,0 +1,66 @@
+--------------------------------------------------------------------------------------
+Timing Analyzer Summary
+--------------------------------------------------------------------------------------
+
+Type           : Worst-case tsu
+Slack          : N/A
+Required Time  : None
+Actual Time    : 9.927 ns
+From           : KEY[0]
+To             : SCOMP:inst|AC[11]
+From Clock     : --
+To Clock       : CLOCK_50
+Failed Paths   : 0
+
+Type           : Worst-case tco
+Slack          : N/A
+Required Time  : None
+Actual Time    : 7.205 ns
+From           : SCOMP:inst|IR[4]
+To             : MAR[4]
+From Clock     : CLOCK_50
+To Clock       : --
+Failed Paths   : 0
+
+Type           : Worst-case th
+Slack          : N/A
+Required Time  : None
+Actual Time    : -7.222 ns
+From           : KEY[0]
+To             : SCOMP:inst|MW
+From Clock     : --
+To Clock       : CLOCK_50
+Failed Paths   : 0
+
+Type           : Clock Setup: 'altpll0:inst1|altpll:altpll_component|_clk0'
+Slack          : 0.204 ns
+Required Time  : 65.00 MHz ( period = 15.384 ns )
+Actual Time    : 66.77 MHz ( period = 14.976 ns )
+From           : SCOMP:inst|altsyncram:MEMORY|altsyncram_6dt3:auto_generated|ram_block1a0~porta_address_reg9
+To             : SCOMP:inst|AC[15]
+From Clock     : altpll0:inst1|altpll:altpll_component|_clk0
+To Clock       : altpll0:inst1|altpll:altpll_component|_clk0
+Failed Paths   : 0
+
+Type           : Clock Hold: 'altpll0:inst1|altpll:altpll_component|_clk0'
+Slack          : 0.391 ns
+Required Time  : 65.00 MHz ( period = 15.384 ns )
+Actual Time    : N/A
+From           : SCOMP:inst|MW
+To             : SCOMP:inst|MW
+From Clock     : altpll0:inst1|altpll:altpll_component|_clk0
+To Clock       : altpll0:inst1|altpll:altpll_component|_clk0
+Failed Paths   : 0
+
+Type           : Total number of failed paths
+Slack          : 
+Required Time  : 
+Actual Time    : 
+From           : 
+To             : 
+From Clock     : 
+To Clock       : 
+Failed Paths   : 0
+
+--------------------------------------------------------------------------------------
+

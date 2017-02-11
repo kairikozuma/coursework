@@ -1,0 +1,14 @@
+|sm_schematic
+Z <= inst9.DB_MAX_OUTPUT_PORT_TYPE
+RESETN => inst9.ACLR
+RESETN => inst10.ACLR
+CLOCK => inst9.CLK
+CLOCK => inst10.CLK
+X[0] => inst7.IN0
+X[1] => inst2.IN1
+X[1] => inst5.IN0
+X[1] => inst6.IN0
+Q[0] <= inst10.DB_MAX_OUTPUT_PORT_TYPE
+Q[1] <= inst9.DB_MAX_OUTPUT_PORT_TYPE
+
+

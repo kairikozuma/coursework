@@ -1,0 +1,12 @@
+|tutorial
+d6 <= sw4.DB_MAX_OUTPUT_PORT_TYPE
+sw4 => d6.DATAIN
+sw4 => inst3.IN0
+sw4 => inst.IN0
+d3 <= inst2.DB_MAX_OUTPUT_PORT_TYPE
+sw5 => inst1.IN1
+sw5 => inst4.IN0
+sw5 => d5.DATAIN
+d5 <= sw5.DB_MAX_OUTPUT_PORT_TYPE
+
+
