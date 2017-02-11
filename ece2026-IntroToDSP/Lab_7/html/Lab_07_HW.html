@@ -1,0 +1,263 @@
+
+<!DOCTYPE html
+  PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html><head>
+      <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+   <!--
+This HTML was auto-generated from MATLAB code.
+To make changes, update the MATLAB code and republish this document.
+      --><title>Lab_07_HW</title><meta name="generator" content="MATLAB 8.4"><link rel="schema.DC" href="http://purl.org/dc/elements/1.1/"><meta name="DC.date" content="2015-03-03"><meta name="DC.source" content="Lab_07_HW.m"><style type="text/css">
+html,body,div,span,applet,object,iframe,h1,h2,h3,h4,h5,h6,p,blockquote,pre,a,abbr,acronym,address,big,cite,code,del,dfn,em,font,img,ins,kbd,q,s,samp,small,strike,strong,sub,sup,tt,var,b,u,i,center,dl,dt,dd,ol,ul,li,fieldset,form,label,legend,table,caption,tbody,tfoot,thead,tr,th,td{margin:0;padding:0;border:0;outline:0;font-size:100%;vertical-align:baseline;background:transparent}body{line-height:1}ol,ul{list-style:none}blockquote,q{quotes:none}blockquote:before,blockquote:after,q:before,q:after{content:'';content:none}:focus{outine:0}ins{text-decoration:none}del{text-decoration:line-through}table{border-collapse:collapse;border-spacing:0}
+
+html { min-height:100%; margin-bottom:1px; }
+html body { height:100%; margin:0px; font-family:Arial, Helvetica, sans-serif; font-size:10px; color:#000; line-height:140%; background:#fff none; overflow-y:scroll; }
+html body td { vertical-align:top; text-align:left; }
+
+h1 { padding:0px; margin:0px 0px 25px; font-family:Arial, Helvetica, sans-serif; font-size:1.5em; color:#d55000; line-height:100%; font-weight:normal; }
+h2 { padding:0px; margin:0px 0px 8px; font-family:Arial, Helvetica, sans-serif; font-size:1.2em; color:#000; font-weight:bold; line-height:140%; border-bottom:1px solid #d6d4d4; display:block; }
+h3 { padding:0px; margin:0px 0px 5px; font-family:Arial, Helvetica, sans-serif; font-size:1.1em; color:#000; font-weight:bold; line-height:140%; }
+
+a { color:#005fce; text-decoration:none; }
+a:hover { color:#005fce; text-decoration:underline; }
+a:visited { color:#004aa0; text-decoration:none; }
+
+p { padding:0px; margin:0px 0px 20px; }
+img { padding:0px; margin:0px 0px 20px; border:none; }
+p img, pre img, tt img, li img, h1 img, h2 img { margin-bottom:0px; } 
+
+ul { padding:0px; margin:0px 0px 20px 23px; list-style:square; }
+ul li { padding:0px; margin:0px 0px 7px 0px; }
+ul li ul { padding:5px 0px 0px; margin:0px 0px 7px 23px; }
+ul li ol li { list-style:decimal; }
+ol { padding:0px; margin:0px 0px 20px 0px; list-style:decimal; }
+ol li { padding:0px; margin:0px 0px 7px 23px; list-style-type:decimal; }
+ol li ol { padding:5px 0px 0px; margin:0px 0px 7px 0px; }
+ol li ol li { list-style-type:lower-alpha; }
+ol li ul { padding-top:7px; }
+ol li ul li { list-style:square; }
+
+.content { font-size:1.2em; line-height:140%; padding: 20px; }
+
+pre, code { font-size:12px; }
+tt { font-size: 1.2em; }
+pre { margin:0px 0px 20px; }
+pre.codeinput { padding:10px; border:1px solid #d3d3d3; background:#f7f7f7; }
+pre.codeoutput { padding:10px 11px; margin:0px 0px 20px; color:#4c4c4c; }
+pre.error { color:red; }
+
+@media print { pre.codeinput, pre.codeoutput { word-wrap:break-word; width:100%; } }
+
+span.keyword { color:#0000FF }
+span.comment { color:#228B22 }
+span.string { color:#A020F0 }
+span.untermstring { color:#B20000 }
+span.syscmd { color:#B28C00 }
+
+.footer { width:auto; padding:10px 0px; margin:25px 0px 0px; border-top:1px dotted #878787; font-size:0.8em; line-height:140%; font-style:italic; color:#878787; text-align:left; float:none; }
+.footer p { margin:0px; }
+.footer a { color:#878787; }
+.footer a:hover { color:#878787; text-decoration:underline; }
+.footer a:visited { color:#878787; }
+
+table th { padding:7px 5px; text-align:left; vertical-align:middle; border: 1px solid #d6d4d4; font-weight:bold; }
+table td { padding:7px 5px; text-align:left; vertical-align:top; border:1px solid #d6d4d4; }
+
+
+
+
+
+  </style></head><body><div class="content"><h1>Lab_07_HW</h1><!--introduction--><!--/introduction--><h2>Contents</h2><div><ul><li><a href="#1">4.1.1</a></li><li><a href="#2">4.2.1a</a></li><li><a href="#3">4.2.1b</a></li><li><a href="#4">4.2.1c &amp; d</a></li><li><a href="#5">4.2.1e</a></li><li><a href="#6">4.2.1f</a></li><li><a href="#7">4.2.1g</a></li><li><a href="#8">4.2.1h</a></li><li><a href="#9">4.2.1i</a></li><li><a href="#10">4.2.1j</a></li></ul></div><h2>4.1.1<a name="1"></a></h2><pre class="codeinput">xx = 255*(rem(1:159,30) &gt; 19);
+bk = [1 -1];
+yy = firfilt(bk, xx);
+
+nn = 1:length(xx);
+subplot(2,1,1)
+stem(nn-1, xx(nn));
+title(<span class="string">'Stemplot of xx = 255*(rem(1:159,30) &gt; 19)'</span>);
+xlabel(<span class="string">'Index (n)'</span>);
+ylabel(<span class="string">'Magnitude'</span>);
+subplot(2,1,2)
+stem(nn-1, yy(nn));
+title(<span class="string">'Stemplot of yy = first difference of xx'</span>);
+xlabel(<span class="string">'Index'</span>);
+ylabel(<span class="string">'Magnitude'</span>);
+
+yylen = length(xx) + length(bk) - 1;
+fprintf(<span class="string">'\nLength of yy is %d\n'</span>, yylen);
+
+edges = abs(yy)&gt; 0;
+edgeloc = find(edges ~= false);
+figure
+stem((1:length(edgeloc))-1, edgeloc);
+title(<span class="string">'Stemplot of Edge Locations'</span>);
+xlabel(<span class="string">'Index (n)'</span>);
+ylabel(<span class="string">'Location'</span>);
+</pre><pre class="codeoutput">
+Length of yy is 160
+</pre><img vspace="5" hspace="5" src="Lab_07_HW_01.png" alt=""> <img vspace="5" hspace="5" src="Lab_07_HW_02.png" alt=""> <h2>4.2.1a<a name="2"></a></h2><pre class="codeinput">bar = imread(<span class="string">'HP110v3.png'</span>);
+[row, col] = size(bar);
+mid = floor(row/2);
+xbar = double(bar(mid,:));
+bk = [1 -1];
+ybar = firfilt(bk, xbar);
+</pre><h2>4.2.1b<a name="3"></a></h2><pre class="codeinput">nn = 1:length(xbar);
+subplot(2,1,1)
+stem(nn-1, xbar(nn));
+title(<span class="string">'Stemplot of xx = barcode'</span>);
+xlabel(<span class="string">'Index (n)'</span>);
+ylabel(<span class="string">'Magnitude'</span>);
+subplot(2,1,2)
+stem(nn-1, ybar(nn));
+title(<span class="string">'Stemplot of yy = first difference of barcode'</span>);
+xlabel(<span class="string">'Index (n)'</span>);
+ylabel(<span class="string">'Magnitude'</span>);
+</pre><img vspace="5" hspace="5" src="Lab_07_HW_03.png" alt=""> <h2>4.2.1c &amp; d<a name="4"></a></h2><pre class="codeinput">det = abs(ybar) &gt; 150;
+loc = find(det(2:end) ~= false);
+figure
+subplot(2,1,1);
+stem((1:length(loc))-1, loc);
+title(<span class="string">'Stemplot of Edge Locations'</span>);
+xlabel(<span class="string">'Index'</span>);
+ylabel(<span class="string">'Location'</span>);
+
+subplot(2,1,2);
+locdelt = firfilt(bk, loc);
+stem((1:length(loc))-1, locdelt(1:length(loc)));
+title(<span class="string">'Stemplot Width of Bars'</span>);
+xlabel(<span class="string">'Index'</span>);
+ylabel(<span class="string">'Width'</span>);
+</pre><img vspace="5" hspace="5" src="Lab_07_HW_04.png" alt=""> <h2>4.2.1e<a name="5"></a></h2><pre class="codeinput">barwidth = 12*7 + 3*2 + 5*1;
+fprintf(<span class="string">'Barcode width of 12 digit code is %d\n'</span>, barwidth);
+</pre><pre class="codeoutput">Barcode width of 12 digit code is 95
+</pre><h2>4.2.1f<a name="6"></a></h2><pre class="codeinput">theta = zeros(1,length(locdelt) - 59);
+<span class="keyword">for</span> i = 1:length(theta)
+    theta(i) = sum(locdelt(i:58 + i))/95;
+<span class="keyword">end</span>
+theta1 = sum(theta)/length(theta);
+</pre><h2>4.2.1g<a name="7"></a></h2><pre class="codeinput">locdeltrel = round(locdelt(1:end-1)/theta1);
+figure
+stem((1:length(locdeltrel))-1, locdeltrel);
+title(<span class="string">'Stemplot of Width of Bars (Normalized)'</span>);
+xlabel(<span class="string">'Index'</span>);
+ylabel(<span class="string">'Width'</span>);
+</pre><img vspace="5" hspace="5" src="Lab_07_HW_05.png" alt=""> <h2>4.2.1h<a name="8"></a></h2><pre class="codeinput">[ss, sloc] = ismember([1,1,1], locdeltrel);
+barfilt = locdeltrel(sloc(1):sloc(1) + 58);
+barnum = decodeUPC(barfilt);
+barnumfin = sum(10.^(length(barnum)-1:-1:0) .* barnum);
+</pre><pre class="codeoutput">
+ssbeg =
+
+     1     1     1
+
+</pre><h2>4.2.1i<a name="9"></a></h2><pre class="codeinput">fprintf(<span class="string">'\nBarcode is: %d\n'</span>, barnumfin);
+</pre><pre class="codeoutput">
+Barcode is: 882780450165
+</pre><h2>4.2.1j<a name="10"></a></h2><pre class="codeinput">bar2num(<span class="string">'OFFv3.png'</span>);
+</pre><pre class="codeoutput">
+ssbeg =
+
+     1     1     1
+
+
+Barcode is: 46500703089
+</pre><img vspace="5" hspace="5" src="Lab_07_HW_06.png" alt=""> <p class="footer"><br><a href="http://www.mathworks.com/products/matlab/">Published with MATLAB&reg; R2014b</a><br></p></div><!--
+##### SOURCE BEGIN #####
+%% Lab_07_HW
+%% 4.1.1
+xx = 255*(rem(1:159,30) > 19);
+bk = [1 -1];
+yy = firfilt(bk, xx);
+
+nn = 1:length(xx);
+subplot(2,1,1)
+stem(nn-1, xx(nn));
+title('Stemplot of xx = 255*(rem(1:159,30) > 19)');
+xlabel('Index (n)');
+ylabel('Magnitude');
+subplot(2,1,2)
+stem(nn-1, yy(nn));
+title('Stemplot of yy = first difference of xx');
+xlabel('Index');
+ylabel('Magnitude');
+
+yylen = length(xx) + length(bk) - 1;
+fprintf('\nLength of yy is %d\n', yylen);
+
+edges = abs(yy)> 0;
+edgeloc = find(edges ~= false);
+figure
+stem((1:length(edgeloc))-1, edgeloc);
+title('Stemplot of Edge Locations');
+xlabel('Index (n)');
+ylabel('Location');
+
+%% 4.2.1a
+bar = imread('HP110v3.png');
+[row, col] = size(bar);
+mid = floor(row/2);
+xbar = double(bar(mid,:));
+bk = [1 -1];
+ybar = firfilt(bk, xbar);
+
+%% 4.2.1b
+nn = 1:length(xbar);
+subplot(2,1,1)
+stem(nn-1, xbar(nn));
+title('Stemplot of xx = barcode');
+xlabel('Index (n)');
+ylabel('Magnitude');
+subplot(2,1,2)
+stem(nn-1, ybar(nn));
+title('Stemplot of yy = first difference of barcode');
+xlabel('Index (n)');
+ylabel('Magnitude');
+
+%% 4.2.1c & d
+det = abs(ybar) > 150;
+loc = find(det(2:end) ~= false);
+figure
+subplot(2,1,1);
+stem((1:length(loc))-1, loc);
+title('Stemplot of Edge Locations');
+xlabel('Index');
+ylabel('Location');
+
+subplot(2,1,2);
+locdelt = firfilt(bk, loc);
+stem((1:length(loc))-1, locdelt(1:length(loc)));
+title('Stemplot Width of Bars');
+xlabel('Index');
+ylabel('Width');
+
+%% 4.2.1e
+barwidth = 12*7 + 3*2 + 5*1;
+fprintf('Barcode width of 12 digit code is %d\n', barwidth);
+
+%% 4.2.1f
+theta = zeros(1,length(locdelt) - 59);
+for i = 1:length(theta)
+    theta(i) = sum(locdelt(i:58 + i))/95;
+end
+theta1 = sum(theta)/length(theta);
+
+%% 4.2.1g
+locdeltrel = round(locdelt(1:end-1)/theta1);
+figure
+stem((1:length(locdeltrel))-1, locdeltrel);
+title('Stemplot of Width of Bars (Normalized)');
+xlabel('Index');
+ylabel('Width');
+
+%% 4.2.1h
+[ss, sloc] = ismember([1,1,1], locdeltrel);
+barfilt = locdeltrel(sloc(1):sloc(1) + 58);
+barnum = decodeUPC(barfilt);
+barnumfin = sum(10.^(length(barnum)-1:-1:0) .* barnum);
+
+%% 4.2.1i
+fprintf('\nBarcode is: %d\n', barnumfin);
+
+%% 4.2.1j
+bar2num('OFFv3.png');
+##### SOURCE END #####
+--></body></html>

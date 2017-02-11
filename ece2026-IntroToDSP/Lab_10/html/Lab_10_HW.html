@@ -1,0 +1,300 @@
+
+<!DOCTYPE html
+  PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html><head>
+      <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+   <!--
+This HTML was auto-generated from MATLAB code.
+To make changes, update the MATLAB code and republish this document.
+      --><title>Lab_10_HW</title><meta name="generator" content="MATLAB 8.4"><link rel="schema.DC" href="http://purl.org/dc/elements/1.1/"><meta name="DC.date" content="2015-04-14"><meta name="DC.source" content="Lab_10_HW.m"><style type="text/css">
+html,body,div,span,applet,object,iframe,h1,h2,h3,h4,h5,h6,p,blockquote,pre,a,abbr,acronym,address,big,cite,code,del,dfn,em,font,img,ins,kbd,q,s,samp,small,strike,strong,sub,sup,tt,var,b,u,i,center,dl,dt,dd,ol,ul,li,fieldset,form,label,legend,table,caption,tbody,tfoot,thead,tr,th,td{margin:0;padding:0;border:0;outline:0;font-size:100%;vertical-align:baseline;background:transparent}body{line-height:1}ol,ul{list-style:none}blockquote,q{quotes:none}blockquote:before,blockquote:after,q:before,q:after{content:'';content:none}:focus{outine:0}ins{text-decoration:none}del{text-decoration:line-through}table{border-collapse:collapse;border-spacing:0}
+
+html { min-height:100%; margin-bottom:1px; }
+html body { height:100%; margin:0px; font-family:Arial, Helvetica, sans-serif; font-size:10px; color:#000; line-height:140%; background:#fff none; overflow-y:scroll; }
+html body td { vertical-align:top; text-align:left; }
+
+h1 { padding:0px; margin:0px 0px 25px; font-family:Arial, Helvetica, sans-serif; font-size:1.5em; color:#d55000; line-height:100%; font-weight:normal; }
+h2 { padding:0px; margin:0px 0px 8px; font-family:Arial, Helvetica, sans-serif; font-size:1.2em; color:#000; font-weight:bold; line-height:140%; border-bottom:1px solid #d6d4d4; display:block; }
+h3 { padding:0px; margin:0px 0px 5px; font-family:Arial, Helvetica, sans-serif; font-size:1.1em; color:#000; font-weight:bold; line-height:140%; }
+
+a { color:#005fce; text-decoration:none; }
+a:hover { color:#005fce; text-decoration:underline; }
+a:visited { color:#004aa0; text-decoration:none; }
+
+p { padding:0px; margin:0px 0px 20px; }
+img { padding:0px; margin:0px 0px 20px; border:none; }
+p img, pre img, tt img, li img, h1 img, h2 img { margin-bottom:0px; } 
+
+ul { padding:0px; margin:0px 0px 20px 23px; list-style:square; }
+ul li { padding:0px; margin:0px 0px 7px 0px; }
+ul li ul { padding:5px 0px 0px; margin:0px 0px 7px 23px; }
+ul li ol li { list-style:decimal; }
+ol { padding:0px; margin:0px 0px 20px 0px; list-style:decimal; }
+ol li { padding:0px; margin:0px 0px 7px 23px; list-style-type:decimal; }
+ol li ol { padding:5px 0px 0px; margin:0px 0px 7px 0px; }
+ol li ol li { list-style-type:lower-alpha; }
+ol li ul { padding-top:7px; }
+ol li ul li { list-style:square; }
+
+.content { font-size:1.2em; line-height:140%; padding: 20px; }
+
+pre, code { font-size:12px; }
+tt { font-size: 1.2em; }
+pre { margin:0px 0px 20px; }
+pre.codeinput { padding:10px; border:1px solid #d3d3d3; background:#f7f7f7; }
+pre.codeoutput { padding:10px 11px; margin:0px 0px 20px; color:#4c4c4c; }
+pre.error { color:red; }
+
+@media print { pre.codeinput, pre.codeoutput { word-wrap:break-word; width:100%; } }
+
+span.keyword { color:#0000FF }
+span.comment { color:#228B22 }
+span.string { color:#A020F0 }
+span.untermstring { color:#B20000 }
+span.syscmd { color:#B28C00 }
+
+.footer { width:auto; padding:10px 0px; margin:25px 0px 0px; border-top:1px dotted #878787; font-size:0.8em; line-height:140%; font-style:italic; color:#878787; text-align:left; float:none; }
+.footer p { margin:0px; }
+.footer a { color:#878787; }
+.footer a:hover { color:#878787; text-decoration:underline; }
+.footer a:visited { color:#878787; }
+
+table th { padding:7px 5px; text-align:left; vertical-align:middle; border: 1px solid #d6d4d4; font-weight:bold; }
+table td { padding:7px 5px; text-align:left; vertical-align:top; border:1px solid #d6d4d4; }
+
+
+
+
+
+  </style></head><body><div class="content"><h1>Lab_10_HW</h1><!--introduction--><p>697 770 852 941 1209 1336 1477 1633     12  13  14  16 697 1   2   3   A 770 4   5   6   B 852 7   8   9   C 941 *   0   P   D</p><!--/introduction--><h2>Contents</h2><div><ul><li><a href="#1">4.1 Design 8 Filters</a></li><li><a href="#2">4.2a</a></li><li><a href="#3">4.2a Filters</a></li><li><a href="#4">4.3b</a></li><li><a href="#5">4.3c</a></li></ul></div><h2>4.1 Design 8 Filters<a name="1"></a></h2><pre class="codeinput">fc = [697, 770, 852, 941, 1209, 1336, 1477, 1633];
+fpdelta = 6;
+fpass = [fc - fpdelta;fc + fpdelta];
+fs = 1/0.3e-3;
+delp = .02;
+dels = .01;
+fsdelta = min([abs([diff(fc),1e100]);abs([1e100,diff(fc)])]);
+fstop = [fc - fsdelta; fc + fsdelta];
+
+wpass = (fpass*2*pi)/fs;
+wstop = (fstop*2*pi)/fs;
+
+<span class="comment">% Correction for even and minimum order that fits specifications,</span>
+<span class="comment">% determined graphically</span>
+correction = [-7,-1,-6,-6,-2,0,-3,6];
+M = zeros(1,length(fc));
+b = cell(1,length(fc));
+
+<span class="keyword">for</span> n = 1:length(fc)
+    <span class="keyword">if</span>(n ~= 8)
+        [N, Fo, Ao, W] = firpmord([fstop(1,n), fpass(1,n), fpass(2,n), fstop(2,n)], [0, 1, 0], [dels, delp, dels], fs);
+    <span class="keyword">else</span>
+        [N, Fo, Ao, W] = firpmord([fstop(1,n), fpass(1,n)], [0, 1], [dels, delp], fs);
+    <span class="keyword">end</span>
+    M(n) = N + correction(n);
+    b{n} = firpm(M(n), Fo, Ao, W);
+
+<span class="comment">%     if (n == 5)</span>
+<span class="comment">%         figure</span>
+<span class="comment">%     end</span>
+<span class="comment">%     if (n &lt;= 4)</span>
+<span class="comment">%         subplot(2,2,n);</span>
+<span class="comment">%     else</span>
+<span class="comment">%         subplot(2,2,n-4);</span>
+<span class="comment">%     end</span>
+<span class="comment">%     ww = -pi:1/10000:pi;</span>
+<span class="comment">%     HH = freqz(b{n}, 1, ww);</span>
+<span class="comment">%     plot(ww, abs(HH));</span>
+<span class="comment">%     title(sprintf('Magnitude of Frequency Response for Channel %d', n));</span>
+<span class="comment">%     xlabel('Normalized Frequency');</span>
+<span class="comment">%     ylabel('Magnitude');</span>
+<span class="keyword">end</span>
+
+open <span class="string">MagnitudeResponse1.fig</span>
+open <span class="string">MagnitudeResponse2.fig</span>
+
+
+maxdelay = max(M)/2;
+delay = maxdelay - M/2;
+maxlength = 0;
+<span class="keyword">for</span> n = 1:length(fc)
+    bf{n} = firfilt([zeros(1,delay(n)),1],b{n});
+<span class="keyword">end</span>
+</pre><img vspace="5" hspace="5" src="Lab_10_HW_01.png" alt=""> <img vspace="5" hspace="5" src="Lab_10_HW_02.png" alt=""> <h2>4.2a<a name="2"></a></h2><p>xx = DTMFdial('159D*86A', fs);</p><pre class="codeinput">xx = DTMFdial(<span class="string">'159D*86A'</span>, fs);
+figure
+plotspec(xx, fs);
+title(<span class="string">'Spectrogram of Signal 159D*86A'</span>);
+xlabel(<span class="string">'Time'</span>);
+ylabel(<span class="string">'Frequency'</span>);
+figure
+</pre><img vspace="5" hspace="5" src="Lab_10_HW_03.png" alt=""> <img vspace="5" hspace="5" src="Lab_10_HW_04.png" alt=""> <h2>4.2a Filters<a name="3"></a></h2><pre class="codeinput"><span class="keyword">for</span> n = 1:length(fc)
+    yy = firfilt(xx,bf{n});
+    <span class="keyword">if</span> (length(yy) &gt; maxlength)
+        maxlength = length(yy);
+    <span class="keyword">end</span>
+    <span class="keyword">if</span> (n == 5)
+        figure
+    <span class="keyword">end</span>
+    <span class="keyword">if</span> (n &lt;= 4)
+        subplot(2,2,n);
+    <span class="keyword">else</span>
+        subplot(2,2,n-4);
+    <span class="keyword">end</span>
+    plotspec(yy, fs);
+    title(sprintf(<span class="string">'Spectrogram of Channel %d'</span>, n));
+    xlabel(<span class="string">'Time'</span>);
+    ylabel(<span class="string">'Frequency'</span>);
+<span class="keyword">end</span>
+</pre><img vspace="5" hspace="5" src="Lab_10_HW_05.png" alt=""> <img vspace="5" hspace="5" src="Lab_10_HW_06.png" alt=""> <h2>4.3b<a name="4"></a></h2><pre class="codeinput">Lp = round((48e-3*fs)/3);
+R = round(Lp/4);
+hh = hamming(Lp);
+len = round((maxlength + length(hh) - 1)/R);
+bfsq = cell(1,length(fc));
+bfbl = cell(1,length(fc));
+avgPower = zeros(len,8);
+figure
+<span class="keyword">for</span> n = 1:length(fc)
+   yy = firfilt(xx,bf{n});
+   bfsq{n} = yy.^2;
+   bfbl{n} = firfilt(hh, bfsq{n});
+   pdown = bfbl{n}(1:R:end);
+   avgPower(:,n) = [pdown, zeros(1,len-length(pdown))];
+<span class="keyword">end</span>
+
+strips(avgPower,fs/R);
+title(<span class="string">'Downsampled Average Power Filter'</span>);
+xlabel(<span class="string">'Time (sec)'</span>);
+ylabel(<span class="string">'Magnitude'</span>);
+</pre><img vspace="5" hspace="5" src="Lab_10_HW_07.png" alt=""> <h2>4.3c<a name="5"></a></h2><pre class="codeinput">phoneNum = decodeDTMF(avgPower, fs, R);
+fprintf(<span class="string">'Decoded Phone Number is %s\n'</span>, phoneNum);
+</pre><pre class="codeoutput">Decoded Phone Number is 159D*86A
+</pre><p class="footer"><br><a href="http://www.mathworks.com/products/matlab/">Published with MATLAB&reg; R2014b</a><br></p></div><!--
+##### SOURCE BEGIN #####
+%% Lab_10_HW
+% 697
+% 770
+% 852
+% 941
+% 1209
+% 1336
+% 1477
+% 1633
+%     12  13  14  16
+% 697 1   2   3   A
+% 770 4   5   6   B
+% 852 7   8   9   C
+% 941 *   0   P   D
+
+%% 4.1 Design 8 Filters
+fc = [697, 770, 852, 941, 1209, 1336, 1477, 1633];
+fpdelta = 6;
+fpass = [fc - fpdelta;fc + fpdelta];
+fs = 1/0.3e-3;
+delp = .02;
+dels = .01;
+fsdelta = min([abs([diff(fc),1e100]);abs([1e100,diff(fc)])]);
+fstop = [fc - fsdelta; fc + fsdelta];
+
+wpass = (fpass*2*pi)/fs;
+wstop = (fstop*2*pi)/fs;
+
+% Correction for even and minimum order that fits specifications,
+% determined graphically
+correction = [-7,-1,-6,-6,-2,0,-3,6];
+M = zeros(1,length(fc));
+b = cell(1,length(fc));
+
+for n = 1:length(fc)
+    if(n ~= 8)
+        [N, Fo, Ao, W] = firpmord([fstop(1,n), fpass(1,n), fpass(2,n), fstop(2,n)], [0, 1, 0], [dels, delp, dels], fs);
+    else
+        [N, Fo, Ao, W] = firpmord([fstop(1,n), fpass(1,n)], [0, 1], [dels, delp], fs);
+    end
+    M(n) = N + correction(n);
+    b{n} = firpm(M(n), Fo, Ao, W);
+    
+%     if (n == 5)
+%         figure
+%     end
+%     if (n <= 4)
+%         subplot(2,2,n);
+%     else
+%         subplot(2,2,n-4);
+%     end
+%     ww = -pi:1/10000:pi;
+%     HH = freqz(b{n}, 1, ww);
+%     plot(ww, abs(HH));
+%     title(sprintf('Magnitude of Frequency Response for Channel %d', n));
+%     xlabel('Normalized Frequency');
+%     ylabel('Magnitude');
+end
+
+open MagnitudeResponse1.fig
+open MagnitudeResponse2.fig
+
+
+maxdelay = max(M)/2;
+delay = maxdelay - M/2;
+maxlength = 0;
+for n = 1:length(fc)
+    bf{n} = firfilt([zeros(1,delay(n)),1],b{n});
+end
+
+%% 4.2a
+% xx = DTMFdial('159D*86A', fs);
+xx = DTMFdial('159D*86A', fs);
+figure
+plotspec(xx, fs);
+title('Spectrogram of Signal 159D*86A');
+xlabel('Time');
+ylabel('Frequency');
+figure
+
+%% 4.2a Filters
+for n = 1:length(fc)
+    yy = firfilt(xx,bf{n});
+    if (length(yy) > maxlength) 
+        maxlength = length(yy);
+    end
+    if (n == 5)
+        figure
+    end
+    if (n <= 4)
+        subplot(2,2,n);
+    else
+        subplot(2,2,n-4);
+    end
+    plotspec(yy, fs);
+    title(sprintf('Spectrogram of Channel %d', n));
+    xlabel('Time');
+    ylabel('Frequency');
+end
+
+%% 4.3b
+Lp = round((48e-3*fs)/3);
+R = round(Lp/4);
+hh = hamming(Lp);
+len = round((maxlength + length(hh) - 1)/R);
+bfsq = cell(1,length(fc));
+bfbl = cell(1,length(fc));
+avgPower = zeros(len,8);
+figure
+for n = 1:length(fc)
+   yy = firfilt(xx,bf{n});
+   bfsq{n} = yy.^2;
+   bfbl{n} = firfilt(hh, bfsq{n});
+   pdown = bfbl{n}(1:R:end);
+   avgPower(:,n) = [pdown, zeros(1,len-length(pdown))];
+end
+
+strips(avgPower,fs/R);
+title('Downsampled Average Power Filter');
+xlabel('Time (sec)');
+ylabel('Magnitude');
+
+%% 4.3c
+phoneNum = decodeDTMF(avgPower, fs, R);
+fprintf('Decoded Phone Number is %s\n', phoneNum);
+
+
+##### SOURCE END #####
+--></body></html>
