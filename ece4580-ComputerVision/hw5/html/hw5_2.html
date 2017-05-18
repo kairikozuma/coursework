@@ -1,0 +1,365 @@
+
+<!DOCTYPE html
+  PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html><head>
+      <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+   <!--
+This HTML was auto-generated from MATLAB code.
+To make changes, update the MATLAB code and republish this document.
+      --><title>hw5_2</title><meta name="generator" content="MATLAB 9.1"><link rel="schema.DC" href="http://purl.org/dc/elements/1.1/"><meta name="DC.date" content="2017-02-16"><meta name="DC.source" content="hw5_2.m"><style type="text/css">
+html,body,div,span,applet,object,iframe,h1,h2,h3,h4,h5,h6,p,blockquote,pre,a,abbr,acronym,address,big,cite,code,del,dfn,em,font,img,ins,kbd,q,s,samp,small,strike,strong,sub,sup,tt,var,b,u,i,center,dl,dt,dd,ol,ul,li,fieldset,form,label,legend,table,caption,tbody,tfoot,thead,tr,th,td{margin:0;padding:0;border:0;outline:0;font-size:100%;vertical-align:baseline;background:transparent}body{line-height:1}ol,ul{list-style:none}blockquote,q{quotes:none}blockquote:before,blockquote:after,q:before,q:after{content:'';content:none}:focus{outine:0}ins{text-decoration:none}del{text-decoration:line-through}table{border-collapse:collapse;border-spacing:0}
+
+html { min-height:100%; margin-bottom:1px; }
+html body { height:100%; margin:0px; font-family:Arial, Helvetica, sans-serif; font-size:10px; color:#000; line-height:140%; background:#fff none; overflow-y:scroll; }
+html body td { vertical-align:top; text-align:left; }
+
+h1 { padding:0px; margin:0px 0px 25px; font-family:Arial, Helvetica, sans-serif; font-size:1.5em; color:#d55000; line-height:100%; font-weight:normal; }
+h2 { padding:0px; margin:0px 0px 8px; font-family:Arial, Helvetica, sans-serif; font-size:1.2em; color:#000; font-weight:bold; line-height:140%; border-bottom:1px solid #d6d4d4; display:block; }
+h3 { padding:0px; margin:0px 0px 5px; font-family:Arial, Helvetica, sans-serif; font-size:1.1em; color:#000; font-weight:bold; line-height:140%; }
+
+a { color:#005fce; text-decoration:none; }
+a:hover { color:#005fce; text-decoration:underline; }
+a:visited { color:#004aa0; text-decoration:none; }
+
+p { padding:0px; margin:0px 0px 20px; }
+img { padding:0px; margin:0px 0px 20px; border:none; }
+p img, pre img, tt img, li img, h1 img, h2 img { margin-bottom:0px; } 
+
+ul { padding:0px; margin:0px 0px 20px 23px; list-style:square; }
+ul li { padding:0px; margin:0px 0px 7px 0px; }
+ul li ul { padding:5px 0px 0px; margin:0px 0px 7px 23px; }
+ul li ol li { list-style:decimal; }
+ol { padding:0px; margin:0px 0px 20px 0px; list-style:decimal; }
+ol li { padding:0px; margin:0px 0px 7px 23px; list-style-type:decimal; }
+ol li ol { padding:5px 0px 0px; margin:0px 0px 7px 0px; }
+ol li ol li { list-style-type:lower-alpha; }
+ol li ul { padding-top:7px; }
+ol li ul li { list-style:square; }
+
+.content { font-size:1.2em; line-height:140%; padding: 20px; }
+
+pre, code { font-size:12px; }
+tt { font-size: 1.2em; }
+pre { margin:0px 0px 20px; }
+pre.codeinput { padding:10px; border:1px solid #d3d3d3; background:#f7f7f7; }
+pre.codeoutput { padding:10px 11px; margin:0px 0px 20px; color:#4c4c4c; }
+pre.error { color:red; }
+
+@media print { pre.codeinput, pre.codeoutput { word-wrap:break-word; width:100%; } }
+
+span.keyword { color:#0000FF }
+span.comment { color:#228B22 }
+span.string { color:#A020F0 }
+span.untermstring { color:#B20000 }
+span.syscmd { color:#B28C00 }
+
+.footer { width:auto; padding:10px 0px; margin:25px 0px 0px; border-top:1px dotted #878787; font-size:0.8em; line-height:140%; font-style:italic; color:#878787; text-align:left; float:none; }
+.footer p { margin:0px; }
+.footer a { color:#878787; }
+.footer a:hover { color:#878787; text-decoration:underline; }
+.footer a:visited { color:#878787; }
+
+table th { padding:7px 5px; text-align:left; vertical-align:middle; border: 1px solid #d6d4d4; font-weight:bold; }
+table td { padding:7px 5px; text-align:left; vertical-align:top; border:1px solid #d6d4d4; }
+
+
+
+
+
+  </style></head><body><div class="content"><pre class="codeinput"><span class="comment">%==========================</span>
+<span class="comment">%  Name:		hw5_2.m</span>
+<span class="comment">%</span>
+<span class="comment">%  Author:		Kairi Kozuma</span>
+<span class="comment">%</span>
+<span class="comment">%==========================</span>
+
+<span class="comment">% Points in the world</span>
+pwpts = [13.1800000000000,24.7500000000000,14.4700000000000,15.8300000000000,22.5100000000000,12.5500000000000;-3.36200000000000,-11.7900000000000,-9.91800000000000,-11.3900000000000,-1.41900000000000,-5.84600000000000;12.4800000000000,15.5700000000000,5.45600000000000,15.7800000000000,15.3400000000000,12.2100000000000];
+sz = size(pwpts);
+qwpts = [pwpts ; ones(1,sz(2))];
+
+<span class="comment">% Points in the image</span>
+rpts = [157,92,416,3,91,167;376,139,97,26,387,238;1,1,1,1,1,1];
+
+<span class="comment">% Get M matrix</span>
+M = calibrateM(qwpts, rpts);
+fprintf(<span class="string">'M matrix:\n'</span>);
+disp(M);
+
+<span class="comment">% Test M matrix to see if original results obtained</span>
+test = (M * qwpts);
+test = test./test(3,:);
+fprintf(<span class="string">'M * qwpts:\n'</span>);
+disp(round(test(1:2,:)));
+
+<span class="comment">% F matrix</span>
+F = fliplr(eye(3));
+
+<span class="comment">% QR factorization</span>
+[Q U] = qr(F * (M(1:3,1:3))' * F);
+
+<span class="comment">% Obtain S matrix</span>
+S = diag(sign(diag(U)));
+
+<span class="comment">% Obtain R and K matrices</span>
+R_CW = (F * Q * S * F)';
+K = (F * S * U * F)';
+
+<span class="comment">%trueK = K / K(3,3);</span>
+
+R_WC = R_CW';
+N0 = M(1:3,end);
+T_WC = -inv(M(1:3,1:3))* N0;
+G_WC = [R_WC, T_WC; 0,0,0,1];
+G_CW = inv(G_WC);
+T_CW = G_CW(1:3,end);
+psi = K;
+
+disp(<span class="string">'Psi matrix:'</span>);
+disp(psi);
+
+disp(<span class="string">'D matrix R:'</span>);
+disp(R_CW);
+
+disp(<span class="string">'D matrix T:'</span>);
+disp(T_CW);
+
+disp(<span class="string">'Reconstruct M matrixM:'</span>);
+M_new = [psi * R_CW, psi * T_CW];
+disp(M_new);
+disp(M);
+
+<span class="comment">%=============================== calibrateM ==============================</span>
+<span class="comment">%</span>
+<span class="comment">%  function [M] = calibrateM(qPts, rPts)</span>
+<span class="comment">%</span>
+<span class="comment">%</span>
+<span class="comment">%  INPUT:</span>
+<span class="comment">%    qPts   - The points in world coordinates.</span>
+<span class="comment">%    rPts   - The image points (in ray form).</span>
+<span class="comment">%</span>
+<span class="comment">%=============================== calibrateM ==============================</span>
+<span class="keyword">function</span> [M] = calibrateM(qPts, rPts)
+
+
+<span class="comment">%--(1) For each world point and image point pair, create the 2-row matrix,</span>
+<span class="comment">%      and use them to create a master matrix.</span>
+
+sz = size(qPts);
+masterMatrix = zeros(2*sz(2),2*sz(2));
+
+<span class="keyword">for</span> index = 1:sz(2)
+    rmat = makeRMat(rPts(:,index));
+    Qmat = makeQMat(qPts(:,index));
+    mat = rmat * Qmat;
+    index2 = 2*index;
+    masterMatrix(index2:index2 + 1,:) = mat(1:2,:);
+<span class="keyword">end</span>
+
+
+<span class="comment">%--(2) Perform SVD using the master matrix and extract the projection</span>
+<span class="comment">%      matrix.  Be careful about rows versus columns ...</span>
+
+[UU SS VV] = svd(masterMatrix);
+szvv = size(VV);
+
+M = VV(:,szvv(2));
+
+M = (reshape(M, 4, 3))';
+
+<span class="keyword">end</span>
+
+
+<span class="comment">%=============================== makeRMat ==============================</span>
+<span class="comment">%</span>
+<span class="comment">%  function mat = makeRMat(vector)</span>
+<span class="comment">%</span>
+<span class="comment">%</span>
+<span class="comment">%  INPUT:</span>
+<span class="comment">%    vector - 3 x 1 vector</span>
+<span class="comment">%</span>
+<span class="comment">%=============================== makeRMat ==============================</span>
+<span class="keyword">function</span> mat = makeRMat(vector)
+mat = [0, vector(3), -vector(2); -vector(3), 0, vector(1); vector(2), -vector(1), 0];
+<span class="keyword">end</span>
+
+
+<span class="comment">%=============================== makeQMat ==============================</span>
+<span class="comment">%</span>
+<span class="comment">%  function mat = makeQMat(vector)</span>
+<span class="comment">%</span>
+<span class="comment">%</span>
+<span class="comment">%  INPUT:</span>
+<span class="comment">%    vector - 4 x 1 vector</span>
+<span class="comment">%</span>
+<span class="comment">%=============================== makeQMat ==============================</span>
+<span class="keyword">function</span> mat = makeQMat(qPts)
+mat = [qPts',zeros(1,8); zeros(1,4), qPts', zeros(1,4);zeros(1,8), qPts'];
+<span class="keyword">end</span>
+</pre><pre class="codeoutput">M matrix:
+   -0.0331    0.0003    0.0937   -0.9567
+   -0.0519   -0.0730    0.0127   -0.2581
+   -0.0002    0.0000    0.0001    0.0002
+
+M * qwpts:
+   157    92   416     3    91   167
+   376   139    97    26   387   238
+
+Psi matrix:
+    0.0776    0.0000    0.0621
+         0    0.0776    0.0466
+         0         0    0.0002
+
+D matrix R:
+    0.3255   -0.0669    0.9432
+   -0.1056   -0.9938   -0.0340
+   -0.9396    0.0886    0.3306
+
+D matrix T:
+  -13.2727
+   -4.0327
+    1.1779
+
+Reconstruct M matrixM:
+   -0.0331    0.0003    0.0937   -0.9567
+   -0.0519   -0.0730    0.0127   -0.2581
+   -0.0002    0.0000    0.0001    0.0002
+
+   -0.0331    0.0003    0.0937   -0.9567
+   -0.0519   -0.0730    0.0127   -0.2581
+   -0.0002    0.0000    0.0001    0.0002
+
+</pre><p class="footer"><br><a href="http://www.mathworks.com/products/matlab/">Published with MATLAB&reg; R2016b</a><br></p></div><!--
+##### SOURCE BEGIN #####
+%==========================
+%  Name:		hw5_2.m
+%
+%  Author:		Kairi Kozuma
+%
+%==========================
+
+% Points in the world
+pwpts = [13.1800000000000,24.7500000000000,14.4700000000000,15.8300000000000,22.5100000000000,12.5500000000000;-3.36200000000000,-11.7900000000000,-9.91800000000000,-11.3900000000000,-1.41900000000000,-5.84600000000000;12.4800000000000,15.5700000000000,5.45600000000000,15.7800000000000,15.3400000000000,12.2100000000000];
+sz = size(pwpts);
+qwpts = [pwpts ; ones(1,sz(2))];
+
+% Points in the image
+rpts = [157,92,416,3,91,167;376,139,97,26,387,238;1,1,1,1,1,1];
+
+% Get M matrix
+M = calibrateM(qwpts, rpts);
+fprintf('M matrix:\n');
+disp(M);
+
+% Test M matrix to see if original results obtained
+test = (M * qwpts);
+test = test./test(3,:);
+fprintf('M * qwpts:\n');
+disp(round(test(1:2,:)));
+
+% F matrix
+F = fliplr(eye(3));
+
+% QR factorization
+[Q U] = qr(F * (M(1:3,1:3))' * F);
+
+% Obtain S matrix
+S = diag(sign(diag(U)));
+
+% Obtain R and K matrices
+R_CW = (F * Q * S * F)';
+K = (F * S * U * F)';
+
+%trueK = K / K(3,3);
+
+R_WC = R_CW';
+N0 = M(1:3,end);
+T_WC = -inv(M(1:3,1:3))* N0;
+G_WC = [R_WC, T_WC; 0,0,0,1];
+G_CW = inv(G_WC);
+T_CW = G_CW(1:3,end);
+psi = K;
+
+disp('Psi matrix:');
+disp(psi);
+
+disp('D matrix R:');
+disp(R_CW);
+
+disp('D matrix T:');
+disp(T_CW);
+
+disp('Reconstruct M matrixM:');
+M_new = [psi * R_CW, psi * T_CW];
+disp(M_new);
+disp(M);
+
+%=============================== calibrateM ==============================
+%
+%  function [M] = calibrateM(qPts, rPts)
+%
+%
+%  INPUT:
+%    qPts   - The points in world coordinates.
+%    rPts   - The image points (in ray form).
+%
+%=============================== calibrateM ==============================
+function [M] = calibrateM(qPts, rPts)
+
+
+%REPLACE_WITH_DASH_DASH(1) For each world point and image point pair, create the 2-row matrix,
+%      and use them to create a master matrix.
+
+sz = size(qPts);
+masterMatrix = zeros(2*sz(2),2*sz(2));
+
+for index = 1:sz(2)
+    rmat = makeRMat(rPts(:,index));
+    Qmat = makeQMat(qPts(:,index));
+    mat = rmat * Qmat;
+    index2 = 2*index;
+    masterMatrix(index2:index2 + 1,:) = mat(1:2,:);
+end
+
+
+%REPLACE_WITH_DASH_DASH(2) Perform SVD using the master matrix and extract the projection
+%      matrix.  Be careful about rows versus columns ...
+
+[UU SS VV] = svd(masterMatrix);
+szvv = size(VV);
+
+M = VV(:,szvv(2));
+
+M = (reshape(M, 4, 3))';
+
+end
+
+
+%=============================== makeRMat ==============================
+%
+%  function mat = makeRMat(vector)
+%
+%
+%  INPUT:
+%    vector - 3 x 1 vector
+%
+%=============================== makeRMat ==============================
+function mat = makeRMat(vector)
+mat = [0, vector(3), -vector(2); -vector(3), 0, vector(1); vector(2), -vector(1), 0];
+end
+
+
+%=============================== makeQMat ==============================
+%
+%  function mat = makeQMat(vector)
+%
+%
+%  INPUT:
+%    vector - 4 x 1 vector
+%
+%=============================== makeQMat ==============================
+function mat = makeQMat(qPts)
+mat = [qPts',zeros(1,8); zeros(1,4), qPts', zeros(1,4);zeros(1,8), qPts'];
+end
+##### SOURCE END #####
+--></body></html>

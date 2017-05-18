@@ -1,0 +1,359 @@
+
+<!DOCTYPE html
+  PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html><head>
+      <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+   <!--
+This HTML was auto-generated from MATLAB code.
+To make changes, update the MATLAB code and republish this document.
+      --><title>findMinima</title><meta name="generator" content="MATLAB 9.1"><link rel="schema.DC" href="http://purl.org/dc/elements/1.1/"><meta name="DC.date" content="2017-02-25"><meta name="DC.source" content="findMinima.m"><style type="text/css">
+html,body,div,span,applet,object,iframe,h1,h2,h3,h4,h5,h6,p,blockquote,pre,a,abbr,acronym,address,big,cite,code,del,dfn,em,font,img,ins,kbd,q,s,samp,small,strike,strong,sub,sup,tt,var,b,u,i,center,dl,dt,dd,ol,ul,li,fieldset,form,label,legend,table,caption,tbody,tfoot,thead,tr,th,td{margin:0;padding:0;border:0;outline:0;font-size:100%;vertical-align:baseline;background:transparent}body{line-height:1}ol,ul{list-style:none}blockquote,q{quotes:none}blockquote:before,blockquote:after,q:before,q:after{content:'';content:none}:focus{outine:0}ins{text-decoration:none}del{text-decoration:line-through}table{border-collapse:collapse;border-spacing:0}
+
+html { min-height:100%; margin-bottom:1px; }
+html body { height:100%; margin:0px; font-family:Arial, Helvetica, sans-serif; font-size:10px; color:#000; line-height:140%; background:#fff none; overflow-y:scroll; }
+html body td { vertical-align:top; text-align:left; }
+
+h1 { padding:0px; margin:0px 0px 25px; font-family:Arial, Helvetica, sans-serif; font-size:1.5em; color:#d55000; line-height:100%; font-weight:normal; }
+h2 { padding:0px; margin:0px 0px 8px; font-family:Arial, Helvetica, sans-serif; font-size:1.2em; color:#000; font-weight:bold; line-height:140%; border-bottom:1px solid #d6d4d4; display:block; }
+h3 { padding:0px; margin:0px 0px 5px; font-family:Arial, Helvetica, sans-serif; font-size:1.1em; color:#000; font-weight:bold; line-height:140%; }
+
+a { color:#005fce; text-decoration:none; }
+a:hover { color:#005fce; text-decoration:underline; }
+a:visited { color:#004aa0; text-decoration:none; }
+
+p { padding:0px; margin:0px 0px 20px; }
+img { padding:0px; margin:0px 0px 20px; border:none; }
+p img, pre img, tt img, li img, h1 img, h2 img { margin-bottom:0px; } 
+
+ul { padding:0px; margin:0px 0px 20px 23px; list-style:square; }
+ul li { padding:0px; margin:0px 0px 7px 0px; }
+ul li ul { padding:5px 0px 0px; margin:0px 0px 7px 23px; }
+ul li ol li { list-style:decimal; }
+ol { padding:0px; margin:0px 0px 20px 0px; list-style:decimal; }
+ol li { padding:0px; margin:0px 0px 7px 23px; list-style-type:decimal; }
+ol li ol { padding:5px 0px 0px; margin:0px 0px 7px 0px; }
+ol li ol li { list-style-type:lower-alpha; }
+ol li ul { padding-top:7px; }
+ol li ul li { list-style:square; }
+
+.content { font-size:1.2em; line-height:140%; padding: 20px; }
+
+pre, code { font-size:12px; }
+tt { font-size: 1.2em; }
+pre { margin:0px 0px 20px; }
+pre.codeinput { padding:10px; border:1px solid #d3d3d3; background:#f7f7f7; }
+pre.codeoutput { padding:10px 11px; margin:0px 0px 20px; color:#4c4c4c; }
+pre.error { color:red; }
+
+@media print { pre.codeinput, pre.codeoutput { word-wrap:break-word; width:100%; } }
+
+span.keyword { color:#0000FF }
+span.comment { color:#228B22 }
+span.string { color:#A020F0 }
+span.untermstring { color:#B20000 }
+span.syscmd { color:#B28C00 }
+
+.footer { width:auto; padding:10px 0px; margin:25px 0px 0px; border-top:1px dotted #878787; font-size:0.8em; line-height:140%; font-style:italic; color:#878787; text-align:left; float:none; }
+.footer p { margin:0px; }
+.footer a { color:#878787; }
+.footer a:hover { color:#878787; text-decoration:underline; }
+.footer a:visited { color:#878787; }
+
+table th { padding:7px 5px; text-align:left; vertical-align:middle; border: 1px solid #d6d4d4; font-weight:bold; }
+table td { padding:7px 5px; text-align:left; vertical-align:top; border:1px solid #d6d4d4; }
+
+
+
+
+
+  </style></head><body><div class="content"><pre class="codeinput"><span class="comment">%=============================== findMinima ==============================</span>
+<span class="comment">%</span>
+<span class="comment">%  A script to find the location of a function minimum over the planar</span>
+<span class="comment">%  domain [0,10] x [0,10].  There should be a function called gradF</span>
+<span class="comment">%  available to the script in order to work.</span>
+<span class="comment">%</span>
+<span class="comment">%=============================== findMinima ==============================</span>
+
+
+
+<span class="comment">%==[1] Initial guess and other parameters.</span>
+pos = [0;0];			<span class="comment">% Initial estimate of the location of the minimum.</span>
+
+fprintf(<span class="string">'Initial guess: (%d, %d)\n'</span>, pos(1), pos(2));
+
+c = 10   ;				<span class="comment">% Update step factor (sometimes called the timestep).</span>
+
+nsteps = 200 ;			<span class="comment">% Number of steps in the gradient descent iterations.</span>
+
+figure(1);
+  axis([0 10 0 10]);
+  hold <span class="string">on</span>;
+  plot(pos(1), pos(2), <span class="string">'go'</span>);
+
+traj = zeros(2,nsteps);
+
+<span class="keyword">for</span> ii=1:nsteps
+  dpos = gradF(pos);
+  pos = pos - dpos;
+  traj(:,ii) = pos;
+  plot(pos(1), pos(2), <span class="string">'r.'</span>);
+  drawnow;
+<span class="keyword">end</span>
+
+plot(pos(1), pos(2), <span class="string">'rx'</span>);
+fprintf(<span class="string">'Final value is (%5.3f, %5.3f).\n\n'</span>, pos(1), pos(2));
+hold <span class="string">off</span>;
+fprintf(<span class="string">'Trajectory followed:\n'</span>);
+<span class="keyword">for</span> ii=1:nsteps
+    fprintf(<span class="string">'%d: (%d, %d)\n'</span>,ii,traj(1,ii),traj(2,ii));
+<span class="keyword">end</span>
+</pre><pre class="codeoutput">Initial guess: (0, 0)
+Final value is (4.206, 3.865).
+
+Trajectory followed:
+1: (4.453478e-02, 1.856410e-01)
+2: (9.062233e-02, 3.774205e-01)
+3: (1.387828e-01, 5.761766e-01)
+4: (1.897934e-01, 7.827860e-01)
+5: (2.447836e-01, 9.980611e-01)
+6: (3.053263e-01, 1.222553e+00)
+7: (3.734708e-01, 1.456232e+00)
+8: (4.516310e-01, 1.698063e+00)
+9: (5.422498e-01, 1.945591e+00)
+10: (6.472581e-01, 2.194732e+00)
+11: (7.674970e-01, 2.439924e+00)
+12: (9.023163e-01, 2.674625e+00)
+13: (1.049455e+00, 2.891960e+00)
+14: (1.205140e+00, 3.085365e+00)
+15: (1.364260e+00, 3.249139e+00)
+16: (1.520420e+00, 3.379017e+00)
+17: (1.665810e+00, 3.473223e+00)
+18: (1.792013e+00, 3.535195e+00)
+19: (1.895357e+00, 3.575541e+00)
+20: (1.979990e+00, 3.604750e+00)
+21: (2.051587e+00, 3.628038e+00)
+22: (2.114125e+00, 3.647588e+00)
+23: (2.170119e+00, 3.664447e+00)
+24: (2.221203e+00, 3.679222e+00)
+25: (2.268481e+00, 3.692322e+00)
+26: (2.312737e+00, 3.704045e+00)
+27: (2.354546e+00, 3.714622e+00)
+28: (2.394342e+00, 3.724236e+00)
+29: (2.432463e+00, 3.733038e+00)
+30: (2.469175e+00, 3.741148e+00)
+31: (2.504692e+00, 3.748668e+00)
+32: (2.539189e+00, 3.755683e+00)
+33: (2.572810e+00, 3.762263e+00)
+34: (2.605677e+00, 3.768467e+00)
+35: (2.637888e+00, 3.774346e+00)
+36: (2.669529e+00, 3.779942e+00)
+37: (2.700672e+00, 3.785290e+00)
+38: (2.731377e+00, 3.790421e+00)
+39: (2.761694e+00, 3.795360e+00)
+40: (2.791668e+00, 3.800128e+00)
+41: (2.821334e+00, 3.804745e+00)
+42: (2.850722e+00, 3.809225e+00)
+43: (2.879856e+00, 3.813581e+00)
+44: (2.908756e+00, 3.817823e+00)
+45: (2.937436e+00, 3.821961e+00)
+46: (2.965909e+00, 3.826002e+00)
+47: (2.994181e+00, 3.829950e+00)
+48: (3.022257e+00, 3.833811e+00)
+49: (3.050138e+00, 3.837587e+00)
+50: (3.077823e+00, 3.841281e+00)
+51: (3.105308e+00, 3.844893e+00)
+52: (3.132588e+00, 3.848424e+00)
+53: (3.159655e+00, 3.851873e+00)
+54: (3.186499e+00, 3.855241e+00)
+55: (3.213109e+00, 3.858525e+00)
+56: (3.239474e+00, 3.861724e+00)
+57: (3.265579e+00, 3.864836e+00)
+58: (3.291412e+00, 3.867857e+00)
+59: (3.316957e+00, 3.870787e+00)
+60: (3.342200e+00, 3.873621e+00)
+61: (3.367125e+00, 3.876358e+00)
+62: (3.391717e+00, 3.878994e+00)
+63: (3.415960e+00, 3.881527e+00)
+64: (3.439840e+00, 3.883954e+00)
+65: (3.463343e+00, 3.886272e+00)
+66: (3.486454e+00, 3.888480e+00)
+67: (3.509161e+00, 3.890576e+00)
+68: (3.531450e+00, 3.892558e+00)
+69: (3.553311e+00, 3.894425e+00)
+70: (3.574733e+00, 3.896175e+00)
+71: (3.595707e+00, 3.897809e+00)
+72: (3.616225e+00, 3.899325e+00)
+73: (3.636278e+00, 3.900724e+00)
+74: (3.655862e+00, 3.902008e+00)
+75: (3.674972e+00, 3.903175e+00)
+76: (3.693604e+00, 3.904229e+00)
+77: (3.711755e+00, 3.905170e+00)
+78: (3.729425e+00, 3.906001e+00)
+79: (3.746614e+00, 3.906724e+00)
+80: (3.763321e+00, 3.907342e+00)
+81: (3.779550e+00, 3.907857e+00)
+82: (3.795303e+00, 3.908273e+00)
+83: (3.810585e+00, 3.908594e+00)
+84: (3.825398e+00, 3.908823e+00)
+85: (3.839751e+00, 3.908964e+00)
+86: (3.853647e+00, 3.909020e+00)
+87: (3.867095e+00, 3.908996e+00)
+88: (3.880102e+00, 3.908897e+00)
+89: (3.892676e+00, 3.908726e+00)
+90: (3.904825e+00, 3.908488e+00)
+91: (3.916558e+00, 3.908186e+00)
+92: (3.927884e+00, 3.907825e+00)
+93: (3.938813e+00, 3.907410e+00)
+94: (3.949355e+00, 3.906945e+00)
+95: (3.959519e+00, 3.906433e+00)
+96: (3.969315e+00, 3.905878e+00)
+97: (3.978754e+00, 3.905285e+00)
+98: (3.987845e+00, 3.904658e+00)
+99: (3.996599e+00, 3.903999e+00)
+100: (4.005026e+00, 3.903312e+00)
+101: (4.013136e+00, 3.902601e+00)
+102: (4.020939e+00, 3.901870e+00)
+103: (4.028444e+00, 3.901120e+00)
+104: (4.035662e+00, 3.900355e+00)
+105: (4.042602e+00, 3.899578e+00)
+106: (4.049273e+00, 3.898791e+00)
+107: (4.055686e+00, 3.897996e+00)
+108: (4.061848e+00, 3.897197e+00)
+109: (4.067768e+00, 3.896395e+00)
+110: (4.073456e+00, 3.895592e+00)
+111: (4.078920e+00, 3.894789e+00)
+112: (4.084168e+00, 3.893990e+00)
+113: (4.089207e+00, 3.893194e+00)
+114: (4.094047e+00, 3.892405e+00)
+115: (4.098693e+00, 3.891622e+00)
+116: (4.103154e+00, 3.890847e+00)
+117: (4.107436e+00, 3.890081e+00)
+118: (4.111547e+00, 3.889326e+00)
+119: (4.115492e+00, 3.888582e+00)
+120: (4.119279e+00, 3.887849e+00)
+121: (4.122914e+00, 3.887129e+00)
+122: (4.126402e+00, 3.886421e+00)
+123: (4.129749e+00, 3.885727e+00)
+124: (4.132961e+00, 3.885047e+00)
+125: (4.136043e+00, 3.884382e+00)
+126: (4.139000e+00, 3.883731e+00)
+127: (4.141838e+00, 3.883094e+00)
+128: (4.144561e+00, 3.882473e+00)
+129: (4.147173e+00, 3.881867e+00)
+130: (4.149679e+00, 3.881275e+00)
+131: (4.152084e+00, 3.880699e+00)
+132: (4.154391e+00, 3.880138e+00)
+133: (4.156604e+00, 3.879592e+00)
+134: (4.158727e+00, 3.879061e+00)
+135: (4.160764e+00, 3.878545e+00)
+136: (4.162719e+00, 3.878044e+00)
+137: (4.164594e+00, 3.877557e+00)
+138: (4.166392e+00, 3.877085e+00)
+139: (4.168118e+00, 3.876627e+00)
+140: (4.169773e+00, 3.876182e+00)
+141: (4.171361e+00, 3.875752e+00)
+142: (4.172885e+00, 3.875335e+00)
+143: (4.174346e+00, 3.874931e+00)
+144: (4.175748e+00, 3.874540e+00)
+145: (4.177093e+00, 3.874161e+00)
+146: (4.178384e+00, 3.873795e+00)
+147: (4.179622e+00, 3.873441e+00)
+148: (4.180809e+00, 3.873099e+00)
+149: (4.181949e+00, 3.872768e+00)
+150: (4.183042e+00, 3.872449e+00)
+151: (4.184090e+00, 3.872140e+00)
+152: (4.185096e+00, 3.871842e+00)
+153: (4.186061e+00, 3.871555e+00)
+154: (4.186987e+00, 3.871277e+00)
+155: (4.187876e+00, 3.871009e+00)
+156: (4.188728e+00, 3.870751e+00)
+157: (4.189545e+00, 3.870502e+00)
+158: (4.190330e+00, 3.870261e+00)
+159: (4.191082e+00, 3.870030e+00)
+160: (4.191804e+00, 3.869806e+00)
+161: (4.192497e+00, 3.869591e+00)
+162: (4.193162e+00, 3.869384e+00)
+163: (4.193799e+00, 3.869184e+00)
+164: (4.194411e+00, 3.868991e+00)
+165: (4.194998e+00, 3.868806e+00)
+166: (4.195561e+00, 3.868628e+00)
+167: (4.196101e+00, 3.868456e+00)
+168: (4.196620e+00, 3.868290e+00)
+169: (4.197117e+00, 3.868131e+00)
+170: (4.197594e+00, 3.867978e+00)
+171: (4.198052e+00, 3.867830e+00)
+172: (4.198491e+00, 3.867688e+00)
+173: (4.198913e+00, 3.867552e+00)
+174: (4.199317e+00, 3.867421e+00)
+175: (4.199705e+00, 3.867294e+00)
+176: (4.200077e+00, 3.867173e+00)
+177: (4.200435e+00, 3.867056e+00)
+178: (4.200777e+00, 3.866943e+00)
+179: (4.201106e+00, 3.866835e+00)
+180: (4.201422e+00, 3.866731e+00)
+181: (4.201725e+00, 3.866631e+00)
+182: (4.202015e+00, 3.866535e+00)
+183: (4.202294e+00, 3.866443e+00)
+184: (4.202561e+00, 3.866354e+00)
+185: (4.202818e+00, 3.866269e+00)
+186: (4.203064e+00, 3.866187e+00)
+187: (4.203300e+00, 3.866108e+00)
+188: (4.203527e+00, 3.866033e+00)
+189: (4.203744e+00, 3.865960e+00)
+190: (4.203953e+00, 3.865890e+00)
+191: (4.204153e+00, 3.865823e+00)
+192: (4.204346e+00, 3.865758e+00)
+193: (4.204530e+00, 3.865696e+00)
+194: (4.204707e+00, 3.865637e+00)
+195: (4.204877e+00, 3.865579e+00)
+196: (4.205040e+00, 3.865525e+00)
+197: (4.205196e+00, 3.865472e+00)
+198: (4.205346e+00, 3.865421e+00)
+199: (4.205490e+00, 3.865372e+00)
+200: (4.205628e+00, 3.865326e+00)
+</pre><img vspace="5" hspace="5" src="findMinima_01.png" alt=""> <p class="footer"><br><a href="http://www.mathworks.com/products/matlab/">Published with MATLAB&reg; R2016b</a><br></p></div><!--
+##### SOURCE BEGIN #####
+%=============================== findMinima ==============================
+%
+%  A script to find the location of a function minimum over the planar
+%  domain [0,10] x [0,10].  There should be a function called gradF
+%  available to the script in order to work.
+%
+%=============================== findMinima ==============================
+
+
+
+%==[1] Initial guess and other parameters.
+pos = [0;0];			% Initial estimate of the location of the minimum.
+
+fprintf('Initial guess: (%d, %d)\n', pos(1), pos(2));
+
+c = 10   ;				% Update step factor (sometimes called the timestep).
+
+nsteps = 200 ;			% Number of steps in the gradient descent iterations.
+
+figure(1);
+  axis([0 10 0 10]);
+  hold on;
+  plot(pos(1), pos(2), 'go');
+
+traj = zeros(2,nsteps);
+
+for ii=1:nsteps
+  dpos = gradF(pos);
+  pos = pos - dpos;
+  traj(:,ii) = pos;
+  plot(pos(1), pos(2), 'r.');
+  drawnow;
+end
+
+plot(pos(1), pos(2), 'rx');
+fprintf('Final value is (%5.3f, %5.3f).\n\n', pos(1), pos(2));
+hold off;
+fprintf('Trajectory followed:\n');
+for ii=1:nsteps
+    fprintf('%d: (%d, %d)\n',ii,traj(1,ii),traj(2,ii));
+end
+
+##### SOURCE END #####
+--></body></html>

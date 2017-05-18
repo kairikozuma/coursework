@@ -1,0 +1,236 @@
+
+<!DOCTYPE html
+  PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html><head>
+      <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+   <!--
+This HTML was auto-generated from MATLAB code.
+To make changes, update the MATLAB code and republish this document.
+      --><title>hw8_1</title><meta name="generator" content="MATLAB 9.0"><link rel="schema.DC" href="http://purl.org/dc/elements/1.1/"><meta name="DC.date" content="2017-03-15"><meta name="DC.source" content="hw8_1.m"><style type="text/css">
+html,body,div,span,applet,object,iframe,h1,h2,h3,h4,h5,h6,p,blockquote,pre,a,abbr,acronym,address,big,cite,code,del,dfn,em,font,img,ins,kbd,q,s,samp,small,strike,strong,sub,sup,tt,var,b,u,i,center,dl,dt,dd,ol,ul,li,fieldset,form,label,legend,table,caption,tbody,tfoot,thead,tr,th,td{margin:0;padding:0;border:0;outline:0;font-size:100%;vertical-align:baseline;background:transparent}body{line-height:1}ol,ul{list-style:none}blockquote,q{quotes:none}blockquote:before,blockquote:after,q:before,q:after{content:'';content:none}:focus{outine:0}ins{text-decoration:none}del{text-decoration:line-through}table{border-collapse:collapse;border-spacing:0}
+
+html { min-height:100%; margin-bottom:1px; }
+html body { height:100%; margin:0px; font-family:Arial, Helvetica, sans-serif; font-size:10px; color:#000; line-height:140%; background:#fff none; overflow-y:scroll; }
+html body td { vertical-align:top; text-align:left; }
+
+h1 { padding:0px; margin:0px 0px 25px; font-family:Arial, Helvetica, sans-serif; font-size:1.5em; color:#d55000; line-height:100%; font-weight:normal; }
+h2 { padding:0px; margin:0px 0px 8px; font-family:Arial, Helvetica, sans-serif; font-size:1.2em; color:#000; font-weight:bold; line-height:140%; border-bottom:1px solid #d6d4d4; display:block; }
+h3 { padding:0px; margin:0px 0px 5px; font-family:Arial, Helvetica, sans-serif; font-size:1.1em; color:#000; font-weight:bold; line-height:140%; }
+
+a { color:#005fce; text-decoration:none; }
+a:hover { color:#005fce; text-decoration:underline; }
+a:visited { color:#004aa0; text-decoration:none; }
+
+p { padding:0px; margin:0px 0px 20px; }
+img { padding:0px; margin:0px 0px 20px; border:none; }
+p img, pre img, tt img, li img, h1 img, h2 img { margin-bottom:0px; } 
+
+ul { padding:0px; margin:0px 0px 20px 23px; list-style:square; }
+ul li { padding:0px; margin:0px 0px 7px 0px; }
+ul li ul { padding:5px 0px 0px; margin:0px 0px 7px 23px; }
+ul li ol li { list-style:decimal; }
+ol { padding:0px; margin:0px 0px 20px 0px; list-style:decimal; }
+ol li { padding:0px; margin:0px 0px 7px 23px; list-style-type:decimal; }
+ol li ol { padding:5px 0px 0px; margin:0px 0px 7px 0px; }
+ol li ol li { list-style-type:lower-alpha; }
+ol li ul { padding-top:7px; }
+ol li ul li { list-style:square; }
+
+.content { font-size:1.2em; line-height:140%; padding: 20px; }
+
+pre, code { font-size:12px; }
+tt { font-size: 1.2em; }
+pre { margin:0px 0px 20px; }
+pre.codeinput { padding:10px; border:1px solid #d3d3d3; background:#f7f7f7; }
+pre.codeoutput { padding:10px 11px; margin:0px 0px 20px; color:#4c4c4c; }
+pre.error { color:red; }
+
+@media print { pre.codeinput, pre.codeoutput { word-wrap:break-word; width:100%; } }
+
+span.keyword { color:#0000FF }
+span.comment { color:#228B22 }
+span.string { color:#A020F0 }
+span.untermstring { color:#B20000 }
+span.syscmd { color:#B28C00 }
+
+.footer { width:auto; padding:10px 0px; margin:25px 0px 0px; border-top:1px dotted #878787; font-size:0.8em; line-height:140%; font-style:italic; color:#878787; text-align:left; float:none; }
+.footer p { margin:0px; }
+.footer a { color:#878787; }
+.footer a:hover { color:#878787; text-decoration:underline; }
+.footer a:visited { color:#878787; }
+
+table th { padding:7px 5px; text-align:left; vertical-align:middle; border: 1px solid #d6d4d4; font-weight:bold; }
+table td { padding:7px 5px; text-align:left; vertical-align:top; border:1px solid #d6d4d4; }
+
+
+
+
+
+  </style></head><body><div class="content"><pre class="codeinput"><span class="comment">%==========================</span>
+<span class="comment">%  Name:		hw8_1.m</span>
+<span class="comment">%</span>
+<span class="comment">%  Author:		Kairi Kozuma</span>
+<span class="comment">%==========================</span>
+
+<span class="comment">%================================ runmatch ===============================</span>
+<span class="comment">%</span>
+<span class="comment">%  Loads the template image and the image data from file, then invokes the</span>
+<span class="comment">%  template matching algorithm to find the instance of that template in</span>
+<span class="comment">%  the image.</span>
+<span class="comment">%</span>
+<span class="comment">%================================ runmatch ===============================</span>
+
+load(<span class="string">'template.mat'</span>);				<span class="comment">% Should be in your path.</span>
+
+[xpts, ypts] = tmatch(I, tI);
+
+fh = figure(1);
+clf;
+imagesc(I);
+colormap(<span class="string">'gray'</span>);
+hold <span class="string">on</span>;
+plot(xpts, ypts,<span class="string">'c*'</span>,<span class="string">'MarkerSize'</span>,10);
+hold <span class="string">off</span>;
+
+axis <span class="string">off</span>;
+
+fprintf(<span class="string">'The template matches the lower-right corner of the lowercase letter a\n'</span>);
+fprintf(<span class="string">'It would be better if the function could return the positions\n'</span>);
+fprintf(<span class="string">'of the rotated letter a`s in the picture.\n'</span>);
+
+<span class="comment">%================================= tmatch ================================</span>
+<span class="comment">%</span>
+<span class="comment">%  Performs cross-correlations using xcorr2 to find a template image</span>
+<span class="comment">%  in another image.  Then retuns the points that are above 0.9 times the</span>
+<span class="comment">%  peak value of the cross-correlation.  The image and template must be</span>
+<span class="comment">%  grayscale.</span>
+<span class="comment">%</span>
+<span class="comment">%  [xpts, ypts] = tmatch(I, tI)</span>
+<span class="comment">%</span>
+<span class="comment">%</span>
+<span class="comment">%================================= tmatch ================================</span>
+<span class="comment">%</span>
+<span class="comment">%  Name:	tmatch.m</span>
+<span class="comment">%</span>
+<span class="comment">%  Author:	Patricio A. Vela, pvela@ece.gatech.edu</span>
+<span class="comment">%</span>
+<span class="comment">%  Created:		01/19/2006</span>
+<span class="comment">%  Modified:	01/19/2006</span>
+<span class="comment">%</span>
+<span class="comment">%  Notes:</span>
+<span class="comment">%    Matlab's find function should be useful.</span>
+<span class="comment">%    don't forget that (x,y) coordinate are not the same as (i,j) image</span>
+<span class="comment">%    coordinates.</span>
+<span class="comment">%</span>
+<span class="comment">%    You should be able to run the following and have it work:</span>
+<span class="comment">%    &gt; [xp, yp] = tmatch(I, ti);</span>
+<span class="comment">%    &gt; imagesc(I);</span>
+<span class="comment">%    &gt; colormap('gray');</span>
+<span class="comment">%    &gt; hold on;</span>
+<span class="comment">%    &gt; plot(xp, yp, 'r+', 'MarkerSize', 10');</span>
+<span class="comment">%    &gt; hold off;</span>
+<span class="comment">%</span>
+<span class="comment">%================================= tmatch ================================</span>
+<span class="comment">% function [xpts, ypts] = tmatch(I, tI)</span>
+<span class="comment">%</span>
+<span class="comment">% % Do cross correlation</span>
+<span class="comment">% xc = xcorr2(I, tI);</span>
+<span class="comment">%</span>
+<span class="comment">% % Find peak and threshold value</span>
+<span class="comment">% peak = max(max(xc));</span>
+<span class="comment">% thresh = 0.9*peak;</span>
+<span class="comment">% [ipts, jpts] = find(xc &gt; thresh);</span>
+<span class="comment">%</span>
+<span class="comment">% % Change I,J to X,Y coordinates</span>
+<span class="comment">% xpts = jpts;</span>
+<span class="comment">% ypts = ipts;</span>
+<span class="comment">%</span>
+<span class="comment">% end</span>
+</pre><pre class="codeoutput">The template matches the lower-right corner of the lowercase letter a
+It would be better if the function could return the positions
+of the rotated letter a`s in the picture.
+</pre><img vspace="5" hspace="5" src="hw8_1_01.png" style="width:887px;height:491px;" alt=""> <p class="footer"><br><a href="http://www.mathworks.com/products/matlab/">Published with MATLAB&reg; R2016a</a><br></p></div><!--
+##### SOURCE BEGIN #####
+%==========================
+%  Name:		hw8_1.m
+%
+%  Author:		Kairi Kozuma
+%==========================
+
+%================================ runmatch ===============================
+%
+%  Loads the template image and the image data from file, then invokes the
+%  template matching algorithm to find the instance of that template in
+%  the image.
+%
+%================================ runmatch ===============================
+
+load('template.mat');				% Should be in your path.
+
+[xpts, ypts] = tmatch(I, tI);
+
+fh = figure(1);
+clf;
+imagesc(I);
+colormap('gray');
+hold on;
+plot(xpts, ypts,'c*','MarkerSize',10);
+hold off;
+
+axis off;
+
+fprintf('The template matches the lower-right corner of the lowercase letter a\n');
+fprintf('It would be better if the function could return the positions\n');
+fprintf('of the rotated letter a`s in the picture.\n');
+
+%================================= tmatch ================================
+%
+%  Performs cross-correlations using xcorr2 to find a template image
+%  in another image.  Then retuns the points that are above 0.9 times the
+%  peak value of the cross-correlation.  The image and template must be 
+%  grayscale.
+%
+%  [xpts, ypts] = tmatch(I, tI)
+%
+%
+%================================= tmatch ================================
+%
+%  Name:	tmatch.m
+%
+%  Author:	Patricio A. Vela, pvela@ece.gatech.edu
+%
+%  Created:		01/19/2006
+%  Modified:	01/19/2006
+%
+%  Notes:
+%    Matlab's find function should be useful.
+%    don't forget that (x,y) coordinate are not the same as (i,j) image
+%    coordinates.
+%
+%    You should be able to run the following and have it work:
+%    > [xp, yp] = tmatch(I, ti);
+%    > imagesc(I);
+%    > colormap('gray');
+%    > hold on;
+%    > plot(xp, yp, 'r+', 'MarkerSize', 10');
+%    > hold off;
+%
+%================================= tmatch ================================
+% function [xpts, ypts] = tmatch(I, tI)
+% 
+% % Do cross correlation
+% xc = xcorr2(I, tI);
+% 
+% % Find peak and threshold value
+% peak = max(max(xc));
+% thresh = 0.9*peak;
+% [ipts, jpts] = find(xc > thresh);
+% 
+% % Change I,J to X,Y coordinates
+% xpts = jpts;
+% ypts = ipts;
+% 
+% end
+
+##### SOURCE END #####
+--></body></html>

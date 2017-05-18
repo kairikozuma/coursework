@@ -1,0 +1,405 @@
+
+<!DOCTYPE html
+  PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html><head>
+      <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+   <!--
+This HTML was auto-generated from MATLAB code.
+To make changes, update the MATLAB code and republish this document.
+      --><title>segICM</title><meta name="generator" content="MATLAB 9.1"><link rel="schema.DC" href="http://purl.org/dc/elements/1.1/"><meta name="DC.date" content="2017-04-05"><meta name="DC.source" content="segICM.m"><style type="text/css">
+html,body,div,span,applet,object,iframe,h1,h2,h3,h4,h5,h6,p,blockquote,pre,a,abbr,acronym,address,big,cite,code,del,dfn,em,font,img,ins,kbd,q,s,samp,small,strike,strong,sub,sup,tt,var,b,u,i,center,dl,dt,dd,ol,ul,li,fieldset,form,label,legend,table,caption,tbody,tfoot,thead,tr,th,td{margin:0;padding:0;border:0;outline:0;font-size:100%;vertical-align:baseline;background:transparent}body{line-height:1}ol,ul{list-style:none}blockquote,q{quotes:none}blockquote:before,blockquote:after,q:before,q:after{content:'';content:none}:focus{outine:0}ins{text-decoration:none}del{text-decoration:line-through}table{border-collapse:collapse;border-spacing:0}
+
+html { min-height:100%; margin-bottom:1px; }
+html body { height:100%; margin:0px; font-family:Arial, Helvetica, sans-serif; font-size:10px; color:#000; line-height:140%; background:#fff none; overflow-y:scroll; }
+html body td { vertical-align:top; text-align:left; }
+
+h1 { padding:0px; margin:0px 0px 25px; font-family:Arial, Helvetica, sans-serif; font-size:1.5em; color:#d55000; line-height:100%; font-weight:normal; }
+h2 { padding:0px; margin:0px 0px 8px; font-family:Arial, Helvetica, sans-serif; font-size:1.2em; color:#000; font-weight:bold; line-height:140%; border-bottom:1px solid #d6d4d4; display:block; }
+h3 { padding:0px; margin:0px 0px 5px; font-family:Arial, Helvetica, sans-serif; font-size:1.1em; color:#000; font-weight:bold; line-height:140%; }
+
+a { color:#005fce; text-decoration:none; }
+a:hover { color:#005fce; text-decoration:underline; }
+a:visited { color:#004aa0; text-decoration:none; }
+
+p { padding:0px; margin:0px 0px 20px; }
+img { padding:0px; margin:0px 0px 20px; border:none; }
+p img, pre img, tt img, li img, h1 img, h2 img { margin-bottom:0px; } 
+
+ul { padding:0px; margin:0px 0px 20px 23px; list-style:square; }
+ul li { padding:0px; margin:0px 0px 7px 0px; }
+ul li ul { padding:5px 0px 0px; margin:0px 0px 7px 23px; }
+ul li ol li { list-style:decimal; }
+ol { padding:0px; margin:0px 0px 20px 0px; list-style:decimal; }
+ol li { padding:0px; margin:0px 0px 7px 23px; list-style-type:decimal; }
+ol li ol { padding:5px 0px 0px; margin:0px 0px 7px 0px; }
+ol li ol li { list-style-type:lower-alpha; }
+ol li ul { padding-top:7px; }
+ol li ul li { list-style:square; }
+
+.content { font-size:1.2em; line-height:140%; padding: 20px; }
+
+pre, code { font-size:12px; }
+tt { font-size: 1.2em; }
+pre { margin:0px 0px 20px; }
+pre.codeinput { padding:10px; border:1px solid #d3d3d3; background:#f7f7f7; }
+pre.codeoutput { padding:10px 11px; margin:0px 0px 20px; color:#4c4c4c; }
+pre.error { color:red; }
+
+@media print { pre.codeinput, pre.codeoutput { word-wrap:break-word; width:100%; } }
+
+span.keyword { color:#0000FF }
+span.comment { color:#228B22 }
+span.string { color:#A020F0 }
+span.untermstring { color:#B20000 }
+span.syscmd { color:#B28C00 }
+
+.footer { width:auto; padding:10px 0px; margin:25px 0px 0px; border-top:1px dotted #878787; font-size:0.8em; line-height:140%; font-style:italic; color:#878787; text-align:left; float:none; }
+.footer p { margin:0px; }
+.footer a { color:#878787; }
+.footer a:hover { color:#878787; text-decoration:underline; }
+.footer a:visited { color:#878787; }
+
+table th { padding:7px 5px; text-align:left; vertical-align:middle; border: 1px solid #d6d4d4; font-weight:bold; }
+table td { padding:7px 5px; text-align:left; vertical-align:top; border:1px solid #d6d4d4; }
+
+
+
+
+
+  </style></head><body><div class="content"><pre class="codeinput"><span class="comment">%================================= segIMC ================================</span>
+<span class="comment">%</span>
+<span class="comment">%  function [J, K, means] = segIMC(I, iter, lambda, means, ncov)</span>
+<span class="comment">%</span>
+<span class="comment">%  Use the Iterative Conditioning Modes (ICM) algorithm for segmentation</span>
+<span class="comment">%  of the grayscale image I.</span>
+<span class="comment">%</span>
+<span class="comment">%  Input:</span>
+<span class="comment">%    I		- image I ( from |R2 -&gt; |R ).</span>
+<span class="comment">%    iter	- #iteration (iter = -1 for loop until no change)</span>
+<span class="comment">%    lambda - the weighting of the neighborhood agreement part.</span>
+<span class="comment">%    means	- initial guess at means, each column is a mean value.</span>
+<span class="comment">%    ncov	- covariance matrix to use in the scaling (use 1 if none).</span>
+<span class="comment">%		      can be scalar for all means to use, or can be a unique</span>
+<span class="comment">%		      value for each mean value.</span>
+<span class="comment">%</span>
+<span class="comment">%  Output:</span>
+<span class="comment">%    J		- the segmentation map.</span>
+<span class="comment">%    K		- the simplified image using the means and the segmentation.</span>
+<span class="comment">%    means	- the final segmentation means.</span>
+<span class="comment">%</span>
+<span class="comment">%================================= segIMC ================================</span>
+
+<span class="comment">%</span>
+<span class="comment">%  Name:		segIMC.m</span>
+<span class="comment">%</span>
+<span class="comment">%  Author:		Patricio A. Vela, pvela@gatech.edu</span>
+<span class="comment">%</span>
+<span class="comment">%  Created:		2010/01/05</span>
+<span class="comment">%  Modified:	2012/04/07</span>
+<span class="comment">%</span>
+<span class="comment">%================================= segIMC ================================</span>
+<span class="keyword">function</span> [J, K, means] = segIMC(I, iter, lambda, means, ncov)
+
+<span class="comment">%--[0] Parse the input arguments, set to defaults if needed.</span>
+<span class="keyword">if</span> (nargout == 0)       <span class="comment">% If nothing expected, then don't bother</span>
+  <span class="keyword">return</span>;               <span class="comment">%   doing the computations.</span>
+<span class="keyword">end</span>
+
+<span class="keyword">if</span> (nargin &lt; 4)         <span class="comment">% If first three not given, can't do much.</span>
+  disp(<span class="string">'ERROR: Need at least the first three arguments'</span>);
+  error(<span class="string">'BadArgs'</span>);
+<span class="keyword">end</span>
+
+<span class="keyword">if</span> ((nargin &lt; 5) || isempty(ncov))
+  ncov = 1;             <span class="comment">% If no covariance, default is 1.</span>
+<span class="keyword">end</span>
+
+<span class="keyword">if</span> (isscalar(ncov))     <span class="comment">% If scalar, copy for each mean value.</span>
+  ncov = repmat(ncov, [1, size(means,2)]);
+<span class="keyword">end</span>
+
+<span class="comment">%--[1] Prep workspace and variables.</span>
+imsize = size(I);
+
+xi = 1:length(means);		<span class="comment">% Generate set of class labels.</span>
+J  = ones(imsize);			<span class="comment">% Instantiate the return variable.</span>
+oJ = zeros(imsize);			<span class="comment">% Want to keep track of old segmenation map.</span>
+
+
+<span class="comment">% YOUR CODE HERE</span>
+<span class="comment">% compute the data energy and set to "energy" variable (see function below).</span>
+<span class="comment">% minimize energy to generate initial set of assignments.</span>
+<span class="comment">% store the assignments as J.  Basically this is k-means with 1 iteration.</span>
+<span class="comment">% Can simply code it here, or run k-means once.  Better to just code.</span>
+E = zeros([imsize, xi(end)]);
+							<span class="comment">% Pre-allocate memory for data energy.</span>
+
+
+<span class="comment">%--[2] Perform the segmentation iterations.</span>
+
+iter = round(iter);			<span class="comment">% Make integer if not.</span>
+
+<span class="comment">% While segmentation does not change or number of iterations not yet met.</span>
+<span class="keyword">while</span> (any(oJ(:) ~= J(:)) &amp;&amp; (iter &gt; 0))
+  iter = iter - 1;		<span class="comment">% Update number of iterations left.</span>
+  oJ = J;				<span class="comment">% Set old copy to previous segmentation map.</span>
+
+  <span class="comment">% YOUR CODE HERE.  USE THE HELPER FUNCTIONS BELOW.</span>
+  <span class="comment">% Steps:</span>
+  <span class="comment">%  (1) Compute the data energy and set to "energy".</span>
+  E = compDataEnergy();
+
+  <span class="comment">%  (2) Compute and add the smoothing energy to "energy".</span>
+  E = E + compSmoothingEnergy();
+
+  <span class="comment">%  (3) Minimize "energy" to generate assignments (segmentation).</span>
+  [val, J] = min(E,[],3);
+
+  <span class="comment">%  (4) Update the means based on the segmentation</span>
+  compMeans();
+
+<span class="keyword">end</span>
+
+<span class="keyword">if</span> (nargout &gt;= 2)		<span class="comment">% If image expected, then create it.</span>
+  K = J;
+  means = means .* ncov;
+  <span class="keyword">for</span> i=1:size(means,2)
+      K(J == i) = means(i);
+  <span class="keyword">end</span>
+<span class="keyword">end</span>
+
+<span class="comment">%</span>
+<span class="comment">%============================ Helper Functions ===========================</span>
+<span class="comment">%</span>
+<span class="comment">%  These functions live within the scope of the segICM function.</span>
+<span class="comment">%  What that means is that they can be invoked from the loop above</span>
+<span class="comment">%  and they will have access to the variables above (think of them</span>
+<span class="comment">%  as global variables in some sense).  Using functions within a</span>
+<span class="comment">%  function is a clean way to do complex thing but have the main</span>
+<span class="comment">%  code of the function look nice and clean.</span>
+<span class="comment">%</span>
+
+  <span class="comment">%--------------------------- compDataEnergy --------------------------</span>
+  <span class="comment">%</span>
+  <span class="comment">%  Compute the ICM data matching energy.</span>
+  <span class="comment">%</span>
+  <span class="keyword">function</span> energyD = compDataEnergy
+
+  energyD = zeros([imsize, xi(end)]);	<span class="comment">% Initialize data energy.</span>
+  <span class="keyword">for</span> ei=1:length(xi)				<span class="comment">% For each class label ...</span>
+    energyD(:,:,ei) = (I - means(ei)).^2;
+  <span class="keyword">end</span>
+
+  <span class="keyword">end</span>
+
+  <span class="comment">%------------------------ compSmoothingEnergy ------------------------</span>
+  <span class="comment">%</span>
+  <span class="comment">%  Compute the smoothing energy, sometimes call the regularization energy.</span>
+  <span class="comment">%  Uses the 8 neighbors to compute the energy.  For more aggressive</span>
+  <span class="comment">%  smoothing, con try to use 24 neighbors or more.</span>
+  <span class="comment">%</span>
+  <span class="keyword">function</span> energyS = compSmoothingEnergy
+
+  energyS = zeros([imsize, xi(end)]);	<span class="comment">% Initialize smoothing energy.</span>
+
+  nhbrKern = [1 1 1; 1 0 1; 1 1 1];		<span class="comment">% Look at all 8 neighbors.</span>
+  <span class="keyword">for</span> ei=xi
+    segImg = double(J ~= ei);		<span class="comment">% Pixels NOT in current class give 1.</span>
+    energyS(:,:,ei) = lambda * imfilter(segImg, nhbrKern);
+									<span class="comment">% Count up disagreeing neighbors.</span>
+  <span class="keyword">end</span>
+
+  <span class="keyword">end</span>
+
+  <span class="comment">%----------------------------- compMeans -----------------------------</span>
+  <span class="comment">%</span>
+  <span class="comment">%  Given the segmentation, compute the class means.  The mean should</span>
+  <span class="comment">%  be updated only if there is more than 1 pixel in the class.</span>
+  <span class="comment">%</span>
+  <span class="keyword">function</span> compMeans
+
+  <span class="keyword">for</span> mi=1:length(xi)				<span class="comment">% For each class label ...</span>
+    pts_in_layer = sum(sum(J == mi));
+    <span class="keyword">if</span> (pts_in_layer &gt; 0)
+        means(mi) = sum(I(J == mi)) ./ pts_in_layer;
+    <span class="keyword">else</span>
+        means(mi) = 0;
+    <span class="keyword">end</span>
+  <span class="keyword">end</span>
+
+  <span class="keyword">end</span>
+
+<span class="keyword">end</span>
+<span class="comment">%</span>
+<span class="comment">%================================= segIMC ================================</span>
+</pre><p class="footer"><br><a href="http://www.mathworks.com/products/matlab/">Published with MATLAB&reg; R2016b</a><br></p></div><!--
+##### SOURCE BEGIN #####
+%================================= segIMC ================================
+%
+%  function [J, K, means] = segIMC(I, iter, lambda, means, ncov)
+%
+%  Use the Iterative Conditioning Modes (ICM) algorithm for segmentation
+%  of the grayscale image I.
+%
+%  Input:
+%    I		- image I ( from |R2 -> |R ).
+%    iter	- #iteration (iter = -1 for loop until no change)
+%    lambda - the weighting of the neighborhood agreement part.
+%    means	- initial guess at means, each column is a mean value.
+%    ncov	- covariance matrix to use in the scaling (use 1 if none).
+%		      can be scalar for all means to use, or can be a unique
+%		      value for each mean value.
+%
+%  Output:
+%    J		- the segmentation map.
+%    K		- the simplified image using the means and the segmentation.
+%    means	- the final segmentation means.
+%
+%================================= segIMC ================================
+
+%
+%  Name:		segIMC.m
+%
+%  Author:		Patricio A. Vela, pvela@gatech.edu
+%
+%  Created:		2010/01/05
+%  Modified:	2012/04/07
+%
+%================================= segIMC ================================
+function [J, K, means] = segIMC(I, iter, lambda, means, ncov)
+
+%REPLACE_WITH_DASH_DASH[0] Parse the input arguments, set to defaults if needed.
+if (nargout == 0)       % If nothing expected, then don't bother
+  return;               %   doing the computations.
+end
+
+if (nargin < 4)         % If first three not given, can't do much.
+  disp('ERROR: Need at least the first three arguments');
+  error('BadArgs');
+end
+
+if ((nargin < 5) || isempty(ncov))
+  ncov = 1;             % If no covariance, default is 1.
+end
+
+if (isscalar(ncov))     % If scalar, copy for each mean value.
+  ncov = repmat(ncov, [1, size(means,2)]);
+end
+
+%REPLACE_WITH_DASH_DASH[1] Prep workspace and variables.
+imsize = size(I);
+
+xi = 1:length(means);		% Generate set of class labels.
+J  = ones(imsize);			% Instantiate the return variable.
+oJ = zeros(imsize);			% Want to keep track of old segmenation map.
+
+
+% YOUR CODE HERE
+% compute the data energy and set to "energy" variable (see function below).
+% minimize energy to generate initial set of assignments.
+% store the assignments as J.  Basically this is k-means with 1 iteration.
+% Can simply code it here, or run k-means once.  Better to just code.
+E = zeros([imsize, xi(end)]);
+							% Pre-allocate memory for data energy.
+
+
+%REPLACE_WITH_DASH_DASH[2] Perform the segmentation iterations.
+
+iter = round(iter);			% Make integer if not.
+
+% While segmentation does not change or number of iterations not yet met.
+while (any(oJ(:) ~= J(:)) && (iter > 0))	
+  iter = iter - 1;		% Update number of iterations left.
+  oJ = J;				% Set old copy to previous segmentation map.
+
+  % YOUR CODE HERE.  USE THE HELPER FUNCTIONS BELOW.
+  % Steps:
+  %  (1) Compute the data energy and set to "energy".
+  E = compDataEnergy();
+  
+  %  (2) Compute and add the smoothing energy to "energy".
+  E = E + compSmoothingEnergy();
+  
+  %  (3) Minimize "energy" to generate assignments (segmentation).
+  [val, J] = min(E,[],3);
+  
+  %  (4) Update the means based on the segmentation
+  compMeans();
+  
+end
+
+if (nargout >= 2)		% If image expected, then create it.
+  K = J;
+  means = means .* ncov;
+  for i=1:size(means,2)
+      K(J == i) = means(i);
+  end
+end
+
+%
+%============================ Helper Functions ===========================
+%
+%  These functions live within the scope of the segICM function.
+%  What that means is that they can be invoked from the loop above
+%  and they will have access to the variables above (think of them
+%  as global variables in some sense).  Using functions within a 
+%  function is a clean way to do complex thing but have the main
+%  code of the function look nice and clean.
+%
+
+  %REPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASH- compDataEnergy REPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASH
+  %
+  %  Compute the ICM data matching energy.
+  %
+  function energyD = compDataEnergy
+
+  energyD = zeros([imsize, xi(end)]);	% Initialize data energy.
+  for ei=1:length(xi)				% For each class label ...
+    energyD(:,:,ei) = (I - means(ei)).^2;
+  end
+  
+  end
+
+  %REPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASH compSmoothingEnergy REPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASH
+  %
+  %  Compute the smoothing energy, sometimes call the regularization energy.
+  %  Uses the 8 neighbors to compute the energy.  For more aggressive
+  %  smoothing, con try to use 24 neighbors or more.
+  %
+  function energyS = compSmoothingEnergy
+
+  energyS = zeros([imsize, xi(end)]);	% Initialize smoothing energy.
+
+  nhbrKern = [1 1 1; 1 0 1; 1 1 1];		% Look at all 8 neighbors.
+  for ei=xi
+    segImg = double(J ~= ei);		% Pixels NOT in current class give 1.
+    energyS(:,:,ei) = lambda * imfilter(segImg, nhbrKern);
+									% Count up disagreeing neighbors.
+  end
+
+  end
+
+  %REPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASH- compMeans REPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASH-
+  %
+  %  Given the segmentation, compute the class means.  The mean should
+  %  be updated only if there is more than 1 pixel in the class.
+  %
+  function compMeans
+
+  for mi=1:length(xi)				% For each class label ...
+    pts_in_layer = sum(sum(J == mi));
+    if (pts_in_layer > 0)
+        means(mi) = sum(I(J == mi)) ./ pts_in_layer;
+    else
+        means(mi) = 0;
+    end
+  end
+  
+  end
+
+end
+%
+%================================= segIMC ================================
+
+##### SOURCE END #####
+--></body></html>

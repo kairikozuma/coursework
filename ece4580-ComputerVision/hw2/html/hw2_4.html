@@ -1,0 +1,301 @@
+
+<!DOCTYPE html
+  PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html><head>
+      <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+   <!--
+This HTML was auto-generated from MATLAB code.
+To make changes, update the MATLAB code and republish this document.
+      --><title>hw2_4</title><meta name="generator" content="MATLAB 9.1"><link rel="schema.DC" href="http://purl.org/dc/elements/1.1/"><meta name="DC.date" content="2017-01-26"><meta name="DC.source" content="hw2_4.m"><style type="text/css">
+html,body,div,span,applet,object,iframe,h1,h2,h3,h4,h5,h6,p,blockquote,pre,a,abbr,acronym,address,big,cite,code,del,dfn,em,font,img,ins,kbd,q,s,samp,small,strike,strong,sub,sup,tt,var,b,u,i,center,dl,dt,dd,ol,ul,li,fieldset,form,label,legend,table,caption,tbody,tfoot,thead,tr,th,td{margin:0;padding:0;border:0;outline:0;font-size:100%;vertical-align:baseline;background:transparent}body{line-height:1}ol,ul{list-style:none}blockquote,q{quotes:none}blockquote:before,blockquote:after,q:before,q:after{content:'';content:none}:focus{outine:0}ins{text-decoration:none}del{text-decoration:line-through}table{border-collapse:collapse;border-spacing:0}
+
+html { min-height:100%; margin-bottom:1px; }
+html body { height:100%; margin:0px; font-family:Arial, Helvetica, sans-serif; font-size:10px; color:#000; line-height:140%; background:#fff none; overflow-y:scroll; }
+html body td { vertical-align:top; text-align:left; }
+
+h1 { padding:0px; margin:0px 0px 25px; font-family:Arial, Helvetica, sans-serif; font-size:1.5em; color:#d55000; line-height:100%; font-weight:normal; }
+h2 { padding:0px; margin:0px 0px 8px; font-family:Arial, Helvetica, sans-serif; font-size:1.2em; color:#000; font-weight:bold; line-height:140%; border-bottom:1px solid #d6d4d4; display:block; }
+h3 { padding:0px; margin:0px 0px 5px; font-family:Arial, Helvetica, sans-serif; font-size:1.1em; color:#000; font-weight:bold; line-height:140%; }
+
+a { color:#005fce; text-decoration:none; }
+a:hover { color:#005fce; text-decoration:underline; }
+a:visited { color:#004aa0; text-decoration:none; }
+
+p { padding:0px; margin:0px 0px 20px; }
+img { padding:0px; margin:0px 0px 20px; border:none; }
+p img, pre img, tt img, li img, h1 img, h2 img { margin-bottom:0px; } 
+
+ul { padding:0px; margin:0px 0px 20px 23px; list-style:square; }
+ul li { padding:0px; margin:0px 0px 7px 0px; }
+ul li ul { padding:5px 0px 0px; margin:0px 0px 7px 23px; }
+ul li ol li { list-style:decimal; }
+ol { padding:0px; margin:0px 0px 20px 0px; list-style:decimal; }
+ol li { padding:0px; margin:0px 0px 7px 23px; list-style-type:decimal; }
+ol li ol { padding:5px 0px 0px; margin:0px 0px 7px 0px; }
+ol li ol li { list-style-type:lower-alpha; }
+ol li ul { padding-top:7px; }
+ol li ul li { list-style:square; }
+
+.content { font-size:1.2em; line-height:140%; padding: 20px; }
+
+pre, code { font-size:12px; }
+tt { font-size: 1.2em; }
+pre { margin:0px 0px 20px; }
+pre.codeinput { padding:10px; border:1px solid #d3d3d3; background:#f7f7f7; }
+pre.codeoutput { padding:10px 11px; margin:0px 0px 20px; color:#4c4c4c; }
+pre.error { color:red; }
+
+@media print { pre.codeinput, pre.codeoutput { word-wrap:break-word; width:100%; } }
+
+span.keyword { color:#0000FF }
+span.comment { color:#228B22 }
+span.string { color:#A020F0 }
+span.untermstring { color:#B20000 }
+span.syscmd { color:#B28C00 }
+
+.footer { width:auto; padding:10px 0px; margin:25px 0px 0px; border-top:1px dotted #878787; font-size:0.8em; line-height:140%; font-style:italic; color:#878787; text-align:left; float:none; }
+.footer p { margin:0px; }
+.footer a { color:#878787; }
+.footer a:hover { color:#878787; text-decoration:underline; }
+.footer a:visited { color:#878787; }
+
+table th { padding:7px 5px; text-align:left; vertical-align:middle; border: 1px solid #d6d4d4; font-weight:bold; }
+table td { padding:7px 5px; text-align:left; vertical-align:top; border:1px solid #d6d4d4; }
+
+
+
+
+
+  </style></head><body><div class="content"><pre class="codeinput"><span class="comment">%==========================</span>
+<span class="comment">%  Name:		hw2_4.m</span>
+<span class="comment">%</span>
+<span class="comment">%  Author:		Kairi Kozuma</span>
+<span class="comment">%</span>
+<span class="comment">%==========================</span>
+
+<span class="comment">%============================ hysteresisEdges ============================</span>
+<span class="comment">%</span>
+<span class="comment">%  script hysteresisEdges.m</span>
+<span class="comment">%</span>
+<span class="comment">%</span>
+<span class="comment">%  Loads the edgethresh.mat Matlab file (make sure to have it in your</span>
+<span class="comment">%  path or your current directory) and then applies hystersis-based</span>
+<span class="comment">%  edge finding to identify which parts of the image reflect edge-like</span>
+<span class="comment">%  structures.</span>
+<span class="comment">%</span>
+<span class="comment">%============================ hysteresisEdges ============================</span>
+
+<span class="comment">%</span>
+<span class="comment">%  Name:		hysteresisEdges.m</span>
+<span class="comment">%</span>
+<span class="comment">%  Author:		Patricio A. Vela,			pvela@gatech.edu</span>
+<span class="comment">%</span>
+<span class="comment">%  Created:		2014/01/18</span>
+<span class="comment">%  Modified:	2014/01/18</span>
+<span class="comment">%</span>
+<span class="comment">%============================ hysteresisEdges ============================</span>
+
+<span class="comment">%--[1] Load the edgethresh Matlab file.</span>
+load(<span class="string">'edgethresh.mat'</span>);
+I = double(I);          <span class="comment">% Convert to double or crazy stuff happens.</span>
+
+highT = 145;
+lowT = 120;
+
+fprintf(<span class="string">'High threshold: %d\nLow threshold: %d\n'</span>, highT, lowT);
+
+<span class="comment">%--[2] Run the edge finding function to get a binary image.</span>
+detect = edgefind(I, highT, lowT);
+
+<span class="comment">%--[4] Plot the image and also visualize the detected edge locations.</span>
+figure(1);
+  imagesc(I);
+  colormap(<span class="string">'gray'</span>);
+  title(<span class="string">'Original image'</span>);
+  axis <span class="string">image</span>;
+
+figure(2);
+  imagesc(detect);
+  colormap(<span class="string">'gray'</span>);
+  title(<span class="string">'Two threshold edge detected image'</span>);
+
+fprintf(<span class="string">'The results are better than using a single\n'</span>);
+fprintf(<span class="string">'threshold, since two thresholds captures more edges that have lower\n'</span>);
+fprintf(<span class="string">'contrast with its environment. For example, the image obtained from\n'</span>);
+fprintf(<span class="string">'two thresholds shows more of edges in the trees and sidewalk, while\n'</span>);
+fprintf(<span class="string">'the edge detection with one threshold does not capture them.'</span>);
+
+<span class="comment">%================================ edgefind ===============================</span>
+<span class="comment">%</span>
+<span class="comment">%  edgeIm = edgefind(I, highT, lowT)</span>
+<span class="comment">%</span>
+<span class="comment">%  INPUTS:</span>
+<span class="comment">%    I			- the image (should be double!)</span>
+<span class="comment">%    highT		- the upper threshold.</span>
+<span class="comment">%    lowT       - the lower threshold.</span>
+<span class="comment">%</span>
+<span class="comment">%  OUTPUTS:</span>
+<span class="comment">%    escore		- the edge score.</span>
+<span class="comment">%</span>
+<span class="comment">%================================ edgefind ===============================</span>
+
+<span class="comment">%</span>
+<span class="comment">%  Name:		edgefind.m</span>
+<span class="comment">%</span>
+<span class="comment">%  Author:		Patricio A. Vela,			pvela@gatech.edu</span>
+<span class="comment">%</span>
+<span class="comment">%  Created:		2014/01/17</span>
+<span class="comment">%  Modified:	2014/01/17</span>
+<span class="comment">%</span>
+<span class="comment">%================================ edgefind ===============================</span>
+<span class="keyword">function</span> [detected] = edgefind(I, highT, lowT)
+
+
+<span class="comment">%-- Compute the gradient of the image.</span>
+cdx = [-1 0 1]/2;
+cdy = cdx';
+
+dIdx = imfilter(I, cdx, <span class="string">'replicate'</span>);
+dIdy = imfilter(I, cdy, <span class="string">'replicate'</span>);
+
+<span class="comment">%-- Compute the edge score (sum of squares of derivatives).</span>
+score = dIdx.^2 + dIdy.^2;
+
+<span class="comment">%--Perform hysteresis with the upper and lower score thresholds.</span>
+highDetect = score &gt; highT ; <span class="comment">% Apply the upper threshold first.</span>
+[i, j] = find(highDetect);  <span class="comment">% Using find, get indices of detected points.</span>
+
+lowDetect  = score &gt; lowT;  <span class="comment">% Apply the lower threshold second.</span>
+
+detected = bwselect(lowDetect, i, j);
+                      <span class="comment">% Using bwselect with the detected points on the</span>
+                      <span class="comment">% low detection binary image, get more candidates.</span>
+
+detected = bwmorph(detected, <span class="string">'thin'</span>, inf);
+                      <span class="comment">% Apply some thinning to get skinny edge lines.</span>
+
+
+<span class="keyword">end</span>
+</pre><pre class="codeoutput">High threshold: 145
+Low threshold: 120
+Warning: Ignoring out-of-range input coordinates. 
+The results are better than using a single
+threshold, since two thresholds captures more edges that have lower
+contrast with its environment. For example, the image obtained from
+two thresholds shows more of edges in the trees and sidewalk, while
+the edge detection with one threshold does not capture them.</pre><img vspace="5" hspace="5" src="hw2_4_01.png" alt=""> <img vspace="5" hspace="5" src="hw2_4_02.png" alt=""> <p class="footer"><br><a href="http://www.mathworks.com/products/matlab/">Published with MATLAB&reg; R2016b</a><br></p></div><!--
+##### SOURCE BEGIN #####
+%==========================
+%  Name:		hw2_4.m
+%
+%  Author:		Kairi Kozuma
+%
+%==========================
+
+%============================ hysteresisEdges ============================
+%
+%  script hysteresisEdges.m
+%
+%
+%  Loads the edgethresh.mat Matlab file (make sure to have it in your 
+%  path or your current directory) and then applies hystersis-based
+%  edge finding to identify which parts of the image reflect edge-like 
+%  structures.
+%
+%============================ hysteresisEdges ============================
+
+%
+%  Name:		hysteresisEdges.m
+%
+%  Author:		Patricio A. Vela,			pvela@gatech.edu
+%
+%  Created:		2014/01/18
+%  Modified:	2014/01/18
+%
+%============================ hysteresisEdges ============================
+
+%REPLACE_WITH_DASH_DASH[1] Load the edgethresh Matlab file. 
+load('edgethresh.mat');
+I = double(I);          % Convert to double or crazy stuff happens.
+
+highT = 145;
+lowT = 120;
+
+fprintf('High threshold: %d\nLow threshold: %d\n', highT, lowT);
+
+%REPLACE_WITH_DASH_DASH[2] Run the edge finding function to get a binary image.
+detect = edgefind(I, highT, lowT);
+
+%REPLACE_WITH_DASH_DASH[4] Plot the image and also visualize the detected edge locations.
+figure(1);
+  imagesc(I);
+  colormap('gray');
+  title('Original image');
+  axis image;
+  
+figure(2);
+  imagesc(detect);
+  colormap('gray');
+  title('Two threshold edge detected image');
+  
+fprintf('The results are better than using a single\n');
+fprintf('threshold, since two thresholds captures more edges that have lower\n');
+fprintf('contrast with its environment. For example, the image obtained from\n');
+fprintf('two thresholds shows more of edges in the trees and sidewalk, while\n');
+fprintf('the edge detection with one threshold does not capture them.');
+
+%================================ edgefind ===============================
+%
+%  edgeIm = edgefind(I, highT, lowT)
+%
+%  INPUTS:
+%    I			- the image (should be double!)
+%    highT		- the upper threshold.
+%    lowT       - the lower threshold.
+%
+%  OUTPUTS:
+%    escore		- the edge score.
+%
+%================================ edgefind ===============================
+
+%
+%  Name:		edgefind.m
+%
+%  Author:		Patricio A. Vela,			pvela@gatech.edu
+%
+%  Created:		2014/01/17
+%  Modified:	2014/01/17
+%
+%================================ edgefind ===============================
+function [detected] = edgefind(I, highT, lowT)
+
+
+%REPLACE_WITH_DASH_DASH Compute the gradient of the image.
+cdx = [-1 0 1]/2;
+cdy = cdx';
+
+dIdx = imfilter(I, cdx, 'replicate');
+dIdy = imfilter(I, cdy, 'replicate');
+
+%REPLACE_WITH_DASH_DASH Compute the edge score (sum of squares of derivatives).
+score = dIdx.^2 + dIdy.^2;
+
+%REPLACE_WITH_DASH_DASHPerform hysteresis with the upper and lower score thresholds.
+highDetect = score > highT ; % Apply the upper threshold first.
+[i, j] = find(highDetect);  % Using find, get indices of detected points.
+
+lowDetect  = score > lowT;  % Apply the lower threshold second.
+
+detected = bwselect(lowDetect, i, j);
+                      % Using bwselect with the detected points on the
+                      % low detection binary image, get more candidates.
+
+detected = bwmorph(detected, 'thin', inf);
+                      % Apply some thinning to get skinny edge lines.
+
+
+end
+
+
+##### SOURCE END #####
+--></body></html>

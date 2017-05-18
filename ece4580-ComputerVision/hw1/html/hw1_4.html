@@ -1,0 +1,170 @@
+
+<!DOCTYPE html
+  PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html><head>
+      <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+   <!--
+This HTML was auto-generated from MATLAB code.
+To make changes, update the MATLAB code and republish this document.
+      --><title>hw1_4</title><meta name="generator" content="MATLAB 9.1"><link rel="schema.DC" href="http://purl.org/dc/elements/1.1/"><meta name="DC.date" content="2017-01-18"><meta name="DC.source" content="hw1_4.m"><style type="text/css">
+html,body,div,span,applet,object,iframe,h1,h2,h3,h4,h5,h6,p,blockquote,pre,a,abbr,acronym,address,big,cite,code,del,dfn,em,font,img,ins,kbd,q,s,samp,small,strike,strong,sub,sup,tt,var,b,u,i,center,dl,dt,dd,ol,ul,li,fieldset,form,label,legend,table,caption,tbody,tfoot,thead,tr,th,td{margin:0;padding:0;border:0;outline:0;font-size:100%;vertical-align:baseline;background:transparent}body{line-height:1}ol,ul{list-style:none}blockquote,q{quotes:none}blockquote:before,blockquote:after,q:before,q:after{content:'';content:none}:focus{outine:0}ins{text-decoration:none}del{text-decoration:line-through}table{border-collapse:collapse;border-spacing:0}
+
+html { min-height:100%; margin-bottom:1px; }
+html body { height:100%; margin:0px; font-family:Arial, Helvetica, sans-serif; font-size:10px; color:#000; line-height:140%; background:#fff none; overflow-y:scroll; }
+html body td { vertical-align:top; text-align:left; }
+
+h1 { padding:0px; margin:0px 0px 25px; font-family:Arial, Helvetica, sans-serif; font-size:1.5em; color:#d55000; line-height:100%; font-weight:normal; }
+h2 { padding:0px; margin:0px 0px 8px; font-family:Arial, Helvetica, sans-serif; font-size:1.2em; color:#000; font-weight:bold; line-height:140%; border-bottom:1px solid #d6d4d4; display:block; }
+h3 { padding:0px; margin:0px 0px 5px; font-family:Arial, Helvetica, sans-serif; font-size:1.1em; color:#000; font-weight:bold; line-height:140%; }
+
+a { color:#005fce; text-decoration:none; }
+a:hover { color:#005fce; text-decoration:underline; }
+a:visited { color:#004aa0; text-decoration:none; }
+
+p { padding:0px; margin:0px 0px 20px; }
+img { padding:0px; margin:0px 0px 20px; border:none; }
+p img, pre img, tt img, li img, h1 img, h2 img { margin-bottom:0px; } 
+
+ul { padding:0px; margin:0px 0px 20px 23px; list-style:square; }
+ul li { padding:0px; margin:0px 0px 7px 0px; }
+ul li ul { padding:5px 0px 0px; margin:0px 0px 7px 23px; }
+ul li ol li { list-style:decimal; }
+ol { padding:0px; margin:0px 0px 20px 0px; list-style:decimal; }
+ol li { padding:0px; margin:0px 0px 7px 23px; list-style-type:decimal; }
+ol li ol { padding:5px 0px 0px; margin:0px 0px 7px 0px; }
+ol li ol li { list-style-type:lower-alpha; }
+ol li ul { padding-top:7px; }
+ol li ul li { list-style:square; }
+
+.content { font-size:1.2em; line-height:140%; padding: 20px; }
+
+pre, code { font-size:12px; }
+tt { font-size: 1.2em; }
+pre { margin:0px 0px 20px; }
+pre.codeinput { padding:10px; border:1px solid #d3d3d3; background:#f7f7f7; }
+pre.codeoutput { padding:10px 11px; margin:0px 0px 20px; color:#4c4c4c; }
+pre.error { color:red; }
+
+@media print { pre.codeinput, pre.codeoutput { word-wrap:break-word; width:100%; } }
+
+span.keyword { color:#0000FF }
+span.comment { color:#228B22 }
+span.string { color:#A020F0 }
+span.untermstring { color:#B20000 }
+span.syscmd { color:#B28C00 }
+
+.footer { width:auto; padding:10px 0px; margin:25px 0px 0px; border-top:1px dotted #878787; font-size:0.8em; line-height:140%; font-style:italic; color:#878787; text-align:left; float:none; }
+.footer p { margin:0px; }
+.footer a { color:#878787; }
+.footer a:hover { color:#878787; text-decoration:underline; }
+.footer a:visited { color:#878787; }
+
+table th { padding:7px 5px; text-align:left; vertical-align:middle; border: 1px solid #d6d4d4; font-weight:bold; }
+table td { padding:7px 5px; text-align:left; vertical-align:top; border:1px solid #d6d4d4; }
+
+
+
+
+
+  </style></head><body><div class="content"><pre class="codeinput"><span class="comment">%==========================</span>
+<span class="comment">%  Name:		hw1_4.m</span>
+<span class="comment">%</span>
+<span class="comment">%  Author:		Kairi Kozuma</span>
+<span class="comment">%</span>
+<span class="comment">%==========================</span>
+
+<span class="comment">% Average filter</span>
+n = 5;
+aFilt = ones(n)/(n^2);
+
+<span class="comment">% Filter the image</span>
+campus3filt = uint8(imfilter(double(campus3), aFilt));
+
+<span class="comment">% Show image before and after filtering</span>
+figure(1);
+imshow(campus3);
+title(<span class="string">'Original image'</span>);
+
+figure(2);
+imshow(campus3filt);
+title(<span class="string">'Averaged image'</span>);
+dim = [.4201, .55729, .090056, .014478];
+annotation(<span class="string">'rectangle'</span>,dim,<span class="string">'Color'</span>,<span class="string">'red'</span>)
+dim = [.4321, .62429, .090056, .014478];
+str = <span class="string">'Illegible'</span>;
+annotation(<span class="string">'textbox'</span>,dim,<span class="string">'String'</span>,str,<span class="string">'FitBoxToText'</span>,<span class="string">'on'</span>);
+
+dim = [.276, .20061, .043167, .14105];
+annotation(<span class="string">'rectangle'</span>,dim,<span class="string">'Color'</span>,<span class="string">'red'</span>)
+dim = [.306, .28061, .043167, .14105];
+str = <span class="string">'Still legible'</span>;
+annotation(<span class="string">'textbox'</span>,dim,<span class="string">'String'</span>,str,<span class="string">'FitBoxToText'</span>,<span class="string">'on'</span>);
+
+
+<span class="comment">% a) The small office depot label on the box becomes unreadable. The large</span>
+<span class="comment">% DELL sign on the box closest to the camera is still visible. The area</span>
+<span class="comment">% passed through OK because the letters were large enough so that smoothing</span>
+<span class="comment">% the edges did not render the letters illegible. A greater neighborhood</span>
+<span class="comment">% size would make all letters unreadable.</span>
+
+<span class="comment">% b) A sharpening filter is another type of convolution kernel. The</span>
+<span class="comment">% sharpening filter uses the matrix:</span>
+<span class="comment">%               [0  -1  0]</span>
+<span class="comment">%               [-1  5 -1]</span>
+<span class="comment">%               [0  -1  0]</span>
+<span class="comment">% This has the effect of emphasizing disparity between adjacent pixel</span>
+<span class="comment">% values, so that small differences in the image become more apparent.</span>
+</pre><pre class="codeoutput">Warning: Image is too big to fit on screen; displaying at 67% 
+Warning: Image is too big to fit on screen; displaying at 67% 
+</pre><img vspace="5" hspace="5" src="hw1_4_01.png" alt=""> <img vspace="5" hspace="5" src="hw1_4_02.png" alt=""> <p class="footer"><br><a href="http://www.mathworks.com/products/matlab/">Published with MATLAB&reg; R2016b</a><br></p></div><!--
+##### SOURCE BEGIN #####
+%==========================
+%  Name:		hw1_4.m
+%
+%  Author:		Kairi Kozuma
+%
+%==========================
+
+% Average filter
+n = 5;
+aFilt = ones(n)/(n^2);
+
+% Filter the image
+campus3filt = uint8(imfilter(double(campus3), aFilt));
+
+% Show image before and after filtering
+figure(1);
+imshow(campus3);
+title('Original image');
+
+figure(2);
+imshow(campus3filt);
+title('Averaged image');
+dim = [.4201, .55729, .090056, .014478];
+annotation('rectangle',dim,'Color','red')
+dim = [.4321, .62429, .090056, .014478];
+str = 'Illegible';
+annotation('textbox',dim,'String',str,'FitBoxToText','on');
+
+dim = [.276, .20061, .043167, .14105];
+annotation('rectangle',dim,'Color','red')
+dim = [.306, .28061, .043167, .14105];
+str = 'Still legible';
+annotation('textbox',dim,'String',str,'FitBoxToText','on');
+
+
+% a) The small office depot label on the box becomes unreadable. The large
+% DELL sign on the box closest to the camera is still visible. The area
+% passed through OK because the letters were large enough so that smoothing
+% the edges did not render the letters illegible. A greater neighborhood
+% size would make all letters unreadable.
+
+% b) A sharpening filter is another type of convolution kernel. The
+% sharpening filter uses the matrix:
+%               [0  -1  0]
+%               [-1  5 -1]
+%               [0  -1  0]
+% This has the effect of emphasizing disparity between adjacent pixel
+% values, so that small differences in the image become more apparent.
+##### SOURCE END #####
+--></body></html>

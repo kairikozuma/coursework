@@ -1,0 +1,194 @@
+
+<!DOCTYPE html
+  PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html><head>
+      <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+   <!--
+This HTML was auto-generated from MATLAB code.
+To make changes, update the MATLAB code and republish this document.
+      --><title>hw3_4</title><meta name="generator" content="MATLAB 9.1"><link rel="schema.DC" href="http://purl.org/dc/elements/1.1/"><meta name="DC.date" content="2017-02-01"><meta name="DC.source" content="hw3_4.m"><style type="text/css">
+html,body,div,span,applet,object,iframe,h1,h2,h3,h4,h5,h6,p,blockquote,pre,a,abbr,acronym,address,big,cite,code,del,dfn,em,font,img,ins,kbd,q,s,samp,small,strike,strong,sub,sup,tt,var,b,u,i,center,dl,dt,dd,ol,ul,li,fieldset,form,label,legend,table,caption,tbody,tfoot,thead,tr,th,td{margin:0;padding:0;border:0;outline:0;font-size:100%;vertical-align:baseline;background:transparent}body{line-height:1}ol,ul{list-style:none}blockquote,q{quotes:none}blockquote:before,blockquote:after,q:before,q:after{content:'';content:none}:focus{outine:0}ins{text-decoration:none}del{text-decoration:line-through}table{border-collapse:collapse;border-spacing:0}
+
+html { min-height:100%; margin-bottom:1px; }
+html body { height:100%; margin:0px; font-family:Arial, Helvetica, sans-serif; font-size:10px; color:#000; line-height:140%; background:#fff none; overflow-y:scroll; }
+html body td { vertical-align:top; text-align:left; }
+
+h1 { padding:0px; margin:0px 0px 25px; font-family:Arial, Helvetica, sans-serif; font-size:1.5em; color:#d55000; line-height:100%; font-weight:normal; }
+h2 { padding:0px; margin:0px 0px 8px; font-family:Arial, Helvetica, sans-serif; font-size:1.2em; color:#000; font-weight:bold; line-height:140%; border-bottom:1px solid #d6d4d4; display:block; }
+h3 { padding:0px; margin:0px 0px 5px; font-family:Arial, Helvetica, sans-serif; font-size:1.1em; color:#000; font-weight:bold; line-height:140%; }
+
+a { color:#005fce; text-decoration:none; }
+a:hover { color:#005fce; text-decoration:underline; }
+a:visited { color:#004aa0; text-decoration:none; }
+
+p { padding:0px; margin:0px 0px 20px; }
+img { padding:0px; margin:0px 0px 20px; border:none; }
+p img, pre img, tt img, li img, h1 img, h2 img { margin-bottom:0px; } 
+
+ul { padding:0px; margin:0px 0px 20px 23px; list-style:square; }
+ul li { padding:0px; margin:0px 0px 7px 0px; }
+ul li ul { padding:5px 0px 0px; margin:0px 0px 7px 23px; }
+ul li ol li { list-style:decimal; }
+ol { padding:0px; margin:0px 0px 20px 0px; list-style:decimal; }
+ol li { padding:0px; margin:0px 0px 7px 23px; list-style-type:decimal; }
+ol li ol { padding:5px 0px 0px; margin:0px 0px 7px 0px; }
+ol li ol li { list-style-type:lower-alpha; }
+ol li ul { padding-top:7px; }
+ol li ul li { list-style:square; }
+
+.content { font-size:1.2em; line-height:140%; padding: 20px; }
+
+pre, code { font-size:12px; }
+tt { font-size: 1.2em; }
+pre { margin:0px 0px 20px; }
+pre.codeinput { padding:10px; border:1px solid #d3d3d3; background:#f7f7f7; }
+pre.codeoutput { padding:10px 11px; margin:0px 0px 20px; color:#4c4c4c; }
+pre.error { color:red; }
+
+@media print { pre.codeinput, pre.codeoutput { word-wrap:break-word; width:100%; } }
+
+span.keyword { color:#0000FF }
+span.comment { color:#228B22 }
+span.string { color:#A020F0 }
+span.untermstring { color:#B20000 }
+span.syscmd { color:#B28C00 }
+
+.footer { width:auto; padding:10px 0px; margin:25px 0px 0px; border-top:1px dotted #878787; font-size:0.8em; line-height:140%; font-style:italic; color:#878787; text-align:left; float:none; }
+.footer p { margin:0px; }
+.footer a { color:#878787; }
+.footer a:hover { color:#878787; text-decoration:underline; }
+.footer a:visited { color:#878787; }
+
+table th { padding:7px 5px; text-align:left; vertical-align:middle; border: 1px solid #d6d4d4; font-weight:bold; }
+table td { padding:7px 5px; text-align:left; vertical-align:top; border:1px solid #d6d4d4; }
+
+
+
+
+
+  </style></head><body><div class="content"><pre class="codeinput"><span class="comment">%==========================</span>
+<span class="comment">%  Name:		hw3_4.m</span>
+<span class="comment">%</span>
+<span class="comment">%  Author:		Kairi Kozuma</span>
+<span class="comment">%</span>
+<span class="comment">%==========================</span>
+
+fprintf(<span class="string">'a)\n'</span>);
+    fprintf(<span class="string">'Distance transform is an operator applied to binary images that\n'</span>);
+    fprintf(<span class="string">'that results in a grayscale image, where the distance from the\n'</span>);
+    fprintf(<span class="string">'closest boundary determines the intensities of the gray scale.\n'</span>);
+    fprintf(<span class="string">'\n\n'</span>);
+    fprintf(<span class="string">'Two distance types are Manhattan distance and Euclidean distance:\n'</span>);
+    fprintf(<span class="string">'\tIn Manhattan distance, the distance between two points is the\n'</span>);
+    fprintf(<span class="string">'\tsum of the difference in absolute differences of the Cartesian\n'</span>);
+    fprintf(<span class="string">'\tcoordinates.\n'</span>);
+    fprintf(<span class="string">'\tIn Euclidean distance, the distance between two points is the\n'</span>);
+    fprintf(<span class="string">'\tstraight line distance between two points in Euclidean space.\n'</span>);
+    fprintf(<span class="string">'\tIn other words, it is the square root of the sum of the squares\n'</span>);
+    fprintf(<span class="string">'\tof its Cartesian coordinates.\n'</span>);
+
+fprintf(<span class="string">'b)\n'</span>);
+    <span class="comment">% Set threshold values</span>
+    lowerThresh = 959;
+    upperThresh = 978;
+
+    <span class="comment">% Apply threshold to range image</span>
+    binImage = (range &gt; lowerThresh) &amp; (range &lt; upperThresh);
+
+    <span class="comment">% bwdistgeodesic to pick out person</span>
+    distGray = bwdistgeodesic(binImage, [300], [261]);
+
+    figure(1);
+    distGray(isnan(distGray)) = 255;
+    imshow(distGray,[0,255]);
+    title(<span class="string">'Distance image of original binary image'</span>);
+
+ fprintf(<span class="string">'c)\n'</span>);
+    threshold = 164;
+    distGray2 = distGray;
+    distGray2(distGray2 &gt; threshold) = 255;
+    figure(2);
+    imshow(distGray2,[0,255]);
+    title(<span class="string">'Distance image of original binary image with threshold'</span>);
+
+ fprintf(<span class="string">'d)\n'</span>);
+ fprintf(<span class="string">'\tThe distance transform allows filtering of objects that are far\n'</span>);
+ fprintf(<span class="string">'\tfrom the seed points. This was effective in removing the unnecessary\n'</span>);
+ fprintf(<span class="string">'\tbottom board that was attached to the filtered person in the bwselect\n'</span>);
+ fprintf(<span class="string">'\tfiltering method. However, the feet were chopped off the filtere person.\n'</span>);
+</pre><pre class="codeoutput">a)
+Distance transform is an operator applied to binary images that
+that results in a grayscale image, where the distance from the
+closest boundary determines the intensities of the gray scale.
+
+
+Two distance types are Manhattan distance and Euclidean distance:
+	In Manhattan distance, the distance between two points is the
+	sum of the difference in absolute differences of the Cartesian
+	coordinates.
+	In Euclidean distance, the distance between two points is the
+	straight line distance between two points in Euclidean space.
+	In other words, it is the square root of the sum of the squares
+	of its Cartesian coordinates.
+b)
+c)
+d)
+	The distance transform allows filtering of objects that are far
+	from the seed points. This was effective in removing the unnecessary
+	bottom board that was attached to the filtered person in the bwselect
+	filtering method. However, the feet were chopped off the filtere person.
+</pre><img vspace="5" hspace="5" src="hw3_4_01.png" alt=""> <img vspace="5" hspace="5" src="hw3_4_02.png" alt=""> <p class="footer"><br><a href="http://www.mathworks.com/products/matlab/">Published with MATLAB&reg; R2016b</a><br></p></div><!--
+##### SOURCE BEGIN #####
+%==========================
+%  Name:		hw3_4.m
+%
+%  Author:		Kairi Kozuma
+%
+%==========================
+
+fprintf('a)\n');
+    fprintf('Distance transform is an operator applied to binary images that\n');
+    fprintf('that results in a grayscale image, where the distance from the\n');
+    fprintf('closest boundary determines the intensities of the gray scale.\n');
+    fprintf('\n\n');
+    fprintf('Two distance types are Manhattan distance and Euclidean distance:\n');
+    fprintf('\tIn Manhattan distance, the distance between two points is the\n');
+    fprintf('\tsum of the difference in absolute differences of the Cartesian\n');
+    fprintf('\tcoordinates.\n');
+    fprintf('\tIn Euclidean distance, the distance between two points is the\n');
+    fprintf('\tstraight line distance between two points in Euclidean space.\n');
+    fprintf('\tIn other words, it is the square root of the sum of the squares\n');
+    fprintf('\tof its Cartesian coordinates.\n');
+
+fprintf('b)\n');
+    % Set threshold values
+    lowerThresh = 959;
+    upperThresh = 978;
+
+    % Apply threshold to range image
+    binImage = (range > lowerThresh) & (range < upperThresh);
+
+    % bwdistgeodesic to pick out person
+    distGray = bwdistgeodesic(binImage, [300], [261]);
+    
+    figure(1);
+    distGray(isnan(distGray)) = 255;
+    imshow(distGray,[0,255]);
+    title('Distance image of original binary image');
+    
+ fprintf('c)\n');
+    threshold = 164;
+    distGray2 = distGray;
+    distGray2(distGray2 > threshold) = 255;
+    figure(2);
+    imshow(distGray2,[0,255]);
+    title('Distance image of original binary image with threshold');
+    
+ fprintf('d)\n');
+ fprintf('\tThe distance transform allows filtering of objects that are far\n');
+ fprintf('\tfrom the seed points. This was effective in removing the unnecessary\n');
+ fprintf('\tbottom board that was attached to the filtered person in the bwselect\n');
+ fprintf('\tfiltering method. However, the feet were chopped off the filtere person.\n');
+    
+##### SOURCE END #####
+--></body></html>

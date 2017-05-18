@@ -1,0 +1,322 @@
+
+<!DOCTYPE html
+  PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html><head>
+      <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+   <!--
+This HTML was auto-generated from MATLAB code.
+To make changes, update the MATLAB code and republish this document.
+      --><title>hw3_2</title><meta name="generator" content="MATLAB 9.1"><link rel="schema.DC" href="http://purl.org/dc/elements/1.1/"><meta name="DC.date" content="2017-02-01"><meta name="DC.source" content="hw3_2.m"><style type="text/css">
+html,body,div,span,applet,object,iframe,h1,h2,h3,h4,h5,h6,p,blockquote,pre,a,abbr,acronym,address,big,cite,code,del,dfn,em,font,img,ins,kbd,q,s,samp,small,strike,strong,sub,sup,tt,var,b,u,i,center,dl,dt,dd,ol,ul,li,fieldset,form,label,legend,table,caption,tbody,tfoot,thead,tr,th,td{margin:0;padding:0;border:0;outline:0;font-size:100%;vertical-align:baseline;background:transparent}body{line-height:1}ol,ul{list-style:none}blockquote,q{quotes:none}blockquote:before,blockquote:after,q:before,q:after{content:'';content:none}:focus{outine:0}ins{text-decoration:none}del{text-decoration:line-through}table{border-collapse:collapse;border-spacing:0}
+
+html { min-height:100%; margin-bottom:1px; }
+html body { height:100%; margin:0px; font-family:Arial, Helvetica, sans-serif; font-size:10px; color:#000; line-height:140%; background:#fff none; overflow-y:scroll; }
+html body td { vertical-align:top; text-align:left; }
+
+h1 { padding:0px; margin:0px 0px 25px; font-family:Arial, Helvetica, sans-serif; font-size:1.5em; color:#d55000; line-height:100%; font-weight:normal; }
+h2 { padding:0px; margin:0px 0px 8px; font-family:Arial, Helvetica, sans-serif; font-size:1.2em; color:#000; font-weight:bold; line-height:140%; border-bottom:1px solid #d6d4d4; display:block; }
+h3 { padding:0px; margin:0px 0px 5px; font-family:Arial, Helvetica, sans-serif; font-size:1.1em; color:#000; font-weight:bold; line-height:140%; }
+
+a { color:#005fce; text-decoration:none; }
+a:hover { color:#005fce; text-decoration:underline; }
+a:visited { color:#004aa0; text-decoration:none; }
+
+p { padding:0px; margin:0px 0px 20px; }
+img { padding:0px; margin:0px 0px 20px; border:none; }
+p img, pre img, tt img, li img, h1 img, h2 img { margin-bottom:0px; } 
+
+ul { padding:0px; margin:0px 0px 20px 23px; list-style:square; }
+ul li { padding:0px; margin:0px 0px 7px 0px; }
+ul li ul { padding:5px 0px 0px; margin:0px 0px 7px 23px; }
+ul li ol li { list-style:decimal; }
+ol { padding:0px; margin:0px 0px 20px 0px; list-style:decimal; }
+ol li { padding:0px; margin:0px 0px 7px 23px; list-style-type:decimal; }
+ol li ol { padding:5px 0px 0px; margin:0px 0px 7px 0px; }
+ol li ol li { list-style-type:lower-alpha; }
+ol li ul { padding-top:7px; }
+ol li ul li { list-style:square; }
+
+.content { font-size:1.2em; line-height:140%; padding: 20px; }
+
+pre, code { font-size:12px; }
+tt { font-size: 1.2em; }
+pre { margin:0px 0px 20px; }
+pre.codeinput { padding:10px; border:1px solid #d3d3d3; background:#f7f7f7; }
+pre.codeoutput { padding:10px 11px; margin:0px 0px 20px; color:#4c4c4c; }
+pre.error { color:red; }
+
+@media print { pre.codeinput, pre.codeoutput { word-wrap:break-word; width:100%; } }
+
+span.keyword { color:#0000FF }
+span.comment { color:#228B22 }
+span.string { color:#A020F0 }
+span.untermstring { color:#B20000 }
+span.syscmd { color:#B28C00 }
+
+.footer { width:auto; padding:10px 0px; margin:25px 0px 0px; border-top:1px dotted #878787; font-size:0.8em; line-height:140%; font-style:italic; color:#878787; text-align:left; float:none; }
+.footer p { margin:0px; }
+.footer a { color:#878787; }
+.footer a:hover { color:#878787; text-decoration:underline; }
+.footer a:visited { color:#878787; }
+
+table th { padding:7px 5px; text-align:left; vertical-align:middle; border: 1px solid #d6d4d4; font-weight:bold; }
+table td { padding:7px 5px; text-align:left; vertical-align:top; border:1px solid #d6d4d4; }
+
+
+
+
+
+  </style></head><body><div class="content"><pre class="codeinput"><span class="comment">%==========================</span>
+<span class="comment">%  Name:		hw3_2.m</span>
+<span class="comment">%</span>
+<span class="comment">%  Author:		Kairi Kozuma</span>
+<span class="comment">%</span>
+<span class="comment">%==========================</span>
+
+<span class="comment">% Transformation matrix</span>
+R_WL = [0.913545457642601,-0.063627629171822,0.401729040058774;0.287606238475951,0.799453749866612,-0.527405302792764;-0.287606238475951,0.597348496800808,0.748637044875238];
+R_WR = [0.994521895368273,-0.016351854232753,0.103241544429788;0.073912785203567,0.808411029059454,-0.583959337863936;-0.073912785203567,0.588391217607967,0.805191079946410];
+T_WL = [-8.659258262890683;2.169872981077807;4.830127018922193];
+T_WR = [10.659258262890683;5.830127018922193;1.169872981077807];
+
+<span class="comment">% Homogenous points in world frame</span>
+q_W = [16,78.3000000000000,33.1000000000000;-25.4000000000000,-20.9000000000000,-39.1000000000000;19.1000000000000,7.30000000000000,38.5000000000000;1,1,1];
+
+<span class="comment">% a) Transformation giving camera's R frame relative to L frame</span>
+
+    G_WR = [R_WR,T_WR;0,0,0,1];
+    G_WL = [R_WL,T_WL;0,0,0,1];
+    G_LW = [R_WL',-R_WL'*T_WL;0,0,0,1];
+    G_LR = G_LW * G_WR;
+
+    fprintf(<span class="string">'a) Transformation matrix of R frame relative to L frame:\n'</span>);
+    disp(G_LR);
+
+<span class="comment">% b) Coordinates of points given in both frames</span>
+
+    <span class="comment">% Convert to camera R frame</span>
+    qcR1 = transformToCamera(q_W(1:3,:), R_WR', -R_WR'*T_WR);
+    fprintf(<span class="string">'b1) Points in camera R frame:\n'</span>);
+    disp (qcR1(1:3,:));
+
+    <span class="comment">% Convert to camera R frame</span>
+    qcL1 = transformToCamera(q_W(1:3,:), R_WL', -R_WL'*T_WL);
+    fprintf(<span class="string">'b2) Points in camera L frame:\n'</span>);
+    disp (qcL1(1:3,:));
+
+<span class="comment">% c) Both cameras have horizontal FOV of 60deg, vertical FOV of 40deg</span>
+<span class="comment">%    Specify if each point is visible by L only, R only, or both</span>
+
+    <span class="comment">% Field of view +- the following value</span>
+    horiFOV = 30;
+    vertFOV = 20;
+
+    <span class="comment">% Determine if in field of view</span>
+    inViewR = inFOV(qcR1(1:3,:),horiFOV, vertFOV);
+    inViewL = inFOV(qcL1(1:3,:),horiFOV, vertFOV);
+
+    inView = inViewR &amp; inViewL;
+
+    fprintf(<span class="string">'b) Points in both fields of view:\n'</span>);
+    count = 0;
+    <span class="keyword">for</span> n = 1:length(inView)
+        <span class="keyword">if</span> (inView(n))
+            fprintf(<span class="string">'Point q%d in field of view\n'</span>, n);
+            count = count + 1;
+        <span class="keyword">end</span>
+    <span class="keyword">end</span>
+
+    <span class="keyword">if</span> (count == 0)
+        fprintf(<span class="string">'\tNo points in field of view\n\n'</span>);
+    <span class="keyword">end</span>
+
+<span class="comment">%======================== transformToCamera ===============================</span>
+<span class="comment">%</span>
+<span class="comment">%  qc = transformToCamera(pw, R_CW, T_CW)</span>
+<span class="comment">%</span>
+<span class="comment">%  INPUTS:</span>
+<span class="comment">%    pw         - point in 3 dimension, world frame</span>
+<span class="comment">%    R_CW       - rotation matrix</span>
+<span class="comment">%    T_CW       - translation vector</span>
+<span class="comment">%</span>
+<span class="comment">%  OUTPUTS:</span>
+<span class="comment">%    qc		    - point in 3 dimensions, camera frame</span>
+<span class="comment">%</span>
+<span class="comment">%======================== transformToCamera ===============================</span>
+<span class="keyword">function</span> [pc] = transformToCamera(pw, R_CW, T_CW)
+
+transformMatrix = [R_CW,T_CW;0,0,0,1];
+
+dim = size(pw);
+lastRow = ones([1,dim(2)]);
+
+qw = [pw; lastRow];
+
+pc = transformMatrix * qw;
+
+<span class="keyword">end</span>
+
+<span class="comment">%==================================== inFOV ===============================</span>
+<span class="comment">%</span>
+<span class="comment">%  inView = inFOV(pc, horiFOV, vertFOV)</span>
+<span class="comment">%</span>
+<span class="comment">%  INPUTS:</span>
+<span class="comment">%    pc         - point in 3 dimensions, camera frame</span>
+<span class="comment">%    horiFOV    - horizontal field of view, +- value</span>
+<span class="comment">%    vertFOV    - vertical field of view, +- value</span>
+<span class="comment">%</span>
+<span class="comment">%  OUTPUTS:</span>
+<span class="comment">%    inView		- boolean vector of whether points are in FOV</span>
+<span class="comment">%</span>
+<span class="comment">%==================================== inFOV ===============================</span>
+<span class="keyword">function</span> [inView] = inFOV(pc, horiFOV, vertFOV)
+
+angleY = (180 / pi) * atan2(pc(2,:), pc(3,:));
+angleX = (180 / pi) * atan2(pc(1,:), pc(3,:));
+
+angles = [angleX; angleY];
+
+inHoriView = (angles(1,:) &gt;= -horiFOV &amp; angles(1,:) &lt;= horiFOV);
+inVertView = (angles(2,:) &gt;= -vertFOV &amp; angles(2,:) &lt;= vertFOV);
+
+inView = inHoriView &amp; inVertView;
+
+<span class="keyword">end</span>
+</pre><pre class="codeoutput">a) Transformation matrix of R frame relative to L frame:
+    0.9511    0.0483   -0.3052   19.7538
+   -0.0483    0.9988    0.0076   -0.4894
+    0.3052    0.0076    0.9523    3.0902
+         0         0         0    1.0000
+
+b1) Points in camera R frame:
+    1.6779   64.8414   16.2377
+  -14.7842  -19.1081  -14.7242
+   33.2257   27.5286   58.6121
+
+b2) Points in camera L frame:
+   10.4940   72.0958   16.5958
+  -15.0858  -22.5009  -15.5377
+   35.1298   48.9503   63.7484
+
+b) Points in both fields of view:
+Point q3 in field of view
+</pre><p class="footer"><br><a href="http://www.mathworks.com/products/matlab/">Published with MATLAB&reg; R2016b</a><br></p></div><!--
+##### SOURCE BEGIN #####
+%==========================
+%  Name:		hw3_2.m
+%
+%  Author:		Kairi Kozuma
+%
+%==========================
+
+% Transformation matrix
+R_WL = [0.913545457642601,-0.063627629171822,0.401729040058774;0.287606238475951,0.799453749866612,-0.527405302792764;-0.287606238475951,0.597348496800808,0.748637044875238];
+R_WR = [0.994521895368273,-0.016351854232753,0.103241544429788;0.073912785203567,0.808411029059454,-0.583959337863936;-0.073912785203567,0.588391217607967,0.805191079946410];
+T_WL = [-8.659258262890683;2.169872981077807;4.830127018922193];
+T_WR = [10.659258262890683;5.830127018922193;1.169872981077807];
+
+% Homogenous points in world frame
+q_W = [16,78.3000000000000,33.1000000000000;-25.4000000000000,-20.9000000000000,-39.1000000000000;19.1000000000000,7.30000000000000,38.5000000000000;1,1,1];
+
+% a) Transformation giving camera's R frame relative to L frame
+    
+    G_WR = [R_WR,T_WR;0,0,0,1];
+    G_WL = [R_WL,T_WL;0,0,0,1];
+    G_LW = [R_WL',-R_WL'*T_WL;0,0,0,1];
+    G_LR = G_LW * G_WR;
+    
+    fprintf('a) Transformation matrix of R frame relative to L frame:\n');
+    disp(G_LR);
+
+% b) Coordinates of points given in both frames
+
+    % Convert to camera R frame
+    qcR1 = transformToCamera(q_W(1:3,:), R_WR', -R_WR'*T_WR);
+    fprintf('b1) Points in camera R frame:\n');
+    disp (qcR1(1:3,:));
+    
+    % Convert to camera R frame
+    qcL1 = transformToCamera(q_W(1:3,:), R_WL', -R_WL'*T_WL);
+    fprintf('b2) Points in camera L frame:\n');
+    disp (qcL1(1:3,:));
+
+% c) Both cameras have horizontal FOV of 60deg, vertical FOV of 40deg
+%    Specify if each point is visible by L only, R only, or both
+    
+    % Field of view +- the following value
+    horiFOV = 30;
+    vertFOV = 20;
+    
+    % Determine if in field of view
+    inViewR = inFOV(qcR1(1:3,:),horiFOV, vertFOV);
+    inViewL = inFOV(qcL1(1:3,:),horiFOV, vertFOV);
+    
+    inView = inViewR & inViewL;
+    
+    fprintf('b) Points in both fields of view:\n');
+    count = 0;
+    for n = 1:length(inView)
+        if (inView(n))
+            fprintf('Point q%d in field of view\n', n);
+            count = count + 1;
+        end
+    end
+    
+    if (count == 0)
+        fprintf('\tNo points in field of view\n\n');
+    end
+    
+%======================== transformToCamera ===============================
+%
+%  qc = transformToCamera(pw, R_CW, T_CW)
+%
+%  INPUTS:
+%    pw         - point in 3 dimension, world frame
+%    R_CW       - rotation matrix
+%    T_CW       - translation vector
+%
+%  OUTPUTS:
+%    qc		    - point in 3 dimensions, camera frame
+%
+%======================== transformToCamera ===============================
+function [pc] = transformToCamera(pw, R_CW, T_CW)
+
+transformMatrix = [R_CW,T_CW;0,0,0,1];
+
+dim = size(pw);
+lastRow = ones([1,dim(2)]);
+
+qw = [pw; lastRow];
+
+pc = transformMatrix * qw;
+
+end
+
+%==================================== inFOV ===============================
+%
+%  inView = inFOV(pc, horiFOV, vertFOV)
+%
+%  INPUTS:
+%    pc         - point in 3 dimensions, camera frame
+%    horiFOV    - horizontal field of view, +- value
+%    vertFOV    - vertical field of view, +- value
+% 
+%  OUTPUTS:
+%    inView		- boolean vector of whether points are in FOV
+%
+%==================================== inFOV ===============================
+function [inView] = inFOV(pc, horiFOV, vertFOV)
+
+angleY = (180 / pi) * atan2(pc(2,:), pc(3,:));
+angleX = (180 / pi) * atan2(pc(1,:), pc(3,:));
+
+angles = [angleX; angleY];
+
+inHoriView = (angles(1,:) >= -horiFOV & angles(1,:) <= horiFOV);
+inVertView = (angles(2,:) >= -vertFOV & angles(2,:) <= vertFOV);
+
+inView = inHoriView & inVertView;
+
+end
+##### SOURCE END #####
+--></body></html>

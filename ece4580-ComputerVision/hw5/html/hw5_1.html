@@ -1,0 +1,406 @@
+
+<!DOCTYPE html
+  PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html><head>
+      <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+   <!--
+This HTML was auto-generated from MATLAB code.
+To make changes, update the MATLAB code and republish this document.
+      --><title>hw5_1</title><meta name="generator" content="MATLAB 9.1"><link rel="schema.DC" href="http://purl.org/dc/elements/1.1/"><meta name="DC.date" content="2017-02-16"><meta name="DC.source" content="hw5_1.m"><style type="text/css">
+html,body,div,span,applet,object,iframe,h1,h2,h3,h4,h5,h6,p,blockquote,pre,a,abbr,acronym,address,big,cite,code,del,dfn,em,font,img,ins,kbd,q,s,samp,small,strike,strong,sub,sup,tt,var,b,u,i,center,dl,dt,dd,ol,ul,li,fieldset,form,label,legend,table,caption,tbody,tfoot,thead,tr,th,td{margin:0;padding:0;border:0;outline:0;font-size:100%;vertical-align:baseline;background:transparent}body{line-height:1}ol,ul{list-style:none}blockquote,q{quotes:none}blockquote:before,blockquote:after,q:before,q:after{content:'';content:none}:focus{outine:0}ins{text-decoration:none}del{text-decoration:line-through}table{border-collapse:collapse;border-spacing:0}
+
+html { min-height:100%; margin-bottom:1px; }
+html body { height:100%; margin:0px; font-family:Arial, Helvetica, sans-serif; font-size:10px; color:#000; line-height:140%; background:#fff none; overflow-y:scroll; }
+html body td { vertical-align:top; text-align:left; }
+
+h1 { padding:0px; margin:0px 0px 25px; font-family:Arial, Helvetica, sans-serif; font-size:1.5em; color:#d55000; line-height:100%; font-weight:normal; }
+h2 { padding:0px; margin:0px 0px 8px; font-family:Arial, Helvetica, sans-serif; font-size:1.2em; color:#000; font-weight:bold; line-height:140%; border-bottom:1px solid #d6d4d4; display:block; }
+h3 { padding:0px; margin:0px 0px 5px; font-family:Arial, Helvetica, sans-serif; font-size:1.1em; color:#000; font-weight:bold; line-height:140%; }
+
+a { color:#005fce; text-decoration:none; }
+a:hover { color:#005fce; text-decoration:underline; }
+a:visited { color:#004aa0; text-decoration:none; }
+
+p { padding:0px; margin:0px 0px 20px; }
+img { padding:0px; margin:0px 0px 20px; border:none; }
+p img, pre img, tt img, li img, h1 img, h2 img { margin-bottom:0px; } 
+
+ul { padding:0px; margin:0px 0px 20px 23px; list-style:square; }
+ul li { padding:0px; margin:0px 0px 7px 0px; }
+ul li ul { padding:5px 0px 0px; margin:0px 0px 7px 23px; }
+ul li ol li { list-style:decimal; }
+ol { padding:0px; margin:0px 0px 20px 0px; list-style:decimal; }
+ol li { padding:0px; margin:0px 0px 7px 23px; list-style-type:decimal; }
+ol li ol { padding:5px 0px 0px; margin:0px 0px 7px 0px; }
+ol li ol li { list-style-type:lower-alpha; }
+ol li ul { padding-top:7px; }
+ol li ul li { list-style:square; }
+
+.content { font-size:1.2em; line-height:140%; padding: 20px; }
+
+pre, code { font-size:12px; }
+tt { font-size: 1.2em; }
+pre { margin:0px 0px 20px; }
+pre.codeinput { padding:10px; border:1px solid #d3d3d3; background:#f7f7f7; }
+pre.codeoutput { padding:10px 11px; margin:0px 0px 20px; color:#4c4c4c; }
+pre.error { color:red; }
+
+@media print { pre.codeinput, pre.codeoutput { word-wrap:break-word; width:100%; } }
+
+span.keyword { color:#0000FF }
+span.comment { color:#228B22 }
+span.string { color:#A020F0 }
+span.untermstring { color:#B20000 }
+span.syscmd { color:#B28C00 }
+
+.footer { width:auto; padding:10px 0px; margin:25px 0px 0px; border-top:1px dotted #878787; font-size:0.8em; line-height:140%; font-style:italic; color:#878787; text-align:left; float:none; }
+.footer p { margin:0px; }
+.footer a { color:#878787; }
+.footer a:hover { color:#878787; text-decoration:underline; }
+.footer a:visited { color:#878787; }
+
+table th { padding:7px 5px; text-align:left; vertical-align:middle; border: 1px solid #d6d4d4; font-weight:bold; }
+table td { padding:7px 5px; text-align:left; vertical-align:top; border:1px solid #d6d4d4; }
+
+
+
+
+
+  </style></head><body><div class="content"><pre class="codeinput"><span class="comment">%==========================</span>
+<span class="comment">%  Name:		hw5_1.m</span>
+<span class="comment">%</span>
+<span class="comment">%  Author:		Kairi Kozuma</span>
+<span class="comment">%</span>
+<span class="comment">%==========================</span>
+
+<span class="comment">% Points in the world</span>
+qWpts = [2,8,3,4,6,5,5;7,6,2,8,8,5,4;5,4,4,4,2,2,2;1,1,1,1,1,1,1];
+
+<span class="comment">% Left camera points</span>
+rpL = [384,189,22,358,313,215,165;137,169,287,172,243,298,316;1,1,1,1,1,1,1];
+
+<span class="comment">% Right camera points</span>
+rpR = [579,433,253,597,580,457,408;178,250,375,220,309,379,399;1,1,1,1,1,1,1];
+
+<span class="comment">% psi matrix</span>
+psi = [500,0,320;0,-500,240;0,0,1];
+psi = [psi,zeros(3,1)];
+
+<span class="comment">% 1) R, T pairs for each camera, with respect to the world frame</span>
+disp(<span class="string">'1) R, T pairs for each camera, with respect to the world frame'</span>);
+[R_LW, T_LW] = extrinsicCalib(rpL, qWpts, psi);
+[R_RW, T_RW] = extrinsicCalib(rpR, qWpts, psi);
+
+disp(<span class="string">'Left camera R with respect to world frame:'</span>);
+scaleL = nthroot(det(R_LW),3);
+R_LW = R_LW ./ scaleL;
+disp(R_LW);
+
+disp(<span class="string">'Left camera T with respect to world frame:'</span>);
+T_LW = T_LW ./ scaleL;
+disp(T_LW);
+
+disp(<span class="string">'Right camera R with respect to world frame:'</span>);
+scaleR = nthroot(det(R_RW),3);
+R_RW = R_RW ./ scaleR;
+disp(R_RW);
+
+disp(<span class="string">'Right camera T with respect to world frame:'</span>);
+T_RW = T_RW ./ scaleR;
+disp(T_RW);
+
+<span class="comment">% Check if transformation matrix is correct</span>
+G_LW = [R_LW, T_LW; 0,0,0,1];
+G_RW = [R_RW, T_RW; 0,0,0,1];
+
+<span class="comment">% rpL2 = psi * G_LW * qWpts;</span>
+<span class="comment">% rpL2 = round(rpL2 ./ rpL2(3,:));</span>
+<span class="comment">% disp(rpL);</span>
+<span class="comment">% disp(rpL2);</span>
+<span class="comment">% rpR2 = psi * G_RW * qWpts;</span>
+<span class="comment">% rpR2 = round(rpR2 ./ rpR2(3,:));</span>
+<span class="comment">% disp(rpR);</span>
+<span class="comment">% disp(rpR2);</span>
+
+<span class="comment">% 2) R, T pair for the right camera relative to the left camera</span>
+disp(<span class="string">'2) R, T pair for the right camera relative to the left camera'</span>);
+
+<span class="comment">% Obtain G_LR</span>
+G_LR = G_LW * inv(G_RW);
+
+<span class="comment">% Extract R and T</span>
+R_LR = G_LR(1:3,1:3);
+T_LR = G_LR(1:3,end);
+
+disp(<span class="string">'Right camera R with respect to left camera frame'</span>);
+disp(R_LR);
+
+disp(<span class="string">'Right camera T with respect to left camera frame'</span>);
+disp(T_LR);
+
+<span class="comment">%============================= extrinsicCalib ============================</span>
+<span class="comment">%</span>
+<span class="comment">%</span>
+<span class="comment">%  Given a set of image points plus the world coordinates that they came</span>
+<span class="comment">%  from, and thirdly the intrinsic camera matrix, solve for the extrinsic</span>
+<span class="comment">%  parameters associated to the camera rig.</span>
+<span class="comment">%</span>
+<span class="comment">%</span>
+<span class="comment">%  function [R_CW, T_CW] = extrinsicCalib(rp, qWpts, psi)</span>
+<span class="comment">%</span>
+<span class="comment">%  Inputs:</span>
+<span class="comment">%    rp     - Points in the image as homogeneous rays.</span>
+<span class="comment">%    qWpts  - Points in the world in homogeneous form.</span>
+<span class="comment">%    psi    - psi matrix</span>
+<span class="comment">%</span>
+<span class="comment">%  Outputs:</span>
+<span class="comment">%    R_CW      - The rotation of the camera frame relative to the world frame.</span>
+<span class="comment">%    T_CW      - The translation of the camera frame relative to the world frame.</span>
+<span class="comment">%</span>
+<span class="comment">%============================= extrinsicCalib ============================</span>
+<span class="keyword">function</span> [R_CW, T_CW] = extrinsicCalib(rp, qWpts, psi)
+
+<span class="comment">% Convert image pts (in pixels) to rays (in world length units)</span>
+sz = size(qWpts);
+masterMatrix = zeros(2*sz(2),12);
+
+<span class="keyword">for</span> index = 1:sz(2)
+    rmat = makeRMat(rp(:,index));
+    Qmat = makeQMat(qWpts(:,index));
+    mat = rmat * Qmat;
+    index2 = 2*index;
+    masterMatrix(index2:index2 + 1,:) = mat(1:2,:);
+<span class="keyword">end</span>
+
+<span class="comment">% % Run for each column in rp and qWpts to construct 12 x 12 matrix.</span>
+<span class="comment">% for i = 1:size(rp,2)</span>
+<span class="comment">% end</span>
+
+<span class="comment">% Perform SVD and reconstruct extrinsic parameters (scale by nth root of det)</span>
+
+[UU SS VV] = svd(masterMatrix);
+szvv = size(VV);
+M = VV(:,szvv(2));
+M = (reshape(M, 4, 3))';
+
+G_CW = inv(psi(1:3,1:3)) * M;
+
+R_CW = G_CW(1:3,1:3);
+T_CW = G_CW(1:3,end);
+
+<span class="keyword">end</span>
+
+
+<span class="comment">%=============================== makeRMat ==============================</span>
+<span class="comment">%</span>
+<span class="comment">%  function mat = makeRMat(vector)</span>
+<span class="comment">%</span>
+<span class="comment">%</span>
+<span class="comment">%  INPUT:</span>
+<span class="comment">%    vector - 3 x 1 vector</span>
+<span class="comment">%</span>
+<span class="comment">%=============================== makeRMat ==============================</span>
+<span class="keyword">function</span> mat = makeRMat(vector)
+mat = [0, vector(3), -vector(2); -vector(3), 0, vector(1); vector(2), -vector(1), 0];
+<span class="keyword">end</span>
+
+
+<span class="comment">%=============================== makeQMat ==============================</span>
+<span class="comment">%</span>
+<span class="comment">%  function mat = makeQMat(vector)</span>
+<span class="comment">%</span>
+<span class="comment">%</span>
+<span class="comment">%  INPUT:</span>
+<span class="comment">%    vector - 4 x 1 vector</span>
+<span class="comment">%</span>
+<span class="comment">%=============================== makeQMat ==============================</span>
+<span class="keyword">function</span> mat = makeQMat(qPts)
+mat = [qPts',zeros(1,8); zeros(1,4), qPts', zeros(1,4);zeros(1,8), qPts'];
+<span class="keyword">end</span>
+</pre><pre class="codeoutput">1) R, T pairs for each camera, with respect to the world frame
+Left camera R with respect to world frame:
+   -0.5632    0.8209   -0.1026
+    0.2305    0.2799    0.9365
+    0.7827    0.5062   -0.3482
+
+Left camera T with respect to world frame:
+   -3.1524
+   -5.5655
+    4.0902
+
+Right camera R with respect to world frame:
+    0.0069    0.9341   -0.3888
+    0.0470    0.3825    0.9309
+    0.9795   -0.0147   -0.0546
+
+Right camera T with respect to world frame:
+   -1.3297
+   -6.6396
+    4.7487
+
+2) R, T pair for the right camera relative to the left camera
+Right camera R with respect to left camera frame
+    0.7932    0.1864   -0.5895
+   -0.0973    0.9765    0.1892
+    0.5879   -0.0817    0.7989
+
+Right camera T with respect to left camera frame
+    1.9397
+   -0.1099
+    0.5357
+
+</pre><p class="footer"><br><a href="http://www.mathworks.com/products/matlab/">Published with MATLAB&reg; R2016b</a><br></p></div><!--
+##### SOURCE BEGIN #####
+%==========================
+%  Name:		hw5_1.m
+%
+%  Author:		Kairi Kozuma
+%
+%==========================
+
+% Points in the world
+qWpts = [2,8,3,4,6,5,5;7,6,2,8,8,5,4;5,4,4,4,2,2,2;1,1,1,1,1,1,1];
+
+% Left camera points
+rpL = [384,189,22,358,313,215,165;137,169,287,172,243,298,316;1,1,1,1,1,1,1];
+
+% Right camera points
+rpR = [579,433,253,597,580,457,408;178,250,375,220,309,379,399;1,1,1,1,1,1,1];
+
+% psi matrix
+psi = [500,0,320;0,-500,240;0,0,1];
+psi = [psi,zeros(3,1)];
+
+% 1) R, T pairs for each camera, with respect to the world frame
+disp('1) R, T pairs for each camera, with respect to the world frame');
+[R_LW, T_LW] = extrinsicCalib(rpL, qWpts, psi);
+[R_RW, T_RW] = extrinsicCalib(rpR, qWpts, psi);
+
+disp('Left camera R with respect to world frame:');
+scaleL = nthroot(det(R_LW),3);
+R_LW = R_LW ./ scaleL;
+disp(R_LW);
+
+disp('Left camera T with respect to world frame:');
+T_LW = T_LW ./ scaleL;
+disp(T_LW);
+
+disp('Right camera R with respect to world frame:');
+scaleR = nthroot(det(R_RW),3);
+R_RW = R_RW ./ scaleR;
+disp(R_RW);
+
+disp('Right camera T with respect to world frame:');
+T_RW = T_RW ./ scaleR;
+disp(T_RW);
+
+% Check if transformation matrix is correct
+G_LW = [R_LW, T_LW; 0,0,0,1];
+G_RW = [R_RW, T_RW; 0,0,0,1];
+
+% rpL2 = psi * G_LW * qWpts;  
+% rpL2 = round(rpL2 ./ rpL2(3,:));
+% disp(rpL);
+% disp(rpL2);
+% rpR2 = psi * G_RW * qWpts;
+% rpR2 = round(rpR2 ./ rpR2(3,:));
+% disp(rpR);
+% disp(rpR2);
+
+% 2) R, T pair for the right camera relative to the left camera
+disp('2) R, T pair for the right camera relative to the left camera');
+
+% Obtain G_LR
+G_LR = G_LW * inv(G_RW);
+
+% Extract R and T
+R_LR = G_LR(1:3,1:3);
+T_LR = G_LR(1:3,end);
+
+disp('Right camera R with respect to left camera frame');
+disp(R_LR);
+
+disp('Right camera T with respect to left camera frame');
+disp(T_LR);
+
+%============================= extrinsicCalib ============================
+%
+%
+%  Given a set of image points plus the world coordinates that they came
+%  from, and thirdly the intrinsic camera matrix, solve for the extrinsic
+%  parameters associated to the camera rig.
+%
+%
+%  function [R_CW, T_CW] = extrinsicCalib(rp, qWpts, psi) 
+%
+%  Inputs:
+%    rp     - Points in the image as homogeneous rays.
+%    qWpts  - Points in the world in homogeneous form.
+%    psi    - psi matrix
+%
+%  Outputs:
+%    R_CW      - The rotation of the camera frame relative to the world frame.
+%    T_CW      - The translation of the camera frame relative to the world frame.
+%
+%============================= extrinsicCalib ============================
+function [R_CW, T_CW] = extrinsicCalib(rp, qWpts, psi)
+
+% Convert image pts (in pixels) to rays (in world length units)
+sz = size(qWpts);
+masterMatrix = zeros(2*sz(2),12);
+
+for index = 1:sz(2)
+    rmat = makeRMat(rp(:,index));
+    Qmat = makeQMat(qWpts(:,index));
+    mat = rmat * Qmat;
+    index2 = 2*index;
+    masterMatrix(index2:index2 + 1,:) = mat(1:2,:);
+end
+
+% % Run for each column in rp and qWpts to construct 12 x 12 matrix.
+% for i = 1:size(rp,2)
+% end
+
+% Perform SVD and reconstruct extrinsic parameters (scale by nth root of det)
+
+[UU SS VV] = svd(masterMatrix);
+szvv = size(VV);
+M = VV(:,szvv(2));
+M = (reshape(M, 4, 3))';
+
+G_CW = inv(psi(1:3,1:3)) * M;
+
+R_CW = G_CW(1:3,1:3);
+T_CW = G_CW(1:3,end);
+
+end
+
+
+%=============================== makeRMat ==============================
+%
+%  function mat = makeRMat(vector)
+%
+%
+%  INPUT:
+%    vector - 3 x 1 vector
+%
+%=============================== makeRMat ==============================
+function mat = makeRMat(vector)
+mat = [0, vector(3), -vector(2); -vector(3), 0, vector(1); vector(2), -vector(1), 0];
+end
+
+
+%=============================== makeQMat ==============================
+%
+%  function mat = makeQMat(vector)
+%
+%
+%  INPUT:
+%    vector - 4 x 1 vector
+%
+%=============================== makeQMat ==============================
+function mat = makeQMat(qPts)
+mat = [qPts',zeros(1,8); zeros(1,4), qPts', zeros(1,4);zeros(1,8), qPts'];
+end
+##### SOURCE END #####
+--></body></html>

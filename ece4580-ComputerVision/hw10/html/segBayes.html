@@ -1,0 +1,447 @@
+
+<!DOCTYPE html
+  PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html><head>
+      <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+   <!--
+This HTML was auto-generated from MATLAB code.
+To make changes, update the MATLAB code and republish this document.
+      --><title>segBayes</title><meta name="generator" content="MATLAB 9.0"><link rel="schema.DC" href="http://purl.org/dc/elements/1.1/"><meta name="DC.date" content="2017-04-10"><meta name="DC.source" content="segBayes.m"><style type="text/css">
+html,body,div,span,applet,object,iframe,h1,h2,h3,h4,h5,h6,p,blockquote,pre,a,abbr,acronym,address,big,cite,code,del,dfn,em,font,img,ins,kbd,q,s,samp,small,strike,strong,sub,sup,tt,var,b,u,i,center,dl,dt,dd,ol,ul,li,fieldset,form,label,legend,table,caption,tbody,tfoot,thead,tr,th,td{margin:0;padding:0;border:0;outline:0;font-size:100%;vertical-align:baseline;background:transparent}body{line-height:1}ol,ul{list-style:none}blockquote,q{quotes:none}blockquote:before,blockquote:after,q:before,q:after{content:'';content:none}:focus{outine:0}ins{text-decoration:none}del{text-decoration:line-through}table{border-collapse:collapse;border-spacing:0}
+
+html { min-height:100%; margin-bottom:1px; }
+html body { height:100%; margin:0px; font-family:Arial, Helvetica, sans-serif; font-size:10px; color:#000; line-height:140%; background:#fff none; overflow-y:scroll; }
+html body td { vertical-align:top; text-align:left; }
+
+h1 { padding:0px; margin:0px 0px 25px; font-family:Arial, Helvetica, sans-serif; font-size:1.5em; color:#d55000; line-height:100%; font-weight:normal; }
+h2 { padding:0px; margin:0px 0px 8px; font-family:Arial, Helvetica, sans-serif; font-size:1.2em; color:#000; font-weight:bold; line-height:140%; border-bottom:1px solid #d6d4d4; display:block; }
+h3 { padding:0px; margin:0px 0px 5px; font-family:Arial, Helvetica, sans-serif; font-size:1.1em; color:#000; font-weight:bold; line-height:140%; }
+
+a { color:#005fce; text-decoration:none; }
+a:hover { color:#005fce; text-decoration:underline; }
+a:visited { color:#004aa0; text-decoration:none; }
+
+p { padding:0px; margin:0px 0px 20px; }
+img { padding:0px; margin:0px 0px 20px; border:none; }
+p img, pre img, tt img, li img, h1 img, h2 img { margin-bottom:0px; } 
+
+ul { padding:0px; margin:0px 0px 20px 23px; list-style:square; }
+ul li { padding:0px; margin:0px 0px 7px 0px; }
+ul li ul { padding:5px 0px 0px; margin:0px 0px 7px 23px; }
+ul li ol li { list-style:decimal; }
+ol { padding:0px; margin:0px 0px 20px 0px; list-style:decimal; }
+ol li { padding:0px; margin:0px 0px 7px 23px; list-style-type:decimal; }
+ol li ol { padding:5px 0px 0px; margin:0px 0px 7px 0px; }
+ol li ol li { list-style-type:lower-alpha; }
+ol li ul { padding-top:7px; }
+ol li ul li { list-style:square; }
+
+.content { font-size:1.2em; line-height:140%; padding: 20px; }
+
+pre, code { font-size:12px; }
+tt { font-size: 1.2em; }
+pre { margin:0px 0px 20px; }
+pre.codeinput { padding:10px; border:1px solid #d3d3d3; background:#f7f7f7; }
+pre.codeoutput { padding:10px 11px; margin:0px 0px 20px; color:#4c4c4c; }
+pre.error { color:red; }
+
+@media print { pre.codeinput, pre.codeoutput { word-wrap:break-word; width:100%; } }
+
+span.keyword { color:#0000FF }
+span.comment { color:#228B22 }
+span.string { color:#A020F0 }
+span.untermstring { color:#B20000 }
+span.syscmd { color:#B28C00 }
+
+.footer { width:auto; padding:10px 0px; margin:25px 0px 0px; border-top:1px dotted #878787; font-size:0.8em; line-height:140%; font-style:italic; color:#878787; text-align:left; float:none; }
+.footer p { margin:0px; }
+.footer a { color:#878787; }
+.footer a:hover { color:#878787; text-decoration:underline; }
+.footer a:visited { color:#878787; }
+
+table th { padding:7px 5px; text-align:left; vertical-align:middle; border: 1px solid #d6d4d4; font-weight:bold; }
+table td { padding:7px 5px; text-align:left; vertical-align:top; border:1px solid #d6d4d4; }
+
+
+
+
+
+  </style></head><body><div class="content"><pre class="codeinput"><span class="comment">%================================ segBayes ===============================</span>
+<span class="comment">%</span>
+<span class="comment">%  function [J, K, means] = segBayes(I, iter, means, stdvs)</span>
+<span class="comment">%</span>
+<span class="comment">%  Perform Bayesian segmentation on the image I.</span>
+<span class="comment">%</span>
+<span class="comment">%  Input:</span>
+<span class="comment">%    I		- image I.</span>
+<span class="comment">%    iter	- the number of iterations. if negative, then go to convergence.</span>
+<span class="comment">%    means	- initial guess at means (column-wise).</span>
+<span class="comment">%    stdvs	- optional input of standard deviations.</span>
+<span class="comment">%             can be scalar for all means to use, or can be a unique</span>
+<span class="comment">%             value for each mean value.</span>
+<span class="comment">%</span>
+<span class="comment">%  Output:</span>
+<span class="comment">%    J		- the segmentation map.</span>
+<span class="comment">%    K		- the simplified image using the means and the segmentation.</span>
+<span class="comment">%    means	- the Gaussian means for each class.</span>
+<span class="comment">%    stdvs	- the Gaussian standard deviations for each class.</span>
+<span class="comment">%    iter	- number of iterations (if &lt; 0, then to convergence).</span>
+<span class="comment">%</span>
+<span class="comment">%================================ segBayes ===============================</span>
+<span class="keyword">function</span> [J, K, means] = segBayes(I, iter, means, stdvs)
+
+<span class="comment">%--[0] Parse the input arguments, set to defaults if needed.</span>
+<span class="keyword">if</span> (nargout == 0)       <span class="comment">% If nothing expected, then don't bother</span>
+  <span class="keyword">return</span>;               <span class="comment">%   doing the computations.</span>
+<span class="keyword">end</span>
+
+<span class="keyword">if</span> (nargin &lt; 4)         <span class="comment">% If first three not given, can't do much.</span>
+  disp(<span class="string">'ERROR: Need at least the first three arguments'</span>);
+  error(<span class="string">'BadArgs'</span>);
+<span class="keyword">end</span>
+
+<span class="keyword">if</span> (isempty(iter))				<span class="comment">% If iterations not given,</span>
+  iter = -1;					<span class="comment">%  then go to convergence.</span>
+<span class="keyword">end</span>
+
+<span class="keyword">if</span> ((nargin &lt; 4) || isempty(stdvs))		<span class="comment">% If no argument or if empty.</span>
+  stdvs = 1;
+<span class="keyword">end</span>
+
+<span class="keyword">if</span> (isscalar(stdvs))					<span class="comment">% If scalar, vectorize.</span>
+  stdvs = repmat(stdvs, [1, size(means, 2)]);
+<span class="keyword">end</span>
+
+<span class="comment">%--[1] Prep workspace and variables.</span>
+[M, N] = size(I);               <span class="comment">% Get problem dimensions.</span>
+P = length(means);
+
+                        		<span class="comment">% Homogeneous priors.</span>
+priors = reshape(ones([M*N,P])*diag(ones(P,1)/P), [M, N, P]);
+image  = I(:,:,ones(P,1));		<span class="comment">% Duplicate image I for quick evaluation.</span>
+
+								<span class="comment">% Init. space for (posterior) probabilities.</span>
+post   = reshape(ones([M*N,P])*diag(ones(P,1)/P), [M, N, P]);
+
+<span class="comment">%--[2] Setup, then perform the segmentation iterations.</span>
+hasConverged = false;
+oJ = zeros([M, N]);
+mold = means;
+
+<span class="keyword">while</span> ( ((iter &lt; 0) &amp;&amp; (~hasConverged)) || ( iter &gt; 0) )
+
+  <span class="comment">% YOUR CODE HERE.</span>
+  <span class="comment">% Steps:</span>
+  <span class="comment">%  (1) Calculate likelihoods using normal distribution.</span>
+  post = compLikelihoods();
+
+  <span class="comment">%  (2) Multiply by priors to generate posterior "probs".</span>
+  post = post .* priors;
+
+  <span class="comment">%  (3) Normalize posteriors.</span>
+  normalizeProb();
+
+  <span class="comment">%  (4) Smooth posteriors (use heat/diffusion or Gaussian smoothing).</span>
+  post = smoothProb(post);
+
+  <span class="comment">%  (5) Normalize smoothed posteriors.</span>
+  normalizeProb();
+
+  <span class="comment">%  (6) Find maximum posterior for classification/segmentation.</span>
+  [val, J] = max(post,[],3);
+
+  <span class="comment">%  (7) Update means.</span>
+  compMeans();
+
+  <span class="comment">%  (8) Set priors to be posteriors.</span>
+  priors = post;
+
+  <span class="comment">%  (8) Termination conditions and loop update.</span>
+  <span class="keyword">if</span> all(mold==means)				<span class="comment">% All new means equal to old means.</span>
+    hasConverged = true;
+  <span class="keyword">elseif</span> all(oJ(:) == J(:))			<span class="comment">% Old segmentation equals new segmentation.</span>
+    hasConverged = true;
+  <span class="keyword">end</span>
+
+  <span class="keyword">if</span> (iter &gt; 0)
+    iter = iter - 1;
+  <span class="keyword">end</span>
+
+<span class="keyword">end</span>
+
+ncov = stdvs .^ 2;
+<span class="keyword">if</span> (nargout &gt;= 2)
+  K = J;
+  means = means .* ncov;
+  <span class="keyword">for</span> i=1:size(means,2)
+      K(J == i) = means(i);
+  <span class="keyword">end</span>
+<span class="keyword">end</span>
+
+<span class="comment">%</span>
+<span class="comment">%============================ Helper Functions ===========================</span>
+<span class="comment">%</span>
+<span class="comment">%  These functions live within the scope of the segBayes function.</span>
+<span class="comment">%  What that means is that they can be invoked from the loop above</span>
+<span class="comment">%  and they will have access to the variables above (think of them</span>
+<span class="comment">%  as global variables in some sense).  Using functions within a</span>
+<span class="comment">%  function is a clean way to do complex thing but have the main</span>
+<span class="comment">%  code of the function look nice and clean.</span>
+<span class="comment">%</span>
+
+  <span class="comment">%-------------------------- compLikelihoods --------------------------</span>
+  <span class="comment">%</span>
+  <span class="comment">%  Computes the likelihoods for Bayesian inference.</span>
+  <span class="comment">%</span>
+  <span class="keyword">function</span> likelies = compLikelihoods
+
+  likelies = zeros([M, N, P]);		<span class="comment">% Initialize.</span>
+  <span class="keyword">for</span> li = 1:P
+    likelies(:,:,li) = normpdf(I,repmat(means(li),M,N),repmat(stdvs(li),M,N)); <span class="comment">%TODO</span>
+  <span class="keyword">end</span>
+
+  <span class="keyword">end</span>
+  <span class="comment">%----------------------------- smoothProb ----------------------------</span>
+  <span class="comment">%</span>
+  <span class="comment">%  Smooth the probabilities as part of the optimization step in Bayesian</span>
+  <span class="comment">%  segmentation.  You can invoke whatever function you would like here.</span>
+  <span class="comment">%  If you have seprate code to do that, just insert the function call here</span>
+  <span class="comment">%  with all of the parameters set properly.</span>
+  <span class="comment">%</span>
+  <span class="comment">%  This function can either smooth each individual probability field (for</span>
+  <span class="comment">%  each of the classes), or smooth all of them at once.  It is up to you</span>
+  <span class="comment">%  to decide that part and code things appropriately above.</span>
+  <span class="comment">%</span>
+  <span class="keyword">function</span> iprob = smoothProb(iprob)
+
+  <span class="comment">% Invoke your favorite smoother here to smooth the probabilities.</span>
+  sigma = 0.5;
+  iprob = imgaussfilt(iprob, sigma);
+
+  <span class="keyword">end</span>
+
+  <span class="comment">%--------------------------- normalizeProbs --------------------------</span>
+  <span class="comment">%</span>
+  <span class="comment">%  Normalize the posterior probabilities.</span>
+  <span class="comment">%</span>
+  <span class="keyword">function</span> normalizeProb
+
+  tmp  = sum(post,3) + eps;     <span class="comment">% Compute sum.  Add epsilon to avoid divide</span>
+                                <span class="comment">%  by zero.</span>
+  tmp  = tmp(:,:,ones(P,1));
+  post = post./tmp;             <span class="comment">% Divide by sum (plus epsilon).</span>
+
+  <span class="keyword">end</span>
+
+  <span class="comment">%----------------------------- compMeans -----------------------------</span>
+  <span class="comment">%</span>
+  <span class="comment">%  Given the segmentation, compute the class means.  The mean should</span>
+  <span class="comment">%  be updated only if there is more than 1 pixel in the class.</span>
+  <span class="comment">%</span>
+  <span class="keyword">function</span> compMeans
+  <span class="keyword">for</span> mi=1:length(means)				<span class="comment">% For each class label ...</span>
+    pts_in_layer = sum(sum(J == mi));
+    <span class="keyword">if</span> (pts_in_layer &gt; 0)
+        means(mi) = sum(I(J == mi)) ./ pts_in_layer;
+    <span class="keyword">else</span>
+        means(mi) = 0;
+    <span class="keyword">end</span>
+  <span class="keyword">end</span>
+  <span class="keyword">end</span>
+
+<span class="keyword">end</span>
+
+<span class="comment">%</span>
+<span class="comment">%================================ segBayes ===============================</span>
+</pre><p class="footer"><br><a href="http://www.mathworks.com/products/matlab/">Published with MATLAB&reg; R2016a</a><br></p></div><!--
+##### SOURCE BEGIN #####
+%================================ segBayes ===============================
+%
+%  function [J, K, means] = segBayes(I, iter, means, stdvs)
+%
+%  Perform Bayesian segmentation on the image I.
+%
+%  Input:
+%    I		- image I.
+%    iter	- the number of iterations. if negative, then go to convergence.
+%    means	- initial guess at means (column-wise).
+%    stdvs	- optional input of standard deviations.
+%             can be scalar for all means to use, or can be a unique
+%             value for each mean value.
+%
+%  Output:
+%    J		- the segmentation map.
+%    K		- the simplified image using the means and the segmentation.
+%    means	- the Gaussian means for each class.
+%    stdvs	- the Gaussian standard deviations for each class.
+%    iter	- number of iterations (if < 0, then to convergence).
+%
+%================================ segBayes ===============================
+function [J, K, means] = segBayes(I, iter, means, stdvs)
+
+%REPLACE_WITH_DASH_DASH[0] Parse the input arguments, set to defaults if needed.
+if (nargout == 0)       % If nothing expected, then don't bother
+  return;               %   doing the computations.
+end
+
+if (nargin < 4)         % If first three not given, can't do much.
+  disp('ERROR: Need at least the first three arguments');
+  error('BadArgs');
+end
+
+if (isempty(iter))				% If iterations not given,
+  iter = -1;					%  then go to convergence.
+end
+
+if ((nargin < 4) || isempty(stdvs))		% If no argument or if empty.
+  stdvs = 1;
+end
+
+if (isscalar(stdvs))					% If scalar, vectorize.
+  stdvs = repmat(stdvs, [1, size(means, 2)]);
+end
+
+%REPLACE_WITH_DASH_DASH[1] Prep workspace and variables.
+[M, N] = size(I);               % Get problem dimensions.
+P = length(means);
+
+                        		% Homogeneous priors.
+priors = reshape(ones([M*N,P])*diag(ones(P,1)/P), [M, N, P]);
+image  = I(:,:,ones(P,1));		% Duplicate image I for quick evaluation.
+
+								% Init. space for (posterior) probabilities.
+post   = reshape(ones([M*N,P])*diag(ones(P,1)/P), [M, N, P]);
+
+%REPLACE_WITH_DASH_DASH[2] Setup, then perform the segmentation iterations.
+hasConverged = false;
+oJ = zeros([M, N]);
+mold = means;
+
+while ( ((iter < 0) && (~hasConverged)) || ( iter > 0) )
+
+  % YOUR CODE HERE.
+  % Steps:
+  %  (1) Calculate likelihoods using normal distribution.
+  post = compLikelihoods();
+  
+  %  (2) Multiply by priors to generate posterior "probs".
+  post = post .* priors;
+
+  %  (3) Normalize posteriors.
+  normalizeProb();
+
+  %  (4) Smooth posteriors (use heat/diffusion or Gaussian smoothing).
+  post = smoothProb(post);
+  
+  %  (5) Normalize smoothed posteriors.
+  normalizeProb();
+
+  %  (6) Find maximum posterior for classification/segmentation.
+  [val, J] = max(post,[],3);
+  
+  %  (7) Update means.
+  compMeans();
+  
+  %  (8) Set priors to be posteriors.
+  priors = post;
+
+  %  (8) Termination conditions and loop update.
+  if all(mold==means)				% All new means equal to old means.
+    hasConverged = true;
+  elseif all(oJ(:) == J(:))			% Old segmentation equals new segmentation.
+    hasConverged = true;
+  end
+
+  if (iter > 0)
+    iter = iter - 1;
+  end
+
+end
+
+ncov = stdvs .^ 2;
+if (nargout >= 2)
+  K = J;
+  means = means .* ncov;
+  for i=1:size(means,2)
+      K(J == i) = means(i);
+  end
+end
+
+%
+%============================ Helper Functions ===========================
+%
+%  These functions live within the scope of the segBayes function.
+%  What that means is that they can be invoked from the loop above
+%  and they will have access to the variables above (think of them
+%  as global variables in some sense).  Using functions within a 
+%  function is a clean way to do complex thing but have the main
+%  code of the function look nice and clean.
+%
+
+  %REPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASH compLikelihoods REPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASH
+  %
+  %  Computes the likelihoods for Bayesian inference.
+  %
+  function likelies = compLikelihoods
+
+  likelies = zeros([M, N, P]);		% Initialize.
+  for li = 1:P
+    likelies(:,:,li) = normpdf(I,repmat(means(li),M,N),repmat(stdvs(li),M,N)); %TODO
+  end
+
+  end
+  %REPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASH- smoothProb REPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASH
+  %
+  %  Smooth the probabilities as part of the optimization step in Bayesian
+  %  segmentation.  You can invoke whatever function you would like here.
+  %  If you have seprate code to do that, just insert the function call here
+  %  with all of the parameters set properly.
+  %
+  %  This function can either smooth each individual probability field (for
+  %  each of the classes), or smooth all of them at once.  It is up to you
+  %  to decide that part and code things appropriately above.  
+  %
+  function iprob = smoothProb(iprob)
+
+  % Invoke your favorite smoother here to smooth the probabilities.
+  sigma = 0.5;
+  iprob = imgaussfilt(iprob, sigma);
+
+  end
+
+  %REPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASH- normalizeProbs REPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASH
+  %
+  %  Normalize the posterior probabilities.
+  %
+  function normalizeProb
+
+  tmp  = sum(post,3) + eps;     % Compute sum.  Add epsilon to avoid divide
+                                %  by zero.
+  tmp  = tmp(:,:,ones(P,1));
+  post = post./tmp;             % Divide by sum (plus epsilon).
+
+  end
+
+  %REPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASH- compMeans REPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASH-
+  %
+  %  Given the segmentation, compute the class means.  The mean should
+  %  be updated only if there is more than 1 pixel in the class.
+  %
+  function compMeans
+  for mi=1:length(means)				% For each class label ...
+    pts_in_layer = sum(sum(J == mi));
+    if (pts_in_layer > 0)
+        means(mi) = sum(I(J == mi)) ./ pts_in_layer;
+    else
+        means(mi) = 0;
+    end
+  end
+  end
+
+end
+
+%
+%================================ segBayes ===============================
+
+##### SOURCE END #####
+--></body></html>

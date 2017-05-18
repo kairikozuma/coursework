@@ -1,0 +1,220 @@
+
+<!DOCTYPE html
+  PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html><head>
+      <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+   <!--
+This HTML was auto-generated from MATLAB code.
+To make changes, update the MATLAB code and republish this document.
+      --><title>hw3_3</title><meta name="generator" content="MATLAB 9.1"><link rel="schema.DC" href="http://purl.org/dc/elements/1.1/"><meta name="DC.date" content="2017-02-01"><meta name="DC.source" content="hw3_3.m"><style type="text/css">
+html,body,div,span,applet,object,iframe,h1,h2,h3,h4,h5,h6,p,blockquote,pre,a,abbr,acronym,address,big,cite,code,del,dfn,em,font,img,ins,kbd,q,s,samp,small,strike,strong,sub,sup,tt,var,b,u,i,center,dl,dt,dd,ol,ul,li,fieldset,form,label,legend,table,caption,tbody,tfoot,thead,tr,th,td{margin:0;padding:0;border:0;outline:0;font-size:100%;vertical-align:baseline;background:transparent}body{line-height:1}ol,ul{list-style:none}blockquote,q{quotes:none}blockquote:before,blockquote:after,q:before,q:after{content:'';content:none}:focus{outine:0}ins{text-decoration:none}del{text-decoration:line-through}table{border-collapse:collapse;border-spacing:0}
+
+html { min-height:100%; margin-bottom:1px; }
+html body { height:100%; margin:0px; font-family:Arial, Helvetica, sans-serif; font-size:10px; color:#000; line-height:140%; background:#fff none; overflow-y:scroll; }
+html body td { vertical-align:top; text-align:left; }
+
+h1 { padding:0px; margin:0px 0px 25px; font-family:Arial, Helvetica, sans-serif; font-size:1.5em; color:#d55000; line-height:100%; font-weight:normal; }
+h2 { padding:0px; margin:0px 0px 8px; font-family:Arial, Helvetica, sans-serif; font-size:1.2em; color:#000; font-weight:bold; line-height:140%; border-bottom:1px solid #d6d4d4; display:block; }
+h3 { padding:0px; margin:0px 0px 5px; font-family:Arial, Helvetica, sans-serif; font-size:1.1em; color:#000; font-weight:bold; line-height:140%; }
+
+a { color:#005fce; text-decoration:none; }
+a:hover { color:#005fce; text-decoration:underline; }
+a:visited { color:#004aa0; text-decoration:none; }
+
+p { padding:0px; margin:0px 0px 20px; }
+img { padding:0px; margin:0px 0px 20px; border:none; }
+p img, pre img, tt img, li img, h1 img, h2 img { margin-bottom:0px; } 
+
+ul { padding:0px; margin:0px 0px 20px 23px; list-style:square; }
+ul li { padding:0px; margin:0px 0px 7px 0px; }
+ul li ul { padding:5px 0px 0px; margin:0px 0px 7px 23px; }
+ul li ol li { list-style:decimal; }
+ol { padding:0px; margin:0px 0px 20px 0px; list-style:decimal; }
+ol li { padding:0px; margin:0px 0px 7px 23px; list-style-type:decimal; }
+ol li ol { padding:5px 0px 0px; margin:0px 0px 7px 0px; }
+ol li ol li { list-style-type:lower-alpha; }
+ol li ul { padding-top:7px; }
+ol li ul li { list-style:square; }
+
+.content { font-size:1.2em; line-height:140%; padding: 20px; }
+
+pre, code { font-size:12px; }
+tt { font-size: 1.2em; }
+pre { margin:0px 0px 20px; }
+pre.codeinput { padding:10px; border:1px solid #d3d3d3; background:#f7f7f7; }
+pre.codeoutput { padding:10px 11px; margin:0px 0px 20px; color:#4c4c4c; }
+pre.error { color:red; }
+
+@media print { pre.codeinput, pre.codeoutput { word-wrap:break-word; width:100%; } }
+
+span.keyword { color:#0000FF }
+span.comment { color:#228B22 }
+span.string { color:#A020F0 }
+span.untermstring { color:#B20000 }
+span.syscmd { color:#B28C00 }
+
+.footer { width:auto; padding:10px 0px; margin:25px 0px 0px; border-top:1px dotted #878787; font-size:0.8em; line-height:140%; font-style:italic; color:#878787; text-align:left; float:none; }
+.footer p { margin:0px; }
+.footer a { color:#878787; }
+.footer a:hover { color:#878787; text-decoration:underline; }
+.footer a:visited { color:#878787; }
+
+table th { padding:7px 5px; text-align:left; vertical-align:middle; border: 1px solid #d6d4d4; font-weight:bold; }
+table td { padding:7px 5px; text-align:left; vertical-align:top; border:1px solid #d6d4d4; }
+
+
+
+
+
+  </style></head><body><div class="content"><pre class="codeinput"><span class="comment">%==========================</span>
+<span class="comment">%  Name:		hw3_3.m</span>
+<span class="comment">%</span>
+<span class="comment">%  Author:		Kairi Kozuma</span>
+<span class="comment">%</span>
+<span class="comment">%==========================</span>
+
+<span class="comment">% Transformation matrix</span>
+gWC = [4.32978028117747e-17,0.707106781186548,0.707106781186548,4;-0.866025403784439,0.353553390593274,-0.353553390593274,3;-0.500000000000000,-0.612372435695795,0.612372435695795,2;0,0,0,1];
+p1_C = [24;-9.50000000000000;25];
+p2_W = [12.8926822012171;-78.3963768496259;10.5141258557173];
+psi = [250,0,240;0,250,320;0,0,1];
+r3 = [251;57];
+
+<span class="comment">% a) Give the ray (in camera units/pixels) that the point</span>
+<span class="comment">%    pC1 = (24.0000, ?9.5000, 25.0000)T lies on.</span>
+<span class="comment">%    Also give it as a ray with the last element normalized</span>
+<span class="comment">%    (this would be the actual pixel location in the image that the point</span>
+<span class="comment">%    projects to, modulo the quantization).</span>
+
+    ray1 = psi * p1_C;
+    ray1normalized = ray1(1:2) / ray1(3);
+
+    fprintf(<span class="string">'a1) Ray 1:\n'</span>);
+    disp(ray1);
+
+    fprintf(<span class="string">'a2) Ray 1 normalized:\n'</span>);
+    disp(ray1normalized);
+
+<span class="comment">% b) Give the ray (in camera units/pixels) that the point</span>
+<span class="comment">%    pW2 = (12.8927, ?78.3964, 10.5141)T lies on.</span>
+<span class="comment">%    Please take care that this point is in world coordinates.</span>
+
+    R_WC = gWC(1:3,1:3);
+    T_WC = gWC(1:3,4);
+    gCW = [R_WC',-R_WC'*T_WC;0,0,0,1];
+    gCWp2 = (gCW * [p2_W;1]);
+    ray2 = psi * gCWp2(1:3,:);
+
+    fprintf(<span class="string">'b1) Ray 2:\n'</span>);
+    disp(ceil(ray2));
+
+    ray2normalized = ray2(1:2) / ray2(3);
+
+    fprintf(<span class="string">'b2) Ray 2 normalized:\n'</span>);
+    disp(ceil(ray2normalized));
+
+<span class="comment">% c) Give the ray (in world units) that the image point</span>
+<span class="comment">%    ?r3 = (251.0000, 57.0000)T maps to when back-projecting the pixel</span>
+<span class="comment">%    back out into the world. Back-projection is the partial inversion</span>
+<span class="comment">%    process discussed in class that maps the 2D image point back out</span>
+<span class="comment">%    to a 3D ray. Let the ray be given in camera frame coordinates.</span>
+
+    q3_W = gWC * [inv(psi) * [r3;1];1];
+    p3_W = q3_W(1:3,:);
+
+    fprintf(<span class="string">'c) Back projection of ray 3:\n'</span>);
+    disp(p3_W);
+
+    <span class="comment">% Check that it projects to same ray</span>
+    gCWp3 = (gCW * [p3_W;1]);
+    r3check = psi * gCWp3(1:3,:) / gCWp3(3,1);
+</pre><pre class="codeoutput">a1) Ray 1:
+       12000
+        5625
+          25
+
+a2) Ray 1 normalized:
+   480
+   225
+
+b1) Ray 2:
+       26226
+        5964
+          41
+
+b2) Ray 2 normalized:
+   652
+   149
+
+c) Back projection of ray 3:
+    3.9632
+    2.2364
+    3.2346
+
+</pre><p class="footer"><br><a href="http://www.mathworks.com/products/matlab/">Published with MATLAB&reg; R2016b</a><br></p></div><!--
+##### SOURCE BEGIN #####
+%==========================
+%  Name:		hw3_3.m
+%
+%  Author:		Kairi Kozuma
+%
+%==========================
+
+% Transformation matrix
+gWC = [4.32978028117747e-17,0.707106781186548,0.707106781186548,4;-0.866025403784439,0.353553390593274,-0.353553390593274,3;-0.500000000000000,-0.612372435695795,0.612372435695795,2;0,0,0,1];
+p1_C = [24;-9.50000000000000;25];
+p2_W = [12.8926822012171;-78.3963768496259;10.5141258557173];
+psi = [250,0,240;0,250,320;0,0,1];
+r3 = [251;57];
+ 
+% a) Give the ray (in camera units/pixels) that the point 
+%    pC1 = (24.0000, ?9.5000, 25.0000)T lies on. 
+%    Also give it as a ray with the last element normalized 
+%    (this would be the actual pixel location in the image that the point 
+%    projects to, modulo the quantization).
+
+    ray1 = psi * p1_C;
+    ray1normalized = ray1(1:2) / ray1(3);
+
+    fprintf('a1) Ray 1:\n');
+    disp(ray1);
+    
+    fprintf('a2) Ray 1 normalized:\n');
+    disp(ray1normalized);
+        
+% b) Give the ray (in camera units/pixels) that the point 
+%    pW2 = (12.8927, ?78.3964, 10.5141)T lies on. 
+%    Please take care that this point is in world coordinates.
+    
+    R_WC = gWC(1:3,1:3); 
+    T_WC = gWC(1:3,4);
+    gCW = [R_WC',-R_WC'*T_WC;0,0,0,1];
+    gCWp2 = (gCW * [p2_W;1]);
+    ray2 = psi * gCWp2(1:3,:);
+    
+    fprintf('b1) Ray 2:\n');
+    disp(ceil(ray2));
+    
+    ray2normalized = ray2(1:2) / ray2(3);
+    
+    fprintf('b2) Ray 2 normalized:\n');
+    disp(ceil(ray2normalized));
+    
+% c) Give the ray (in world units) that the image point 
+%    ?r3 = (251.0000, 57.0000)T maps to when back-projecting the pixel 
+%    back out into the world. Back-projection is the partial inversion 
+%    process discussed in class that maps the 2D image point back out
+%    to a 3D ray. Let the ray be given in camera frame coordinates. 
+    
+    q3_W = gWC * [inv(psi) * [r3;1];1]; 
+    p3_W = q3_W(1:3,:);
+    
+    fprintf('c) Back projection of ray 3:\n');
+    disp(p3_W);
+    
+    % Check that it projects to same ray
+    gCWp3 = (gCW * [p3_W;1]);
+    r3check = psi * gCWp3(1:3,:) / gCWp3(3,1);
+    
+##### SOURCE END #####
+--></body></html>

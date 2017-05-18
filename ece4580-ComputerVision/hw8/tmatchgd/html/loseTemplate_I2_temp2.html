@@ -1,0 +1,202 @@
+
+<!DOCTYPE html
+  PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html><head>
+      <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+   <!--
+This HTML was auto-generated from MATLAB code.
+To make changes, update the MATLAB code and republish this document.
+      --><title>loseTemplate_I2_temp2</title><meta name="generator" content="MATLAB 9.1"><link rel="schema.DC" href="http://purl.org/dc/elements/1.1/"><meta name="DC.date" content="2017-03-16"><meta name="DC.source" content="loseTemplate_I2_temp2.m"><style type="text/css">
+html,body,div,span,applet,object,iframe,h1,h2,h3,h4,h5,h6,p,blockquote,pre,a,abbr,acronym,address,big,cite,code,del,dfn,em,font,img,ins,kbd,q,s,samp,small,strike,strong,sub,sup,tt,var,b,u,i,center,dl,dt,dd,ol,ul,li,fieldset,form,label,legend,table,caption,tbody,tfoot,thead,tr,th,td{margin:0;padding:0;border:0;outline:0;font-size:100%;vertical-align:baseline;background:transparent}body{line-height:1}ol,ul{list-style:none}blockquote,q{quotes:none}blockquote:before,blockquote:after,q:before,q:after{content:'';content:none}:focus{outine:0}ins{text-decoration:none}del{text-decoration:line-through}table{border-collapse:collapse;border-spacing:0}
+
+html { min-height:100%; margin-bottom:1px; }
+html body { height:100%; margin:0px; font-family:Arial, Helvetica, sans-serif; font-size:10px; color:#000; line-height:140%; background:#fff none; overflow-y:scroll; }
+html body td { vertical-align:top; text-align:left; }
+
+h1 { padding:0px; margin:0px 0px 25px; font-family:Arial, Helvetica, sans-serif; font-size:1.5em; color:#d55000; line-height:100%; font-weight:normal; }
+h2 { padding:0px; margin:0px 0px 8px; font-family:Arial, Helvetica, sans-serif; font-size:1.2em; color:#000; font-weight:bold; line-height:140%; border-bottom:1px solid #d6d4d4; display:block; }
+h3 { padding:0px; margin:0px 0px 5px; font-family:Arial, Helvetica, sans-serif; font-size:1.1em; color:#000; font-weight:bold; line-height:140%; }
+
+a { color:#005fce; text-decoration:none; }
+a:hover { color:#005fce; text-decoration:underline; }
+a:visited { color:#004aa0; text-decoration:none; }
+
+p { padding:0px; margin:0px 0px 20px; }
+img { padding:0px; margin:0px 0px 20px; border:none; }
+p img, pre img, tt img, li img, h1 img, h2 img { margin-bottom:0px; } 
+
+ul { padding:0px; margin:0px 0px 20px 23px; list-style:square; }
+ul li { padding:0px; margin:0px 0px 7px 0px; }
+ul li ul { padding:5px 0px 0px; margin:0px 0px 7px 23px; }
+ul li ol li { list-style:decimal; }
+ol { padding:0px; margin:0px 0px 20px 0px; list-style:decimal; }
+ol li { padding:0px; margin:0px 0px 7px 23px; list-style-type:decimal; }
+ol li ol { padding:5px 0px 0px; margin:0px 0px 7px 0px; }
+ol li ol li { list-style-type:lower-alpha; }
+ol li ul { padding-top:7px; }
+ol li ul li { list-style:square; }
+
+.content { font-size:1.2em; line-height:140%; padding: 20px; }
+
+pre, code { font-size:12px; }
+tt { font-size: 1.2em; }
+pre { margin:0px 0px 20px; }
+pre.codeinput { padding:10px; border:1px solid #d3d3d3; background:#f7f7f7; }
+pre.codeoutput { padding:10px 11px; margin:0px 0px 20px; color:#4c4c4c; }
+pre.error { color:red; }
+
+@media print { pre.codeinput, pre.codeoutput { word-wrap:break-word; width:100%; } }
+
+span.keyword { color:#0000FF }
+span.comment { color:#228B22 }
+span.string { color:#A020F0 }
+span.untermstring { color:#B20000 }
+span.syscmd { color:#B28C00 }
+
+.footer { width:auto; padding:10px 0px; margin:25px 0px 0px; border-top:1px dotted #878787; font-size:0.8em; line-height:140%; font-style:italic; color:#878787; text-align:left; float:none; }
+.footer p { margin:0px; }
+.footer a { color:#878787; }
+.footer a:hover { color:#878787; text-decoration:underline; }
+.footer a:visited { color:#878787; }
+
+table th { padding:7px 5px; text-align:left; vertical-align:middle; border: 1px solid #d6d4d4; font-weight:bold; }
+table td { padding:7px 5px; text-align:left; vertical-align:top; border:1px solid #d6d4d4; }
+
+
+
+
+
+  </style></head><body><div class="content"><pre class="codeinput"><span class="comment">%============================== findTemplate =============================</span>
+<span class="comment">%</span>
+<span class="comment">%  A script to find the location of a template object within a given image</span>
+<span class="comment">%  when some approxiamte location is known.</span>
+<span class="comment">%</span>
+<span class="comment">%============================== findTemplate =============================</span>
+
+
+<span class="comment">%==[1] Perform a little smoothing of the image to aid the gradient descent.</span>
+<span class="comment">%		It is good to also smooth the template a little bit.  The image</span>
+<span class="comment">%		should be smoothed noticeably, while the template just a bit.</span>
+<span class="comment">%</span>
+
+<span class="comment">% Choose template and image</span>
+I = I2;
+t = temp2;
+pos = [580,790];					<span class="comment">% Initial guess of position.</span>
+
+tI = imgaussfilt(t,2);	<span class="comment">% Filter template a little bit.</span>
+fI = imgaussfilt(I,5);	<span class="comment">% Filter image some.</span>
+
+tnsq = sqrt(sumsqr(tI));			<span class="comment">% Compute "magnitude" of the template.</span>
+									<span class="comment">% Useful to incorporate into c.</span>
+
+c = 1/(30*tnsq);							<span class="comment">% Step adjustment factor.</span>
+
+nsteps = 200;						<span class="comment">% Number of steps in the gradient descent.</span>
+
+I_name = <span class="string">'I2'</span>;
+t_name = <span class="string">'temp2'</span>;
+fprintf(<span class="string">'Image: %s\n'</span>,I_name);
+fprintf(<span class="string">'Template: %s\n'</span>,t_name);
+fprintf(<span class="string">'Parameters:\n'</span>);
+fprintf(<span class="string">'(c=%f,nsteps=%d,pos=[%d,%d])\n'</span>,c,nsteps,pos(1),pos(2));
+
+<span class="comment">%==[2] Plot the template and the image.</span>
+
+figure(3);
+  imshow(tI);
+  title(sprintf(<span class="string">'Template:%s'</span>, t_name));
+  hold <span class="string">on</span>;
+  plot( size(tI,2)/2, size(tI,1)/2, <span class="string">'r+'</span>);
+  hold <span class="string">off</span>;
+  <span class="comment">% Placed a plus at the template center.</span>
+
+figure(2);
+  imagesc(I);
+  colormap(<span class="string">'Gray'</span>);
+  title(sprintf(<span class="string">'Image:%s'</span>,I_name));
+  hold <span class="string">on</span>;
+  plot(pos(1), pos(2), <span class="string">'go'</span>);
+
+<span class="keyword">for</span> ii=1:nsteps
+  dpos = gradTempMatch(double(tI), double(fI), pos);
+  pos = pos - c.*dpos';
+  plot(pos(1), pos(2), <span class="string">'r.'</span>);
+  drawnow;
+<span class="keyword">end</span>
+
+plot(pos(1), pos(2), <span class="string">'rx'</span>);
+
+fprintf(<span class="string">'Final Point:[%f,%f]\n'</span>,pos(1),pos(2));
+</pre><pre class="codeoutput">Image: I2
+Template: temp2
+Parameters:
+(c=0.000024,nsteps=200,pos=[580,790])
+Final Point:[564.441330,701.957442]
+</pre><img vspace="5" hspace="5" src="loseTemplate_I2_temp2_01.png" alt=""> <img vspace="5" hspace="5" src="loseTemplate_I2_temp2_02.png" alt=""> <p class="footer"><br><a href="http://www.mathworks.com/products/matlab/">Published with MATLAB&reg; R2016b</a><br></p></div><!--
+##### SOURCE BEGIN #####
+%============================== findTemplate =============================
+%
+%  A script to find the location of a template object within a given image
+%  when some approxiamte location is known.
+%
+%============================== findTemplate =============================
+
+
+%==[1] Perform a little smoothing of the image to aid the gradient descent.
+%		It is good to also smooth the template a little bit.  The image
+%		should be smoothed noticeably, while the template just a bit.
+%
+
+% Choose template and image
+I = I2;
+t = temp2;
+pos = [580,790];					% Initial guess of position.
+
+tI = imgaussfilt(t,2);	% Filter template a little bit.
+fI = imgaussfilt(I,5);	% Filter image some.
+
+tnsq = sqrt(sumsqr(tI));			% Compute "magnitude" of the template.
+									% Useful to incorporate into c.
+
+c = 1/(30*tnsq);							% Step adjustment factor.
+
+nsteps = 200;						% Number of steps in the gradient descent.
+
+I_name = 'I2';
+t_name = 'temp2';
+fprintf('Image: %s\n',I_name);
+fprintf('Template: %s\n',t_name);
+fprintf('Parameters:\n');
+fprintf('(c=%f,nsteps=%d,pos=[%d,%d])\n',c,nsteps,pos(1),pos(2));
+
+%==[2] Plot the template and the image.
+
+figure(3);
+  imshow(tI);
+  title(sprintf('Template:%s', t_name));
+  hold on;
+  plot( size(tI,2)/2, size(tI,1)/2, 'r+');
+  hold off;
+  % Placed a plus at the template center.
+
+figure(2);
+  imagesc(I);
+  colormap('Gray');
+  title(sprintf('Image:%s',I_name));
+  hold on;
+  plot(pos(1), pos(2), 'go');
+
+for ii=1:nsteps
+  dpos = gradTempMatch(double(tI), double(fI), pos);
+  pos = pos - c.*dpos';
+  plot(pos(1), pos(2), 'r.');
+  drawnow;
+end
+
+plot(pos(1), pos(2), 'rx');
+
+fprintf('Final Point:[%f,%f]\n',pos(1),pos(2));
+
+##### SOURCE END #####
+--></body></html>

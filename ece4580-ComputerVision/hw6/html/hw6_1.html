@@ -1,0 +1,287 @@
+
+<!DOCTYPE html
+  PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html><head>
+      <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+   <!--
+This HTML was auto-generated from MATLAB code.
+To make changes, update the MATLAB code and republish this document.
+      --><title>hw6_1</title><meta name="generator" content="MATLAB 9.1"><link rel="schema.DC" href="http://purl.org/dc/elements/1.1/"><meta name="DC.date" content="2017-02-20"><meta name="DC.source" content="hw6_1.m"><style type="text/css">
+html,body,div,span,applet,object,iframe,h1,h2,h3,h4,h5,h6,p,blockquote,pre,a,abbr,acronym,address,big,cite,code,del,dfn,em,font,img,ins,kbd,q,s,samp,small,strike,strong,sub,sup,tt,var,b,u,i,center,dl,dt,dd,ol,ul,li,fieldset,form,label,legend,table,caption,tbody,tfoot,thead,tr,th,td{margin:0;padding:0;border:0;outline:0;font-size:100%;vertical-align:baseline;background:transparent}body{line-height:1}ol,ul{list-style:none}blockquote,q{quotes:none}blockquote:before,blockquote:after,q:before,q:after{content:'';content:none}:focus{outine:0}ins{text-decoration:none}del{text-decoration:line-through}table{border-collapse:collapse;border-spacing:0}
+
+html { min-height:100%; margin-bottom:1px; }
+html body { height:100%; margin:0px; font-family:Arial, Helvetica, sans-serif; font-size:10px; color:#000; line-height:140%; background:#fff none; overflow-y:scroll; }
+html body td { vertical-align:top; text-align:left; }
+
+h1 { padding:0px; margin:0px 0px 25px; font-family:Arial, Helvetica, sans-serif; font-size:1.5em; color:#d55000; line-height:100%; font-weight:normal; }
+h2 { padding:0px; margin:0px 0px 8px; font-family:Arial, Helvetica, sans-serif; font-size:1.2em; color:#000; font-weight:bold; line-height:140%; border-bottom:1px solid #d6d4d4; display:block; }
+h3 { padding:0px; margin:0px 0px 5px; font-family:Arial, Helvetica, sans-serif; font-size:1.1em; color:#000; font-weight:bold; line-height:140%; }
+
+a { color:#005fce; text-decoration:none; }
+a:hover { color:#005fce; text-decoration:underline; }
+a:visited { color:#004aa0; text-decoration:none; }
+
+p { padding:0px; margin:0px 0px 20px; }
+img { padding:0px; margin:0px 0px 20px; border:none; }
+p img, pre img, tt img, li img, h1 img, h2 img { margin-bottom:0px; } 
+
+ul { padding:0px; margin:0px 0px 20px 23px; list-style:square; }
+ul li { padding:0px; margin:0px 0px 7px 0px; }
+ul li ul { padding:5px 0px 0px; margin:0px 0px 7px 23px; }
+ul li ol li { list-style:decimal; }
+ol { padding:0px; margin:0px 0px 20px 0px; list-style:decimal; }
+ol li { padding:0px; margin:0px 0px 7px 23px; list-style-type:decimal; }
+ol li ol { padding:5px 0px 0px; margin:0px 0px 7px 0px; }
+ol li ol li { list-style-type:lower-alpha; }
+ol li ul { padding-top:7px; }
+ol li ul li { list-style:square; }
+
+.content { font-size:1.2em; line-height:140%; padding: 20px; }
+
+pre, code { font-size:12px; }
+tt { font-size: 1.2em; }
+pre { margin:0px 0px 20px; }
+pre.codeinput { padding:10px; border:1px solid #d3d3d3; background:#f7f7f7; }
+pre.codeoutput { padding:10px 11px; margin:0px 0px 20px; color:#4c4c4c; }
+pre.error { color:red; }
+
+@media print { pre.codeinput, pre.codeoutput { word-wrap:break-word; width:100%; } }
+
+span.keyword { color:#0000FF }
+span.comment { color:#228B22 }
+span.string { color:#A020F0 }
+span.untermstring { color:#B20000 }
+span.syscmd { color:#B28C00 }
+
+.footer { width:auto; padding:10px 0px; margin:25px 0px 0px; border-top:1px dotted #878787; font-size:0.8em; line-height:140%; font-style:italic; color:#878787; text-align:left; float:none; }
+.footer p { margin:0px; }
+.footer a { color:#878787; }
+.footer a:hover { color:#878787; text-decoration:underline; }
+.footer a:visited { color:#878787; }
+
+table th { padding:7px 5px; text-align:left; vertical-align:middle; border: 1px solid #d6d4d4; font-weight:bold; }
+table td { padding:7px 5px; text-align:left; vertical-align:top; border:1px solid #d6d4d4; }
+
+
+
+
+
+  </style></head><body><div class="content"><pre class="codeinput"><span class="comment">%==========================</span>
+<span class="comment">%  Name:		hw6_1.m</span>
+<span class="comment">%</span>
+<span class="comment">%  Author:		Kairi Kozuma</span>
+<span class="comment">%==========================</span>
+
+<span class="comment">% Declare given matrices</span>
+psi = [400,0,320;0,-400,240;0,0,1];
+R_WL = [0.913545457642601,-0.063627629171822,0.401729040058774;0.287606238475951,0.799453749866612,-0.527405302792764;-0.287606238475951,0.597348496800808,0.748637044875238];
+R_WR = [0.994521895368273,-0.016351854232753,0.103241544429788;0.073912785203567,0.808411029059454,-0.583959337863936;-0.073912785203567,0.588391217607967,0.805191079946410];
+T_WL = [-8.659258262890683;2.169872981077807;4.830127018922193];
+T_WR = [10.659258262890683;5.830127018922193;1.169872981077807];
+rL = [552,589,531;85,405,212;1,1,1];
+rR = [417,428;54,421;0,1];
+
+G_WR = [R_WR, T_WR; 0,0,0,1];
+G_WL = [R_WL, T_WL; 0,0,0,1];
+G_LR = G_WL^(-1) * G_WR;
+R_LR = G_LR(1:3,1:3);
+T_LR = G_LR(1:3,4);
+
+<span class="comment">% Part a</span>
+fprintf(<span class="string">'a) Essential matrix E_LR:\n'</span>);
+T_LR_HAT = [0, -T_LR(3), T_LR(2); T_LR(3), 0, -T_LR(1); -T_LR(2), T_LR(1), 0];
+E_LR = T_LR_HAT * R_LR;
+disp(E_LR);
+
+<span class="comment">% Part b</span>
+fprintf(<span class="string">'b) Fundamental matrix F_LR:\n'</span>);
+F_LR = inv(psi') * E_LR * inv(psi);
+disp(F_LR);
+
+<span class="comment">% Part c</span>
+disp(<span class="string">'c) Line equations'</span>);
+eqn1 = rL(1:3,1)' * F_LR;
+eqn1mx = [-eqn1(1) / eqn1(2), -eqn1(3) / eqn1(2)];
+fprintf(<span class="string">'\nPoint 1:\n'</span>);
+fprintf(<span class="string">'%fx + %fy + %f = 0\n'</span>, eqn1(1), eqn1(2), eqn1(3));
+fprintf(<span class="string">'y = %fx + %f\n'</span>, eqn1mx(1), eqn1mx(2));
+
+eqn2 = rL(1:3,2)' * F_LR;
+eqn2mx = [-eqn2(1) / eqn2(2), -eqn2(3) / eqn2(2)];
+fprintf(<span class="string">'\nPoint 2:\n'</span>);
+fprintf(<span class="string">'%fx + %fy + %f = 0\n'</span>, eqn2(1), eqn2(2), eqn2(3));
+fprintf(<span class="string">'y = %fx + %f\n'</span>, eqn2mx(1), eqn2mx(2));
+
+eqn3 = rL(1:3,3)' * F_LR;
+eqn3mx = [-eqn3(1) / eqn3(2), -eqn3(3) / eqn3(2)];
+fprintf(<span class="string">'\nPoint 3:\n'</span>);
+fprintf(<span class="string">'%fx + %fy + %f = 0\n'</span>, eqn3(1), eqn3(2), eqn3(3));
+fprintf(<span class="string">'y = %fx + %f\n'</span>, eqn3mx(1), eqn3mx(2));
+
+<span class="comment">% Part d</span>
+fprintf(<span class="string">'\nd) Plot of epipolar lines\n'</span>);
+x_val = [0:.25:640]; <span class="comment">% Image coordinates</span>
+y_val_p1 = x_val .* eqn1mx(1) + eqn1mx(2);
+y_val_p2 = x_val .* eqn2mx(1) + eqn2mx(2);
+y_val_p3 = x_val .* eqn3mx(1) + eqn3mx(2);
+
+figure(1);
+plot(x_val, y_val_p1);
+axis([0,640,0,480]);
+title(<span class="string">'Epipolar line for point 1'</span>);
+
+figure(2);
+plot(x_val, y_val_p2);
+axis([0,640,0,480]);
+title(<span class="string">'Epipolar line for point 2'</span>);
+
+figure(3);
+plot(x_val, y_val_p3);
+axis([0,640,0,480]);
+title(<span class="string">'Epipolar line for point 3'</span>);
+
+<span class="comment">% TODO: plot and tell which ones are in right image plane</span>
+
+<span class="comment">% Part e</span>
+disp(<span class="string">'e) Plot of points and epipolar lines in one graph'</span>)
+figure(4);
+hold <span class="string">on</span>
+plot(x_val, y_val_p1, <span class="string">'-'</span>,<span class="string">'DisplayName'</span>,<span class="string">'Epipolar Line 1'</span>);
+plot(x_val, y_val_p2, <span class="string">'-'</span>,<span class="string">'DisplayName'</span>,<span class="string">'Epipolar Line 2'</span>);
+plot(x_val, y_val_p3, <span class="string">'-'</span>,<span class="string">'DisplayName'</span>,<span class="string">'Epipolar Line 3'</span>);
+plot([417],[54],<span class="string">'+'</span>,<span class="string">'DisplayName'</span>,<span class="string">'Point1'</span>);
+plot([428],[421],<span class="string">'*'</span>,<span class="string">'DisplayName'</span>,<span class="string">'Point2'</span>);
+axis([0,640,0,480]);
+legend(<span class="string">'show'</span>);
+title(<span class="string">'Points from right camera frame and epipolar lines'</span>);
+hold <span class="string">off</span>
+
+fprintf(<span class="string">'Point %d in the left camera corresponds to point %d in right camera\n'</span>,1,1);
+fprintf(<span class="string">'Point %d in the left camera corresponds to point %d in right camera\n'</span>,2,2);
+fprintf(<span class="string">'Point %d in the left camera has no corresponding point in right camera\n'</span>,3);
+</pre><pre class="codeoutput">a) Essential matrix E_LR:
+   -0.0000   -3.0902   -0.4894
+   -3.0902   -0.0000  -19.7538
+   -0.4894   19.7538   -0.0000
+
+b) Fundamental matrix F_LR:
+   -0.0000    0.0000   -0.0059
+    0.0000   -0.0000    0.0432
+   -0.0059   -0.0556    3.7497
+
+c) Line equations
+
+Point 1:
+-0.004217x + -0.044904y + 4.187925 = 0
+y = -0.093916x + 93.264640
+
+Point 2:
+0.001963x + -0.044189y + 17.796452 = 0
+y = 0.044426x + 402.734266
+
+Point 3:
+-0.001764x + -0.045309y + 9.797878 = 0
+y = -0.038941x + 216.244519
+
+d) Plot of epipolar lines
+e) Plot of points and epipolar lines in one graph
+Point 1 in the left camera corresponds to point 1 in right camera
+Point 2 in the left camera corresponds to point 2 in right camera
+Point 3 in the left camera has no corresponding point in right camera
+</pre><img vspace="5" hspace="5" src="hw6_1_01.png" alt=""> <img vspace="5" hspace="5" src="hw6_1_02.png" alt=""> <img vspace="5" hspace="5" src="hw6_1_03.png" alt=""> <img vspace="5" hspace="5" src="hw6_1_04.png" alt=""> <p class="footer"><br><a href="http://www.mathworks.com/products/matlab/">Published with MATLAB&reg; R2016b</a><br></p></div><!--
+##### SOURCE BEGIN #####
+%==========================
+%  Name:		hw6_1.m
+%
+%  Author:		Kairi Kozuma
+%==========================
+
+% Declare given matrices
+psi = [400,0,320;0,-400,240;0,0,1];
+R_WL = [0.913545457642601,-0.063627629171822,0.401729040058774;0.287606238475951,0.799453749866612,-0.527405302792764;-0.287606238475951,0.597348496800808,0.748637044875238];
+R_WR = [0.994521895368273,-0.016351854232753,0.103241544429788;0.073912785203567,0.808411029059454,-0.583959337863936;-0.073912785203567,0.588391217607967,0.805191079946410];
+T_WL = [-8.659258262890683;2.169872981077807;4.830127018922193];
+T_WR = [10.659258262890683;5.830127018922193;1.169872981077807];
+rL = [552,589,531;85,405,212;1,1,1];
+rR = [417,428;54,421;0,1];
+
+G_WR = [R_WR, T_WR; 0,0,0,1];
+G_WL = [R_WL, T_WL; 0,0,0,1];
+G_LR = G_WL^(-1) * G_WR;
+R_LR = G_LR(1:3,1:3);
+T_LR = G_LR(1:3,4);
+
+% Part a
+fprintf('a) Essential matrix E_LR:\n');
+T_LR_HAT = [0, -T_LR(3), T_LR(2); T_LR(3), 0, -T_LR(1); -T_LR(2), T_LR(1), 0];
+E_LR = T_LR_HAT * R_LR;
+disp(E_LR);
+
+% Part b
+fprintf('b) Fundamental matrix F_LR:\n');
+F_LR = inv(psi') * E_LR * inv(psi);
+disp(F_LR);
+
+% Part c
+disp('c) Line equations');
+eqn1 = rL(1:3,1)' * F_LR;
+eqn1mx = [-eqn1(1) / eqn1(2), -eqn1(3) / eqn1(2)];
+fprintf('\nPoint 1:\n');
+fprintf('%fx + %fy + %f = 0\n', eqn1(1), eqn1(2), eqn1(3));
+fprintf('y = %fx + %f\n', eqn1mx(1), eqn1mx(2));
+
+eqn2 = rL(1:3,2)' * F_LR;
+eqn2mx = [-eqn2(1) / eqn2(2), -eqn2(3) / eqn2(2)];
+fprintf('\nPoint 2:\n');
+fprintf('%fx + %fy + %f = 0\n', eqn2(1), eqn2(2), eqn2(3));
+fprintf('y = %fx + %f\n', eqn2mx(1), eqn2mx(2));
+
+eqn3 = rL(1:3,3)' * F_LR;
+eqn3mx = [-eqn3(1) / eqn3(2), -eqn3(3) / eqn3(2)];
+fprintf('\nPoint 3:\n');
+fprintf('%fx + %fy + %f = 0\n', eqn3(1), eqn3(2), eqn3(3));
+fprintf('y = %fx + %f\n', eqn3mx(1), eqn3mx(2));
+
+% Part d
+fprintf('\nd) Plot of epipolar lines\n');
+x_val = [0:.25:640]; % Image coordinates
+y_val_p1 = x_val .* eqn1mx(1) + eqn1mx(2);
+y_val_p2 = x_val .* eqn2mx(1) + eqn2mx(2);
+y_val_p3 = x_val .* eqn3mx(1) + eqn3mx(2);
+
+figure(1);
+plot(x_val, y_val_p1);
+axis([0,640,0,480]);
+title('Epipolar line for point 1');
+
+figure(2);
+plot(x_val, y_val_p2);
+axis([0,640,0,480]);
+title('Epipolar line for point 2');
+
+figure(3);
+plot(x_val, y_val_p3);
+axis([0,640,0,480]);
+title('Epipolar line for point 3');
+
+% TODO: plot and tell which ones are in right image plane
+
+% Part e
+disp('e) Plot of points and epipolar lines in one graph')
+figure(4);
+hold on
+plot(x_val, y_val_p1, '-','DisplayName','Epipolar Line 1');
+plot(x_val, y_val_p2, '-','DisplayName','Epipolar Line 2');
+plot(x_val, y_val_p3, '-','DisplayName','Epipolar Line 3');
+plot([417],[54],'+','DisplayName','Point1');
+plot([428],[421],'*','DisplayName','Point2');
+axis([0,640,0,480]);
+legend('show');
+title('Points from right camera frame and epipolar lines');
+hold off
+
+fprintf('Point %d in the left camera corresponds to point %d in right camera\n',1,1);
+fprintf('Point %d in the left camera corresponds to point %d in right camera\n',2,2);
+fprintf('Point %d in the left camera has no corresponding point in right camera\n',3);
+##### SOURCE END #####
+--></body></html>

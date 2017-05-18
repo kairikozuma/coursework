@@ -1,0 +1,156 @@
+
+<!DOCTYPE html
+  PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html><head>
+      <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+   <!--
+This HTML was auto-generated from MATLAB code.
+To make changes, update the MATLAB code and republish this document.
+      --><title>hw5_3</title><meta name="generator" content="MATLAB 9.1"><link rel="schema.DC" href="http://purl.org/dc/elements/1.1/"><meta name="DC.date" content="2017-02-16"><meta name="DC.source" content="hw5_3.m"><style type="text/css">
+html,body,div,span,applet,object,iframe,h1,h2,h3,h4,h5,h6,p,blockquote,pre,a,abbr,acronym,address,big,cite,code,del,dfn,em,font,img,ins,kbd,q,s,samp,small,strike,strong,sub,sup,tt,var,b,u,i,center,dl,dt,dd,ol,ul,li,fieldset,form,label,legend,table,caption,tbody,tfoot,thead,tr,th,td{margin:0;padding:0;border:0;outline:0;font-size:100%;vertical-align:baseline;background:transparent}body{line-height:1}ol,ul{list-style:none}blockquote,q{quotes:none}blockquote:before,blockquote:after,q:before,q:after{content:'';content:none}:focus{outine:0}ins{text-decoration:none}del{text-decoration:line-through}table{border-collapse:collapse;border-spacing:0}
+
+html { min-height:100%; margin-bottom:1px; }
+html body { height:100%; margin:0px; font-family:Arial, Helvetica, sans-serif; font-size:10px; color:#000; line-height:140%; background:#fff none; overflow-y:scroll; }
+html body td { vertical-align:top; text-align:left; }
+
+h1 { padding:0px; margin:0px 0px 25px; font-family:Arial, Helvetica, sans-serif; font-size:1.5em; color:#d55000; line-height:100%; font-weight:normal; }
+h2 { padding:0px; margin:0px 0px 8px; font-family:Arial, Helvetica, sans-serif; font-size:1.2em; color:#000; font-weight:bold; line-height:140%; border-bottom:1px solid #d6d4d4; display:block; }
+h3 { padding:0px; margin:0px 0px 5px; font-family:Arial, Helvetica, sans-serif; font-size:1.1em; color:#000; font-weight:bold; line-height:140%; }
+
+a { color:#005fce; text-decoration:none; }
+a:hover { color:#005fce; text-decoration:underline; }
+a:visited { color:#004aa0; text-decoration:none; }
+
+p { padding:0px; margin:0px 0px 20px; }
+img { padding:0px; margin:0px 0px 20px; border:none; }
+p img, pre img, tt img, li img, h1 img, h2 img { margin-bottom:0px; } 
+
+ul { padding:0px; margin:0px 0px 20px 23px; list-style:square; }
+ul li { padding:0px; margin:0px 0px 7px 0px; }
+ul li ul { padding:5px 0px 0px; margin:0px 0px 7px 23px; }
+ul li ol li { list-style:decimal; }
+ol { padding:0px; margin:0px 0px 20px 0px; list-style:decimal; }
+ol li { padding:0px; margin:0px 0px 7px 23px; list-style-type:decimal; }
+ol li ol { padding:5px 0px 0px; margin:0px 0px 7px 0px; }
+ol li ol li { list-style-type:lower-alpha; }
+ol li ul { padding-top:7px; }
+ol li ul li { list-style:square; }
+
+.content { font-size:1.2em; line-height:140%; padding: 20px; }
+
+pre, code { font-size:12px; }
+tt { font-size: 1.2em; }
+pre { margin:0px 0px 20px; }
+pre.codeinput { padding:10px; border:1px solid #d3d3d3; background:#f7f7f7; }
+pre.codeoutput { padding:10px 11px; margin:0px 0px 20px; color:#4c4c4c; }
+pre.error { color:red; }
+
+@media print { pre.codeinput, pre.codeoutput { word-wrap:break-word; width:100%; } }
+
+span.keyword { color:#0000FF }
+span.comment { color:#228B22 }
+span.string { color:#A020F0 }
+span.untermstring { color:#B20000 }
+span.syscmd { color:#B28C00 }
+
+.footer { width:auto; padding:10px 0px; margin:25px 0px 0px; border-top:1px dotted #878787; font-size:0.8em; line-height:140%; font-style:italic; color:#878787; text-align:left; float:none; }
+.footer p { margin:0px; }
+.footer a { color:#878787; }
+.footer a:hover { color:#878787; text-decoration:underline; }
+.footer a:visited { color:#878787; }
+
+table th { padding:7px 5px; text-align:left; vertical-align:middle; border: 1px solid #d6d4d4; font-weight:bold; }
+table td { padding:7px 5px; text-align:left; vertical-align:top; border:1px solid #d6d4d4; }
+
+
+
+
+
+  </style></head><body><div class="content"><pre class="codeinput"><span class="comment">%==========================</span>
+<span class="comment">%  Name:		hw5_3.m</span>
+<span class="comment">%</span>
+<span class="comment">%  Author:		Kairi Kozuma</span>
+<span class="comment">%</span>
+<span class="comment">%==========================</span>
+
+<span class="comment">% Psi matrix</span>
+psi = [400,0,360;0,-400,240;0,0,1];
+
+<span class="comment">% Visible point</span>
+pL = [16.595;-15.538;63.748];
+rL = psi * pL;
+pW = [33.1;-39.1;38.5];
+
+scale_vec = [0.5:0.5:100];
+pL_vec = pL .* scale_vec;
+
+<span class="comment">% Transformation matrix</span>
+R_WL = [0.913545457642601,-0.063627629171822,0.401729040058774;0.287606238475951,0.799453749866612,-0.527405302792764;-0.287606238475951,0.597348496800808,0.748637044875238];
+R_WR = [0.994521895368273,-0.016351854232753,0.103241544429788;0.073912785203567,0.808411029059454,-0.583959337863936;-0.073912785203567,0.588391217607967,0.805191079946410];
+T_WL = [-8.659258262890683;2.169872981077807;4.830127018922193];
+T_WR = [10.659258262890683;5.830127018922193;1.169872981077807];
+
+<span class="comment">% G matrices</span>
+G_WL = [R_WL, T_WL;0,0,0,1];
+G_WR = [R_WR, T_WR;0,0,0,1];
+G_RL = inv(G_WR) * G_WL;
+
+l_vec = [0:.1:1000];
+<span class="keyword">for</span> i = 1:size(l_vec,2)
+    rR(:,i) = [psi,zeros(3,1)] * G_RL * [pL .* l_vec(i) ;1];
+<span class="keyword">end</span>
+
+<span class="comment">% Rescale to 1</span>
+rR = rR ./ rR(3,:);
+
+<span class="comment">% Plot the line</span>
+figure(1);
+plot(rR(1,:),rR(2,:));
+axis([0,720,0,480]);
+title(<span class="string">'Line of points projecting to the right camera'</span>);
+</pre><img vspace="5" hspace="5" src="hw5_3_01.png" alt=""> <p class="footer"><br><a href="http://www.mathworks.com/products/matlab/">Published with MATLAB&reg; R2016b</a><br></p></div><!--
+##### SOURCE BEGIN #####
+%==========================
+%  Name:		hw5_3.m
+%
+%  Author:		Kairi Kozuma
+%
+%==========================
+
+% Psi matrix
+psi = [400,0,360;0,-400,240;0,0,1];
+
+% Visible point
+pL = [16.595;-15.538;63.748];
+rL = psi * pL;
+pW = [33.1;-39.1;38.5];
+
+scale_vec = [0.5:0.5:100];
+pL_vec = pL .* scale_vec;
+
+% Transformation matrix
+R_WL = [0.913545457642601,-0.063627629171822,0.401729040058774;0.287606238475951,0.799453749866612,-0.527405302792764;-0.287606238475951,0.597348496800808,0.748637044875238];
+R_WR = [0.994521895368273,-0.016351854232753,0.103241544429788;0.073912785203567,0.808411029059454,-0.583959337863936;-0.073912785203567,0.588391217607967,0.805191079946410];
+T_WL = [-8.659258262890683;2.169872981077807;4.830127018922193];
+T_WR = [10.659258262890683;5.830127018922193;1.169872981077807];
+
+% G matrices
+G_WL = [R_WL, T_WL;0,0,0,1];
+G_WR = [R_WR, T_WR;0,0,0,1];
+G_RL = inv(G_WR) * G_WL;
+
+l_vec = [0:.1:1000];
+for i = 1:size(l_vec,2)
+    rR(:,i) = [psi,zeros(3,1)] * G_RL * [pL .* l_vec(i) ;1];
+end
+
+% Rescale to 1
+rR = rR ./ rR(3,:);
+
+% Plot the line
+figure(1);
+plot(rR(1,:),rR(2,:));
+axis([0,720,0,480]);
+title('Line of points projecting to the right camera');
+##### SOURCE END #####
+--></body></html>

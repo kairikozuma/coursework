@@ -1,0 +1,1053 @@
+
+<!DOCTYPE html
+  PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html><head>
+      <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+   <!--
+This HTML was auto-generated from MATLAB code.
+To make changes, update the MATLAB code and republish this document.
+      --><title>stackedAEExercise</title><meta name="generator" content="MATLAB 9.1"><link rel="schema.DC" href="http://purl.org/dc/elements/1.1/"><meta name="DC.date" content="2017-04-20"><meta name="DC.source" content="stackedAEExercise.m"><style type="text/css">
+html,body,div,span,applet,object,iframe,h1,h2,h3,h4,h5,h6,p,blockquote,pre,a,abbr,acronym,address,big,cite,code,del,dfn,em,font,img,ins,kbd,q,s,samp,small,strike,strong,sub,sup,tt,var,b,u,i,center,dl,dt,dd,ol,ul,li,fieldset,form,label,legend,table,caption,tbody,tfoot,thead,tr,th,td{margin:0;padding:0;border:0;outline:0;font-size:100%;vertical-align:baseline;background:transparent}body{line-height:1}ol,ul{list-style:none}blockquote,q{quotes:none}blockquote:before,blockquote:after,q:before,q:after{content:'';content:none}:focus{outine:0}ins{text-decoration:none}del{text-decoration:line-through}table{border-collapse:collapse;border-spacing:0}
+
+html { min-height:100%; margin-bottom:1px; }
+html body { height:100%; margin:0px; font-family:Arial, Helvetica, sans-serif; font-size:10px; color:#000; line-height:140%; background:#fff none; overflow-y:scroll; }
+html body td { vertical-align:top; text-align:left; }
+
+h1 { padding:0px; margin:0px 0px 25px; font-family:Arial, Helvetica, sans-serif; font-size:1.5em; color:#d55000; line-height:100%; font-weight:normal; }
+h2 { padding:0px; margin:0px 0px 8px; font-family:Arial, Helvetica, sans-serif; font-size:1.2em; color:#000; font-weight:bold; line-height:140%; border-bottom:1px solid #d6d4d4; display:block; }
+h3 { padding:0px; margin:0px 0px 5px; font-family:Arial, Helvetica, sans-serif; font-size:1.1em; color:#000; font-weight:bold; line-height:140%; }
+
+a { color:#005fce; text-decoration:none; }
+a:hover { color:#005fce; text-decoration:underline; }
+a:visited { color:#004aa0; text-decoration:none; }
+
+p { padding:0px; margin:0px 0px 20px; }
+img { padding:0px; margin:0px 0px 20px; border:none; }
+p img, pre img, tt img, li img, h1 img, h2 img { margin-bottom:0px; } 
+
+ul { padding:0px; margin:0px 0px 20px 23px; list-style:square; }
+ul li { padding:0px; margin:0px 0px 7px 0px; }
+ul li ul { padding:5px 0px 0px; margin:0px 0px 7px 23px; }
+ul li ol li { list-style:decimal; }
+ol { padding:0px; margin:0px 0px 20px 0px; list-style:decimal; }
+ol li { padding:0px; margin:0px 0px 7px 23px; list-style-type:decimal; }
+ol li ol { padding:5px 0px 0px; margin:0px 0px 7px 0px; }
+ol li ol li { list-style-type:lower-alpha; }
+ol li ul { padding-top:7px; }
+ol li ul li { list-style:square; }
+
+.content { font-size:1.2em; line-height:140%; padding: 20px; }
+
+pre, code { font-size:12px; }
+tt { font-size: 1.2em; }
+pre { margin:0px 0px 20px; }
+pre.codeinput { padding:10px; border:1px solid #d3d3d3; background:#f7f7f7; }
+pre.codeoutput { padding:10px 11px; margin:0px 0px 20px; color:#4c4c4c; }
+pre.error { color:red; }
+
+@media print { pre.codeinput, pre.codeoutput { word-wrap:break-word; width:100%; } }
+
+span.keyword { color:#0000FF }
+span.comment { color:#228B22 }
+span.string { color:#A020F0 }
+span.untermstring { color:#B20000 }
+span.syscmd { color:#B28C00 }
+
+.footer { width:auto; padding:10px 0px; margin:25px 0px 0px; border-top:1px dotted #878787; font-size:0.8em; line-height:140%; font-style:italic; color:#878787; text-align:left; float:none; }
+.footer p { margin:0px; }
+.footer a { color:#878787; }
+.footer a:hover { color:#878787; text-decoration:underline; }
+.footer a:visited { color:#878787; }
+
+table th { padding:7px 5px; text-align:left; vertical-align:middle; border: 1px solid #d6d4d4; font-weight:bold; }
+table td { padding:7px 5px; text-align:left; vertical-align:top; border:1px solid #d6d4d4; }
+
+
+
+
+
+  </style></head><body><div class="content"><h2>Contents</h2><div><ul><li><a href="#1">CS294A/CS294W Stacked Autoencoder Exercise</a></li><li><a href="#2">STEP 0: Here we provide the relevant parameters values that will</a></li><li><a href="#3">STEP 1: Load data from the MNIST database</a></li><li><a href="#4">STEP 2: Train the first sparse autoencoder</a></li><li><a href="#5">---------------------- YOUR CODE HERE  ---------------------------------</a></li><li><a href="#6">STEP 2: Train the second sparse autoencoder</a></li><li><a href="#7">---------------------- YOUR CODE HERE  ---------------------------------</a></li><li><a href="#8">STEP 3: Train the softmax classifier</a></li><li><a href="#9">---------------------- YOUR CODE HERE  ---------------------------------</a></li><li><a href="#10">STEP 5: Finetune softmax model</a></li><li><a href="#11">---------------------- YOUR CODE HERE  ---------------------------------</a></li><li><a href="#12">STEP 6: Test</a></li></ul></div><h2 id="1">CS294A/CS294W Stacked Autoencoder Exercise</h2><pre class="codeinput"><span class="comment">%  Instructions</span>
+<span class="comment">%  ------------</span>
+<span class="comment">%</span>
+<span class="comment">%  This file contains code that helps you get started on the</span>
+<span class="comment">%  sstacked autoencoder exercise. You will need to complete code in</span>
+<span class="comment">%  stackedAECost.m</span>
+<span class="comment">%  You will also need to have implemented sparseAutoencoderCost.m and</span>
+<span class="comment">%  softmaxCost.m from previous exercises. You will need the initializeParameters.m</span>
+<span class="comment">%  loadMNISTImages.m, and loadMNISTLabels.m files from previous exercises.</span>
+<span class="comment">%</span>
+<span class="comment">%  For the purpose of completing the assignment, you do not need to</span>
+<span class="comment">%  change the code in this file.</span>
+<span class="comment">%</span>
+<span class="comment">%%======================================================================</span>
+</pre><h2 id="2">STEP 0: Here we provide the relevant parameters values that will</h2><pre>allow your sparse autoencoder to get good filters; you do not need to
+change the parameters below.</pre><pre class="codeinput">clear;clc;
+inputSize = 28 * 28;
+numClasses = 10;
+hiddenSizeL1 = 200;    <span class="comment">% Layer 1 Hidden Size</span>
+hiddenSizeL2 = 200;    <span class="comment">% Layer 2 Hidden Size</span>
+sparsityParam = 0.1;   <span class="comment">% desired average activation of the hidden units.</span>
+                       <span class="comment">% (This was denoted by the Greek alphabet rho, which looks like a lower-case "p",</span>
+		               <span class="comment">%  in the lecture notes).</span>
+lambda = 3e-3;         <span class="comment">% weight decay parameter</span>
+beta = 3;              <span class="comment">% weight of sparsity penalty term</span>
+
+maxIter = 500;
+<span class="comment">%%======================================================================</span>
+</pre><h2 id="3">STEP 1: Load data from the MNIST database</h2><pre>This loads our training data from the MNIST database files.</pre><pre class="codeinput"><span class="comment">% Load MNIST database files</span>
+trainData = loadMNISTImages(<span class="string">'train-images-idx3-ubyte'</span>);
+trainLabels = loadMNISTLabels(<span class="string">'train-labels-idx1-ubyte'</span>);
+
+trainLabels(trainLabels == 0) = 10; <span class="comment">% Remap 0 to 10 since our labels need to start from 1</span>
+
+<span class="comment">%%======================================================================</span>
+</pre><h2 id="4">STEP 2: Train the first sparse autoencoder</h2><pre>This trains the first sparse autoencoder on the unlabelled STL training
+images.
+If you've correctly implemented sparseAutoencoderCost.m, you don't need
+to change anything here.</pre><pre class="codeinput"><span class="comment">%  Randomly initialize the parameters</span>
+sae1Theta = initializeParameters(hiddenSizeL1, inputSize);
+</pre><h2 id="5">---------------------- YOUR CODE HERE  ---------------------------------</h2><pre>Instructions: Train the first layer sparse autoencoder, this layer has
+              an hidden size of "hiddenSizeL1"
+              You should store the optimal parameters in sae1OptTheta</pre><pre class="codeinput"><span class="comment">%  Use minFunc to minimize the function</span>
+addpath <span class="string">minFunc/</span>
+options.Method = <span class="string">'lbfgs'</span>; <span class="comment">% Here, we use L-BFGS to optimize our cost</span>
+                          <span class="comment">% function. Generally, for minFunc to work, you</span>
+                          <span class="comment">% need a function pointer with two outputs: the</span>
+                          <span class="comment">% function value and the gradient. In our problem,</span>
+                          <span class="comment">% sparseAutoencoderCost.m satisfies this.</span>
+options.maxIter = maxIter;	  <span class="comment">% Maximum number of iterations of L-BFGS to run</span>
+options.display = <span class="string">'on'</span>;
+
+
+[sae1OptTheta, cost] = minFunc( @(p) sparseAutoencoderCost(p, <span class="keyword">...</span>
+                                   inputSize, hiddenSizeL1, <span class="keyword">...</span>
+                                   lambda, sparsityParam, <span class="keyword">...</span>
+                                   beta, trainData), <span class="keyword">...</span>
+                                   sae1Theta, options);
+
+<span class="comment">% -------------------------------------------------------------------------</span>
+
+<span class="comment">%%======================================================================</span>
+</pre><pre class="codeoutput"> Iteration   FunEvals     Step Length    Function Val        Opt Cond
+         1          5     3.17595e-02     1.15224e+02     9.40761e+03
+         2          6     1.00000e+00     9.21799e+01     4.67074e+03
+         3          7     1.00000e+00     8.35899e+01     2.15031e+03
+         4          8     1.00000e+00     7.88544e+01     1.97087e+03
+         5          9     1.00000e+00     7.07574e+01     2.59750e+03
+         6         10     1.00000e+00     5.43981e+01     2.77349e+03
+         7         11     1.00000e+00     3.41494e+01     6.60998e+02
+         8         12     1.00000e+00     3.21925e+01     7.70336e+02
+         9         13     1.00000e+00     3.11343e+01     6.78877e+02
+        10         14     1.00000e+00     3.01713e+01     4.36230e+02
+        11         15     1.00000e+00     2.99933e+01     2.73796e+02
+        12         16     1.00000e+00     2.99844e+01     2.44361e+02
+        13         28     0.00000e+00     2.99844e+01     2.44361e+02
+Step Size below TolX
+</pre><h2 id="6">STEP 2: Train the second sparse autoencoder</h2><pre>This trains the second sparse autoencoder on the first autoencoder
+featurse.
+If you've correctly implemented sparseAutoencoderCost.m, you don't need
+to change anything here.</pre><pre class="codeinput">[sae1Features] = feedForwardAutoencoder(sae1OptTheta, hiddenSizeL1, <span class="keyword">...</span>
+                                        inputSize, trainData);
+
+<span class="comment">%  Randomly initialize the parameters</span>
+sae2Theta = initializeParameters(hiddenSizeL2, hiddenSizeL1);
+</pre><h2 id="7">---------------------- YOUR CODE HERE  ---------------------------------</h2><pre>Instructions: Train the second layer sparse autoencoder, this layer has
+              an hidden size of "hiddenSizeL2" and an inputsize of
+              "hiddenSizeL1"</pre><pre>              You should store the optimal parameters in sae2OptTheta</pre><pre class="codeinput"><span class="comment">%  Use minFunc to minimize the function</span>
+options.Method = <span class="string">'lbfgs'</span>; <span class="comment">% Here, we use L-BFGS to optimize our cost</span>
+options.maxIter = maxIter;	  <span class="comment">% Maximum number of iterations of L-BFGS to run</span>
+options.display = <span class="string">'on'</span>;
+
+[sae2OptTheta, cost] = minFunc( @(p) sparseAutoencoderCost(p, <span class="keyword">...</span>
+                                   hiddenSizeL1, hiddenSizeL2, <span class="keyword">...</span>
+                                   lambda, sparsityParam, <span class="keyword">...</span>
+                                   beta, sae1Features), <span class="keyword">...</span>
+                                   sae2Theta, options);
+
+
+<span class="comment">% -------------------------------------------------------------------------</span>
+
+
+<span class="comment">%%======================================================================</span>
+</pre><pre class="codeoutput"> Iteration   FunEvals     Step Length    Function Val        Opt Cond
+         1          5     1.44667e-01     1.29027e+02     4.24909e+03
+         2          6     1.00000e+00     2.84584e+01     1.36166e+03
+         3          7     1.00000e+00     1.30705e+01     6.76665e+02
+         4          8     1.00000e+00     6.23395e+00     2.56387e+02
+         5          9     1.00000e+00     3.78599e+00     1.19480e+02
+         6         10     1.00000e+00     2.27948e+00     6.56366e+01
+         7         11     1.00000e+00     1.65883e+00     2.87929e+01
+         8         13     3.38652e-01     1.55649e+00     3.09765e+01
+         9         14     1.00000e+00     1.44330e+00     1.10448e+01
+        10         15     1.00000e+00     1.43856e+00     3.96527e+00
+        11         19     5.17275e-02     1.43847e+00     3.09319e+00
+        12         28     0.00000e+00     1.43847e+00     3.09319e+00
+Step Size below TolX
+</pre><h2 id="8">STEP 3: Train the softmax classifier</h2><pre>This trains the sparse autoencoder on the second autoencoder features.
+If you've correctly implemented softmaxCost.m, you don't need
+to change anything here.</pre><pre class="codeinput">[sae2Features] = feedForwardAutoencoder(sae2OptTheta, hiddenSizeL2, <span class="keyword">...</span>
+                                        hiddenSizeL1, sae1Features);
+
+<span class="comment">%  Randomly initialize the parameters</span>
+saeSoftmaxTheta = 0.005 * randn(hiddenSizeL2 * numClasses, 1);
+</pre><h2 id="9">---------------------- YOUR CODE HERE  ---------------------------------</h2><pre>Instructions: Train the softmax classifier, the classifier takes in
+              input of dimension "hiddenSizeL2" corresponding to the
+              hidden layer size of the 2nd layer.</pre><pre>              You should store the optimal parameters in saeSoftmaxOptTheta</pre><pre>NOTE: If you used softmaxTrain to complete this part of the exercise,
+      set saeSoftmaxOptTheta = softmaxModel.optTheta(:);</pre><pre class="codeinput"><span class="comment">%softmaxModel = softmaxTrain(size(sae2Features,1), numClasses, lambda, sae2Features, trainLabels, options);</span>
+lambdaSoftMax = 1e-4;
+softmaxModel = softmaxTrain(hiddenSizeL2, numClasses, lambdaSoftMax,<span class="keyword">...</span>
+                    sae2Features, trainLabels, options);
+saeSoftmaxOptTheta = softmaxModel.optTheta(:);
+
+<span class="comment">% -------------------------------------------------------------------------</span>
+
+
+
+<span class="comment">%%======================================================================</span>
+</pre><pre class="codeoutput"> Iteration   FunEvals     Step Length    Function Val        Opt Cond
+         1          3     2.20840e+00     2.27931e+00     1.95393e+00
+         2          4     1.00000e+00     2.27223e+00     4.10176e-01
+         3          5     1.00000e+00     2.27140e+00     2.47492e-01
+         4          6     1.00000e+00     2.27091e+00     2.95506e-01
+         5          7     1.00000e+00     2.27008e+00     3.60342e-01
+         6          8     1.00000e+00     2.26785e+00     5.63241e-01
+         7          9     1.00000e+00     2.26158e+00     1.08869e+00
+         8         10     1.00000e+00     2.24941e+00     1.31131e+00
+         9         11     1.00000e+00     2.22699e+00     1.94909e+00
+        10         12     1.00000e+00     2.20314e+00     2.84401e+00
+        11         13     1.00000e+00     2.17878e+00     1.78615e+00
+        12         14     1.00000e+00     2.12481e+00     2.89025e+00
+        13         16     5.05756e-01     2.10250e+00     2.31813e+00
+        14         17     1.00000e+00     2.09613e+00     1.02258e+00
+        15         18     1.00000e+00     2.09355e+00     1.76899e-01
+        16         19     1.00000e+00     2.09344e+00     4.92175e-02
+        17         20     1.00000e+00     2.09344e+00     1.93156e-02
+        18         21     1.00000e+00     2.09344e+00     1.56252e-02
+        19         22     1.00000e+00     2.09344e+00     2.14566e-02
+        20         23     1.00000e+00     2.09343e+00     5.87324e-02
+        21         24     1.00000e+00     2.09340e+00     1.16081e-01
+        22         25     1.00000e+00     2.09334e+00     2.03266e-01
+        23         26     1.00000e+00     2.09321e+00     2.99095e-01
+        24         27     1.00000e+00     2.09300e+00     3.38072e-01
+        25         28     1.00000e+00     2.09280e+00     2.35799e-01
+        26         29     1.00000e+00     2.09278e+00     1.94099e-01
+        27         30     1.00000e+00     2.09272e+00     2.75256e-02
+        28         31     1.00000e+00     2.09271e+00     7.52318e-03
+        29         32     1.00000e+00     2.09271e+00     1.27331e-03
+        30         33     1.00000e+00     2.09271e+00     1.25280e-03
+        31         34     1.00000e+00     2.09271e+00     3.16330e-03
+        32         35     1.00000e+00     2.09271e+00     5.96255e-03
+        33         36     1.00000e+00     2.09271e+00     1.08346e-02
+        34         37     1.00000e+00     2.09271e+00     1.65212e-02
+        35         38     1.00000e+00     2.09271e+00     2.01704e-02
+        36         39     1.00000e+00     2.09271e+00     1.69974e-02
+        37         40     1.00000e+00     2.09271e+00     1.20293e-02
+        38         41     1.00000e+00     2.09271e+00     3.72211e-03
+        39         42     1.00000e+00     2.09271e+00     7.87930e-04
+        40         43     1.00000e+00     2.09271e+00     1.01659e-04
+Directional Derivative below TolX
+</pre><h2 id="10">STEP 5: Finetune softmax model</h2><pre class="codeinput"><span class="comment">% Implement the stackedAECost to give the combined cost of the whole model</span>
+<span class="comment">% then run this cell.</span>
+
+<span class="comment">% Initialize the stack using the parameters learned</span>
+stack = cell(2,1);
+stack{1}.w = reshape(sae1OptTheta(1:hiddenSizeL1*inputSize), <span class="keyword">...</span>
+                     hiddenSizeL1, inputSize);
+stack{1}.b = sae1OptTheta(2*hiddenSizeL1*inputSize+1:2*hiddenSizeL1*inputSize+hiddenSizeL1);
+stack{2}.w = reshape(sae2OptTheta(1:hiddenSizeL2*hiddenSizeL1), <span class="keyword">...</span>
+                     hiddenSizeL2, hiddenSizeL1);
+stack{2}.b = sae2OptTheta(2*hiddenSizeL2*hiddenSizeL1+1:2*hiddenSizeL2*hiddenSizeL1+hiddenSizeL2);
+
+<span class="comment">% Initialize the parameters for the deep model</span>
+[stackparams, netconfig] = stack2params(stack);
+stackedAETheta = [ saeSoftmaxOptTheta ; stackparams ];
+</pre><h2 id="11">---------------------- YOUR CODE HERE  ---------------------------------</h2><pre>Instructions: Train the deep network, hidden size here refers to the '
+              dimension of the input to the classifier, which corresponds
+              to "hiddenSizeL2".</pre><pre class="codeinput"><span class="comment">%  Use minFunc to minimize the function</span>
+addpath <span class="string">minFunc/</span>
+options.Method = <span class="string">'lbfgs'</span>; <span class="comment">% Here, we use L-BFGS to optimize our cost</span>
+                          <span class="comment">% function. Generally, for minFunc to work, you</span>
+                          <span class="comment">% need a function pointer with two outputs: the</span>
+                          <span class="comment">% function value and the gradient. In our problem,</span>
+                          <span class="comment">% sparseAutoencoderCost.m satisfies this.</span>
+options.maxIter = maxIter;	  <span class="comment">% Maximum number of iterations of L-BFGS to run</span>
+options.display = <span class="string">'on'</span>;
+
+[stackedAEOptTheta, cost] = minFunc( @(p) stackedAECost(p, inputSize, hiddenSizeL2, <span class="keyword">...</span>
+                                              numClasses, netconfig, <span class="keyword">...</span>
+                                              lambda, trainData, trainLabels), <span class="keyword">...</span>
+                                   stackedAETheta, options);
+
+
+<span class="comment">% % -------------------------------------------------------------------------</span>
+
+
+
+<span class="comment">%%======================================================================</span>
+</pre><pre class="codeoutput"> Iteration   FunEvals     Step Length    Function Val        Opt Cond
+         1          4     1.37579e+00     6.38281e+00     6.99142e+01
+         2          6     4.43509e-01     5.91224e+00     1.56401e+02
+         3          7     1.00000e+00     5.39748e+00     1.05526e+02
+         4          8     1.00000e+00     4.76393e+00     6.60039e+01
+         5          9     1.00000e+00     3.92857e+00     7.13066e+01
+         6         10     1.00000e+00     3.03639e+00     8.72315e+01
+         7         12     7.01534e-01     2.40503e+00     8.78894e+01
+         8         13     1.00000e+00     1.71530e+00     5.69298e+01
+         9         14     1.00000e+00     1.49279e+00     3.56054e+01
+        10         16     3.94088e-01     1.44878e+00     3.79349e+01
+        11         17     1.00000e+00     1.40719e+00     4.51748e+01
+        12         18     1.00000e+00     1.25280e+00     2.45356e+01
+        13         19     1.00000e+00     1.17977e+00     2.03539e+01
+        14         20     1.00000e+00     1.10019e+00     2.12737e+01
+        15         21     1.00000e+00     9.92354e-01     2.18732e+01
+        16         22     1.00000e+00     9.23195e-01     2.26534e+01
+        17         23     1.00000e+00     8.29682e-01     1.80356e+01
+        18         24     1.00000e+00     7.63350e-01     1.38067e+01
+        19         25     1.00000e+00     7.04650e-01     1.14601e+01
+        20         26     1.00000e+00     6.54605e-01     1.11163e+01
+        21         27     1.00000e+00     6.22860e-01     1.38602e+01
+        22         28     1.00000e+00     5.93345e-01     9.20331e+00
+        23         29     1.00000e+00     5.75302e-01     8.05683e+00
+        24         30     1.00000e+00     5.46323e-01     7.99293e+00
+        25         31     1.00000e+00     5.21007e-01     7.84931e+00
+        26         32     1.00000e+00     5.05965e-01     1.99694e+01
+        27         33     1.00000e+00     4.68035e-01     6.97188e+00
+        28         34     1.00000e+00     4.62330e-01     5.97163e+00
+        29         35     1.00000e+00     4.50776e-01     6.24964e+00
+        30         36     1.00000e+00     4.38293e-01     6.68726e+00
+        31         37     1.00000e+00     4.11142e-01     6.30537e+00
+        32         39     3.81240e-01     3.98653e-01     9.02193e+00
+        33         40     1.00000e+00     3.82165e-01     5.48256e+00
+        34         41     1.00000e+00     3.72452e-01     4.40333e+00
+        35         42     1.00000e+00     3.58861e-01     4.84384e+00
+        36         43     1.00000e+00     3.48797e-01     5.48770e+00
+        37         44     1.00000e+00     3.40399e-01     4.10011e+00
+        38         45     1.00000e+00     3.30322e-01     3.76650e+00
+        39         46     1.00000e+00     3.20647e-01     3.72773e+00
+        40         47     1.00000e+00     3.10369e-01     4.70422e+00
+        41         48     1.00000e+00     3.01312e-01     3.63334e+00
+        42         49     1.00000e+00     2.91184e-01     3.58981e+00
+        43         50     1.00000e+00     2.82626e-01     3.89935e+00
+        44         51     1.00000e+00     2.75114e-01     3.19593e+00
+        45         52     1.00000e+00     2.66548e-01     2.95993e+00
+        46         53     1.00000e+00     2.58395e-01     3.70715e+00
+        47         54     1.00000e+00     2.51320e-01     3.01393e+00
+        48         55     1.00000e+00     2.44859e-01     2.62809e+00
+        49         56     1.00000e+00     2.36564e-01     2.59525e+00
+        50         57     1.00000e+00     2.30786e-01     3.14825e+00
+        51         58     1.00000e+00     2.26327e-01     2.37986e+00
+        52         59     1.00000e+00     2.21488e-01     2.14683e+00
+        53         60     1.00000e+00     2.17038e-01     2.18987e+00
+        54         61     1.00000e+00     2.09723e-01     2.50957e+00
+        55         62     1.00000e+00     2.04244e-01     1.94847e+00
+        56         63     1.00000e+00     1.99909e-01     1.84524e+00
+        57         64     1.00000e+00     1.95595e-01     2.74394e+00
+        58         65     1.00000e+00     1.92538e-01     1.86141e+00
+        59         66     1.00000e+00     1.90034e-01     1.64835e+00
+        60         67     1.00000e+00     1.87140e-01     1.69856e+00
+        61         68     1.00000e+00     1.82113e-01     2.00101e+00
+        62         69     1.00000e+00     1.76486e-01     1.79964e+00
+        63         70     1.00000e+00     1.72968e-01     1.75496e+00
+        64         71     1.00000e+00     1.70475e-01     1.64959e+00
+        65         72     1.00000e+00     1.67208e-01     1.51709e+00
+        66         73     1.00000e+00     1.63672e-01     1.58867e+00
+        67         74     1.00000e+00     1.60472e-01     1.57151e+00
+        68         75     1.00000e+00     1.57272e-01     1.65306e+00
+        69         76     1.00000e+00     1.54245e-01     1.58096e+00
+        70         77     1.00000e+00     1.51385e-01     1.43335e+00
+        71         78     1.00000e+00     1.47764e-01     1.34151e+00
+        72         79     1.00000e+00     1.44290e-01     1.79140e+00
+        73         80     1.00000e+00     1.41920e-01     1.24783e+00
+        74         81     1.00000e+00     1.40031e-01     1.19001e+00
+        75         82     1.00000e+00     1.37683e-01     1.21817e+00
+        76         83     1.00000e+00     1.33501e-01     1.22011e+00
+        77         84     1.00000e+00     1.29804e-01     2.00156e+00
+        78         85     1.00000e+00     1.26741e-01     1.13237e+00
+        79         86     1.00000e+00     1.25202e-01     9.98146e-01
+        80         87     1.00000e+00     1.23277e-01     9.87790e-01
+        81         88     1.00000e+00     1.20344e-01     1.02628e+00
+        82         89     1.00000e+00     1.17134e-01     1.22681e+00
+        83         90     1.00000e+00     1.15161e-01     9.32882e-01
+        84         91     1.00000e+00     1.13932e-01     9.12647e-01
+        85         92     1.00000e+00     1.11166e-01     8.96255e-01
+        86         93     1.00000e+00     1.08108e-01     1.29143e+00
+        87         94     1.00000e+00     1.06242e-01     8.44565e-01
+        88         95     1.00000e+00     1.05110e-01     8.18969e-01
+        89         96     1.00000e+00     1.03616e-01     8.10653e-01
+        90         97     1.00000e+00     1.01378e-01     8.47950e-01
+        91         98     1.00000e+00     9.95461e-02     8.17188e-01
+        92         99     1.00000e+00     9.83780e-02     7.44005e-01
+        93        100     1.00000e+00     9.70158e-02     7.30220e-01
+        94        101     1.00000e+00     9.49842e-02     8.44645e-01
+        95        102     1.00000e+00     9.32398e-02     6.96481e-01
+        96        103     1.00000e+00     9.19109e-02     6.56518e-01
+        97        104     1.00000e+00     9.04692e-02     6.89255e-01
+        98        105     1.00000e+00     8.90733e-02     6.63111e-01
+        99        106     1.00000e+00     8.77164e-02     7.43840e-01
+       100        107     1.00000e+00     8.65448e-02     6.51210e-01
+       101        108     1.00000e+00     8.54305e-02     6.13366e-01
+       102        109     1.00000e+00     8.38252e-02     6.23407e-01
+       103        110     1.00000e+00     8.21688e-02     6.93092e-01
+       104        111     1.00000e+00     8.09174e-02     5.87330e-01
+       105        112     1.00000e+00     7.98751e-02     6.09409e-01
+       106        113     1.00000e+00     7.87633e-02     6.27516e-01
+       107        114     1.00000e+00     7.76329e-02     5.56834e-01
+       108        115     1.00000e+00     7.64289e-02     5.64314e-01
+       109        116     1.00000e+00     7.52039e-02     6.87648e-01
+       110        117     1.00000e+00     7.44362e-02     5.15412e-01
+       111        118     1.00000e+00     7.38471e-02     4.93025e-01
+       112        119     1.00000e+00     7.32734e-02     4.99806e-01
+       113        120     1.00000e+00     7.21086e-02     5.34448e-01
+       114        121     1.00000e+00     7.09837e-02     6.43350e-01
+       115        122     1.00000e+00     7.02083e-02     4.95744e-01
+       116        123     1.00000e+00     6.95771e-02     4.63237e-01
+       117        124     1.00000e+00     6.89227e-02     4.64714e-01
+       118        125     1.00000e+00     6.76946e-02     5.53721e-01
+       119        126     1.00000e+00     6.66943e-02     4.66761e-01
+       120        127     1.00000e+00     6.61262e-02     4.28645e-01
+       121        128     1.00000e+00     6.54387e-02     4.22300e-01
+       122        129     1.00000e+00     6.46839e-02     4.72725e-01
+       123        130     1.00000e+00     6.38429e-02     4.09271e-01
+       124        131     1.00000e+00     6.33226e-02     4.09007e-01
+       125        132     1.00000e+00     6.28512e-02     3.86392e-01
+       126        133     1.00000e+00     6.20355e-02     4.05367e-01
+       127        134     1.00000e+00     6.14000e-02     3.62610e-01
+       128        135     1.00000e+00     6.09099e-02     3.51463e-01
+       129        136     1.00000e+00     6.03317e-02     3.67245e-01
+       130        137     1.00000e+00     5.96317e-02     3.91656e-01
+       131        138     1.00000e+00     5.88882e-02     3.75401e-01
+       132        139     1.00000e+00     5.83083e-02     3.75514e-01
+       133        140     1.00000e+00     5.78901e-02     3.29823e-01
+       134        141     1.00000e+00     5.74122e-02     3.06623e-01
+       135        142     1.00000e+00     5.66613e-02     3.52971e-01
+       136        143     1.00000e+00     5.60449e-02     2.97899e-01
+       137        144     1.00000e+00     5.56676e-02     2.94471e-01
+       138        145     1.00000e+00     5.52483e-02     2.95807e-01
+       139        146     1.00000e+00     5.47260e-02     3.43245e-01
+       140        147     1.00000e+00     5.43335e-02     3.00598e-01
+       141        148     1.00000e+00     5.38907e-02     2.80271e-01
+       142        149     1.00000e+00     5.33786e-02     3.15088e-01
+       143        150     1.00000e+00     5.29127e-02     2.85258e-01
+       144        151     1.00000e+00     5.25231e-02     2.77438e-01
+       145        152     1.00000e+00     5.20771e-02     2.96212e-01
+       146        153     1.00000e+00     5.17413e-02     2.62473e-01
+       147        154     1.00000e+00     5.14055e-02     2.53688e-01
+       148        155     1.00000e+00     5.09705e-02     2.79259e-01
+       149        156     1.00000e+00     5.05622e-02     2.44767e-01
+       150        157     1.00000e+00     5.02725e-02     2.36006e-01
+       151        158     1.00000e+00     4.99175e-02     2.57129e-01
+       152        159     1.00000e+00     4.96164e-02     2.34939e-01
+       153        160     1.00000e+00     4.92822e-02     2.28666e-01
+       154        161     1.00000e+00     4.88775e-02     2.64854e-01
+       155        162     1.00000e+00     4.86305e-02     2.15166e-01
+       156        163     1.00000e+00     4.84143e-02     2.07146e-01
+       157        164     1.00000e+00     4.82052e-02     2.14795e-01
+       158        165     1.00000e+00     4.78553e-02     2.21804e-01
+       159        166     1.00000e+00     4.75404e-02     2.67987e-01
+       160        167     1.00000e+00     4.73063e-02     2.03489e-01
+       161        168     1.00000e+00     4.71226e-02     1.92262e-01
+       162        169     1.00000e+00     4.69612e-02     1.96828e-01
+       163        170     1.00000e+00     4.66514e-02     1.95434e-01
+       164        171     1.00000e+00     4.63460e-02     2.29298e-01
+       165        172     1.00000e+00     4.60799e-02     1.85147e-01
+       166        173     1.00000e+00     4.59322e-02     1.76491e-01
+       167        174     1.00000e+00     4.57134e-02     1.69653e-01
+       168        175     1.00000e+00     4.54486e-02     1.84215e-01
+       169        176     1.00000e+00     4.51624e-02     1.75193e-01
+       170        177     1.00000e+00     4.49859e-02     1.71303e-01
+       171        178     1.00000e+00     4.48318e-02     1.62826e-01
+       172        179     1.00000e+00     4.46163e-02     1.72589e-01
+       173        180     1.00000e+00     4.43508e-02     1.58829e-01
+       174        181     1.00000e+00     4.41205e-02     1.73078e-01
+       175        182     1.00000e+00     4.39403e-02     1.57571e-01
+       176        183     1.00000e+00     4.37975e-02     1.44244e-01
+       177        184     1.00000e+00     4.36272e-02     1.47209e-01
+       178        185     1.00000e+00     4.34372e-02     1.51700e-01
+       179        186     1.00000e+00     4.33012e-02     1.38939e-01
+       180        187     1.00000e+00     4.31888e-02     1.36775e-01
+       181        188     1.00000e+00     4.30665e-02     1.39553e-01
+       182        189     1.00000e+00     4.29179e-02     1.34335e-01
+       183        190     1.00000e+00     4.27235e-02     1.42105e-01
+       184        191     1.00000e+00     4.25274e-02     1.56758e-01
+       185        192     1.00000e+00     4.23865e-02     1.35685e-01
+       186        193     1.00000e+00     4.22495e-02     1.31445e-01
+       187        194     1.00000e+00     4.20771e-02     1.42174e-01
+       188        195     1.00000e+00     4.19345e-02     1.65964e-01
+       189        196     1.00000e+00     4.18308e-02     1.27101e-01
+       190        197     1.00000e+00     4.17719e-02     1.24726e-01
+       191        198     1.00000e+00     4.16792e-02     1.25253e-01
+       192        199     1.00000e+00     4.14833e-02     1.22349e-01
+       193        200     1.00000e+00     4.13212e-02     1.34241e-01
+       194        201     1.00000e+00     4.12081e-02     1.14154e-01
+       195        202     1.00000e+00     4.11261e-02     1.25651e-01
+       196        203     1.00000e+00     4.10231e-02     1.31000e-01
+       197        204     1.00000e+00     4.08879e-02     1.26434e-01
+       198        205     1.00000e+00     4.07861e-02     1.86583e-01
+       199        206     1.00000e+00     4.06526e-02     1.20689e-01
+       200        207     1.00000e+00     4.05667e-02     1.08331e-01
+       201        208     1.00000e+00     4.05075e-02     1.17876e-01
+       202        209     1.00000e+00     4.04112e-02     1.16308e-01
+       203        210     1.00000e+00     4.02661e-02     1.35015e-01
+       204        211     1.00000e+00     4.01507e-02     1.12056e-01
+       205        212     1.00000e+00     4.00670e-02     1.04013e-01
+       206        213     1.00000e+00     3.99478e-02     1.04189e-01
+       207        214     1.00000e+00     3.97990e-02     1.25984e-01
+       208        215     1.00000e+00     3.96852e-02     1.06624e-01
+       209        216     1.00000e+00     3.96206e-02     9.79055e-02
+       210        217     1.00000e+00     3.95634e-02     1.00332e-01
+       211        218     1.00000e+00     3.94477e-02     1.12876e-01
+       212        219     1.00000e+00     3.93343e-02     1.07910e-01
+       213        220     1.00000e+00     3.92509e-02     1.04208e-01
+       214        221     1.00000e+00     3.91838e-02     9.76796e-02
+       215        222     1.00000e+00     3.90881e-02     9.61657e-02
+       216        223     1.00000e+00     3.89439e-02     1.19161e-01
+       217        224     1.00000e+00     3.88476e-02     9.32249e-02
+       218        225     1.00000e+00     3.87902e-02     8.72152e-02
+       219        226     1.00000e+00     3.87200e-02     8.87737e-02
+       220        227     1.00000e+00     3.86315e-02     1.05521e-01
+       221        228     1.00000e+00     3.85666e-02     8.63339e-02
+       222        229     1.00000e+00     3.85120e-02     8.46548e-02
+       223        230     1.00000e+00     3.84472e-02     8.44834e-02
+       224        231     1.00000e+00     3.83788e-02     1.12598e-01
+       225        232     1.00000e+00     3.83047e-02     7.98940e-02
+       226        233     1.00000e+00     3.82574e-02     7.74325e-02
+       227        234     1.00000e+00     3.81979e-02     8.13590e-02
+       228        235     1.00000e+00     3.81120e-02     8.19769e-02
+       229        237     4.31745e-01     3.80548e-02     1.03612e-01
+       230        238     1.00000e+00     3.79700e-02     7.93222e-02
+       231        239     1.00000e+00     3.79079e-02     7.42378e-02
+       232        240     1.00000e+00     3.78586e-02     7.87404e-02
+       233        241     1.00000e+00     3.77780e-02     8.76007e-02
+       234        242     1.00000e+00     3.77250e-02     1.01835e-01
+       235        243     1.00000e+00     3.76770e-02     7.60162e-02
+       236        244     1.00000e+00     3.76334e-02     7.52657e-02
+       237        245     1.00000e+00     3.75982e-02     7.63786e-02
+       238        246     1.00000e+00     3.75108e-02     8.29750e-02
+       239        247     1.00000e+00     3.74721e-02     1.01198e-01
+       240        248     1.00000e+00     3.74269e-02     7.14624e-02
+       241        249     1.00000e+00     3.73975e-02     6.85345e-02
+       242        250     1.00000e+00     3.73560e-02     7.13962e-02
+       243        251     1.00000e+00     3.72652e-02     7.48620e-02
+       244        252     1.00000e+00     3.72426e-02     1.24535e-01
+       245        253     1.00000e+00     3.71393e-02     7.08918e-02
+       246        254     1.00000e+00     3.71066e-02     6.67435e-02
+       247        255     1.00000e+00     3.70623e-02     6.95262e-02
+       248        256     1.00000e+00     3.69957e-02     7.56376e-02
+       249        257     1.00000e+00     3.69646e-02     1.11599e-01
+       250        258     1.00000e+00     3.68922e-02     6.61316e-02
+       251        259     1.00000e+00     3.68692e-02     6.56495e-02
+       252        260     1.00000e+00     3.68347e-02     6.69147e-02
+       253        261     1.00000e+00     3.67712e-02     6.86959e-02
+       254        262     1.00000e+00     3.67071e-02     7.37427e-02
+       255        263     1.00000e+00     3.66619e-02     6.70287e-02
+       256        264     1.00000e+00     3.66186e-02     6.39322e-02
+       257        265     1.00000e+00     3.65625e-02     7.44679e-02
+       258        266     1.00000e+00     3.65007e-02     7.95495e-02
+       259        267     1.00000e+00     3.64447e-02     6.95942e-02
+       260        268     1.00000e+00     3.63792e-02     6.70418e-02
+       261        269     1.00000e+00     3.63376e-02     8.40512e-02
+       262        270     1.00000e+00     3.62978e-02     6.69722e-02
+       263        271     1.00000e+00     3.62697e-02     5.85369e-02
+       264        272     1.00000e+00     3.62491e-02     6.11593e-02
+       265        273     1.00000e+00     3.62147e-02     6.32020e-02
+       266        274     1.00000e+00     3.61554e-02     6.49036e-02
+       267        275     1.00000e+00     3.61064e-02     9.34027e-02
+       268        276     1.00000e+00     3.60545e-02     6.43084e-02
+       269        277     1.00000e+00     3.60035e-02     5.99827e-02
+       270        278     1.00000e+00     3.59645e-02     6.14698e-02
+       271        279     1.00000e+00     3.59037e-02     6.42843e-02
+       272        280     1.00000e+00     3.58941e-02     9.41331e-02
+       273        281     1.00000e+00     3.58381e-02     5.25624e-02
+       274        282     1.00000e+00     3.58212e-02     4.97911e-02
+       275        283     1.00000e+00     3.57918e-02     5.27532e-02
+       276        284     1.00000e+00     3.57553e-02     5.27070e-02
+       277        286     4.65842e-01     3.57322e-02     5.95685e-02
+       278        287     1.00000e+00     3.57074e-02     4.84996e-02
+       279        288     1.00000e+00     3.56871e-02     5.10641e-02
+       280        289     1.00000e+00     3.56635e-02     5.65399e-02
+       281        290     1.00000e+00     3.56250e-02     6.64406e-02
+       282        291     1.00000e+00     3.55849e-02     6.70696e-02
+       283        292     1.00000e+00     3.55463e-02     5.93113e-02
+       284        293     1.00000e+00     3.54958e-02     5.34801e-02
+       285        294     1.00000e+00     3.54624e-02     5.17647e-02
+       286        295     1.00000e+00     3.54245e-02     5.90246e-02
+       287        296     1.00000e+00     3.53992e-02     5.32717e-02
+       288        297     1.00000e+00     3.53802e-02     5.18731e-02
+       289        298     1.00000e+00     3.53496e-02     5.53455e-02
+       290        299     1.00000e+00     3.53340e-02     8.31896e-02
+       291        300     1.00000e+00     3.52926e-02     5.51821e-02
+       292        301     1.00000e+00     3.52594e-02     5.16623e-02
+       293        302     1.00000e+00     3.52319e-02     5.44591e-02
+       294        303     1.00000e+00     3.51729e-02     5.89768e-02
+       295        304     1.00000e+00     3.51381e-02     5.93500e-02
+       296        305     1.00000e+00     3.51123e-02     5.22263e-02
+       297        306     1.00000e+00     3.50919e-02     5.25088e-02
+       298        307     1.00000e+00     3.50343e-02     5.81940e-02
+       299        308     1.00000e+00     3.49975e-02     6.51888e-02
+       300        309     1.00000e+00     3.49484e-02     4.90288e-02
+       301        310     1.00000e+00     3.49122e-02     4.83810e-02
+       302        312     5.13650e-01     3.49005e-02     5.56059e-02
+       303        313     1.00000e+00     3.48846e-02     4.91599e-02
+       304        314     1.00000e+00     3.48610e-02     4.33624e-02
+       305        315     1.00000e+00     3.48391e-02     4.32810e-02
+       306        316     1.00000e+00     3.48068e-02     4.50260e-02
+       307        317     1.00000e+00     3.47535e-02     5.54864e-02
+       308        318     1.00000e+00     3.47033e-02     5.81539e-02
+       309        319     1.00000e+00     3.46634e-02     5.22703e-02
+       310        320     1.00000e+00     3.46384e-02     4.27256e-02
+       311        321     1.00000e+00     3.46176e-02     3.95387e-02
+       312        322     1.00000e+00     3.45875e-02     4.26777e-02
+       313        323     1.00000e+00     3.45571e-02     4.56087e-02
+       314        324     1.00000e+00     3.45373e-02     5.99977e-02
+       315        325     1.00000e+00     3.45152e-02     4.20557e-02
+       316        326     1.00000e+00     3.45010e-02     4.14777e-02
+       317        327     1.00000e+00     3.44841e-02     4.34006e-02
+       318        328     1.00000e+00     3.44508e-02     4.51865e-02
+       319        329     1.00000e+00     3.44233e-02     6.22508e-02
+       320        330     1.00000e+00     3.43813e-02     4.24499e-02
+       321        331     1.00000e+00     3.43527e-02     4.23616e-02
+       322        332     1.00000e+00     3.43206e-02     4.30308e-02
+       323        333     1.00000e+00     3.42916e-02     4.50341e-02
+       324        335     4.00243e-01     3.42808e-02     4.61128e-02
+       325        336     1.00000e+00     3.42686e-02     3.93564e-02
+       326        337     1.00000e+00     3.42559e-02     3.83971e-02
+       327        338     1.00000e+00     3.42410e-02     4.20332e-02
+       328        339     1.00000e+00     3.42193e-02     4.71803e-02
+       329        340     1.00000e+00     3.42087e-02     6.45439e-02
+       330        341     1.00000e+00     3.41854e-02     4.53759e-02
+       331        342     1.00000e+00     3.41649e-02     4.10914e-02
+       332        343     1.00000e+00     3.41459e-02     4.36428e-02
+       333        344     1.00000e+00     3.41038e-02     4.55761e-02
+       334        346     4.32506e-01     3.40782e-02     6.48732e-02
+       335        347     1.00000e+00     3.40274e-02     4.86527e-02
+       336        348     1.00000e+00     3.39922e-02     4.16357e-02
+       337        349     1.00000e+00     3.39843e-02     5.70681e-02
+       338        350     1.00000e+00     3.39698e-02     3.84145e-02
+       339        351     1.00000e+00     3.39632e-02     3.60596e-02
+       340        352     1.00000e+00     3.39532e-02     3.62662e-02
+       341        353     1.00000e+00     3.39401e-02     3.71411e-02
+       342        354     1.00000e+00     3.39227e-02     4.31783e-02
+       343        355     1.00000e+00     3.39021e-02     5.58233e-02
+       344        356     1.00000e+00     3.38709e-02     4.64437e-02
+       345        357     1.00000e+00     3.38197e-02     4.39962e-02
+       346        358     1.00000e+00     3.37826e-02     4.57768e-02
+       347        360     4.60751e-01     3.37572e-02     6.23126e-02
+       348        361     1.00000e+00     3.37139e-02     4.29126e-02
+       349        362     1.00000e+00     3.36951e-02     3.75569e-02
+       350        363     1.00000e+00     3.36752e-02     3.78429e-02
+       351        364     1.00000e+00     3.36535e-02     3.83805e-02
+       352        366     4.01082e-01     3.36423e-02     4.70963e-02
+       353        367     1.00000e+00     3.36192e-02     3.49059e-02
+       354        368     1.00000e+00     3.36065e-02     3.28127e-02
+       355        369     1.00000e+00     3.35903e-02     3.25051e-02
+       356        370     1.00000e+00     3.35727e-02     3.22397e-02
+       357        371     1.00000e+00     3.35488e-02     3.46890e-02
+       358        372     1.00000e+00     3.35283e-02     4.22270e-02
+       359        373     1.00000e+00     3.35092e-02     3.43500e-02
+       360        374     1.00000e+00     3.34906e-02     3.23435e-02
+       361        375     1.00000e+00     3.34804e-02     3.71782e-02
+       362        376     1.00000e+00     3.34701e-02     3.07407e-02
+       363        377     1.00000e+00     3.34588e-02     3.38878e-02
+       364        378     1.00000e+00     3.34506e-02     3.86816e-02
+       365        379     1.00000e+00     3.34415e-02     3.38772e-02
+       366        380     1.00000e+00     3.34147e-02     3.34653e-02
+       367        381     1.00000e+00     3.33992e-02     3.59344e-02
+       368        382     1.00000e+00     3.33655e-02     3.79476e-02
+       369        383     1.00000e+00     3.33460e-02     4.33099e-02
+       370        384     1.00000e+00     3.33292e-02     4.26469e-02
+       371        385     1.00000e+00     3.33132e-02     3.41075e-02
+       372        386     1.00000e+00     3.32935e-02     3.24960e-02
+       373        387     1.00000e+00     3.32739e-02     3.33575e-02
+       374        388     1.00000e+00     3.32456e-02     3.70866e-02
+       375        390     2.89401e-01     3.32377e-02     3.52015e-02
+       376        391     1.00000e+00     3.32270e-02     2.99966e-02
+       377        392     1.00000e+00     3.32163e-02     2.97675e-02
+       378        393     1.00000e+00     3.32049e-02     3.06676e-02
+       379        394     1.00000e+00     3.31902e-02     4.33076e-02
+       380        395     1.00000e+00     3.31719e-02     3.08665e-02
+       381        396     1.00000e+00     3.31598e-02     2.95973e-02
+       382        397     1.00000e+00     3.31373e-02     3.19962e-02
+       383        398     1.00000e+00     3.31149e-02     3.41926e-02
+       384        400     4.88312e-01     3.30997e-02     4.29325e-02
+       385        401     1.00000e+00     3.30793e-02     3.13696e-02
+       386        402     1.00000e+00     3.30639e-02     3.00682e-02
+       387        403     1.00000e+00     3.30438e-02     3.25694e-02
+       388        404     1.00000e+00     3.30138e-02     3.56601e-02
+       389        406     4.98992e-01     3.29986e-02     4.27766e-02
+       390        407     1.00000e+00     3.29743e-02     3.06596e-02
+       391        408     1.00000e+00     3.29537e-02     3.28918e-02
+       392        409     1.00000e+00     3.29352e-02     3.67420e-02
+       393        411     3.37676e-01     3.29289e-02     4.15481e-02
+       394        412     1.00000e+00     3.29160e-02     3.20536e-02
+       395        413     1.00000e+00     3.29066e-02     2.72061e-02
+       396        414     1.00000e+00     3.29000e-02     2.77657e-02
+       397        415     1.00000e+00     3.28905e-02     2.98418e-02
+       398        416     1.00000e+00     3.28846e-02     4.18884e-02
+       399        417     1.00000e+00     3.28728e-02     2.93001e-02
+       400        418     1.00000e+00     3.28624e-02     3.05949e-02
+       401        419     1.00000e+00     3.28529e-02     3.27092e-02
+       402        420     1.00000e+00     3.28320e-02     3.26235e-02
+       403        421     1.00000e+00     3.28121e-02     3.17388e-02
+       404        422     1.00000e+00     3.27978e-02     4.80177e-02
+       405        423     1.00000e+00     3.27800e-02     3.65228e-02
+       406        424     1.00000e+00     3.27622e-02     3.30322e-02
+       407        425     1.00000e+00     3.27425e-02     3.18012e-02
+       408        426     1.00000e+00     3.27259e-02     3.13434e-02
+       409        427     1.00000e+00     3.27141e-02     3.32371e-02
+       410        428     1.00000e+00     3.27048e-02     3.42524e-02
+       411        429     1.00000e+00     3.26961e-02     3.05383e-02
+       412        430     1.00000e+00     3.26780e-02     2.87539e-02
+       413        431     1.00000e+00     3.26618e-02     2.96530e-02
+       414        432     1.00000e+00     3.26367e-02     2.79558e-02
+       415        433     1.00000e+00     3.26280e-02     3.54041e-02
+       416        434     1.00000e+00     3.26168e-02     2.74007e-02
+       417        435     1.00000e+00     3.26099e-02     2.33025e-02
+       418        436     1.00000e+00     3.26036e-02     2.55282e-02
+       419        437     1.00000e+00     3.25961e-02     2.88666e-02
+       420        438     1.00000e+00     3.25900e-02     2.15637e-02
+       421        439     1.00000e+00     3.25844e-02     2.19874e-02
+       422        440     1.00000e+00     3.25781e-02     2.42341e-02
+       423        441     1.00000e+00     3.25758e-02     4.02343e-02
+       424        442     1.00000e+00     3.25621e-02     2.28089e-02
+       425        443     1.00000e+00     3.25568e-02     2.21995e-02
+       426        444     1.00000e+00     3.25461e-02     2.63353e-02
+       427        445     1.00000e+00     3.25338e-02     2.74400e-02
+       428        446     1.00000e+00     3.25145e-02     3.98895e-02
+       429        447     1.00000e+00     3.24975e-02     3.70186e-02
+       430        448     1.00000e+00     3.24827e-02     2.61094e-02
+       431        449     1.00000e+00     3.24691e-02     2.33096e-02
+       432        450     1.00000e+00     3.24581e-02     2.42895e-02
+       433        451     1.00000e+00     3.24519e-02     3.99599e-02
+       434        452     1.00000e+00     3.24379e-02     2.33592e-02
+       435        453     1.00000e+00     3.24335e-02     2.15514e-02
+       436        454     1.00000e+00     3.24246e-02     2.14622e-02
+       437        455     1.00000e+00     3.24134e-02     3.17522e-02
+       438        456     1.00000e+00     3.24030e-02     2.70006e-02
+       439        457     1.00000e+00     3.23951e-02     2.25414e-02
+       440        458     1.00000e+00     3.23862e-02     2.55859e-02
+       441        459     1.00000e+00     3.23836e-02     3.58482e-02
+       442        460     1.00000e+00     3.23769e-02     2.55011e-02
+       443        461     1.00000e+00     3.23689e-02     2.20967e-02
+       444        462     1.00000e+00     3.23624e-02     2.54013e-02
+       445        463     1.00000e+00     3.23517e-02     2.67975e-02
+       446        464     1.00000e+00     3.23390e-02     3.64330e-02
+       447        465     1.00000e+00     3.23321e-02     4.10109e-02
+       448        466     1.00000e+00     3.23151e-02     2.50662e-02
+       449        467     1.00000e+00     3.23084e-02     2.36575e-02
+       450        468     1.00000e+00     3.23011e-02     2.62217e-02
+       451        469     1.00000e+00     3.22975e-02     3.37088e-02
+       452        470     1.00000e+00     3.22898e-02     2.36101e-02
+       453        471     1.00000e+00     3.22850e-02     2.20256e-02
+       454        472     1.00000e+00     3.22804e-02     2.32151e-02
+       455        473     1.00000e+00     3.22741e-02     2.95513e-02
+       456        474     1.00000e+00     3.22668e-02     2.36881e-02
+       457        475     1.00000e+00     3.22619e-02     2.13093e-02
+       458        476     1.00000e+00     3.22533e-02     2.13845e-02
+       459        477     1.00000e+00     3.22436e-02     2.27675e-02
+       460        478     1.00000e+00     3.22191e-02     2.85073e-02
+       461        479     1.00000e+00     3.22111e-02     4.43047e-02
+       462        480     1.00000e+00     3.21759e-02     2.68375e-02
+       463        481     1.00000e+00     3.21596e-02     2.34917e-02
+       464        482     1.00000e+00     3.21444e-02     2.59757e-02
+       465        484     5.12016e-01     3.21350e-02     2.72097e-02
+       466        485     1.00000e+00     3.21277e-02     2.30648e-02
+       467        486     1.00000e+00     3.21231e-02     2.09493e-02
+       468        487     1.00000e+00     3.21180e-02     2.18079e-02
+       469        488     1.00000e+00     3.21122e-02     2.07378e-02
+       470        489     1.00000e+00     3.21055e-02     2.00178e-02
+       471        490     1.00000e+00     3.20965e-02     2.44968e-02
+       472        491     1.00000e+00     3.20933e-02     3.33069e-02
+       473        492     1.00000e+00     3.20805e-02     2.21352e-02
+       474        493     1.00000e+00     3.20718e-02     2.18124e-02
+       475        494     1.00000e+00     3.20608e-02     2.28089e-02
+       476        495     1.00000e+00     3.20499e-02     2.89170e-02
+       477        496     1.00000e+00     3.20398e-02     2.37550e-02
+       478        497     1.00000e+00     3.20336e-02     2.17993e-02
+       479        498     1.00000e+00     3.20215e-02     2.16495e-02
+       480        499     1.00000e+00     3.20092e-02     2.52938e-02
+       481        500     1.00000e+00     3.19984e-02     3.02527e-02
+       482        501     1.00000e+00     3.19857e-02     2.30141e-02
+       483        502     1.00000e+00     3.19745e-02     2.19005e-02
+       484        503     1.00000e+00     3.19631e-02     2.32406e-02
+       485        504     1.00000e+00     3.19530e-02     3.23579e-02
+       486        505     1.00000e+00     3.19445e-02     2.24021e-02
+       487        506     1.00000e+00     3.19408e-02     1.86230e-02
+       488        507     1.00000e+00     3.19356e-02     1.79061e-02
+       489        508     1.00000e+00     3.19288e-02     1.96504e-02
+       490        509     1.00000e+00     3.19209e-02     2.22691e-02
+       491        510     1.00000e+00     3.19157e-02     2.32013e-02
+       492        511     1.00000e+00     3.19101e-02     1.85614e-02
+       493        512     1.00000e+00     3.19051e-02     1.84350e-02
+       494        513     1.00000e+00     3.18989e-02     2.60394e-02
+       495        514     1.00000e+00     3.18897e-02     2.11602e-02
+       496        515     1.00000e+00     3.18817e-02     2.11537e-02
+       497        516     1.00000e+00     3.18695e-02     2.35272e-02
+       498        517     1.00000e+00     3.18605e-02     2.32841e-02
+       499        518     1.00000e+00     3.18507e-02     1.94532e-02
+       500        519     1.00000e+00     3.18392e-02     2.02408e-02
+Exceeded Maximum Number of Iterations
+</pre><h2 id="12">STEP 6: Test</h2><pre>Instructions: You will need to complete the code in stackedAEPredict.m
+              before running this part of the code</pre><pre class="codeinput"><span class="comment">% Get labelled test images</span>
+<span class="comment">% Note that we apply the same kind of preprocessing as the training set</span>
+testData = loadMNISTImages(<span class="string">'t10k-images-idx3-ubyte'</span>);
+testLabels = loadMNISTLabels(<span class="string">'t10k-labels-idx1-ubyte'</span>);
+
+testLabels(testLabels == 0) = 10; <span class="comment">% Remap 0 to 10</span>
+
+
+[pred] = stackedAEPredict(stackedAETheta, inputSize, hiddenSizeL2, <span class="keyword">...</span>
+                          numClasses, netconfig, testData);
+
+acc = mean(testLabels(:) == pred(:));
+fprintf(<span class="string">'Before Finetuning Test Accuracy: %0.3f%%\n'</span>, acc * 100);
+
+[pred] = stackedAEPredict(stackedAEOptTheta, inputSize, hiddenSizeL2, <span class="keyword">...</span>
+                          numClasses, netconfig, testData);
+
+acc = mean(testLabels(:) == pred(:));
+fprintf(<span class="string">'After Finetuning Test Accuracy: %0.3f%%\n'</span>, acc * 100);
+
+<span class="comment">% Accuracy is the proportion of correctly classified images</span>
+<span class="comment">% The results for our implementation were:</span>
+<span class="comment">%</span>
+<span class="comment">% Before Finetuning Test Accuracy: 87.7%</span>
+<span class="comment">% After Finetuning Test Accuracy:  97.6%</span>
+<span class="comment">%</span>
+<span class="comment">% If your values are too low (accuracy less than 95%), you should check</span>
+<span class="comment">% your code for errors, and make sure you are training on the</span>
+<span class="comment">% entire data set of 60000 28x28 training images</span>
+<span class="comment">% (unless you modified the loading code, this should be the case)</span>
+</pre><pre class="codeoutput">Before Finetuning Test Accuracy: 64.280%
+After Finetuning Test Accuracy: 97.280%
+</pre><p class="footer"><br><a href="http://www.mathworks.com/products/matlab/">Published with MATLAB&reg; R2016b</a><br></p></div><!--
+##### SOURCE BEGIN #####
+%% CS294A/CS294W Stacked Autoencoder Exercise
+
+%  Instructions
+%  REPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASH
+% 
+%  This file contains code that helps you get started on the
+%  sstacked autoencoder exercise. You will need to complete code in
+%  stackedAECost.m
+%  You will also need to have implemented sparseAutoencoderCost.m and 
+%  softmaxCost.m from previous exercises. You will need the initializeParameters.m
+%  loadMNISTImages.m, and loadMNISTLabels.m files from previous exercises.
+%  
+%  For the purpose of completing the assignment, you do not need to
+%  change the code in this file. 
+%
+%%======================================================================
+%% STEP 0: Here we provide the relevant parameters values that will
+%  allow your sparse autoencoder to get good filters; you do not need to 
+%  change the parameters below.
+clear;clc;
+inputSize = 28 * 28;
+numClasses = 10;
+hiddenSizeL1 = 200;    % Layer 1 Hidden Size
+hiddenSizeL2 = 200;    % Layer 2 Hidden Size
+sparsityParam = 0.1;   % desired average activation of the hidden units.
+                       % (This was denoted by the Greek alphabet rho, which looks like a lower-case "p",
+		               %  in the lecture notes). 
+lambda = 3e-3;         % weight decay parameter       
+beta = 3;              % weight of sparsity penalty term       
+
+maxIter = 500;
+%%======================================================================
+%% STEP 1: Load data from the MNIST database
+%
+%  This loads our training data from the MNIST database files.
+
+% Load MNIST database files
+trainData = loadMNISTImages('train-images-idx3-ubyte');
+trainLabels = loadMNISTLabels('train-labels-idx1-ubyte');
+
+trainLabels(trainLabels == 0) = 10; % Remap 0 to 10 since our labels need to start from 1
+
+%%======================================================================
+%% STEP 2: Train the first sparse autoencoder
+%  This trains the first sparse autoencoder on the unlabelled STL training
+%  images.
+%  If you've correctly implemented sparseAutoencoderCost.m, you don't need
+%  to change anything here.
+
+
+%  Randomly initialize the parameters
+sae1Theta = initializeParameters(hiddenSizeL1, inputSize);
+
+%% REPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASH YOUR CODE HERE  REPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASH-
+%  Instructions: Train the first layer sparse autoencoder, this layer has
+%                an hidden size of "hiddenSizeL1"
+%                You should store the optimal parameters in sae1OptTheta
+
+
+
+%  Use minFunc to minimize the function
+addpath minFunc/
+options.Method = 'lbfgs'; % Here, we use L-BFGS to optimize our cost
+                          % function. Generally, for minFunc to work, you
+                          % need a function pointer with two outputs: the
+                          % function value and the gradient. In our problem,
+                          % sparseAutoencoderCost.m satisfies this.
+options.maxIter = maxIter;	  % Maximum number of iterations of L-BFGS to run 
+options.display = 'on';
+
+
+[sae1OptTheta, cost] = minFunc( @(p) sparseAutoencoderCost(p, ...
+                                   inputSize, hiddenSizeL1, ...
+                                   lambda, sparsityParam, ...
+                                   beta, trainData), ...
+                                   sae1Theta, options);
+
+% REPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASH-
+
+%%======================================================================
+%% STEP 2: Train the second sparse autoencoder
+%  This trains the second sparse autoencoder on the first autoencoder
+%  featurse.
+%  If you've correctly implemented sparseAutoencoderCost.m, you don't need
+%  to change anything here.
+
+[sae1Features] = feedForwardAutoencoder(sae1OptTheta, hiddenSizeL1, ...
+                                        inputSize, trainData);
+
+%  Randomly initialize the parameters
+sae2Theta = initializeParameters(hiddenSizeL2, hiddenSizeL1);
+
+%% REPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASH YOUR CODE HERE  REPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASH-
+%  Instructions: Train the second layer sparse autoencoder, this layer has
+%                an hidden size of "hiddenSizeL2" and an inputsize of
+%                "hiddenSizeL1"
+%
+%                You should store the optimal parameters in sae2OptTheta
+
+
+%  Use minFunc to minimize the function
+options.Method = 'lbfgs'; % Here, we use L-BFGS to optimize our cost
+options.maxIter = maxIter;	  % Maximum number of iterations of L-BFGS to run 
+options.display = 'on';
+
+[sae2OptTheta, cost] = minFunc( @(p) sparseAutoencoderCost(p, ...
+                                   hiddenSizeL1, hiddenSizeL2, ...
+                                   lambda, sparsityParam, ...
+                                   beta, sae1Features), ...
+                                   sae2Theta, options);
+
+
+% REPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASH-
+
+
+%%======================================================================
+%% STEP 3: Train the softmax classifier
+%  This trains the sparse autoencoder on the second autoencoder features.
+%  If you've correctly implemented softmaxCost.m, you don't need
+%  to change anything here.
+
+[sae2Features] = feedForwardAutoencoder(sae2OptTheta, hiddenSizeL2, ...
+                                        hiddenSizeL1, sae1Features);
+
+%  Randomly initialize the parameters
+saeSoftmaxTheta = 0.005 * randn(hiddenSizeL2 * numClasses, 1);
+
+
+%% REPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASH YOUR CODE HERE  REPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASH-
+%  Instructions: Train the softmax classifier, the classifier takes in
+%                input of dimension "hiddenSizeL2" corresponding to the
+%                hidden layer size of the 2nd layer.
+%
+%                You should store the optimal parameters in saeSoftmaxOptTheta 
+%
+%  NOTE: If you used softmaxTrain to complete this part of the exercise,
+%        set saeSoftmaxOptTheta = softmaxModel.optTheta(:);
+%softmaxModel = softmaxTrain(size(sae2Features,1), numClasses, lambda, sae2Features, trainLabels, options);
+lambdaSoftMax = 1e-4;
+softmaxModel = softmaxTrain(hiddenSizeL2, numClasses, lambdaSoftMax,...
+                    sae2Features, trainLabels, options);
+saeSoftmaxOptTheta = softmaxModel.optTheta(:);
+
+% REPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASH-
+
+
+
+%%======================================================================
+%% STEP 5: Finetune softmax model
+
+% Implement the stackedAECost to give the combined cost of the whole model
+% then run this cell.
+
+% Initialize the stack using the parameters learned
+stack = cell(2,1);
+stack{1}.w = reshape(sae1OptTheta(1:hiddenSizeL1*inputSize), ...
+                     hiddenSizeL1, inputSize);
+stack{1}.b = sae1OptTheta(2*hiddenSizeL1*inputSize+1:2*hiddenSizeL1*inputSize+hiddenSizeL1);
+stack{2}.w = reshape(sae2OptTheta(1:hiddenSizeL2*hiddenSizeL1), ...
+                     hiddenSizeL2, hiddenSizeL1);
+stack{2}.b = sae2OptTheta(2*hiddenSizeL2*hiddenSizeL1+1:2*hiddenSizeL2*hiddenSizeL1+hiddenSizeL2);
+
+% Initialize the parameters for the deep model
+[stackparams, netconfig] = stack2params(stack);
+stackedAETheta = [ saeSoftmaxOptTheta ; stackparams ];
+
+%% REPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASH YOUR CODE HERE  REPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASH-
+%  Instructions: Train the deep network, hidden size here refers to the '
+%                dimension of the input to the classifier, which corresponds 
+%                to "hiddenSizeL2".
+
+%  Use minFunc to minimize the function
+addpath minFunc/
+options.Method = 'lbfgs'; % Here, we use L-BFGS to optimize our cost
+                          % function. Generally, for minFunc to work, you
+                          % need a function pointer with two outputs: the
+                          % function value and the gradient. In our problem,
+                          % sparseAutoencoderCost.m satisfies this.
+options.maxIter = maxIter;	  % Maximum number of iterations of L-BFGS to run 
+options.display = 'on';
+
+[stackedAEOptTheta, cost] = minFunc( @(p) stackedAECost(p, inputSize, hiddenSizeL2, ...
+                                              numClasses, netconfig, ...
+                                              lambda, trainData, trainLabels), ...
+                                   stackedAETheta, options);
+
+
+% % REPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASH-
+
+
+
+%%======================================================================
+%% STEP 6: Test 
+%  Instructions: You will need to complete the code in stackedAEPredict.m
+%                before running this part of the code
+%
+
+% Get labelled test images
+% Note that we apply the same kind of preprocessing as the training set
+testData = loadMNISTImages('t10k-images-idx3-ubyte');
+testLabels = loadMNISTLabels('t10k-labels-idx1-ubyte');
+
+testLabels(testLabels == 0) = 10; % Remap 0 to 10
+
+
+[pred] = stackedAEPredict(stackedAETheta, inputSize, hiddenSizeL2, ...
+                          numClasses, netconfig, testData);
+
+acc = mean(testLabels(:) == pred(:));
+fprintf('Before Finetuning Test Accuracy: %0.3f%%\n', acc * 100);
+
+[pred] = stackedAEPredict(stackedAEOptTheta, inputSize, hiddenSizeL2, ...
+                          numClasses, netconfig, testData);
+
+acc = mean(testLabels(:) == pred(:));
+fprintf('After Finetuning Test Accuracy: %0.3f%%\n', acc * 100);
+
+% Accuracy is the proportion of correctly classified images
+% The results for our implementation were:
+%
+% Before Finetuning Test Accuracy: 87.7%
+% After Finetuning Test Accuracy:  97.6%
+%
+% If your values are too low (accuracy less than 95%), you should check 
+% your code for errors, and make sure you are training on the 
+% entire data set of 60000 28x28 training images 
+% (unless you modified the loading code, this should be the case)
+
+##### SOURCE END #####
+--></body></html>

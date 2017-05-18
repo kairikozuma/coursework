@@ -1,0 +1,180 @@
+
+<!DOCTYPE html
+  PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html><head>
+      <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+   <!--
+This HTML was auto-generated from MATLAB code.
+To make changes, update the MATLAB code and republish this document.
+      --><title>hw4_2</title><meta name="generator" content="MATLAB 9.1"><link rel="schema.DC" href="http://purl.org/dc/elements/1.1/"><meta name="DC.date" content="2017-02-09"><meta name="DC.source" content="hw4_2.m"><style type="text/css">
+html,body,div,span,applet,object,iframe,h1,h2,h3,h4,h5,h6,p,blockquote,pre,a,abbr,acronym,address,big,cite,code,del,dfn,em,font,img,ins,kbd,q,s,samp,small,strike,strong,sub,sup,tt,var,b,u,i,center,dl,dt,dd,ol,ul,li,fieldset,form,label,legend,table,caption,tbody,tfoot,thead,tr,th,td{margin:0;padding:0;border:0;outline:0;font-size:100%;vertical-align:baseline;background:transparent}body{line-height:1}ol,ul{list-style:none}blockquote,q{quotes:none}blockquote:before,blockquote:after,q:before,q:after{content:'';content:none}:focus{outine:0}ins{text-decoration:none}del{text-decoration:line-through}table{border-collapse:collapse;border-spacing:0}
+
+html { min-height:100%; margin-bottom:1px; }
+html body { height:100%; margin:0px; font-family:Arial, Helvetica, sans-serif; font-size:10px; color:#000; line-height:140%; background:#fff none; overflow-y:scroll; }
+html body td { vertical-align:top; text-align:left; }
+
+h1 { padding:0px; margin:0px 0px 25px; font-family:Arial, Helvetica, sans-serif; font-size:1.5em; color:#d55000; line-height:100%; font-weight:normal; }
+h2 { padding:0px; margin:0px 0px 8px; font-family:Arial, Helvetica, sans-serif; font-size:1.2em; color:#000; font-weight:bold; line-height:140%; border-bottom:1px solid #d6d4d4; display:block; }
+h3 { padding:0px; margin:0px 0px 5px; font-family:Arial, Helvetica, sans-serif; font-size:1.1em; color:#000; font-weight:bold; line-height:140%; }
+
+a { color:#005fce; text-decoration:none; }
+a:hover { color:#005fce; text-decoration:underline; }
+a:visited { color:#004aa0; text-decoration:none; }
+
+p { padding:0px; margin:0px 0px 20px; }
+img { padding:0px; margin:0px 0px 20px; border:none; }
+p img, pre img, tt img, li img, h1 img, h2 img { margin-bottom:0px; } 
+
+ul { padding:0px; margin:0px 0px 20px 23px; list-style:square; }
+ul li { padding:0px; margin:0px 0px 7px 0px; }
+ul li ul { padding:5px 0px 0px; margin:0px 0px 7px 23px; }
+ul li ol li { list-style:decimal; }
+ol { padding:0px; margin:0px 0px 20px 0px; list-style:decimal; }
+ol li { padding:0px; margin:0px 0px 7px 23px; list-style-type:decimal; }
+ol li ol { padding:5px 0px 0px; margin:0px 0px 7px 0px; }
+ol li ol li { list-style-type:lower-alpha; }
+ol li ul { padding-top:7px; }
+ol li ul li { list-style:square; }
+
+.content { font-size:1.2em; line-height:140%; padding: 20px; }
+
+pre, code { font-size:12px; }
+tt { font-size: 1.2em; }
+pre { margin:0px 0px 20px; }
+pre.codeinput { padding:10px; border:1px solid #d3d3d3; background:#f7f7f7; }
+pre.codeoutput { padding:10px 11px; margin:0px 0px 20px; color:#4c4c4c; }
+pre.error { color:red; }
+
+@media print { pre.codeinput, pre.codeoutput { word-wrap:break-word; width:100%; } }
+
+span.keyword { color:#0000FF }
+span.comment { color:#228B22 }
+span.string { color:#A020F0 }
+span.untermstring { color:#B20000 }
+span.syscmd { color:#B28C00 }
+
+.footer { width:auto; padding:10px 0px; margin:25px 0px 0px; border-top:1px dotted #878787; font-size:0.8em; line-height:140%; font-style:italic; color:#878787; text-align:left; float:none; }
+.footer p { margin:0px; }
+.footer a { color:#878787; }
+.footer a:hover { color:#878787; text-decoration:underline; }
+.footer a:visited { color:#878787; }
+
+table th { padding:7px 5px; text-align:left; vertical-align:middle; border: 1px solid #d6d4d4; font-weight:bold; }
+table td { padding:7px 5px; text-align:left; vertical-align:top; border:1px solid #d6d4d4; }
+
+
+
+
+
+  </style></head><body><div class="content"><pre class="codeinput"><span class="comment">%==========================</span>
+<span class="comment">%  Name:		hw4_2.m</span>
+<span class="comment">%</span>
+<span class="comment">%  Author:		Kairi Kozuma</span>
+<span class="comment">%</span>
+<span class="comment">%==========================</span>
+
+<span class="comment">% Q matrix</span>
+Q = [10.4300000000000,3.51500000000000,7.13300000000000,1,0,0,0,0,-7.64000000000000,-2.57500000000000,-5.22500000000000,-0.732500000000000;0,0,0,0,10.4300000000000,3.51500000000000,7.13300000000000,1,2.68600000000000,0.905100000000000,1.83700000000000,0.257500000000000;10.1300000000000,3.37800000000000,8.68900000000000,1,0,0,0,0,-5.57200000000000,-1.85800000000000,-4.77900000000000,-0.550000000000000;0,0,0,0,10.1300000000000,3.37800000000000,8.68900000000000,1,5.39400000000000,1.79900000000000,4.62700000000000,0.532500000000000;10.0100000000000,6.80800000000000,7.26400000000000,1,0,0,0,0,-0.825800000000000,-0.561700000000000,-0.599300000000000,-0.0825000000000000;0,0,0,0,10.0100000000000,6.80800000000000,7.26400000000000,1,-0.525500000000000,-0.357400000000000,-0.381400000000000,-0.0525000000000000;9.66900000000000,8.82400000000000,10.8200000000000,1,0,0,0,0,5.70500000000000,5.20600000000000,6.38400000000000,0.590000000000000;0,0,0,0,9.66900000000000,8.82400000000000,10.8200000000000,1,3.21500000000000,2.93400000000000,3.59800000000000,0.332500000000000;11.4000000000000,8.42000000000000,8.97500000000000,1,0,0,0,0,2.90700000000000,2.14700000000000,2.28900000000000,0.255000000000000;0,0,0,0,11.4000000000000,8.42000000000000,8.97500000000000,1,-0.199500000000000,-0.147300000000000,-0.157100000000000,-0.0175000000000000;13.2400000000000,6.54900000000000,5.91800000000000,1,0,0,0,0,-3.57500000000000,-1.76800000000000,-1.59800000000000,-0.270000000000000;0,0,0,0,13.2400000000000,6.54900000000000,5.91800000000000,1,-4.43500000000000,-2.19400000000000,-1.98300000000000,-0.335000000000000];
+
+<span class="comment">% Psi matrix</span>
+psi = [400,0,320;0,-400,240;0,0,1];
+
+<span class="comment">% Singular value decomposition</span>
+[UU SS VV] = svd(Q);
+
+<span class="comment">% Extract Gcw by reshaping last column of VV</span>
+sz = size(VV);
+vv = VV(:,sz(2));
+Gcw = (reshape(vv, 4, 3))';
+
+<span class="comment">% Comput Rwc and Twc</span>
+Rwc = Gcw(1:3,1:3)';
+Twc = - Rwc * Gcw(1:3,end);
+
+<span class="comment">% Print out values</span>
+fprintf(<span class="string">'Rotation matrix Rwc:\n'</span>);
+disp(Rwc);
+
+fprintf(<span class="string">'Translation vector Twc:\n'</span>);
+disp(Twc);
+
+<span class="comment">% Calculate real projection from point in world</span>
+qfindW = [14.3423181854615;4.38556290697137;3.07246344912662;1];
+rProb = psi * Gcw * qfindW;
+rProb = rProb./rProb(3);
+rProb = rProb(1:2);
+fprintf(<span class="string">'Point q projects to:\n'</span>);
+disp(rProb);
+
+fprintf(<span class="string">'Which is closest to coordinate:\n'</span>);
+rPts = [492,376,633,380;276,249,9,216];
+dist = sqrt((rProb(1) - rPts(1,:)).^2 + (rProb(2) - rPts(2,:)).^2);
+[m, i] = min(dist);
+disp(rPts(1:2,i));
+</pre><pre class="codeoutput">Rotation matrix Rwc:
+    0.0171    0.0297    0.0833
+   -0.0776    0.0447    0.0001
+   -0.0415   -0.0722    0.0342
+
+Translation vector Twc:
+    0.0486
+    0.0562
+    0.0486
+
+Point q projects to:
+  633.6588
+    9.6692
+
+Which is closest to coordinate:
+   633
+     9
+
+</pre><p class="footer"><br><a href="http://www.mathworks.com/products/matlab/">Published with MATLAB&reg; R2016b</a><br></p></div><!--
+##### SOURCE BEGIN #####
+%==========================
+%  Name:		hw4_2.m
+%
+%  Author:		Kairi Kozuma
+%
+%==========================
+
+% Q matrix
+Q = [10.4300000000000,3.51500000000000,7.13300000000000,1,0,0,0,0,-7.64000000000000,-2.57500000000000,-5.22500000000000,-0.732500000000000;0,0,0,0,10.4300000000000,3.51500000000000,7.13300000000000,1,2.68600000000000,0.905100000000000,1.83700000000000,0.257500000000000;10.1300000000000,3.37800000000000,8.68900000000000,1,0,0,0,0,-5.57200000000000,-1.85800000000000,-4.77900000000000,-0.550000000000000;0,0,0,0,10.1300000000000,3.37800000000000,8.68900000000000,1,5.39400000000000,1.79900000000000,4.62700000000000,0.532500000000000;10.0100000000000,6.80800000000000,7.26400000000000,1,0,0,0,0,-0.825800000000000,-0.561700000000000,-0.599300000000000,-0.0825000000000000;0,0,0,0,10.0100000000000,6.80800000000000,7.26400000000000,1,-0.525500000000000,-0.357400000000000,-0.381400000000000,-0.0525000000000000;9.66900000000000,8.82400000000000,10.8200000000000,1,0,0,0,0,5.70500000000000,5.20600000000000,6.38400000000000,0.590000000000000;0,0,0,0,9.66900000000000,8.82400000000000,10.8200000000000,1,3.21500000000000,2.93400000000000,3.59800000000000,0.332500000000000;11.4000000000000,8.42000000000000,8.97500000000000,1,0,0,0,0,2.90700000000000,2.14700000000000,2.28900000000000,0.255000000000000;0,0,0,0,11.4000000000000,8.42000000000000,8.97500000000000,1,-0.199500000000000,-0.147300000000000,-0.157100000000000,-0.0175000000000000;13.2400000000000,6.54900000000000,5.91800000000000,1,0,0,0,0,-3.57500000000000,-1.76800000000000,-1.59800000000000,-0.270000000000000;0,0,0,0,13.2400000000000,6.54900000000000,5.91800000000000,1,-4.43500000000000,-2.19400000000000,-1.98300000000000,-0.335000000000000];
+
+% Psi matrix
+psi = [400,0,320;0,-400,240;0,0,1];
+
+% Singular value decomposition
+[UU SS VV] = svd(Q);
+
+% Extract Gcw by reshaping last column of VV
+sz = size(VV);
+vv = VV(:,sz(2));
+Gcw = (reshape(vv, 4, 3))';
+
+% Comput Rwc and Twc
+Rwc = Gcw(1:3,1:3)';
+Twc = - Rwc * Gcw(1:3,end);
+
+% Print out values
+fprintf('Rotation matrix Rwc:\n');
+disp(Rwc);
+
+fprintf('Translation vector Twc:\n');
+disp(Twc);
+
+% Calculate real projection from point in world
+qfindW = [14.3423181854615;4.38556290697137;3.07246344912662;1];
+rProb = psi * Gcw * qfindW;
+rProb = rProb./rProb(3);
+rProb = rProb(1:2);
+fprintf('Point q projects to:\n');
+disp(rProb);
+
+fprintf('Which is closest to coordinate:\n');
+rPts = [492,376,633,380;276,249,9,216];
+dist = sqrt((rProb(1) - rPts(1,:)).^2 + (rProb(2) - rPts(2,:)).^2);
+[m, i] = min(dist);
+disp(rPts(1:2,i));
+##### SOURCE END #####
+--></body></html>

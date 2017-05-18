@@ -1,0 +1,370 @@
+
+<!DOCTYPE html
+  PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html><head>
+      <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+   <!--
+This HTML was auto-generated from MATLAB code.
+To make changes, update the MATLAB code and republish this document.
+      --><title>hw4_4</title><meta name="generator" content="MATLAB 9.1"><link rel="schema.DC" href="http://purl.org/dc/elements/1.1/"><meta name="DC.date" content="2017-02-09"><meta name="DC.source" content="hw4_4.m"><style type="text/css">
+html,body,div,span,applet,object,iframe,h1,h2,h3,h4,h5,h6,p,blockquote,pre,a,abbr,acronym,address,big,cite,code,del,dfn,em,font,img,ins,kbd,q,s,samp,small,strike,strong,sub,sup,tt,var,b,u,i,center,dl,dt,dd,ol,ul,li,fieldset,form,label,legend,table,caption,tbody,tfoot,thead,tr,th,td{margin:0;padding:0;border:0;outline:0;font-size:100%;vertical-align:baseline;background:transparent}body{line-height:1}ol,ul{list-style:none}blockquote,q{quotes:none}blockquote:before,blockquote:after,q:before,q:after{content:'';content:none}:focus{outine:0}ins{text-decoration:none}del{text-decoration:line-through}table{border-collapse:collapse;border-spacing:0}
+
+html { min-height:100%; margin-bottom:1px; }
+html body { height:100%; margin:0px; font-family:Arial, Helvetica, sans-serif; font-size:10px; color:#000; line-height:140%; background:#fff none; overflow-y:scroll; }
+html body td { vertical-align:top; text-align:left; }
+
+h1 { padding:0px; margin:0px 0px 25px; font-family:Arial, Helvetica, sans-serif; font-size:1.5em; color:#d55000; line-height:100%; font-weight:normal; }
+h2 { padding:0px; margin:0px 0px 8px; font-family:Arial, Helvetica, sans-serif; font-size:1.2em; color:#000; font-weight:bold; line-height:140%; border-bottom:1px solid #d6d4d4; display:block; }
+h3 { padding:0px; margin:0px 0px 5px; font-family:Arial, Helvetica, sans-serif; font-size:1.1em; color:#000; font-weight:bold; line-height:140%; }
+
+a { color:#005fce; text-decoration:none; }
+a:hover { color:#005fce; text-decoration:underline; }
+a:visited { color:#004aa0; text-decoration:none; }
+
+p { padding:0px; margin:0px 0px 20px; }
+img { padding:0px; margin:0px 0px 20px; border:none; }
+p img, pre img, tt img, li img, h1 img, h2 img { margin-bottom:0px; } 
+
+ul { padding:0px; margin:0px 0px 20px 23px; list-style:square; }
+ul li { padding:0px; margin:0px 0px 7px 0px; }
+ul li ul { padding:5px 0px 0px; margin:0px 0px 7px 23px; }
+ul li ol li { list-style:decimal; }
+ol { padding:0px; margin:0px 0px 20px 0px; list-style:decimal; }
+ol li { padding:0px; margin:0px 0px 7px 23px; list-style-type:decimal; }
+ol li ol { padding:5px 0px 0px; margin:0px 0px 7px 0px; }
+ol li ol li { list-style-type:lower-alpha; }
+ol li ul { padding-top:7px; }
+ol li ul li { list-style:square; }
+
+.content { font-size:1.2em; line-height:140%; padding: 20px; }
+
+pre, code { font-size:12px; }
+tt { font-size: 1.2em; }
+pre { margin:0px 0px 20px; }
+pre.codeinput { padding:10px; border:1px solid #d3d3d3; background:#f7f7f7; }
+pre.codeoutput { padding:10px 11px; margin:0px 0px 20px; color:#4c4c4c; }
+pre.error { color:red; }
+
+@media print { pre.codeinput, pre.codeoutput { word-wrap:break-word; width:100%; } }
+
+span.keyword { color:#0000FF }
+span.comment { color:#228B22 }
+span.string { color:#A020F0 }
+span.untermstring { color:#B20000 }
+span.syscmd { color:#B28C00 }
+
+.footer { width:auto; padding:10px 0px; margin:25px 0px 0px; border-top:1px dotted #878787; font-size:0.8em; line-height:140%; font-style:italic; color:#878787; text-align:left; float:none; }
+.footer p { margin:0px; }
+.footer a { color:#878787; }
+.footer a:hover { color:#878787; text-decoration:underline; }
+.footer a:visited { color:#878787; }
+
+table th { padding:7px 5px; text-align:left; vertical-align:middle; border: 1px solid #d6d4d4; font-weight:bold; }
+table td { padding:7px 5px; text-align:left; vertical-align:top; border:1px solid #d6d4d4; }
+
+
+
+
+
+  </style></head><body><div class="content"><pre class="codeinput"><span class="comment">%==========================</span>
+<span class="comment">%  Name:		hw4_4.m</span>
+<span class="comment">%</span>
+<span class="comment">%  Author:		Kairi Kozuma</span>
+<span class="comment">%</span>
+<span class="comment">%==========================</span>
+
+<span class="comment">% Transformation matrix for left and right cameras</span>
+R_WL = [0.913545457642601,-0.063627629171822,0.401729040058774;0.287606238475951,0.799453749866612,-0.527405302792764;-0.287606238475951,0.597348496800808,0.748637044875238];
+T_WL = [-8.659258262890683;2.169872981077807;4.830127018922193];
+R_WR = [0.994521895368273,-0.016351854232753,0.103241544429788;0.073912785203567,0.808411029059454,-0.583959337863936;-0.073912785203567,0.588391217607967,0.805191079946410];
+T_WR = [10.659258262890683;5.830127018922193;1.169872981077807];
+
+PsiR = [400,0,320;0,400,240;0,0,1];
+PsiL = PsiR;
+
+<span class="comment">% a) Find in world coordinates</span>
+
+<span class="comment">% Rays</span>
+pa_rLeft = [302,492;236,193];
+pa_rRight = [279,372;235,194];
+
+<span class="comment">% Use function</span>
+[p1wL, p1wR, alpha1L, alpha1R] = findWorldPoint(R_WL, T_WL, PsiL, R_WR, T_WR, PsiR, pa_rLeft, pa_rRight);
+disp(<span class="string">'a)'</span>);
+fprintf(<span class="string">'World points obtained from left camera:\n'</span>);
+disp(p1wL);
+fprintf(<span class="string">'With the following alpha values:\n'</span>);
+disp(alpha1L);
+
+fprintf(<span class="string">'World points obtained from right camera:\n'</span>);
+disp(p1wR);
+fprintf(<span class="string">'With the following alpha values:\n'</span>);
+disp(alpha1R);
+
+<span class="comment">% b) Find depth along optical axis for each camera</span>
+
+<span class="comment">% Transform to left and right camera frames</span>
+G_LW = [R_WL',-R_WL' * T_WL;0,0,0,1];
+G_RW = [R_WR',-R_WR' * T_WR;0,0,0,1];
+
+<span class="comment">% Homogenous form</span>
+p1L = G_LW * [p1wL;ones(1,2)];
+p1R = G_RW * [p1wR;ones(1,2)];
+
+disp(<span class="string">'b)'</span>);
+disp(<span class="string">'Depths for points with respect to left camera:'</span>);
+disp(p1L(3,:));
+
+disp(<span class="string">'Depths for points with respect to right camera:'</span>);
+disp(p1R(3,:));
+
+<span class="comment">% c) Find points relative to left camera frame</span>
+pc_rRight = [293,382;203,250];
+pc_rLeft = [206,299;204,249];
+
+<span class="comment">% Homogenous form</span>
+G_WR = [R_WR,T_WR;0,0,0,1];
+G_LR = G_LW * G_WR;
+R_LR = G_LR(1:3,1:3);
+T_LR = G_LR(1:3,4);
+[p3wL, p3wR, alpha3L, alpha3R] = findWorldPoint(eye(3,3), zeros(3,1), PsiL, R_LR, T_LR, PsiR, pc_rLeft, pc_rRight);
+
+disp(<span class="string">'c)'</span>);
+disp(<span class="string">'Point in left camera frame'</span>);
+disp(p3wL);
+
+<span class="comment">%============================ findWorldPoint ==============================</span>
+<span class="comment">%</span>
+<span class="comment">%  function [pwL, pwR, alphaL, alphaR] = findWorldPoint(R_WL, T_WL, PsiL, R_WR, T_WR, PsiR, raysL, raysR)</span>
+<span class="comment">%</span>
+<span class="comment">%</span>
+<span class="comment">%  INPUT:</span>
+<span class="comment">%       R_WL = rotation matrix for left camera</span>
+<span class="comment">%       T_WL = translation vector for left camera</span>
+<span class="comment">%       PsiL = camera matrix for left camera</span>
+<span class="comment">%       R_WR = rotation matrix for right camera</span>
+<span class="comment">%       T_WR = translation vector for right camera</span>
+<span class="comment">%       PsiR = camera matrix for right camera</span>
+<span class="comment">%       raysL = rays in left camera</span>
+<span class="comment">%       raysR = rays in right camera</span>
+<span class="comment">%</span>
+<span class="comment">%  OUTPUT:</span>
+<span class="comment">%       pwL = points in world obtained from left camera</span>
+<span class="comment">%       pwR = points in world obtained from right camera</span>
+<span class="comment">%       alphaL = alpha values for pwL</span>
+<span class="comment">%       alphaR = alpha values for pwR</span>
+<span class="comment">%</span>
+<span class="comment">%============================ findWorldPoint ==============================</span>
+<span class="keyword">function</span> [pwL, pwR, alphaL, alphaR] = findWorldPoint(R_WL, T_WL, PsiL, R_WR, T_WR, PsiR, raysL, raysR)
+
+<span class="comment">% Homogenous Form</span>
+raysL = [raysL;ones(1,length(raysL))];
+raysR = [raysR;ones(1,length(raysR))];
+
+n = size(raysL,2);
+
+<span class="comment">% b vector</span>
+b = T_WR - T_WL;
+
+alphaL = zeros(1, n);
+alphaR = zeros(1, n);
+pwL = zeros(3,n);
+pwR = zeros(3,n);
+
+<span class="comment">% Iterate through points</span>
+<span class="keyword">for</span> i=1:n
+
+    <span class="comment">% Get ray from both cameras</span>
+    rayL = raysL(:,i);
+    rayR = raysR(:,i);
+
+    <span class="comment">% A matrix</span>
+    A = [R_WL * (PsiL \ rayL), - R_WR * (PsiR \ rayR)];
+
+    <span class="comment">% Calculate alpha</span>
+    alpha = (A \ b);
+    aL = alpha(1);
+    aR = alpha(2);
+
+    <span class="comment">% Store alpha values</span>
+    alphaL(i) = aL;
+    alphaR(i) = aR;
+
+    b2 = A * alpha;
+
+    pwL(:,i) = aL * R_WL * (PsiL \ rayL) + T_WL;
+    pwR(:,i) = aR * R_WR * (PsiR \ rayR) + T_WR;
+
+<span class="keyword">end</span>
+
+<span class="keyword">end</span>
+</pre><pre class="codeoutput">a)
+World points obtained from left camera:
+   10.7439   17.7004
+  -27.2817  -14.1866
+   45.4139   23.0636
+
+With the following alpha values:
+   53.7103   32.8662
+
+World points obtained from right camera:
+   10.7421   17.7009
+  -27.2421  -14.2160
+   45.4435   23.0364
+
+With the following alpha values:
+   54.9702   30.0399
+
+b)
+Depths for points with respect to left camera:
+   53.7103   32.8662
+
+Depths for points with respect to right camera:
+   54.9702   30.0399
+
+c)
+Point in left camera frame
+  -51.2820  -10.2043
+  -16.1943    4.3733
+  179.9368  194.3672
+
+</pre><p class="footer"><br><a href="http://www.mathworks.com/products/matlab/">Published with MATLAB&reg; R2016b</a><br></p></div><!--
+##### SOURCE BEGIN #####
+%==========================
+%  Name:		hw4_4.m
+%
+%  Author:		Kairi Kozuma
+%
+%==========================
+
+% Transformation matrix for left and right cameras
+R_WL = [0.913545457642601,-0.063627629171822,0.401729040058774;0.287606238475951,0.799453749866612,-0.527405302792764;-0.287606238475951,0.597348496800808,0.748637044875238];
+T_WL = [-8.659258262890683;2.169872981077807;4.830127018922193];
+R_WR = [0.994521895368273,-0.016351854232753,0.103241544429788;0.073912785203567,0.808411029059454,-0.583959337863936;-0.073912785203567,0.588391217607967,0.805191079946410];
+T_WR = [10.659258262890683;5.830127018922193;1.169872981077807];
+
+PsiR = [400,0,320;0,400,240;0,0,1];
+PsiL = PsiR;
+
+% a) Find in world coordinates
+
+% Rays
+pa_rLeft = [302,492;236,193];
+pa_rRight = [279,372;235,194];
+
+% Use function
+[p1wL, p1wR, alpha1L, alpha1R] = findWorldPoint(R_WL, T_WL, PsiL, R_WR, T_WR, PsiR, pa_rLeft, pa_rRight);
+disp('a)');
+fprintf('World points obtained from left camera:\n');
+disp(p1wL);
+fprintf('With the following alpha values:\n');
+disp(alpha1L);
+
+fprintf('World points obtained from right camera:\n');
+disp(p1wR);
+fprintf('With the following alpha values:\n');
+disp(alpha1R);
+
+% b) Find depth along optical axis for each camera
+
+% Transform to left and right camera frames
+G_LW = [R_WL',-R_WL' * T_WL;0,0,0,1];
+G_RW = [R_WR',-R_WR' * T_WR;0,0,0,1];
+
+% Homogenous form
+p1L = G_LW * [p1wL;ones(1,2)];
+p1R = G_RW * [p1wR;ones(1,2)];
+
+disp('b)');
+disp('Depths for points with respect to left camera:');
+disp(p1L(3,:));
+
+disp('Depths for points with respect to right camera:');
+disp(p1R(3,:));
+
+% c) Find points relative to left camera frame
+pc_rRight = [293,382;203,250];
+pc_rLeft = [206,299;204,249];
+
+% Homogenous form
+G_WR = [R_WR,T_WR;0,0,0,1];
+G_LR = G_LW * G_WR;
+R_LR = G_LR(1:3,1:3);
+T_LR = G_LR(1:3,4);
+[p3wL, p3wR, alpha3L, alpha3R] = findWorldPoint(eye(3,3), zeros(3,1), PsiL, R_LR, T_LR, PsiR, pc_rLeft, pc_rRight);
+
+disp('c)');
+disp('Point in left camera frame');
+disp(p3wL);
+
+%============================ findWorldPoint ==============================
+%
+%  function [pwL, pwR, alphaL, alphaR] = findWorldPoint(R_WL, T_WL, PsiL, R_WR, T_WR, PsiR, raysL, raysR)
+%
+%
+%  INPUT:
+%       R_WL = rotation matrix for left camera
+%       T_WL = translation vector for left camera
+%       PsiL = camera matrix for left camera
+%       R_WR = rotation matrix for right camera
+%       T_WR = translation vector for right camera
+%       PsiR = camera matrix for right camera
+%       raysL = rays in left camera
+%       raysR = rays in right camera
+%
+%  OUTPUT:
+%       pwL = points in world obtained from left camera
+%       pwR = points in world obtained from right camera
+%       alphaL = alpha values for pwL
+%       alphaR = alpha values for pwR
+%
+%============================ findWorldPoint ==============================
+function [pwL, pwR, alphaL, alphaR] = findWorldPoint(R_WL, T_WL, PsiL, R_WR, T_WR, PsiR, raysL, raysR)
+
+% Homogenous Form
+raysL = [raysL;ones(1,length(raysL))];
+raysR = [raysR;ones(1,length(raysR))];
+
+n = size(raysL,2);
+
+% b vector
+b = T_WR - T_WL;
+
+alphaL = zeros(1, n);
+alphaR = zeros(1, n);
+pwL = zeros(3,n);
+pwR = zeros(3,n);
+
+% Iterate through points
+for i=1:n
+    
+    % Get ray from both cameras
+    rayL = raysL(:,i);
+    rayR = raysR(:,i);
+    
+    % A matrix
+    A = [R_WL * (PsiL \ rayL), - R_WR * (PsiR \ rayR)];
+    
+    % Calculate alpha
+    alpha = (A \ b);
+    aL = alpha(1);
+    aR = alpha(2);
+    
+    % Store alpha values
+    alphaL(i) = aL;
+    alphaR(i) = aR;
+
+    b2 = A * alpha;
+
+    pwL(:,i) = aL * R_WL * (PsiL \ rayL) + T_WL;
+    pwR(:,i) = aR * R_WR * (PsiR \ rayR) + T_WR;
+
+end
+
+end
+
+
+
+
+##### SOURCE END #####
+--></body></html>

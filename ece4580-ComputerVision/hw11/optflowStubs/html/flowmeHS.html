@@ -1,0 +1,465 @@
+
+<!DOCTYPE html
+  PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html><head>
+      <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+   <!--
+This HTML was auto-generated from MATLAB code.
+To make changes, update the MATLAB code and republish this document.
+      --><title>flowmeHS</title><meta name="generator" content="MATLAB 9.1"><link rel="schema.DC" href="http://purl.org/dc/elements/1.1/"><meta name="DC.date" content="2017-04-19"><meta name="DC.source" content="flowmeHS.m"><style type="text/css">
+html,body,div,span,applet,object,iframe,h1,h2,h3,h4,h5,h6,p,blockquote,pre,a,abbr,acronym,address,big,cite,code,del,dfn,em,font,img,ins,kbd,q,s,samp,small,strike,strong,sub,sup,tt,var,b,u,i,center,dl,dt,dd,ol,ul,li,fieldset,form,label,legend,table,caption,tbody,tfoot,thead,tr,th,td{margin:0;padding:0;border:0;outline:0;font-size:100%;vertical-align:baseline;background:transparent}body{line-height:1}ol,ul{list-style:none}blockquote,q{quotes:none}blockquote:before,blockquote:after,q:before,q:after{content:'';content:none}:focus{outine:0}ins{text-decoration:none}del{text-decoration:line-through}table{border-collapse:collapse;border-spacing:0}
+
+html { min-height:100%; margin-bottom:1px; }
+html body { height:100%; margin:0px; font-family:Arial, Helvetica, sans-serif; font-size:10px; color:#000; line-height:140%; background:#fff none; overflow-y:scroll; }
+html body td { vertical-align:top; text-align:left; }
+
+h1 { padding:0px; margin:0px 0px 25px; font-family:Arial, Helvetica, sans-serif; font-size:1.5em; color:#d55000; line-height:100%; font-weight:normal; }
+h2 { padding:0px; margin:0px 0px 8px; font-family:Arial, Helvetica, sans-serif; font-size:1.2em; color:#000; font-weight:bold; line-height:140%; border-bottom:1px solid #d6d4d4; display:block; }
+h3 { padding:0px; margin:0px 0px 5px; font-family:Arial, Helvetica, sans-serif; font-size:1.1em; color:#000; font-weight:bold; line-height:140%; }
+
+a { color:#005fce; text-decoration:none; }
+a:hover { color:#005fce; text-decoration:underline; }
+a:visited { color:#004aa0; text-decoration:none; }
+
+p { padding:0px; margin:0px 0px 20px; }
+img { padding:0px; margin:0px 0px 20px; border:none; }
+p img, pre img, tt img, li img, h1 img, h2 img { margin-bottom:0px; } 
+
+ul { padding:0px; margin:0px 0px 20px 23px; list-style:square; }
+ul li { padding:0px; margin:0px 0px 7px 0px; }
+ul li ul { padding:5px 0px 0px; margin:0px 0px 7px 23px; }
+ul li ol li { list-style:decimal; }
+ol { padding:0px; margin:0px 0px 20px 0px; list-style:decimal; }
+ol li { padding:0px; margin:0px 0px 7px 23px; list-style-type:decimal; }
+ol li ol { padding:5px 0px 0px; margin:0px 0px 7px 0px; }
+ol li ol li { list-style-type:lower-alpha; }
+ol li ul { padding-top:7px; }
+ol li ul li { list-style:square; }
+
+.content { font-size:1.2em; line-height:140%; padding: 20px; }
+
+pre, code { font-size:12px; }
+tt { font-size: 1.2em; }
+pre { margin:0px 0px 20px; }
+pre.codeinput { padding:10px; border:1px solid #d3d3d3; background:#f7f7f7; }
+pre.codeoutput { padding:10px 11px; margin:0px 0px 20px; color:#4c4c4c; }
+pre.error { color:red; }
+
+@media print { pre.codeinput, pre.codeoutput { word-wrap:break-word; width:100%; } }
+
+span.keyword { color:#0000FF }
+span.comment { color:#228B22 }
+span.string { color:#A020F0 }
+span.untermstring { color:#B20000 }
+span.syscmd { color:#B28C00 }
+
+.footer { width:auto; padding:10px 0px; margin:25px 0px 0px; border-top:1px dotted #878787; font-size:0.8em; line-height:140%; font-style:italic; color:#878787; text-align:left; float:none; }
+.footer p { margin:0px; }
+.footer a { color:#878787; }
+.footer a:hover { color:#878787; text-decoration:underline; }
+.footer a:visited { color:#878787; }
+
+table th { padding:7px 5px; text-align:left; vertical-align:middle; border: 1px solid #d6d4d4; font-weight:bold; }
+table td { padding:7px 5px; text-align:left; vertical-align:top; border:1px solid #d6d4d4; }
+
+
+
+
+
+  </style></head><body><div class="content"><pre class="codeinput"><span class="comment">%================================= flowme ================================</span>
+<span class="comment">%</span>
+<span class="comment">%  script flowme</span>
+<span class="comment">%</span>
+<span class="comment">%  This is a script stub that will execute the optical flow solver to be</span>
+<span class="comment">%  written for this homework.  The script code will not work as is, and</span>
+<span class="comment">%  must be adjusted.  The dynamic range of the images definitely needs to</span>
+<span class="comment">%  be adjusted, as may the smoothness of the image data.</span>
+<span class="comment">%</span>
+<span class="comment">%</span>
+<span class="comment">%  Variables in the script:</span>
+<span class="comment">%    source             - which image sequence source to use.</span>
+<span class="comment">%    di                 - vector spacing for quiver.</span>
+<span class="comment">%    scale		- what scale to use for plotting vector field.</span>
+<span class="comment">%    alphasqHS		- the value of alpha squared for optical flow.</span>
+<span class="comment">%    iterHS		- the number of iterations in the solver.</span>
+<span class="comment">%</span>
+<span class="comment">%================================= flowme ================================</span>
+
+<span class="comment">%==(0) Setup variables and get images ready.</span>
+close <span class="string">all</span>
+load(<span class="string">'optflowData.mat'</span>);
+sources = {<span class="string">'box'</span>,<span class="string">'bonanza'</span>,<span class="string">'fish3'</span>,<span class="string">'fish4'</span>};
+<span class="keyword">for</span> i=1:length(sources)
+
+  source = sources(i);
+  source = source{1};
+  <span class="keyword">switch</span> source
+  <span class="keyword">case</span> <span class="string">'box'</span>
+    I1 = imsmooth(box(:,:,1),0.5);
+    I2 = imsmooth(box(:,:,3),0.5);
+    scale = 1.5;
+    alphasqHS = 0.02;
+    iterHS = 4000;
+    di = 1;
+  <span class="keyword">case</span> <span class="string">'bonanza'</span>
+    I1 = imsmooth(bonanza(:,:,1),2);
+    I2 = imsmooth(bonanza(:,:,4),2);
+    scale = 2.5;
+    alphasqHS = 10;
+    iterHS = 100;
+    di = 10;
+  <span class="keyword">case</span> <span class="string">'fish3'</span>
+    I1 = imsmooth(fish03(:,:,1),3);
+    I2 = imsmooth(fish03(:,:,20),3);
+    scale = 2.5;
+    alphasqHS = 10;
+    iterHS = 100;
+    di = 5;
+  <span class="keyword">case</span> <span class="string">'fish4'</span>
+    I1 = imsmooth(fish04(:,:,1),3);
+    I2 = imsmooth(fish04(:,:,12),3);
+    scale = 2;
+    alphasqHS = 10;
+    iterHS = 100;
+    di = 5;
+  <span class="keyword">end</span>
+    <span class="comment">%==(1) Actually compute the optical flow.</span>
+    [X.u, X.v] = optflowHS(I1, I2, alphasqHS, iterHS);
+
+    lenX = abs(X.u + i*X.v);
+    disp([<span class="string">'The max length optical vector is: '</span> num2str(max(lenX(:)))]);
+
+    <span class="comment">%==(2) Display output of the optical flow.</span>
+    j = 8 * (i - 1);
+    figure(j + 1);
+      imagesc(I1);
+      colormap(<span class="string">'gray'</span>);
+      axis <span class="string">image</span>;
+      title(strcat(source, <span class="string">' I1'</span>));
+    figure(j + 2);
+      imagesc(I2);
+      colormap(<span class="string">'gray'</span>);
+      axis <span class="string">image</span>;
+      title(strcat(source, <span class="string">' I2'</span>));
+    figure(j + 3);
+      imagesc(I2-I1);
+      colormap(<span class="string">'gray'</span>);
+      colorbar;
+      axis <span class="string">image</span>;
+      title(strcat(source, <span class="string">' I2 - I1'</span>));
+    figure(j + 4);
+      imagesc(X.u);
+      colorbar;
+      axis <span class="string">image</span>;
+      title(strcat(source, <span class="string">' u'</span>));
+    figure(j + 5);
+      imagesc(X.v);
+      colorbar;
+      axis <span class="string">image</span>;
+      title(strcat(source, <span class="string">' v'</span>));
+    figure(j + 6);
+      imagesc(I1);
+      colormap(<span class="string">'gray'</span>);
+      axis <span class="string">image</span>;
+      [M, N] = size(I1);
+      subx = [1:di:N];
+      suby = [1:di:M];
+      [gridx, gridy] = meshgrid(subx, suby);
+      hold <span class="string">on</span>;
+      quiver(gridx, gridy, X.u(suby,subx),X.v(suby, subx),scale,<span class="string">'Color'</span>,<span class="string">'r'</span>);
+      hold <span class="string">off</span>;
+      title(strcat(source, <span class="string">' I1 + Vector Field'</span>));
+
+    intI = optflow_check(I1, I2, X);
+
+    figure(j + 7);
+      imagesc(intI);
+      colormap(<span class="string">'gray'</span>);
+      axis <span class="string">image</span>;
+      title(strcat(source, <span class="string">' Warped I1'</span>));
+
+    figure(j + 8);
+      imagesc(I2 - intI);
+      colorbar;
+      title(strcat(source, <span class="string">' Error Between I1 + Velocity and I2'</span>));
+<span class="keyword">end</span>
+
+<span class="comment">%=============================== optflowHS ===============================</span>
+<span class="comment">%</span>
+<span class="comment">%  [Xu, Xv] = optflowHS(I1, I2, alphasq, iter)</span>
+<span class="comment">%</span>
+<span class="comment">%</span>
+<span class="comment">%  Implements the Horn and Schunck optical flow algorithm for determination</span>
+<span class="comment">%  of optical flow between two images.</span>
+<span class="comment">%</span>
+<span class="comment">%  Source:</span>
+<span class="comment">%    Horn, BKP and Schunck, BG, &acirc;&#128;&#156;Determining Optical Flow,&acirc;&#128;?</span>
+<span class="comment">%      Artificial Intelligence, vol. 17, pp. 185-204, 1981.</span>
+<span class="comment">%</span>
+<span class="comment">%  Inputs:</span>
+<span class="comment">%    I1		-the first image in time.</span>
+<span class="comment">%    I2		-the second image in time.</span>
+<span class="comment">%    alphasq	-the parameter alpha^2.</span>
+<span class="comment">%    iter	-number of Gauss-Siedel iterations.</span>
+<span class="comment">%</span>
+<span class="comment">%=============================== optflowHS ===============================</span>
+<span class="keyword">function</span> [Xu, Xv] = optflowHS(I1, I2, alphasq, iter)
+
+Xu = zeros(size(I1));			<span class="comment">% This is the initial guess.</span>
+Xv = zeros(size(I2));
+
+[Ix, Iy, It] = differentialsHS(I1, I2);
+
+<span class="comment">% Missing code here for the constant parts.</span>
+k = 1;
+denom = (k * alphasq + Ix.^2 + Iy.^2);
+
+<span class="keyword">for</span> i=1:iter
+  barXu = lapAverage(Xu);
+  barXv = lapAverage(Xv);
+
+  <span class="comment">% Missing code here for iterative solver.</span>
+  gradConst = (Ix .* barXu + Iy .* barXv + It);
+  Xu = barXu - (gradConst .* Ix)./ denom;
+  Xv = barXv - (gradConst .* Iy)./ denom;
+<span class="keyword">end</span>
+
+<span class="keyword">end</span>
+
+<span class="comment">%--------------------------- differentialsHS ---------------------------</span>
+<span class="comment">%</span>
+<span class="comment">% [Ix, Iy, It] = differentialsHS</span>
+<span class="comment">%</span>
+<span class="comment">%--------------------------- differentialsHS ---------------------------</span>
+<span class="keyword">function</span> [Ix, Iy, It] = differentialsHS(I1, I2)
+
+<span class="comment">% Missing code here.  Make sure to take care of boundary conditions.</span>
+
+Kt = (1.0/4.0)*[1,1;1,1];
+Kx = (1.0/4.0)*[-1,1;-1,1];
+Ky = (1.0/4.0)*[-1,-1;1,1];
+
+It = imfilter(I2, Kt) - imfilter(I1, Kt);
+Ix = imfilter(I1, Kx) + imfilter(I2, Kx);
+Iy = imfilter(I1, Ky) + imfilter(I2, Ky);
+
+
+<span class="keyword">end</span>
+<span class="comment">%------------------------------ lapAverage -----------------------------</span>
+<span class="comment">%</span>
+<span class="comment">% [ubar] = lapAverage(u)</span>
+<span class="comment">%</span>
+<span class="comment">%------------------------------ lapAverage -----------------------------</span>
+<span class="keyword">function</span> [ubar] = lapAverage(u)
+
+<span class="comment">% Missing code here.  Make sure to take care of boundary conditions.</span>
+
+k = 3;
+A = (1/12.0)*[1,2,1;2,0,2;1,2,1];
+<span class="comment">%lapU = k * u + imfilter(u, k * A);</span>
+<span class="comment">%ubar = mean(mean(lapU));</span>
+ubar = imfilter(u, A);
+<span class="keyword">end</span>
+</pre><pre class="codeoutput">The max length optical vector is: 9.1339
+The max length optical vector is: 35.5712
+The max length optical vector is: 78.3867
+The max length optical vector is: 125.093
+</pre><img vspace="5" hspace="5" src="flowmeHS_01.png" alt=""> <img vspace="5" hspace="5" src="flowmeHS_02.png" alt=""> <img vspace="5" hspace="5" src="flowmeHS_03.png" alt=""> <img vspace="5" hspace="5" src="flowmeHS_04.png" alt=""> <img vspace="5" hspace="5" src="flowmeHS_05.png" alt=""> <img vspace="5" hspace="5" src="flowmeHS_06.png" alt=""> <img vspace="5" hspace="5" src="flowmeHS_07.png" alt=""> <img vspace="5" hspace="5" src="flowmeHS_08.png" alt=""> <img vspace="5" hspace="5" src="flowmeHS_09.png" alt=""> <img vspace="5" hspace="5" src="flowmeHS_10.png" alt=""> <img vspace="5" hspace="5" src="flowmeHS_11.png" alt=""> <img vspace="5" hspace="5" src="flowmeHS_12.png" alt=""> <img vspace="5" hspace="5" src="flowmeHS_13.png" alt=""> <img vspace="5" hspace="5" src="flowmeHS_14.png" alt=""> <img vspace="5" hspace="5" src="flowmeHS_15.png" alt=""> <img vspace="5" hspace="5" src="flowmeHS_16.png" alt=""> <img vspace="5" hspace="5" src="flowmeHS_17.png" alt=""> <img vspace="5" hspace="5" src="flowmeHS_18.png" alt=""> <img vspace="5" hspace="5" src="flowmeHS_19.png" alt=""> <img vspace="5" hspace="5" src="flowmeHS_20.png" alt=""> <img vspace="5" hspace="5" src="flowmeHS_21.png" alt=""> <img vspace="5" hspace="5" src="flowmeHS_22.png" alt=""> <img vspace="5" hspace="5" src="flowmeHS_23.png" alt=""> <img vspace="5" hspace="5" src="flowmeHS_24.png" alt=""> <img vspace="5" hspace="5" src="flowmeHS_25.png" alt=""> <img vspace="5" hspace="5" src="flowmeHS_26.png" alt=""> <img vspace="5" hspace="5" src="flowmeHS_27.png" alt=""> <img vspace="5" hspace="5" src="flowmeHS_28.png" alt=""> <img vspace="5" hspace="5" src="flowmeHS_29.png" alt=""> <img vspace="5" hspace="5" src="flowmeHS_30.png" alt=""> <img vspace="5" hspace="5" src="flowmeHS_31.png" alt=""> <img vspace="5" hspace="5" src="flowmeHS_32.png" alt=""> <p class="footer"><br><a href="http://www.mathworks.com/products/matlab/">Published with MATLAB&reg; R2016b</a><br></p></div><!--
+##### SOURCE BEGIN #####
+%================================= flowme ================================
+%
+%  script flowme
+%
+%  This is a script stub that will execute the optical flow solver to be
+%  written for this homework.  The script code will not work as is, and
+%  must be adjusted.  The dynamic range of the images definitely needs to 
+%  be adjusted, as may the smoothness of the image data.
+%
+%
+%  Variables in the script:
+%    source             - which image sequence source to use.
+%    di                 - vector spacing for quiver.
+%    scale		- what scale to use for plotting vector field.
+%    alphasqHS		- the value of alpha squared for optical flow.
+%    iterHS		- the number of iterations in the solver.
+%
+%================================= flowme ================================
+
+%==(0) Setup variables and get images ready.
+close all
+load('optflowData.mat');
+sources = {'box','bonanza','fish3','fish4'};
+for i=1:length(sources)
+    
+  source = sources(i);
+  source = source{1};
+  switch source
+  case 'box'
+    I1 = imsmooth(box(:,:,1),0.5);
+    I2 = imsmooth(box(:,:,3),0.5);
+    scale = 1.5;
+    alphasqHS = 0.02;
+    iterHS = 4000;
+    di = 1;
+  case 'bonanza'
+    I1 = imsmooth(bonanza(:,:,1),2);
+    I2 = imsmooth(bonanza(:,:,4),2);
+    scale = 2.5;
+    alphasqHS = 10;
+    iterHS = 100;
+    di = 10;
+  case 'fish3'
+    I1 = imsmooth(fish03(:,:,1),3);
+    I2 = imsmooth(fish03(:,:,20),3);
+    scale = 2.5;
+    alphasqHS = 10;
+    iterHS = 100;
+    di = 5;
+  case 'fish4'
+    I1 = imsmooth(fish04(:,:,1),3);
+    I2 = imsmooth(fish04(:,:,12),3);
+    scale = 2;
+    alphasqHS = 10;
+    iterHS = 100;
+    di = 5;
+  end
+    %==(1) Actually compute the optical flow.
+    [X.u, X.v] = optflowHS(I1, I2, alphasqHS, iterHS);
+
+    lenX = abs(X.u + i*X.v);
+    disp(['The max length optical vector is: ' num2str(max(lenX(:)))]);
+
+    %==(2) Display output of the optical flow.
+    j = 8 * (i - 1);
+    figure(j + 1);
+      imagesc(I1);
+      colormap('gray');
+      axis image;
+      title(strcat(source, ' I1'));
+    figure(j + 2);
+      imagesc(I2);
+      colormap('gray');
+      axis image;
+      title(strcat(source, ' I2'));
+    figure(j + 3);
+      imagesc(I2-I1);
+      colormap('gray');
+      colorbar;
+      axis image;
+      title(strcat(source, ' I2 - I1'));
+    figure(j + 4);
+      imagesc(X.u);
+      colorbar;
+      axis image;
+      title(strcat(source, ' u'));
+    figure(j + 5);
+      imagesc(X.v);
+      colorbar;
+      axis image;
+      title(strcat(source, ' v'));
+    figure(j + 6);
+      imagesc(I1); 
+      colormap('gray');
+      axis image;
+      [M, N] = size(I1);
+      subx = [1:di:N];
+      suby = [1:di:M];
+      [gridx, gridy] = meshgrid(subx, suby);
+      hold on;
+      quiver(gridx, gridy, X.u(suby,subx),X.v(suby, subx),scale,'Color','r');
+      hold off;
+      title(strcat(source, ' I1 + Vector Field'));
+    
+    intI = optflow_check(I1, I2, X);
+    
+    figure(j + 7);
+      imagesc(intI);
+      colormap('gray');
+      axis image;
+      title(strcat(source, ' Warped I1'));
+
+    figure(j + 8);
+      imagesc(I2 - intI);
+      colorbar;
+      title(strcat(source, ' Error Between I1 + Velocity and I2'));
+end
+
+%=============================== optflowHS ===============================
+%
+%  [Xu, Xv] = optflowHS(I1, I2, alphasq, iter)
+%
+%
+%  Implements the Horn and Schunck optical flow algorithm for determination
+%  of optical flow between two images.
+%
+%  Source:
+%    Horn, BKP and Schunck, BG, âDetermining Optical Flow,â? 
+%      Artificial Intelligence, vol. 17, pp. 185-204, 1981.
+%
+%  Inputs:
+%    I1		-the first image in time.
+%    I2		-the second image in time.
+%    alphasq	-the parameter alpha^2.
+%    iter	-number of Gauss-Siedel iterations.
+%
+%=============================== optflowHS ===============================
+function [Xu, Xv] = optflowHS(I1, I2, alphasq, iter)
+
+Xu = zeros(size(I1));			% This is the initial guess.
+Xv = zeros(size(I2));
+
+[Ix, Iy, It] = differentialsHS(I1, I2);
+
+% Missing code here for the constant parts.
+k = 1;
+denom = (k * alphasq + Ix.^2 + Iy.^2);
+
+for i=1:iter
+  barXu = lapAverage(Xu);
+  barXv = lapAverage(Xv);
+
+  % Missing code here for iterative solver.
+  gradConst = (Ix .* barXu + Iy .* barXv + It);
+  Xu = barXu - (gradConst .* Ix)./ denom;
+  Xv = barXv - (gradConst .* Iy)./ denom;
+end
+
+end
+
+%REPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASH- differentialsHS REPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASH-
+%
+% [Ix, Iy, It] = differentialsHS
+%
+%REPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASH- differentialsHS REPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASH-
+function [Ix, Iy, It] = differentialsHS(I1, I2)
+
+% Missing code here.  Make sure to take care of boundary conditions.
+
+Kt = (1.0/4.0)*[1,1;1,1];
+Kx = (1.0/4.0)*[-1,1;-1,1];
+Ky = (1.0/4.0)*[-1,-1;1,1];
+
+It = imfilter(I2, Kt) - imfilter(I1, Kt);
+Ix = imfilter(I1, Kx) + imfilter(I2, Kx);
+Iy = imfilter(I1, Ky) + imfilter(I2, Ky);
+
+
+end
+%REPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASH lapAverage REPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASH-
+%
+% [ubar] = lapAverage(u)
+%
+%REPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASH lapAverage REPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASH-
+function [ubar] = lapAverage(u)
+
+% Missing code here.  Make sure to take care of boundary conditions.
+
+k = 3;
+A = (1/12.0)*[1,2,1;2,0,2;1,2,1];
+%lapU = k * u + imfilter(u, k * A);
+%ubar = mean(mean(lapU));
+ubar = imfilter(u, A);
+end
+
+##### SOURCE END #####
+--></body></html>
