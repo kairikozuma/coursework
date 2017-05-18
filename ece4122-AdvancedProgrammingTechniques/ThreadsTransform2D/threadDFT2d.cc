@@ -1,0 +1,253 @@
+// Threaded two-dimensional Discrete FFT transform
+// Kairi Kozuma
+// ECE8893 Project 2
+
+#include <iostream>
+#include <string>
+#include <math.h>
+#include <pthread.h>
+
+#include "Complex.h"
+#include "InputImage.h"
+
+//#include <chrono>
+
+using namespace std;
+
+// You will likely need global variables indicating how
+// many threads there are, and a Complex* that points to the
+// 2d image being transformed.
+
+const int NUM_THREADS = 16;
+Complex * matrix;
+
+// Mutex for changing threadCount
+pthread_mutex_t threadCountMutex;
+int threadCount;
+
+// Size of array, needed for ReverseBits function
+int N;
+
+// W^n values used for computation
+Complex * Wn;
+
+// Mutex to ensure main thread is expecting condition signal before signaling
+pthread_mutex_t exitMutex;
+pthread_cond_t exitCond;
+
+// Thread barriers
+pthread_barrier_t rowFinishedBarrier;
+pthread_barrier_t transposeBarrier;
+
+// Function to transpose square matrix
+void TransposeSquare(Complex* imageArray, int dim) {
+  for (int c = 0; c < dim; c++) {
+    for (int r = c; r < dim; r++) {
+      Complex temp(imageArray[r * dim + c]);
+      imageArray[r * dim + c] = imageArray[c * dim + r];
+      imageArray[c * dim + r] = temp;
+    }
+  }
+}
+
+// Function to reverse bits in an unsigned integer
+// This assumes there is a global variable N that is the
+// number of points in the 1D transform.
+unsigned ReverseBits(unsigned v, unsigned n)
+{ //  Provided to students
+  //unsigned n = N; // Size of array (which is even 2 power k value)
+  unsigned r = 0; // Return value
+
+  for (--n; n > 0; n >>= 1)
+    {
+      r <<= 1;        // Shift return value
+      r |= (v & 0x1); // Merge in next bit
+      v >>= 1;        // Shift reversal value
+    }
+  return r;
+}
+
+// GRAD Students implement the following 2 functions.
+// Undergrads can use the built-in barriers in pthreads.
+
+// Call MyBarrier_Init once in main
+void MyBarrier_Init()// you will likely need some parameters)
+{
+}
+
+// Each thread calls MyBarrier after completing the row-wise DFT
+void MyBarrier() // Again likely need parameters
+{
+}
+
+void Transform1D(Complex* h, int N)
+{
+  // Implement the efficient Danielson-Lanczos DFT here.
+  // "h" is an input/output parameter
+  // "N" is the size of the array (assume even power of 2)
+
+  // Temporary array to hold values in FFT computation
+  Complex* hTemp = new Complex[N];
+  for (int i = 0; i < N; i++) {
+    hTemp[i] = h[i];
+  }
+
+  // Reorder array
+  Complex temp;
+  for (int n = 0; n < N; n++) {
+    // Get bit reversed number
+    int nFlipped = (int) ReverseBits((unsigned int)n, N);
+    // Swap places
+    //cout << n << "<->" << nFlipped << endl;
+    h[n] = hTemp[nFlipped];
+  }
+
+  // Copy the reordered values to temporary array
+  hTemp = new Complex[N];
+  for (int i = 0; i < N; i++) {
+    hTemp[i] = h[i];
+  }
+
+  // Compute DFT using Danielson-Lanczos algorithm
+  for (unsigned int n = 2; n <= N; n *= 2) { // scale by 2
+    for (int i = 0; i < N; i++) {
+      int evenIndex = ((i / n) * n) + (i % (n / 2));
+      int wIndex = (i % n) * (N / n);
+      int oddIndex = evenIndex + (n / 2);
+      h[i] = hTemp[evenIndex] + Wn[wIndex] * hTemp[oddIndex];
+    }
+    // Copy over to temporary array for next iteration
+    for (int i = 0; i < N; i++) {
+      hTemp[i] = h[i];
+    }
+  }
+}
+
+void* Transform2DThread(void* v)
+{ // This is the thread startign point.  "v" is the thread number
+  // Calculate 1d DFT for assigned rows
+  // wait for all to complete
+  // Calculate 1d DFT for assigned columns
+  // Decrement active count and signal main if all complete
+
+  // Get thread ID
+  long threadId = (long) v;
+
+  // Assume evenly divisble
+  int rowsPerThread = N / NUM_THREADS;
+
+  // Do row FFT
+  for (int i = 0; i < rowsPerThread; i++) {
+    Transform1D(&matrix[(rowsPerThread * threadId + i) * N], N);
+  }
+
+  // Barrier, wait for all threads to be done with rows
+  pthread_barrier_wait(&rowFinishedBarrier);
+
+  // Barrier, wait for main thread to transpose matrix
+  pthread_barrier_wait(&transposeBarrier);
+
+  // Do column FFT
+  for (int i = 0; i < rowsPerThread; i++) {
+    Transform1D(&matrix[(rowsPerThread * threadId + i) * N], N);
+  }
+
+  // Decrement thread count using mutex to make it thread safe
+  pthread_mutex_lock(&threadCountMutex);
+  threadCount--;
+  //cout << "Thread " << threadId << " done" << endl;
+
+  // If last thread, signal main that all threads done
+  if (threadCount == 0) {
+    // exitMutex ensures main is expecting exitCond signal
+    pthread_mutex_lock(&exitMutex);
+    pthread_cond_signal(&exitCond); // signal main
+    pthread_mutex_unlock(&exitMutex);
+  }
+
+  // Unlock thread count mutex
+  pthread_mutex_unlock(&threadCountMutex);
+
+  return 0;
+}
+
+void Transform2D(const char* inputFN)
+{ // Do the 2D transform here.
+  InputImage image(inputFN);  // Create the helper object for reading the image
+
+  // Create the global pointer to the image array data
+  matrix = image.GetImageData();
+  N = image.GetWidth();
+
+  // Calculate the weights Wn
+  Wn = new Complex[N];
+  double coeff = 2.0 * M_PI / (double)N;
+  for (int n = 0; n < N/2; n++) {
+    Wn[n] = Complex(cos(coeff * n), - sin(coeff * n));
+    Wn[n + (N / 2)] = Complex(- Wn[n].real, - Wn[n].imag);
+  }
+
+  // Initialize mutex variables
+  pthread_mutex_init(&exitMutex, 0);
+  pthread_mutex_init(&threadCountMutex, 0);
+  pthread_cond_init(&exitCond, 0);
+
+  // Lock exitMutex so that threads cannot signal main exitCond
+  pthread_mutex_lock(&exitMutex);
+
+  // Initialize global count of threads
+  threadCount = NUM_THREADS;
+
+  // Initialize barriers
+  pthread_barrier_init (&rowFinishedBarrier, NULL, NUM_THREADS + 1);
+  pthread_barrier_init (&transposeBarrier, NULL, NUM_THREADS + 1);
+
+  // Create 16 threads
+  for (int i = 0; i < NUM_THREADS; i++) {
+    // pThread variable to pass to thread create function
+    pthread_t pt;
+
+    // 1st param is pthread variable
+    // 2nd param is attribute, set to NULL
+    // 3rd param is function to run thread
+    // 4th param is thread id (cast as (void *))
+    pthread_create(&pt, 0, Transform2DThread, (void *) i);
+  }
+
+  // Wait until rows finished
+  pthread_barrier_wait(&rowFinishedBarrier);
+
+  // Write out after 1d FFT to file
+  image.SaveImageData("MyAfter1D.txt", matrix, N, N);
+
+  // Main thread transposes matrix
+  TransposeSquare(matrix, N);
+
+  // Allow other threads to do column FFT
+  pthread_barrier_wait(&transposeBarrier);
+
+  // Wait for all threads complete
+  pthread_cond_wait(&exitCond, &exitMutex);
+
+  // Transpose again before writing
+  TransposeSquare(matrix, N);
+
+  // Write out final FFT
+  image.SaveImageData("MyAfter2D.txt", matrix, N, N);
+}
+
+int main(int argc, char** argv)
+{
+  string fn("Tower.txt"); // default file name
+  if (argc > 1) fn = string(argv[1]);  // if name specified on cmd line
+    //typedef std::chrono::high_resolution_clock Time;
+    //typedef std::chrono::milliseconds ms;
+    //typedef std::chrono::duration<float> fsec;
+    //auto t0 = Time::now();
+  Transform2D(fn.c_str()); // Perform the transform.
+    //auto t1 = Time::now();
+    //fsec fs = t1 - t0;
+    //ms d = std::chrono::duration_cast<ms>(fs);
+    //std::cout << fs.count() << "s\n";
+    //std::cout << d.count() << "ms\n";
+}
